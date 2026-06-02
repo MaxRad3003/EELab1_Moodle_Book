@@ -75,6 +75,46 @@
                     <strong>💻 ב-MATLAB:</strong> נשתמש בפעולה <code>I = R \ V</code> כדי למצוא את כל זרמי המעגל ברגע אחד.
                 </div>
             </div>
+
+            <h4 style="color: #005696; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px;">D. מאזן הספקים (Power Balance)</h4>
+
+            <div style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <strong style="color: #005696;">6. חוק שימור האנרגיה במעגל:</strong>
+                <p>סך כל ההספק המיוצר על ידי המקורות חייב להיות שווה בדיוק לסך כל ההספק הנצרך על ידי הרכיבים.</p>
+                
+                <div style="text-align: center; font-size: 1.4em; font-weight: bold; color: #d9534f; margin: 15px 0; padding: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; direction: ltr;">
+                    &Sigma; P<sub>supplied</sub> = &Sigma; P<sub>consumed</sub>
+                </div>
+                
+                <blockquote style="border-right: 4px solid #00aaaa; margin: 5px 0; padding: 10px 15px; color: #444; background-color: #f0fbfb; font-size: 14px;">
+                    <strong>💡 אנלוגיה כלכלית:</strong> סך הכסף שיוצא מהכספות (המקורות) חייב להתחלק בדיוק בין כל העובדים (הצרכנים). לא יכול להיות מצב שבו שקל "נעלם".
+                </blockquote>
+
+                <p style="margin-top: 15px;"><strong>⚠️ האם מקור מתח יכול להיות צרכן?</strong></p>
+                <p style="font-size: 14px;">כן! אם הזרם <strong>נכנס</strong> אל ההדק החיובי שלו (בגלל מקור חזק יותר), הוא צורך הספק. דוגמה לכך היא <strong>סוללת סמארטפון בזמן טעינה</strong>.</p>
+                
+                <div style="margin-top: 10px; padding: 10px; background-color: #e8f4f8; border-right: 4px solid #00a4e4; font-size: 14px;">
+                    <strong>💻 אימות ב-MATLAB:</strong> נחשב <code>P = I^2 * R</code> לכל נגד ונוודא שסכומם שווה להספק המקורות. זו דרך מעולה לוודא שאין טעויות בזרמים!
+                </div>
+            </div>
+
+            <h4 style="color: #005696; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px;">E. העברת הספק מקסימלי (Maximum Power Transfer)</h4>
+
+            <div style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <strong style="color: #005696;">7. התאמת עומסים:</strong>
+                <p>כדי שצרכן (נגד עומס \(R_L\)) יקבל את ההספק המקסימלי מהמעגל, התנגדותו חייבת להיות שווה בדיוק להתנגדות השקולה של המקור (\(R_{TH}\)).</p>
+                
+                <div style="text-align: center; font-size: 1.4em; font-weight: bold; color: #d9534f; margin: 15px 0; padding: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; direction: ltr;">
+                    R_L = R<sub>TH</sub>
+                </div>
+
+                <blockquote style="border-right: 4px solid #8a2be2; margin: 5px 0; padding: 10px 15px; color: #444; background-color: #f9f5ff; font-size: 14px;">
+                    <strong>💡 אנלוגיית עולם השמע:</strong> כדי להוציא מהרמקול את עוצמת השמע המקסימלית מבלי לעוות את הצליל, חובה להתאים את התנגדות הרמקול (למשל 4Ω) להתנגדות המגבר.
+                </blockquote>
+
+                <p style="margin-top: 15px;"><strong>⚠️ נצילות מול הספק:</strong></p>
+                <p style="font-size: 14px;">שימו לב שבמצב זה, חצי מהאנרגיה מתבזבז על המקור עצמו. לכן, <strong>הנצילות היא 50% בלבד</strong>. זה מצוין למערכות תקשורת וחיישנים, אך לא יעיל עבור רשת החשמל הארצית!</p>
+            </div>
         </div>
 
         <!-- Step 2 -->
