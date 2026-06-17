@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>PreLab Exp02 02 Thevenin</title>
+</head>
+<body>
+
+<div class="moodle-snippet-custom" dir="rtl" style="color: #333; line-height: 1.6; font-family: 'David', 'Segoe UI', Arial, sans-serif; direction: rtl; text-align: right;">
+    <div class="moodle-content-inner" style="direction: rtl; text-align: right;">
+        <!-- CHAPTER: HEADER -->
+<h2 class="section-title" style="direction: rtl; text-align: right; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 5px; margin-top: 0;">הכנה לניסוי 2 - חלק ב': משפט תבנין (Thevenin) והעברת הספק מקסימלי</h2>
+<p class="mb-4" style="direction: rtl; text-align: right; margin-bottom: 1.5rem;">בעמוד זה נלמד טכניקה לפשט כל מעגל מורכב, מסובך ככל שיהיה, למעגל קטן השקול לו לחלוטין מנקודת מבטו של עומס ספציפי.</p>
+
+<!-- SECTION: THEORY -->
+<div class="theory-card" id="section-theory" style="direction: rtl; text-align: right; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="direction: rtl; text-align: right; color: #005696; margin-top: 0;">📖 1. תיאוריה</h3>
+    <strong class="text-primary" style="color: #005696;">משפט תבנין:</strong>
+    <p style="direction: rtl; text-align: right;">כל רשת חשמלית ליניארית יכולה להיות מיוצגת, מנקודת מבטו של נגד עומס (\(R_L\)), באמצעות מעגל שקול הכולל מקור מתח יחיד (\(V_{th}\)) המחובר בטור לנגד יחיד (\(R_{th}\)).</p>
+    
+    <ul style="padding-right: 25px; padding-left: 0; margin-right: 0; margin-left: 0;">
+        <li class="mb-2" style="direction: rtl; text-align: right;"><strong>\(V_{th}\):</strong> מתח הריקם (Open Circuit Voltage) הנמדד על הדקי המעגל כאשר העומס מנותק.</li>
+        <li class="mb-2" style="direction: rtl; text-align: right;"><strong>\(R_{th}\):</strong> ההתנגדות השקולה הנמדדת בהדקי העומס כאשר כל מקורות המתח מקוצרים ומקורות הזרם מנותקים. ניתן לחשבו גם על ידי חלוקת מתח הריקם בזרם הקצר (\(R_{th} = V_{oc} / I_{sc}\)).</li>
+    </ul>
+    
+    <strong class="text-primary" style="color: #005696;">העברת הספק מקסימלי:</strong>
+    <p style="direction: rtl; text-align: right;">הספק מקסימלי יועבר מהמעגל אל העומס אך ורק כאשר התנגדות העומס שווה להתנגדות תבנין של המעגל (\(R_L = R_{th}\)).</p>
+</div>
+
+<!-- SECTION: ENRICHMENT -->
+<div class="theory-card" id="section-enrichment" style="direction: rtl; text-align: right; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="direction: rtl; text-align: right; color: #005696; margin-top: 0;">💡 2. העשרה</h3>
+    <ul style="padding-right: 25px; padding-left: 0; margin-right: 0; margin-left: 0;">
+        <li class="mb-1" style="direction: rtl; text-align: right;"><a href="https://he.wikipedia.org/wiki/%D7%9E%D7%A9%D7%A4%D7%98_%D7%AA%D7%91%D7%A0%D7%99%D7%9F" target="_blank" class="text-secondary" style="color: #00a4e4;">ויקיפדיה: משפט תבנין</a></li>
+        <li style="direction: rtl; text-align: right;"><a href="https://www.allaboutcircuits.com/textbook/direct-current/chpt-10/thevenins-theorem/" target="_blank" class="text-secondary" style="color: #00a4e4;">All About Circuits: Thevenin's Theorem (אנגלית)</a></li>
+    </ul>
+</div>
+
+<!-- SECTION: FALSTAD SIMULATION -->
+<div class="theory-card" id="section-falstad" style="direction: rtl; text-align: right; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="direction: rtl; text-align: right; color: #005696; margin-top: 0;">🖥️ 3. חקירה בסימולטור Falstad</h3>
+    <p style="direction: rtl; text-align: right;"><strong>משימה:</strong> מדדו שני גדלים: מתח ריקם (\(V_{oc}\)) וזרם קצר (\(I_{sc}\)).</p>
+    <ol style="padding-right: 25px; padding-left: 0; margin-right: 0; margin-left: 0;">
+        <li class="mb-1" style="direction: rtl; text-align: right;"><strong>מדידת \(V_{oc}\):</strong> רשמו את קריאת המתח המופיעה על המודד בצד שמאל (המעגל במצב פתוח).</li>
+        <li class="mb-1" style="direction: rtl; text-align: right;"><strong>מדידת \(I_{sc}\):</strong> לחצו על המתג (Switch) כדי לסגור אותו ורשמו את קריאת הזרם.</li>
+        <li style="direction: rtl; text-align: right;">חשבו את התנגדות תבנין (\(R_{th} = V_{oc} / I_{sc}\)).</li>
+    </ol>
+    
+    <div style="direction: rtl; border: 2px dashed #ccc; padding: 10px; background-color: white; text-align: center; border-radius: 5px;">
+        <iframe width="100%" height="450" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoAD0RUALNihI67KFRYsrN1PAQiochC2G4kJAPS6+sDSUCbINnZ0VE62VOYuFOyoAO6u7goAhkbS8oF6BsaIjEQx8WZQJWXRiW6onpQECPnBKWEUkeWxsbUiLQZt4da2w3YWPbA4zUED7Qj2jqNVE+nTBcCDxaXdy+W9a61zu9GV2wv7-RtHZw7d55N1l5sRcbej9FQXM8AA5nPvb0izDMX3WAGUQAB7UQqOZmRw0Rb2KKfB4iGbBSFQFQAOwoqAwokQ7BBDyMSHMBGSUCJCA0qHCADUAPqMtAACwQGP0BlEUFydSgGHIkgOPOCfIFjAJIrwVKoAW5wH8kO+-gh0JU3w1MLmlKgLEswKsZlJqyVWNxUyFtJJtXJhGw1Np9LmLIAShyuQVxcBJdbhXluRL+cUZTh8E6FWLgiq1TqteCobrwowWBUuqaEQ59hbsXj5gTbWbEA7CKiXdofTy-aHBYHRf1ff6ENKhbLI+xo02DHH1urk4ngpkACYAK2x1pUYCnBfdKgwYAwaEyOJAsIAFJD2QoMABKRQFlBQBRDQgEtCIT2cy6jicqfHYmeCq0IRmQgA2K5+KkPiDUNCKOEgFCpeb5ere46ToWT6zleC5Liua6btuu4HieR5ARQ56gVeAAyazKuAEC6EAAPreLab" frameborder="0" allowfullscreen style="border: none;"></iframe>
+    </div>
+</div>
+
+<!-- SECTION: TINKERCAD MANDATORY TASK -->
+<div class="theory-card" style="direction: rtl; text-align: right; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 2px solid #d9534f;" id="section-tinkercad">
+    <div style="direction: rtl; text-align: right; background-color: #fdf2f2; padding: 10px 20px; border-bottom: 2px solid #d9534f; font-weight: bold; color: #c9302c; font-size: 18px;">
+        ⚡ 4. חובה: מימוש המעגל מאפס (Tinkercad)
+    </div>
+    <div style="direction: rtl; text-align: right; padding: 20px;">
+        <p class="text-danger fw-bold" style="direction: rtl; text-align: right; color: #d9534f; font-weight: bold;">שימו לב: מימוש וחיווט המעגל בסביבת Tinkercad הינם דרישת חובה!</p>
+        
+        <div class="alert-box mb-4" style="direction: rtl; text-align: right; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 10px 15px; border-radius: 3px; font-size: 14px; margin-bottom: 1.5rem;">
+            <strong>🧹 דגש על סדר בחיווט:</strong> המעגלים שלכם חייבים להיות מסודרים! הקפידו על צבעי חיווט תקניים: אדום (+), שחור (-).
+        </div>
+        
+        <div style="direction: rtl; border: 2px dashed #d9534f; padding: 10px; background-color: white; text-align: center; border-radius: 5px; margin-bottom: 15px;">
+            <iframe width="100%" height="450" src="https://www.tinkercad.com/embed/kyvHVtjSz74?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border: none;"></iframe>
+        </div>
+
+        <div class="text-center" style="direction: rtl; text-align: center;">
+            <a href="https://www.tinkercad.com/joinclass/49BG9NTLU" target="_blank" class="bg-danger" style="display: inline-block; padding: 14px 30px; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 6px rgba(217, 83, 79, 0.4); background-color: #d9534f;">
+                🛠️ כניסה לביצוע משימת החיווט ב-Tinkercad
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION: MATLAB ANALYSIS -->
+<div class="matlab-box" id="section-matlab" style="direction: rtl; text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="direction: rtl; text-align: right; color: #005696; margin-top: 0;">📊 5. ניתוח MATLAB</h3>
+    <p style="direction: rtl; text-align: right;">לאחר שמדדתם את \(V_{oc}\) ו-\(I_{sc}\) ב-Tinkercad, עליכם להיכנס ל-MATLAB Grader, לחשב את מעגל תבנין השקול, ולוודא העברת הספק מקסימלי.</p>
+    
+    <div dir="ltr" style="direction: rtl; background-color: #2b303b; color: #f8f8f2; padding: 15px; border-radius: 6px; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; margin-bottom: 20px; border-left: 4px solid #28a745; text-align: left;">
+        <div style="direction: rtl; text-align: right; color: #c678dd; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #4f5b66; padding-bottom: 5px;">/* MATLAB Grader Assignment: Exp02_Thevenin */</div>
+        <p style="direction: rtl; text-align: right; color: #abb2bf;">Part A: Calculate Thevenin Resistance (R_th = V_oc / I_sc)<br>
+        Part B: Verify Current on Load (I_L = V_th / (R_th + R_L))<br>
+        Part C: Maximum Power Transfer (P_max = V_th^2 / (4 * R_th))</p>
+    </div>
+
+    <div class="text-center" style="direction: rtl; text-align: center;">
+        <a href="[LINK_TO_MATLAB_THEVENIN]" target="_blank" class="bg-success" style="display: inline-block; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; background-color: #28a745;">לפתיחת המטלה: Exp02_Thevenin</a>
+    </div>
+</div>
+
+<!-- SECTION: H5P QUIZ -->
+<div class="h5p-container" id="section-h5p" style="direction: rtl; text-align: right; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px;">
+    <h3 class="sub-title" style="direction: rtl; text-align: right; color: #005696; margin-top: 0;">📝 6. בוחן H5P</h3>
+    <div class="h5p-placeholder" style="direction: rtl; background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center;">
+        <a href="[LINK_TO_H5P_THEVENIN]" target="_blank" class="text-primary fw-bold" style="text-decoration: none; color: #005696; font-weight: bold;">פתח בוחן: Thevenin_Quiz.h5p</a>
+    </div>
+</div>
+
+    </div>
+</div>
+
+</body>
+</html>

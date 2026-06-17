@@ -1,0 +1,32 @@
+node_modules/
+dist/
+backups/
+tmp_h5p_inspect/
+tmp_h5p_inspect_content/
+
+# Local editor and OS noise
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Temporary archives/backups
+*.zip
+*.7z
+*.rar
+*.bak
+*.bak_*
+*.htmla
+*.html1
+
+# LaTeX/build byproducts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Keep package lockfiles and source assets tracked explicitly.
+!package-lock.json
+!*.h5p

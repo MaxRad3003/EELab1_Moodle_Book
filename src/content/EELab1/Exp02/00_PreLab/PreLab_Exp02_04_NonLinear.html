@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>PreLab Exp02 04 NonLinear</title>
+</head>
+<body>
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
+        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
+            <!-- 
+    MOODLE SNIPPET - USER CUSTOM DESIGN
+    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
+-->
+<div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
+    
+
+    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
+        <!-- CHAPTER: HEADER -->
+<h2 class="section-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.875rem; display: inline-block; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 5px; margin-top: 0;">הכנה לניסוי 2 - חלק ד': רכיבים לא-ליניאריים (טרמיסטור) ונקודת עבודה</h2>
+<p class="mb-4" style="margin-bottom: 1rem;">בעמוד זה נצא מהעולם האידיאלי של "חוק אוהם" ונכיר רכיבים אמיתיים שהתנגדותם משתנה, נלמד כיצד למצוא את "נקודת העבודה" שלהם (Q-Point), ונחקור את השפעתם על המערכת.</p>
+
+<!-- SECTION: THEORY -->
+<div class="theory-card" id="section-theory" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📖 1. תיאוריה: מהו רכיב לא-ליניארי?</h3>
+    <p>בניגוד לנגד רגיל, ברכיבים מסוימים ההתנגדות משתנה כתוצאה מתנאי הסביבה. בניסוי זה נכיר שניים כאלו:</p>
+    <ul>
+        <li class="mb-2"><strong>נורת להט (Incandescent Lamp):</strong> ככל שהיא מתחממת, ההתנגדות שלה <strong>עולה</strong> (PTC).</li>
+        <li class="mb-2"><strong>טרמיסטור (NTC):</strong> ככל שהוא מתחמם, ההתנגדות שלו דווקא <strong>יורדת</strong>.</li>
+    </ul>
+    <div class="quote-box" style="font-style: italic; border-radius: 0 0.375rem 0.375rem 0; border-right: 4px solid #d9534f; margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px;">
+        <strong>⚠️ בעיה חישובית:</strong> מכיוון שההתנגדות אינה קבועה, לא ניתן לפתור את המעגל בעזרת אלגברה פשוטה. לשם כך הומצאה "נקודת העבודה".
+    </div>
+</div>
+
+<!-- SECTION: Q-POINT -->
+<div class="theory-card" id="section-qpoint" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">🎯 2. מציאת נקודת עבודה בשיטה גרפית</h3>
+    <p>כדי למצוא מה יהיה המתח והזרם בפועל, אנו משתמשים ב<strong>קו עומס (Load Line)</strong>.</p>
+    <p>אנו משרטטים על אותה מערכת צירים שני קווים:</p>
+    <ol>
+        <li class="mb-1">את <strong>אופיין הרכיב (I-V Curve)</strong> - שהוא לרוב עקומה.</li>
+        <li class="mb-1">את <strong>אופיין המעגל (קו העומס)</strong> - שהוא קו ישר הנמתח בין \(V_{OC}\) לבין \(I_{SC}\).</li>
+    </ol>
+    <div class="alert-box text-center" style="color: #92400e; margin: 1rem 0; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 10px 15px; border-radius: 3px; font-size: 14px; text-align: center;">
+        <strong>נקודת החיתוך היא נקודת העבודה (Q-Point)!</strong>
+    </div>
+</div>
+
+<!-- SECTION: MATLAB ANALYSIS -->
+<div class="matlab-box" id="section-matlab-qpoint" style="text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📊 3. חקירה מתמטית (MATLAB Grader)</h3>
+    <p>הזינו את תוצאות הסימולציה שניתנו לכם עבור אופיין הטרמיסטור, וציירו את קו העומס כדי לאתר את ה-Q-Point.</p>
+    <div class="text-center mt-3" style="text-align: center;">
+        <a href="[LINK_TO_MATLAB_NONLINEAR_QPOINT]" target="_blank" class="bg-success" style="display: inline-block; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; background-color: #28a745;">לפתיחת המטלה: Exp02_NonLinear_QPoint</a>
+    </div>
+</div>
+
+<!-- SECTION: BONUS TASK -->
+<div class="theory-card" style="padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #d6bbf7; background-color: #fdfbff;" id="section-bonus">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #6a1b9a;">🎁 4. משימת בונוס ב-MATLAB: תמסורת לא-ליניארית</h3>
+    <p><strong>מה קורה כאשר נחליף את העומס בנורת להט?</strong> ההתנגדות תשתנה עם עליית המתח, ולכן יחס חלוקת המתח ישתנה ברציפות. <strong>השיפוע כבר לא יהיה קבוע!</strong></p>
+    
+    <p class="fw-bold" style="color: #6a1b9a; font-weight: 700;">📝 הוכיחו זאת בעצמכם:</p>
+    <p>שרטטו כיצד פונקציית התמסורת \(H_{lamp}\) משתנה ככל שמתח המבוא עולה.</p>
+    
+    <div class="text-center mt-3" style="text-align: center;">
+        <a href="[LINK_TO_MATLAB_NONLINEAR_TRANSFER]" target="_blank" style="display: inline-block; padding: 10px 25px; background-color: #6a1b9a; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.15);">לפתיחת המטלה (בונוס): Exp02_NonLinear_TransferFunction</a>
+    </div>
+</div>
+
+<!-- SECTION: MOODLE QUIZZES -->
+<div class="theory-card" id="section-quizzes" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📝 5. בחני הבנה מסכמים (Moodle Quizzes)</h3>
+    <div class="text-center" style="text-align: center;">
+        <div class="mb-4" style="margin-bottom: 1rem;">
+            <p class="text-right"><strong>1. בוחן חובה:</strong> רכיבים לא ליניאריים ונקודת עבודה.</p>
+            <a href="[LINK_TO_MOODLE_QUIZ_NONLINEAR]" target="_blank" class="bg-primary" style="display: inline-block; padding: 10px 25px; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; background-color: #005696;">התחילו בוחן מודל</a>
+        </div>
+        <div style="border-top: 1px dashed #ccc; padding-top: 20px;">
+            <p class="text-right" style="color: #6a1b9a;"><strong>2. בוחן בונוס:</strong> תמסורת לא ליניארית.</p>
+            <a href="[LINK_TO_MOODLE_QUIZ_BONUS]" target="_blank" style="display: inline-block; padding: 10px 25px; background-color: #6a1b9a; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">התחילו בוחן בונוס</a>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

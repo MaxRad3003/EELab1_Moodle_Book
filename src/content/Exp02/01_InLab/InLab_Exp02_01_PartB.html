@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>InLab Exp02 01 PartB</title>
+</head>
+<body>
+
+<div class="moodle-snippet-custom" dir="rtl" style="color: #333; line-height: 1.6; font-family: 'David', 'Segoe UI', Arial, sans-serif; direction: rtl; text-align: right;">
+    <div class="moodle-content-inner" style="direction: rtl; text-align: right;">
+        <!-- CHAPTER: HEADER -->
+<h2 class="section-title" style="direction: rtl; text-align: right; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 5px; margin-top: 0;">חלק ב': משפט תבנין השקול והעברת הספק מקסימלי</h2>
+<p class="mb-4" style="direction: rtl; text-align: right; margin-bottom: 1.5rem;">בחלק זה נבצע מדידות בשני מצבי קיצון של המעגל—מצב חוג פתוח ומצב קצר מוחלט—על מנת לקבוע את הפרמטרים של מעגל תבנין השקול: מתח תבנין (\(V_{TH}\)) והתנגדות תבנין (\(R_{TH}\)).</p>
+
+<!-- SECTION: SCHEMATIC -->
+<div class="theory-card text-center" id="section-schematic" style="direction: rtl; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); text-align: center;">
+    <strong class="text-primary d-block mb-3" style="color: #005696;">📐 שרטוט סכמתי — מדידת הדקי תבנין (נקודות A ו-B):</strong>
+    <img src="../../assets/images/THEVENIN-schematic.png" alt="Thevenin Schematic" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+    <p class="mt-2 text-muted" style="direction: rtl; text-align: right;">מדידת מתח ריקם וזרם קצר בין הדקי העומס</p>
+</div>
+
+<!-- SECTION: PROCEDURE -->
+<div class="theory-card" id="section-procedure" style="direction: rtl; text-align: right; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="direction: rtl; text-align: right; color: #005696; margin-top: 0;">📝 שלבי העבודה ומהלך המדידה:</h3>
+    <ol style="padding-right: 25px; padding-left: 0; margin-right: 0; margin-left: 0;">
+        <li class="mb-2" style="direction: rtl; text-align: right;">נתקו לחלוטין את נגד העומס המרכזי (\(R_L\)). נקודות החיבור הריקות יוגדרו כהדקים A ו-B.</li>
+        <li class="mb-2" style="direction: rtl; text-align: right;"><strong>מדידת מתח חוג פתוח (\(V_{OC}\)):</strong> חברו מד-מתח במקביל בין הדק A להדק B. רשמו את הערך (\(V_{TH} = V_{OC}\)).</li>
+        <li class="mb-2" style="direction: rtl; text-align: right;"><strong>מדידת זרם קצר (\(I_{SC}\)):</strong> העבירו את המד למצב מדידת זרם, וחברו אותו ישירות בין A ל-B. רשמו את הערך.</li>
+        <li style="direction: rtl; text-align: right;"><strong>חישוב התנגדות תבנין:</strong> \(R_{TH} = V_{OC} / I_{SC}\).</li>
+    </ol>
+</div>
+
+<!-- SECTION: DATA TABLE -->
+<div class="theory-card" id="section-table" style="direction: rtl; text-align: right; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="direction: rtl; text-align: right; color: #005696; margin-top: 0;">📊 טבלה ריקה לרישום המדידות:</h3>
+    <table class="data-table" style="width: 100%; border-collapse: collapse; margin-top: 15px;" width="100%">
+        <thead>
+            <tr>
+                <th style="direction: rtl; text-align: center; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" align="center" bgcolor="#003366">פרמטר נמדד</th>
+                <th style="direction: rtl; text-align: center; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" align="center" bgcolor="#003366">סימון מתמטי</th>
+                <th style="direction: rtl; text-align: center; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" align="center" bgcolor="#003366">ערך נמדד</th>
+                <th style="direction: rtl; text-align: center; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" align="center" bgcolor="#003366">יחידות</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="direction: rtl; text-align: right; padding: 10px; border: 1px solid #ddd;" align="right">מתח חוג פתוח</td>
+                <td dir="ltr" style="direction: rtl; text-align: right; padding: 10px; border: 1px solid #ddd;" align="right">V<sub>OC</sub> (=V<sub>TH</sub>)</td>
+                <td style="direction: rtl; text-align: right; padding: 10px; border: 1px solid #ddd;" align="right"></td>
+                <td style="direction: rtl; text-align: right; padding: 10px; border: 1px solid #ddd;" align="right">[V]</td>
+            </tr>
+            <tr>
+                <td style="direction: rtl; text-align: right; padding: 10px; border: 1px solid #ddd;" align="right">זרם קצר ישיר</td>
+                <td dir="ltr" style="direction: rtl; text-align: right; padding: 10px; border: 1px solid #ddd;" align="right">I<sub>SC</sub></td>
+                <td style="direction: rtl; text-align: right; padding: 10px; border: 1px solid #ddd;" align="right"></td>
+                <td style="direction: rtl; text-align: right; padding: 10px; border: 1px solid #ddd;" align="right">[mA]</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- SECTION: FOOTER -->
+<div class="alert-box text-center" style="direction: rtl; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 10px 15px; border-radius: 3px; font-size: 14px; text-align: center;">
+    <strong>💾 סיימתם למדוד?</strong> וודאו שכל הנתונים רשומים ושמורים היטב! אתם תזדקקו להם לשלב עיבוד הנתונים.
+</div>
+
+    </div>
+</div>
+
+</body>
+</html>

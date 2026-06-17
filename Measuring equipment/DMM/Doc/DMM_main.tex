@@ -1,0 +1,70 @@
+\documentclass[12pt,a4paper]{article}
+\newcommand{\imagefolder}{../Figure}
+%\newcommand{\imagefolder}{C:/Users/97252/OneDrive - ac.sce.ac.il/Lab Doc/Measuring equipment/DMM/Figure}
+%\newcommand{\docconfig}{D:/OneDrive - המכללה האקדמית להנדסה ע ש סמי שמעון/Lab Doc/Measuring equipment/DMM/Doc/doc_config}
+%\newcommand{\imagefolder}{D:/OneDrive - המכללה האקדמית להנדסה ע ש סמי שמעון/Lab Doc/Measuring equipment/DMM/Figure}
+%\newcommand{\docconfig}{C:/Users/97252/OneDrive - ac.sce.ac.il/Lab Doc/Measuring equipment/DMM/Doc/doc_config}
+
+%\input{\docconfig/my_config.tex}
+%\input{\docconfig/my_usepackage.tex}
+
+
+\newcommand{\mysetup}{../../../Latex_set_up}
+%\newcommand{\mysetup}{C:/Users/97252/OneDrive - ac.sce.ac.il/Lab Doc/Latex_set_up}
+\input{\mysetup/my_usepackage.tex}
+\input{\mysetup/my_config.tex}
+
+
+%\urlstyle{same}
+
+
+\begin{document}
+	\begin{hebrew}
+		\title{רב-מודד ספרתי \dmm}
+%		\author{עודד פוצ'ינסקי}
+		\maketitle
+	\end{hebrew}
+
+
+\begin{hebrew}
+	\textbf{רב מודד דיגיטאלי - \te{DMM}}
+	\textbf{: }
+	הינו מכשיר מדידה רב תכליתי המסוגל למדוד מתח, זרם, והתנגדות. רב המודד מסומן ב DMM
+	שפירושם Meter Multi Digital .לרב המודד יש בדרך כלל 3 זוגות הדקים נפרדים, אך לרוב לרב המודד יהיה הדק משותף בשם
+	COMMON המסומן בצבע שחור. זוג הדקים ראשון משמש למדידת מתח והתנגדות. 
+\end{hebrew}
+
+
+
+\begin{hebrew}
+\section{סוגי המכשירים במעבדה}
+	\begin{enumerate}
+		\item 
+		\te{GDM - 8341}
+				\begin{figure}[h]
+					\centering
+					\includegraphics[scale=0.045]{\imagefolder/GDM_8341/GDM-8341.png}
+				\end{figure}
+		\item 
+		\te{GDM - 8245}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.05]{\imagefolder/GDM_8245/GDM-8245.png}
+		\end{figure}
+	\end{enumerate}
+\end{hebrew}
+
+\pagebreak
+	
+\begin{hebrew}
+	\section{פירוט על כל דגם}
+		\input{GDM_8341.tex}
+\pagebreak
+		\input{GDM_8245.tex}
+				
+\end{hebrew}			
+		
+
+	
+	
+\end{document}

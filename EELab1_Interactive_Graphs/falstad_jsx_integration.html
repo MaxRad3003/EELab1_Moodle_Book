@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>אינטגרציה - מעבדה חשמל</title>
+    <script type="text/javascript" charset="UTF-8" src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            gap: 20px;
+            height: 500px;
+            direction: ltr; /* שומר על תצוגה נכונה של הגרפים והסימולטור משמאל לימין */
+        }
+        .panel {
+            flex: 1;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #jxgbox {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h3 style="direction: rtl;">מעבדה וירטואלית - תצוגת נתונים בזמן אמת</h3>
+    
+    <div class="container">
+        <div class="panel">
+            <iframe id="circuitFrame" src="https://www.falstad.com/circuit/circuitjs.html?hideall=true&cct=$+1+0.000005+10.20027730826997+50+5+43%0Av+176+272+176+160+0+0+40+5+0+0+0.5%0Ar+176+160+288+160+0+1000%0Aw+288+160+288+272+0%0Aw+288+272+176+272+0%0A"></iframe>
+        </div>
+
+        <div class="panel">
+            <div id="jxgbox" class="jxgbox"></div>
+        </div>
+    </div>
+
+    <script>
+// 1. הגדרת לוח השרטוט - מותאם לאופיין מתח-זרם
+var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-1, 12, 6, -2], // [שמאל, עליון, ימין, תחתון]
+    axis: true,
+    showNavigation: false
+});
+
+// הוספת תוויות לצירים
+board.create('text', [5.2, -0.5, 'V (Volts)'], {fontSize: 14});
+board.create('text', [-0.8, 11, 'I (mA)'], {fontSize: 14});
+
+// 2. יצירת סליידר לשליטה במתח המקור (מ-0 ועד 5 וולט)
+var voltageSlider = board.create('slider', [[1, -1.2], [4, -1.2], [0, 0, 5]], {
+    name: 'מתח מקור (V)',
+    snapWidth: 0.5 // קפיצות של חצי וולט
+});
+
+// 3. יצירת משוואת הזרם (חוק אוהם עבור נגד של 1 קילו-אום) 
+// I = V / R -> כאן R=1k ולכן הזרם במיליאמפר שווה למתח בוולטים.
+// בהמשך (עבור נורת להט או טרמיסטור) נשנה כאן את המשוואה לפונקציה לא-ליניארית!
+var R = 1; // קילו-אום
+var currentFunc = function() {
+    return voltageSlider.Value() / R; 
+};
+
+// 4. ציור אופיין מתח-זרם דינמי (קו רציף מ-0 ועד לערך הסליידר)
+var ivCurve = board.create('curve', [
+    function(t) { return t; },               // ערך ה-X (המתח)
+    function(t) { return t / R; },           // ערך ה-Y (הזרם)
+    0,                                       // תחילת השרטוט ב-0V
+    function() { return voltageSlider.Value(); } // סיום השרטוט במיקום הסליידר
+], {strokeColor: 'blue', strokeWidth: 2});
+
+// 5. הנקודה האדומה בקצה (שזזה יחד עם הסליידר)
+var movingPoint = board.create('point', [
+    function(){ return voltageSlider.Value(); },
+    currentFunc
+], {name: '(V, I)', size: 5, color: '#ff0000'});
+// 6. תקשורת עתידית עם Falstad (דוגמה למשלוח נתונים)
+voltageSlider.on('drag', function() {
+    var v = voltageSlider.Value();
+    // שליחת הודעה לאייפריים לעדכון מקור המתח (דורש הגדרת API בצד של Falstad)
+    // document.getElementById('circuitFrame').contentWindow.postMessage('setVoltage:' + v, '*');
+});
+    </script>
+</body>
+</html>

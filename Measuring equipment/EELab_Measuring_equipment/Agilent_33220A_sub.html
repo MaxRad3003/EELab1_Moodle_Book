@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מחולל אותות Agilent 33220A</title>
+</head>
+<body>
+<!-- התחלת תוכן הדף -->
+<div dir="rtl" style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #2c3e50; max-width: 900px; margin: 20px auto; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+    <!-- כותרת ראשית -->
+    <!-- כפתור חזרה לאינדקס -->
+    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-bottom: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
+    <div style="background-color: #d32f2f; color: white; padding: 20px; border-radius: 8px 8px 0 0; margin: -30px -30px 30px -30px; text-align: center;">
+        <h1 style="margin: 0; font-size: 28px;">מחולל אותות Agilent 33220A</h1>
+        <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">יצירת אותות ובקרת גל - מדריך לסטודנט</p>
+    </div>
+
+    <!-- פרק: רקע כללי -->
+    <section style="margin-bottom: 30px;">
+        <h2 style="color: #d32f2f; border-right: 5px solid #d32f2f; padding-right: 15px; margin-bottom: 20px;">רקע כללי</h2>
+        <p>מחולל אותות (<strong>Function Generator</strong>) הוא מכשיר אלקטרוני המייצר אותות מתח חילופין הדומים לאלה המופיעים במעגלים חשמליים. המחולל מספק צורות גל שונות (סינוס, ריבוע, משולש) בתדר ובאמפליטודה ניתנים לשינוי. בנוסף, ניתן להוסיף רמת DC לאות המופק.</p>
+        <p>חשוב לדעת כי האות המופק מכיל עיוותים קטנים ביחס לצורת הגל התיאורטית. סטייה זו מוגדרת כ-<strong>THD (Total Harmonic Distortion)</strong>, ובדרך כלל עומדת על שברי אחוזים מהגל המקורי.</p>
+    </section>
+
+    <!-- פרק: דגם Agilent 33220A -->
+    <section style="margin-bottom: 30px;">
+        <h2 style="color: #d32f2f; border-right: 5px solid #d32f2f; padding-right: 15px; margin-bottom: 20px;">דגם Agilent 33220A</h2>
+        <p>ה-Agilent 33220A הוא מחולל אותות דיגיטלי מדויק המסוגל לייצר צורות גל סטנדרטיות וצורות גל שרירותיות (Arbitrary) עם יציבות תדר גבוהה.</p>
+        <!-- חלק: תמונה -->
+        <div style="text-align: center; margin: 25px 0;">
+            <img src="Figure/agilent33220a_main.png" alt="Agilent 33220A" style="max-width: 80%; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+    </section>
+
+    <!-- פרק: מקשים ופונקציות מרכזיות -->
+    <section style="margin-bottom: 30px;">
+        <h2 style="color: #d32f2f; border-right: 5px solid #d32f2f; padding-right: 15px; margin-bottom: 20px;">מקשים ופונקציות מרכזיות</h2>
+        <!-- חלק: רשימת פונקציות -->
+        <div style="background: #fff5f5; padding: 20px; border-radius: 8px; border: 1px solid #ffcdd2;">
+            <ol style="padding-right: 25px;">
+                <li style="margin-bottom: 8px;"><strong>Graph/Local:</strong> מעבר למצב תצוגה גרפית או שליטה מקומית.</li>
+                <li style="margin-bottom: 8px;"><strong>מקשי בחירת צורת גל:</strong> בחירה מהירה בסינוס, ריבוע, משולש, פולס או רעש.</li>
+                <li style="margin-bottom: 8px;"><strong>Output:</strong> לחצן חשוב המפעיל או מנטרל את יציאת האות למעגל.</li>
+                <li style="margin-bottom: 8px;"><strong>Utility/Help:</strong> גישה להגדרות המערכת ותפריטי עזרה מובנים.</li>
+                <li style="margin-bottom: 8px;"><strong>לוח מקשים (Numeric Keypad):</strong> הזנת ערכים מדויקים לתדר, אמפליטודה ו-Offset.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- פרק: חיבורים (BNC) -->
+    <section style="margin-bottom: 30px;">
+        <h2 style="color: #d32f2f; border-right: 5px solid #d32f2f; padding-right: 15px; margin-bottom: 20px;">חיבורים (BNC)</h2>
+        <!-- חלק: רשימת חיבורים -->
+        <ul style="list-style-type: square; padding-right: 20px;">
+            <li><strong>Output:</strong> היציאה הראשית של האות המופק.</li>
+            <li><strong>Sync:</strong> מוציא אות סנכרון (TTL) התואם לתדר של אות המוצא.</li>
+        </ul>
+    </section>
+
+    <!-- חלק: הערת אזהרה -->
+    <div style="background-color: #fce4ec; border-right: 5px solid #d32f2f; padding: 15px; border-radius: 4px; margin-top: 20px;">
+        <strong>שים לב:</strong> וודא תמיד שהגדרת ה-Impedance (עכבת עומס) במכשיר תואמת לעומס המעגל שלך (50 \( \Omega \) או High-Z) כדי לקבל את המתח המדויק המבוקש.
+    </div>
+
+    <!-- חלק: קישור חיצוני -->
+    <div style="margin-top: 30px; text-align: left;">
+        <a href="http://ecelabs.njit.edu/student_resources/33220_user_guide.pdf" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #d32f2f; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">מדריך למשתמש המלא (Agilent) &larr;</a>
+    </div>
+
+    <!-- כפתור חזרה לאינדקס -->
+    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
+</div>
+</body>
+</html>>

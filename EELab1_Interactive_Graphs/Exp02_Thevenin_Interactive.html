@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סימולטור תבנין אינטראקטיבי</title>
+    
+    <script type="text/javascript" charset="UTF-8" src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .app-container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 1100px;
+            width: 100%;
+        }
+        .header-title {
+            color: #0055ff;
+            margin-top: 0;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #0055ff;
+            padding-bottom: 10px;
+        }
+        .instructions {
+            color: #555;
+            font-size: 1.05em;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .work-area {
+            display: flex;
+            gap: 20px;
+            height: 450px;
+            margin-bottom: 20px;
+            direction: ltr; /* מונע היפוך של הגרפים והמעגל */
+        }
+        .panel {
+            flex: 1;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            background-color: #fafafa;
+            position: relative;
+            min-height: 0; /* קריטי ליציבות הגובה */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        /* אזור הבקרה התחתון */
+        .dashboard {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            direction: rtl;
+        }
+        .slider-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        input[type=range] {
+            flex-grow: 1;
+            cursor: pointer;
+            height: 8px;
+            accent-color: #0055ff;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+        .metric-box {
+            background-color: #fff;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .metric-title { font-size: 0.9em; color: #666; margin-bottom: 8px; }
+        .metric-value { font-size: 1.4em; font-weight: bold; color: #333; }
+        
+        /* צבעים ספציפיים לפרמטרים */
+        #dispRL { color: #8e44ad; }
+        #dispVL { color: #2980b9; }
+        #dispIL { color: #27ae60; }
+        #dispPL { color: #c0392b; }
+
+        /* עיצוב המעגל (SVG) */
+        svg { width: 100%; height: 100%; }
+        .wire { fill: none; stroke: #2c3e50; stroke-width: 3; }
+        .electron { fill: #f1c40f; stroke: #d35400; stroke-width: 1.5; }
+        .component-label { font-family: Arial; font-size: 15px; font-weight: bold; fill: #2c3e50; }
+        .value-label { font-family: Arial; font-size: 13px; fill: #7f8c8d; }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <h2 class="header-title">סימולציה מקושרת: משפט תבנין וקו עבודה</h2>
+        <p class="instructions">
+            גררו את הסליידר כדי לשנות את התנגדות העומס ($R_L$). <br>
+            שימו לב כיצד השינוי משפיע על קצב זרימת הזרם במעגל משמאל, וכיצד נקודת העבודה מחליקה על גבי קו המגמה בגרף מימין.
+        </p>
+
+        <div class="work-area">
+            <div class="panel">
+                <svg viewBox="0 0 400 300" id="circuit-svg">
+                    <path class="wire" d="M 80,220 L 80,80 L 150,80" />
+                    <path class="wire" d="M 230,80 L 320,80 L 320,110" />
+                    <path class="wire" d="M 320,190 L 320,220 L 80,220" />
+                    
+                    <circle cx="80" cy="150" r="25" fill="#ecf0f1" stroke="#2c3e50" stroke-width="3"/>
+                    <text x="80" y="145" text-anchor="middle" font-size="20" font-weight="bold">+</text>
+                    <text x="80" y="165" text-anchor="middle" font-size="20" font-weight="bold">-</text>
+                    <text x="45" y="145" text-anchor="end" class="component-label">V_th</text>
+                    <text x="45" y="165" text-anchor="end" class="value-label">8.44 V</text>
+
+                    <path d="M 150,80 L 160,65 L 175,95 L 190,65 L 205,95 L 220,65 L 230,80" fill="none" stroke="#2c3e50" stroke-width="3"/>
+                    <text x="190" y="45" text-anchor="middle" class="component-label">R_th</text>
+                    <text x="190" y="62" text-anchor="middle" class="value-label">687.5 Ω</text>
+
+                    <rect x="305" y="110" width="30" height="80" fill="#ecf0f1" stroke="#2c3e50" stroke-width="3"/>
+                    <path d="M 280,150 L 310,150" fill="none" stroke="#8e44ad" stroke-width="3" marker-end="url(#arrow)"/>
+                    <text x="345" y="145" class="component-label" fill="#8e44ad">R_L</text>
+                    <text id="svg-rl-text" x="345" y="165" class="value-label" fill="#8e44ad">1000 Ω</text>
+
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#8e44ad" />
+                        </marker>
+                    </defs>
+
+                    <g id="electrons-group"></g>
+                </svg>
+            </div>
+
+            <div class="panel">
+                <div id="jxgbox" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="slider-section">
+                <label style="font-weight: bold; font-size: 1.1em; color: #333; min-width: 150px;">
+                    התנגדות עומס ($R_L$):
+                </label>
+                <input type="range" id="sliderRL" min="0" max="5000" step="10" value="1000">
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <div class="metric-title">התנגדות נוכחית ($R_L$)</div>
+                    <div class="metric-value" id="dispRL">1000 Ω</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-title">מתח על העומס ($V_L$)</div>
+                    <div class="metric-value" id="dispVL">0.00 V</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-title">זרם במעגל ($I_L$)</div>
+                    <div class="metric-value" id="dispIL">0.00 mA</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-title">הספק נצרך ($P_L$)</div>
+                    <div class="metric-value" id="dispPL">0.00 mW</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. נתוני המעגל מחישובי המעבדה ---
+        const Vth = 8.4375; 
+        const Rth = 687.5;  
+        const Isc = (Vth / Rth) * 1000; // זרם קצר במיליאמפר (~12.27mA)
+
+        // --- 2. קישור אלמנטים ב-HTML למשתנים ---
+        const slider = document.getElementById('sliderRL');
+        const dispRL = document.getElementById('dispRL');
+        const dispVL = document.getElementById('dispVL');
+        const dispIL = document.getElementById('dispIL');
+        const dispPL = document.getElementById('dispPL');
+        const svgRLText = document.getElementById('svg-rl-text');
+
+        // --- 3. אתחול גרף ה-JSXGraph ---
+        var board = JXG.JSXGraph.initBoard('jxgbox', {
+            boundingbox: [-1, 15, 10, -2], 
+            axis: true,
+            showNavigation: false
+        });
+        
+        // תוויות צירים
+        board.create('text', [8.2, -0.8, 'V (Volts)'], {fontSize: 14});
+        board.create('text', [-0.9, 14, 'I (mA)'], {fontSize: 14});
+
+        // שרטוט קו תבנין הקבוע (Load Line)
+        board.create('segment', [[0, Isc], [Vth, 0]], {
+            strokeColor: '#34495e', strokeWidth: 2, dash: 2
+        });
+        board.create('text', [Vth + 0.1, 0.5, 'Voc'], {fontSize: 12, color: '#34495e'});
+        board.create('text', [0.2, Isc, 'Isc'], {fontSize: 12, color: '#34495e'});
+
+        // שרטוט נקודת העבודה הדינמית (Q-Point)
+        var qPoint = board.create('point', [0, 0], {
+            name: 'Q-Point', size: 6, color: '#e74c3c', label: {offset: [10, 15], fontSize: 14, fontUnit: 'px'}
+        });
+
+        // --- 4. מערכת האנימציה ב-SVG (זרימת זרם) ---
+        const totalLength = 145 + 240 + 140 + 240; // היקף המלבן של המעגל
+        let electrons = [];
+        const numElectrons = 15; // כמות האלקטרונים המצוירים
+        const electronsGroup = document.getElementById('electrons-group');
+
+        // יצירת חלקיקי האלקטרונים
+        for(let i=0; i<numElectrons; i++) {
+            let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("r", "4.5");
+            circle.setAttribute("class", "electron");
+            electronsGroup.appendChild(circle);
+            electrons.push({ el: circle, progress: (i / numElectrons) * totalLength });
+        }
+
+        let currentIL = 0; // משתנה גלובלי למהירות הזרם
+
+        // פונקציה לחישוב מיקום האלקטרון על המסגרת המרובעת
+        function getPointAtLength(length) {
+            length = length % totalLength;
+            if (length < 0) length += totalLength;
+            if (length < 45) return {x: 80, y: 125 - length}; // עלייה מהמקור
+            let l2 = length - 45;
+            if (l2 < 240) return {x: 80 + l2, y: 80}; // תנועה ימינה
+            let l3 = l2 - 240;
+            if (l3 < 140) return {x: 320, y: 80 + l3}; // ירידה לנגד העומס
+            let l4 = l3 - 140;
+            if (l4 < 240) return {x: 320 - l4, y: 220}; // חזרה שמאלה
+            let l5 = l4 - 240;
+            return {x: 80, y: 220 - l5}; // סגירת המעגל למקור
+        }
+
+        // לולאת האנימציה המרכזית
+        function animate() {
+            // המהירות מתעדכנת לפי הזרם הנוכחי (I_L)
+            let speed = currentIL * 0.15; 
+            
+            electrons.forEach(e => {
+                e.progress += speed;
+                let pos = getPointAtLength(e.progress);
+                e.el.setAttribute("cx", pos.x);
+                e.el.setAttribute("cy", pos.y);
+            });
+            requestAnimationFrame(animate);
+        }
+        animate(); // התחלת האנימציה
+
+        // --- 5. פונקציית עדכון המערכת (מופעלת בגרירת הסליידר) ---
+        function updateSystem() {
+            let RL = parseFloat(slider.value);
+            
+            // חישובים פיזיקליים לפי תבנין וחוק אוהם
+            let IL = (Vth / (Rth + RL)) * 1000; // זרם ב-mA
+            let VL = Vth * (RL / (Rth + RL)); // מתח ב-V
+            let PL = VL * IL; // הספק ב-mW
+
+            // עדכון המהירות לאנימציה
+            currentIL = IL; 
+
+            // עדכון המספרים בתצוגה
+            dispRL.innerText = RL + ' Ω';
+            dispVL.innerText = VL.toFixed(2) + ' V';
+            dispIL.innerText = IL.toFixed(2) + ' mA';
+            dispPL.innerText = PL.toFixed(1) + ' mW';
+            svgRLText.innerText = RL + ' Ω';
+
+            // עדכון מיקום הנקודה על הגרף
+            qPoint.moveTo([VL, IL]);
+            board.update();
+        }
+
+        // האזנה לסליידר
+        slider.addEventListener('input', updateSystem);
+        
+        // הפעלה ראשונית כדי למקם את הנתונים במצב ההתחלתי
+        updateSystem();
+    </script>
+</body>
+</html>

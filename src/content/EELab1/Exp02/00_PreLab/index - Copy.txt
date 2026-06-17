@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PreLab 02 - Index</title>
+    <style>
+        :root {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+        }
+        
+        body { 
+            background-color: var(--bg-color); 
+            padding: 20px; 
+            font-family: 'David', Arial, sans-serif; 
+            margin: 0; 
+            color: var(--text-color); 
+        }
+        
+        .index-container { 
+            max-width: 850px; 
+            margin: 0 auto; 
+            background-color: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        
+        .section-title { 
+            color: var(--primary-color); 
+            border-bottom: 2px solid var(--primary-color); 
+            padding-bottom: 5px; 
+            margin-top: 0; 
+            font-size: 24px; 
+        }
+        
+        .step-box { 
+            background-color: var(--box-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            display: flex; 
+            align-items: center; 
+            transition: transform 0.2s, box-shadow 0.2s; 
+        }
+        
+        .step-box:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+        }
+        
+        .step-number { color: white; font-size: 24px; font-weight: bold; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .step-content p { margin: 0; font-size: 15px; color: #555; }
+        
+        .bg-primary { background-color: var(--primary-color); }
+        .bg-danger { background-color: var(--danger-color); }
+        .bg-success { background-color: var(--success-color); }
+        .bg-warning { background-color: var(--warning-color); }
+        .bg-info { background-color: #17a2b8; }
+        .bg-secondary { background-color: #6f42c1; }
+    </style>
+</head>
+<body>
+    <div id="exp02-prelab-index" class="index-container">
+        <h2 class="section-title">תוכן עניינים - הכנה לניסוי 2</h2>
+        <p style="margin-bottom: 25px; font-size: 16px;">ברוכים הבאים לחלק ההכנה של ניסוי 2. אנא עברו על חלקי ההכנה הבאים לפי הסדר כדי להגיע מוכנים למעבדה:</p>
+        
+        <a href="PreLab_Exp02_00_LinearAlgebra.html" style="text-decoration: none; color: inherit;">
+            <div class="step-box"><div class="step-number bg-primary">00</div><div class="step-content"><h4>מבוא: אלגברה ליניארית ופתרון מטריצות</h4><p>לפני שנצלול למשפטי רשת מורכבים, נלמד כיצד לפתור מערכת משוואות באמצעות MATLAB.</p></div></div>
+        </a>
+
+        <a href="PreLab_Exp02_01_Superposition.html" style="text-decoration: none; color: inherit;">
+            <div class="step-box"><div class="step-number bg-danger">01</div><div class="step-content"><h4>חלק א': משפט סופרפוזיציה ומאזן הספקים</h4><p>נלמד כיצד לנתח מעגל מרובה מקורות על ידי פירוקו למספר מעגלים פשוטים יותר.</p></div></div>
+        </a>
+
+        <a href="PreLab_Exp02_02_Thevenin.html" style="text-decoration: none; color: inherit;">
+            <div class="step-box"><div class="step-number bg-success">02</div><div class="step-content"><h4>חלק ב': משפט תבנין (Thevenin)</h4><p>טכניקה לפשט כל מעגל מורכב למעגל קטן השקול לו לחלוטין (מקור מתח ונגד).</p></div></div>
+        </a>
+
+        <a href="PreLab_Exp02_03_TransferFunction.html" style="text-decoration: none; color: inherit;">
+            <div class="step-box"><div class="step-number bg-info">03</div><div class="step-content"><h4>חלק ג': פונקציית תמסורת</h4><p>נלמד לתאר מעגל כיחס בין אות יציאה לאות כניסה ולבדוק כיצד עומס משנה את התגובה.</p></div></div>
+        </a>
+
+        <a href="PreLab_Exp02_04_NonLinear.html" style="text-decoration: none; color: inherit;">
+            <div class="step-box"><div class="step-number bg-warning">04</div><div class="step-content"><h4>חלק ד': רכיבים לא-ליניאריים</h4><p>נצא מהעולם המושלם של "חוק אוהם" ונחקור רכיבים אמיתיים שההתנגדות שלהם משתנה.</p></div></div>
+        </a>
+
+        <a href="PreLab_Exp02_05_WorkPlan.html" style="text-decoration: none; color: inherit;">
+            <div class="step-box"><div class="step-number bg-secondary">05</div><div class="step-content"><h4>תוכנית עבודה ב-Tinkercad</h4><p>הנחיות חיבור ומדידה לקראת העבודה המעשית במעבדה.</p></div></div>
+        </a>
+    </div>
+</body>
+</html>

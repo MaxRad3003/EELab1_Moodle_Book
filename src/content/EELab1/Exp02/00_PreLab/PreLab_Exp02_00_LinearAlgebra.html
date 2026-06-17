@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>PreLab Exp02 00 LinearAlgebra</title>
+</head>
+<body>
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
+        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
+            <!-- 
+    MOODLE SNIPPET - USER CUSTOM DESIGN
+    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
+-->
+<div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
+    
+
+    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
+        <!-- CHAPTER: HEADER -->
+<h2 class="section-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.875rem; display: inline-block; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 5px; margin-top: 0;">הכנה לניסוי 2 - מבוא: אלגברה ליניארית ופתרון מטריצות</h2>
+<p class="mb-4" style="margin-bottom: 1rem;">לפני שנצלול למשפטי רשת מורכבים, נלמד כיצד לרתום את העוצמה של אלגברה ליניארית ותוכנת MATLAB כדי לפתור כל מעגל חשמלי בלחיצת כפתור.</p>
+
+<!-- SECTION: THEORY -->
+<div class="theory-card" id="section-theory" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📖 1. תיאוריה</h3>
+    <strong class="text-primary">שיטת זרמי חוגים וייצוג מטריציוני:</strong>
+    <p>כאשר אנו מנתחים מעגל מרובה חוגים, אנו מקבלים מערכת של משוואות ליניאריות (משוואה לכל חוג). במקום לפתור אותן ידנית, אנו מייצגים אותן בצורה אלגנטית של מטריצות:</p>
+    
+    <div style="text-align: center; font-size: 1.4em; font-weight: bold; color: var(--danger-color); margin: 15px 0; direction: ltr;">
+        [ R ] &middot; [ I ] = [ V ]
+    </div>
+    
+    <ul>
+        <li class="mb-2"><strong>[ R ]:</strong> מטריצת ההתנגדויות. האלכסון הראשי חיובי (סכום הנגדים בכל חוג), וערכי שאר התאים שליליים (התנגדויות משותפות).</li>
+        <li class="mb-2"><strong>[ I ]:</strong> וקטור עמודה של זרמי החוגים (הנעלמים שלנו).</li>
+        <li><strong>[ V ]:</strong> וקטור מתחי המקורות (סכום עליות המתח בכל חוג).</li>
+    </ul>
+</div>
+
+<!-- SECTION: ENRICHMENT -->
+<div class="theory-card" id="section-enrichment" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">💡 2. העשרה</h3>
+    <ul>
+        <li class="mb-1"><a href="https://he.wikipedia.org/wiki/%D7%9B%D7%A4%D7%9C_%D7%9E%D7%98%D7%A8%D7%99%D7%A6%D7%95%D7%AA" target="_blank" class="text-secondary">ויקיפדיה: כפל מטריצות</a></li>
+        <li><a href="https://www.mathworks.com/help/matlab/math/systems-of-linear-equations.html" target="_blank" class="text-secondary">MathWorks: פתרון מערכת משוואות ליניאריות ב-MATLAB (אנגלית)</a></li>
+    </ul>
+</div>
+
+<!-- SECTION: FALSTAD SIMULATION -->
+<div class="theory-card" id="section-falstad" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">🖥️ 3. חקירה בסימולטור Falstad</h3>
+    <p><strong>משימה:</strong> לפניכם המעגל המרכזי של ניסוי 2 הכולל 2 חוגים. הפעילו את הסימולציה ובדקו מהו הזרם הזורם בענף המרכזי (דרך RL). אנו נוכיח שהחישוב המטריציוני מגיע לאותה תוצאה בדיוק.</p>
+    
+    <div style="border: 2px dashed #ccc; padding: 10px; background-color: white; text-align: center; border-radius: 5px;">
+        <iframe width="100%" height="450" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" frameborder="0" allowfullscreen style="border: none;"></iframe>
+    </div>
+</div>
+
+<!-- SECTION: MATLAB ANALYSIS -->
+<div class="matlab-box" id="section-matlab" style="text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📊 4. ניתוח MATLAB</h3>
+    <p>היכנסו למטלה, בנו את מטריצת ההתנגדות R ואת וקטור המתחים V עבור המעגל מהסימולציה, ופתרו עבור הזרמים באמצעות חילוק מטריצות שמאלי ב-MATLAB.</p>
+    
+    <div dir="ltr" style="background-color: #2b303b; color: #f8f8f2; padding: 15px; border-radius: 6px; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; margin-bottom: 20px; border-left: 4px solid var(--success-color); text-align: left;">
+        <div style="color: #c678dd; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #4f5b66; padding-bottom: 5px;">/* MATLAB Grader Assignment: Exp02_LinearAlgebra */</div>
+        <p style="color: #abb2bf;"><strong>Circuit Analysis via Matrices</strong><br>
+        Values: V1 = 5V, V2 = 3V, R1 = 300&Omega;, R2 = 1k&Omega;, RL = 1k&Omega;</p>
+        <p style="margin-bottom: 0; color: #abb2bf;"><strong>Your Task:</strong><br>
+        1. Construct R (2x2) and V (2x1).<br>
+        2. Solve for I using <code>I = R \ V</code>.<br>
+        3. Calculate <code>I_RL</code>.</p>
+    </div>
+
+    <a href="[LINK_TO_MATLAB_LINEAR_ALGEBRA]" target="_blank" class="bg-success" style="display: inline-block; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; background-color: #28a745;">לפתיחת המטלה: Exp02_LinearAlgebra</a>
+</div>
+
+<!-- SECTION: H5P QUIZ -->
+<div class="h5p-container" id="section-h5p" style="background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px;">
+    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📝 5. בוחן H5P</h3>
+    <p>בחנו את הבנתכם בבניית מטריצות חוגים לפני כתיבת הקוד:</p>
+    <div class="h5p-placeholder" style="background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center;">
+        <a href="[LINK_TO_H5P_LINEAR_ALGEBRA]" target="_blank" class="text-primary fw-bold" style="text-decoration: none; font-weight: 700;">פתח בוחן: LinearAlgebra_Matrix_Quiz.h5p</a>
+    </div>
+</div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

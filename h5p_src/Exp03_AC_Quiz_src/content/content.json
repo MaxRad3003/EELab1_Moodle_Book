@@ -1,0 +1,361 @@
+{
+  "introPage": {
+    "showIntroPage": true,
+    "startButtonText": "התחל בוחן",
+    "introduction": "<div dir=\"rtl\"><p>בוחן קצר לניסוי 3: מדידות AC, RMS, היגב קבל, מופע ושנאי בידוד.</p></div>"
+  },
+  "progressType": "dots",
+  "passPercentage": 60,
+  "questions": [
+    {
+      "params": {
+        "media": {
+          "disableImageZooming": false
+        },
+        "answers": [
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. הממוצע של גל AC סימטרי יכול להיות אפס, למרות שמתפתח הספק על נגד.</div>"
+            },
+            "text": "<div dir=\"rtl\">מתח ממוצע (Vav)</div>"
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. מתח שיא-לשיא מתאר תחום תנודה, אבל אינו נכנס ישירות לנוסחת ההספק.</div>"
+            },
+            "text": "<div dir=\"rtl\">מתח שיא-לשיא (Vp-p)</div>"
+          },
+          {
+            "correct": true,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">נכון מאוד. מתח RMS מוגדר לפי שקילות ההספק של אות AC למקור DC.</div>"
+            },
+            "text": "<div dir=\"rtl\">מתח אפקטיבי (Veff / RMS)</div>"
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. מתח שיא יכול לעזור להמרות בגל סינוס, אבל ההספק מחושב ישירות עם RMS.</div>"
+            },
+            "text": "<div dir=\"rtl\">מתח שיא (Vmax)</div>"
+          }
+        ],
+        "question": "<div dir=\"rtl\">איזה מדד של מתח חילופין מאפשר לחשב ישירות את ההספק הממשי על נגד באמצעות P = V^2 / R?</div>",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "type": "auto",
+          "singlePoint": false,
+          "randomAnswers": true,
+          "showSolutionsRequiresInput": true,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "autoCheck": false,
+          "passPercentage": 100,
+          "showScorePoints": true
+        },
+        "UI": {
+          "checkAnswerButton": "בדוק",
+          "submitAnswerButton": "הגש",
+          "showSolutionButton": "הצג פתרון",
+          "tryAgainButton": "נסה שוב",
+          "tipsLabel": "הצג רמז",
+          "scoreBarLabel": "קיבלת :num מתוך :total נקודות",
+          "tipAvailable": "רמז זמין",
+          "feedbackAvailable": "משוב זמין",
+          "readFeedback": "קרא משוב",
+          "wrongAnswer": "תשובה שגויה",
+          "correctAnswer": "תשובה נכונה",
+          "shouldCheck": "היה צריך לסמן",
+          "shouldNotCheck": "לא היה צריך לסמן",
+          "noInput": "אנא ענה לפני צפייה בפתרון",
+          "a11yCheck": "בדוק את התשובות.",
+          "a11yShowSolution": "הצג את הפתרון.",
+          "a11yRetry": "נסה שוב."
+        }
+      },
+      "library": "H5P.MultiChoice 1.16",
+      "subContentId": "exp03-ac-q1-rms-power"
+    },
+    {
+      "params": {
+        "media": {
+          "disableImageZooming": false
+        },
+        "answers": [
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. מדידת AC ברב-מודד רגיל אינה מדידת DC Offset בלבד.</div>"
+            },
+            "text": "<div dir=\"rtl\">כיוון שהוא מודד רק את ה-DC Offset של הגל.</div>"
+          },
+          {
+            "correct": true,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">נכון. רב-מודד שאינו True RMS מניח בדרך כלל גל סינוס, ולכן בגל ריבועי או משולש הקריאה עלולה להיות שגויה.</div>"
+            },
+            "text": "<div dir=\"rtl\">כיוון שהוא מודד ממוצע מיושר ומכפיל במקדם כיול המתאים לגל סינוס בלבד.</div>"
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא בהכרח. גם בתדר תקין למכשיר, צורת גל שאינה סינוס יכולה לגרום לשגיאה.</div>"
+            },
+            "text": "<div dir=\"rtl\">כיוון שתדר האות נמוך מדי עבור הרב-מודד.</div>"
+          }
+        ],
+        "question": "<div dir=\"rtl\">מדוע רב-מודד דיגיטלי רגיל, שאינו True RMS, מציג קריאות שגויות עבור גל ריבועי או משולש?</div>",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "type": "auto",
+          "singlePoint": false,
+          "randomAnswers": true,
+          "showSolutionsRequiresInput": true,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "autoCheck": false,
+          "passPercentage": 100,
+          "showScorePoints": true
+        },
+        "UI": {
+          "checkAnswerButton": "בדוק",
+          "submitAnswerButton": "הגש",
+          "showSolutionButton": "הצג פתרון",
+          "tryAgainButton": "נסה שוב",
+          "tipsLabel": "הצג רמז",
+          "scoreBarLabel": "קיבלת :num מתוך :total נקודות",
+          "tipAvailable": "רמז זמין",
+          "feedbackAvailable": "משוב זמין",
+          "readFeedback": "קרא משוב",
+          "wrongAnswer": "תשובה שגויה",
+          "correctAnswer": "תשובה נכונה",
+          "shouldCheck": "היה צריך לסמן",
+          "shouldNotCheck": "לא היה צריך לסמן",
+          "noInput": "אנא ענה לפני צפייה בפתרון",
+          "a11yCheck": "בדוק את התשובות.",
+          "a11yShowSolution": "הצג את הפתרון.",
+          "a11yRetry": "נסה שוב."
+        }
+      },
+      "library": "H5P.MultiChoice 1.16",
+      "subContentId": "exp03-ac-q2-dmm"
+    },
+    {
+      "params": {
+        "media": {
+          "disableImageZooming": false
+        },
+        "answers": [
+          {
+            "correct": true,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">נכון. Xc = 1/(2*pi*f*C), ולכן העלאת התדר מקטינה את ההיגב הקיבולי.</div>"
+            },
+            "text": "<div dir=\"rtl\">הוא קטן, ביחס הפוך לתדר: Xc = 1/(2*pi*f*C).</div>"
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. זו התנהגות שמזכירה היגב סלילי, לא היגב קיבולי.</div>"
+            },
+            "text": "<div dir=\"rtl\">הוא גדל ביחס ישר לתדר.</div>"
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. היגב קבל תלוי גם בתדר וגם בקיבול.</div>"
+            },
+            "text": "<div dir=\"rtl\">הוא נשאר קבוע, ללא תלות בתדר.</div>"
+          }
+        ],
+        "question": "<div dir=\"rtl\">כיצד משתנה היגב הקבל Xc במעגל AC כאשר מעלים את תדר מקור המתח?</div>",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "type": "auto",
+          "singlePoint": false,
+          "randomAnswers": true,
+          "showSolutionsRequiresInput": true,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "autoCheck": false,
+          "passPercentage": 100,
+          "showScorePoints": true
+        },
+        "UI": {
+          "checkAnswerButton": "בדוק",
+          "submitAnswerButton": "הגש",
+          "showSolutionButton": "הצג פתרון",
+          "tryAgainButton": "נסה שוב",
+          "tipsLabel": "הצג רמז",
+          "scoreBarLabel": "קיבלת :num מתוך :total נקודות",
+          "tipAvailable": "רמז זמין",
+          "feedbackAvailable": "משוב זמין",
+          "readFeedback": "קרא משוב",
+          "wrongAnswer": "תשובה שגויה",
+          "correctAnswer": "תשובה נכונה",
+          "shouldCheck": "היה צריך לסמן",
+          "shouldNotCheck": "לא היה צריך לסמן",
+          "noInput": "אנא ענה לפני צפייה בפתרון",
+          "a11yCheck": "בדוק את התשובות.",
+          "a11yShowSolution": "הצג את הפתרון.",
+          "a11yRetry": "נסה שוב."
+        }
+      },
+      "library": "H5P.MultiChoice 1.16",
+      "subContentId": "exp03-ac-q3-reactance"
+    },
+    {
+      "params": {
+        "media": {
+          "disableImageZooming": false
+        },
+        "answers": [
+          {
+            "correct": true,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">נכון. במעגל בעל אופי קיבולי הזרם מקדים את המתח.</div>"
+            },
+            "text": "<div dir=\"rtl\">הזרם מקדים את מתח המקור בזווית מופע חיובית.</div>"
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. פיגור זרם אופייני למעגל בעל אופי השראותי.</div>"
+            },
+            "text": "<div dir=\"rtl\">הזרם מפגר אחרי מתח המקור בזווית מופע שלילית.</div>"
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. במעגל RC טורי קיים הפרש מופע, התלוי ביחס בין R לבין Xc.</div>"
+            },
+            "text": "<div dir=\"rtl\">הזרם ומתח המקור נמצאים באותו מופע.</div>"
+          }
+        ],
+        "question": "<div dir=\"rtl\">במעגל RC טורי המוזן במתח חילופין, מה הקשר בין מופע הזרם לבין מתח המקור?</div>",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "type": "auto",
+          "singlePoint": false,
+          "randomAnswers": true,
+          "showSolutionsRequiresInput": true,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "autoCheck": false,
+          "passPercentage": 100,
+          "showScorePoints": true
+        },
+        "UI": {
+          "checkAnswerButton": "בדוק",
+          "submitAnswerButton": "הגש",
+          "showSolutionButton": "הצג פתרון",
+          "tryAgainButton": "נסה שוב",
+          "tipsLabel": "הצג רמז",
+          "scoreBarLabel": "קיבלת :num מתוך :total נקודות",
+          "tipAvailable": "רמז זמין",
+          "feedbackAvailable": "משוב זמין",
+          "readFeedback": "קרא משוב",
+          "wrongAnswer": "תשובה שגויה",
+          "correctAnswer": "תשובה נכונה",
+          "shouldCheck": "היה צריך לסמן",
+          "shouldNotCheck": "לא היה צריך לסמן",
+          "noInput": "אנא ענה לפני צפייה בפתרון",
+          "a11yCheck": "בדוק את התשובות.",
+          "a11yShowSolution": "הצג את הפתרון.",
+          "a11yRetry": "נסה שוב."
+        }
+      },
+      "library": "H5P.MultiChoice 1.16",
+      "subContentId": "exp03-ac-q4-phase"
+    },
+    {
+      "params": {
+        "media": {
+          "disableImageZooming": false
+        },
+        "answers": [
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. שנאי 1:1 אינו מיועד להגדלת המתח.</div>"
+            },
+            "text": "<div dir=\"rtl\">להגדיל את עוצמת המתח פי 2.</div>"
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">לא נכון. שנאי אינו משנה את תדר האות.</div>"
+            },
+            "text": "<div dir=\"rtl\">לשנות את תדר אות החילופין של המקור.</div>"
+          },
+          {
+            "correct": true,
+            "tipsAndFeedback": {
+              "chosenFeedback": "<div dir=\"rtl\">נכון. הבידוד הגלווני מקטין סיכון לקצר אדמות דרך פרובי האוסצילוסקופ.</div>"
+            },
+            "text": "<div dir=\"rtl\">לנתק קשר גלווני לאדמת הרשת כדי למנוע קצר אדמות דרך פרובי האוסצילוסקופ.</div>"
+          }
+        ],
+        "question": "<div dir=\"rtl\">מה תפקידו הראשי של שנאי בידוד 1:1 במדידות אוסצילוסקופ במעבדה?</div>",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "type": "auto",
+          "singlePoint": false,
+          "randomAnswers": true,
+          "showSolutionsRequiresInput": true,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "autoCheck": false,
+          "passPercentage": 100,
+          "showScorePoints": true
+        },
+        "UI": {
+          "checkAnswerButton": "בדוק",
+          "submitAnswerButton": "הגש",
+          "showSolutionButton": "הצג פתרון",
+          "tryAgainButton": "נסה שוב",
+          "tipsLabel": "הצג רמז",
+          "scoreBarLabel": "קיבלת :num מתוך :total נקודות",
+          "tipAvailable": "רמז זמין",
+          "feedbackAvailable": "משוב זמין",
+          "readFeedback": "קרא משוב",
+          "wrongAnswer": "תשובה שגויה",
+          "correctAnswer": "תשובה נכונה",
+          "shouldCheck": "היה צריך לסמן",
+          "shouldNotCheck": "לא היה צריך לסמן",
+          "noInput": "אנא ענה לפני צפייה בפתרון",
+          "a11yCheck": "בדוק את התשובות.",
+          "a11yShowSolution": "הצג את הפתרון.",
+          "a11yRetry": "נסה שוב."
+        }
+      },
+      "library": "H5P.MultiChoice 1.16",
+      "subContentId": "exp03-ac-q5-transformer"
+    }
+  ],
+  "texts": {
+    "prevButton": "הקודם",
+    "nextButton": "הבא",
+    "finishButton": "סיים",
+    "submitButton": "הגש",
+    "textualRepresentationOfProgress": "שאלה :current מתוך :total",
+    "closeButtonLabel": "סגור",
+    "cancelButtonLabel": "ביטול",
+    "confirmButtonLabel": "אישור",
+    "feedbackHeader": "משוב",
+    "solutionHeader": "פתרון",
+    "scoreBarLabel": "הניקוד שלך: :num/:total"
+  }
+}

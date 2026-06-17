@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- Question 1: Power calculation -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 3 - AC ש1 - חישוב הספק ממשי</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">איזה מדד של מתח חילופין (AC) מאפשר לנו לחשב ישירות את ההספק הממשי (Real Power) המתפתח על נגד באמצעות הנוסחה P = V^2 / R?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מתח ממוצע (Vav)</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מתח שיא-לשיא (Vp-p)</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">מתח אפקטיבי (Veff / RMS)</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד! המתח האפקטיבי מוגדר בדיוק לפי שקילות ההספק של האות למקור DC קבוע.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מתח שיא (Vmax)</p>]]></text>
+    </answer>
+  </question>
+
+  <!-- Question 2: DMM Calibration -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 3 - AC ש2 - כיול רב מודד רגיל</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מדוע רב-מודד דיגיטלי (DMM) רגיל (שאינו True RMS) מציג קריאות שגויות כאשר מודדים מתח חילופין של גל ריבועי או משולש?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">כיוון שהוא מודד רק את ה-DC Offset של הגל.</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">כיוון שהוא מודד את הממוצע המיושר ומכפיל אותו במקדם כיול קבוע של 1.11 המתאים לגל סינוס בלבד.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">תשובה מעולה! מקדם ה-1.11 מניח שהגל הוא סינוס טהור, ולכן עבור גלים אחרים תוצאת הכפל תהיה שגויה.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">כיוון שתדר האות נמוך מדי עבור הרב-מודד.</p>]]></text>
+    </answer>
+  </question>
+
+  <!-- Question 3: Reactance -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 3 - AC ש3 - היגב קבל ותדר</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">כיצד משתנה היגב הקבל (Xc) במעגל AC כאשר אנו מעלים את תדר מקור המתח?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">הוא קטן (ביחס הפוך לתדר: Xc = 1 / (2*pi*f*C)).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד! ככל שהתדר עולה, הקבל מתנהג יותר ויותר כקצר (היגב שואף לאפס).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הוא גדל (ביחס ישר לתדר).</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הוא נשאר קבוע, ללא תלות בתדר.</p>]]></text>
+    </answer>
+  </question>
+
+  <!-- Question 4: RC Phase shift -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 3 - AC ש4 - מופע במעגל RC טורי</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">במעגל RC טורי המוזן במתח חילופין, מהו הקשר בין מופע הזרם במעגל לבין מתח המקור?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">הזרם מקדים (Lead) את מתח המקור בזווית מופע חיובית.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד! במעגל בעל אופי קיבולי, הזרם תמיד מקדים את המתח בזמן.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הזרם מפגר (Lag) אחרי מתח המקור בזווית מופע שלילית.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הזרם ומתח המקור נמצאים באותו מופע (הפרש מופע של 0 מעלות).</p>]]></text>
+    </answer>
+  </question>
+
+  <!-- Question 5: Transformer -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 3 - AC ש5 - תפקיד השנאי</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מהו תפקידו הראשי של שנאי בידוד 1:1 במדידות אוסצילוסקופ במעבדה?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">להגדיל את עוצמת המתח פי 2.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">לשנות את תדר אות החילופין של המקור.</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">לנתק את הקשר הגלווני לאדמת הרשת כדי למנוע קצר אדמות דרך פרופי האוסצילוסקופ.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">תשובה מעולה! הבידוד הגלווני מונע סגירת מעגל לא רצויה לאדמה ומאפשר מדידות בטוחות.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+</quiz>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>01 PreLab 03 TransferFunction sub</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #202124; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
+        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הכנה לניסוי 2 - חלק ג: פונקציית תמסורת</title>
+    
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
+<!-- 
+    MOODLE SNIPPET - USER CUSTOM DESIGN
+    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
+-->
+<div class="moodle-snippet-custom" style="unicode-bidi: isolate; text-align: right; font-size: 16px; direction: rtl; color: #333; line-height: 1.6; font-family: Arial, sans-serif; max-width: 980px; margin: 0 auto;" dir="rtl">
+    
+
+    <div class="moodle-content-inner" style="unicode-bidi: isolate; text-align: right; direction: rtl; max-width: 980px; margin: 0 auto;">
+        <!-- EXP02 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 > הכנה > פונקציית תמסורת</div>
+<!-- /EXP02 BREADCRUMB -->
+
+        <!-- CHAPTER: HEADER -->
+<h3 class="section-title" style="margin-bottom: 0.75rem; display: inline-block; margin-top: 0; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">הכנה לניסוי 2 - חלק ג': פונקציית תמסורת</h3>
+<p class="mb-4" style="margin-bottom: 1rem;">בעמוד זה נלמד כיצד לתאר מעגל כיחס בין אות יציאה לאות כניסה. פונקציית התמסורת מאפשרת לנו להבין כיצד המעגל מגיב לשינוי במקור, בעומס או בתדר.</p>
+
+<!-- SECTION: THEORY -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-theory">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📖 1. תיאוריה</h4>
+    <strong class="text-primary" style="color: #005696 !important;">מהי פונקציית תמסורת?</strong>
+    <p>פונקציית תמסורת היא היחס בין אות היציאה של המעגל לבין אות הכניסה שלו.</p>
+    
+    <div dir="ltr" style="text-align: center; font-size: 18px; color: #005696; font-weight: bold; margin: 15px 0;">
+        \(H = \frac{V_{out}}{V_{in}}\)
+    </div>
+    
+    <p>במעגלים פסיביים עם נגדים בלבד נקבל בדרך כלל הנחתה (\(H < 1\)).</p>
+
+    <strong class="text-primary" style="color: #005696 !important;">דוגמה בסיסית: מחלק מתח</strong>
+    <div dir="ltr" style="text-align: center; font-size: 18px; color: #005696; font-weight: bold; margin: 15px 0;">
+        \(H = \frac{V_{out}}{V_{in}} = \frac{R_2}{R_1 + R_2}\)
+    </div>
+</div>
+
+<!-- SECTION: LINK TO THEVENIN -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-thevenin-link">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🔗 2. הקשר למשפט תבנין</h4>
+    <p>ניתן לחשב את פונקציית התמסורת מהמקור השקול אל נגד העומס:</p>
+    <div dir="ltr" style="text-align: center; font-size: 18px; color: #005696; font-weight: bold; margin: 15px 0;">
+        \(V_L = \frac{V_{TH} \cdot R_L}{R_{TH} + R_L}\)
+    </div>
+</div>
+
+<!-- SECTION: CALCULATION PRACTICE -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-practice">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🧮 3. תרגול חישובי</h4>
+    <p><strong>משימה:</strong> נתון מחלק מתח שבו \(R_1 = 1k\Omega\), \(R_2 = 2k\Omega\), ומתח הכניסה הוא \(V_{in} = 9V\).</p>
+    <ol>
+        <li class="mb-1" style="margin-bottom: 4px;">חשבו את פונקציית התמסורת \(H = \frac{V_{out}}{V_{in}}\).</li>
+        <li class="mb-1" style="margin-bottom: 4px;">חשבו את מתח היציאה \(V_{out}\).</li>
+    </ol>
+    <div class="alert-box" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0;">
+        <strong>בדיקת היגיון:</strong> במעגל נגדים פסיבי מתח היציאה לא אמור להיות גדול ממתח הכניסה.
+    </div>
+</div>
+
+<!-- SECTION: MATLAB ANALYSIS -->
+<div class="matlab-box" style="margin-bottom: 25px; text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 24px; border-radius: 8px; margin: 18px 0 25px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);" id="section-matlab">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 4. ניתוח MATLAB</h4>
+    <p>במטלה זו נחשב את \(H\) עבור טווח ערכים של \(R_L\) ונשרטט את התוצאה.</p>
+    
+    <div dir="ltr" style="background-color: #2b303b; color: #f8f8f2; padding: 15px; border-radius: 6px; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; margin-bottom: 20px; border-left: 4px solid #28a745; text-align: left;">
+        <div style="color: #c678dd; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #4f5b66; padding-bottom: 5px;">/* MATLAB Grader Assignment: Exp02_TransferFunction */</div>
+        <p style="color: #abb2bf;"><strong>Transfer Function of a Loaded Thevenin Circuit</strong><br>
+        Calculate <code>H = R_L ./ (R_th + R_L)</code> for an array of <code>R_L</code>.</p>
+    </div>
+
+    <div class="text-center" style="text-align: center;">
+        <span style="display: inline-block; background-color: #eef2f5; color: #52616b; padding: 10px 18px; border: 1px dashed #aab4bf; border-radius: 6px; font-weight: bold; margin: 4px 0;">לפתיחת המטלה: Exp02_TransferFunction <span style="display: inline-block; color: #856404; background-color: #fff3cd; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 8px;">קישור יעודכן במודל</span></span>
+    </div>
+</div>
+
+<!-- SECTION: MOODLE QUESTION BANK -->
+<div class="question-bank-container" style="background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 18px; border-radius: 8px; margin-top: 20px;" id="section-question-bank">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📝 5. שאלות הכנה - Moodle Question</h4>
+    <div class="question-bank-placeholder" style="background: white; border: 1px dashed #ccc; padding: 12px; margin-top: 10px; text-align: center; border-radius: 5px;">
+        <span style="color: #005696; font-weight: bold;">שאלות הפרק מנוהלות ב-Moodle Question XML: Exp02_Full_PreLab_Quizzes.xml</span>
+    </div>
+</div>
+<!-- EXP02 NAVIGATION -->
+<div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="01_PreLab_02_Thevenin_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a><a href="01_PreLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים הכנה</a><a href="01_PreLab_04_NonLinear_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: רכיבים לא ליניאריים</a></div>
+<!-- /EXP02 NAVIGATION -->
+    </div>
+</div>
+
+
+
+
+<div data-units-emphasis="exp2" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
+<strong style="color:#005696;">דגש יחידות בניסוי 2:</strong>
+<span> בסופרפוזיציה, תבנין ואופייני I-V יש לשמור על יחידות בכל שלב: \(V\) למתחים, A או mA לזרמים, \(\Omega\) להתנגדויות ו-W להספק. שיפוע אופיין \(I-V\) אינו מספר בלבד: \(R=\Delta V/\Delta I\) מתקבל ב-\(\Omega\).</span>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <question type="category">
+    <category>
+      <text>$course$/ניסוי 2/1. אלגברה ליניארית ומטריצות</text>
+    </category>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 1. אלגברה - איברים מחוץ לאלכסון</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">בשיטת זרמי חוגים, כאשר בונים את מטריצת ההתנגדויות R, מה נכון לגבי האיברים הנמצאים מחוץ לאלכסון הראשי של המטריצה?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הם מייצגים את סכום הנגדים בכל חוג, וערכם תמיד חיובי במטריצה.</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">הם מייצגים את הנגדים המשותפים בין חוגים, וערכם תמיד שלילי במטריצה.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד! נגד משותף לשני חוגים נרשם בסימן שלילי כי הוא גורם למפל מתח מנוגד בהרכבת המשוואה.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הם מייצגים את מקורות המתח במעגל.</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 1. אלגברה - פקודת חילוק במטלאב</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">נתונות מטריצת ההתנגדויות R ווקטור המתחים V. איזו פקודה בתוכנת MATLAB תמצא את וקטור זרמי החוגים I בצורה הנכונה והיעילה ביותר?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align:left;">I = R * V</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align:left;">I = R \ V</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">מצוין! חלוקה שמאלית (Backslash) היא הפקודה המיועדת במטלאב לפתרון מערכות משוואות ליניאריות.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align:left;">I = V / R</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 1. אלגברה - סימן מקור מתח</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">בבניית וקטור המתחים V (עבור משוואת חוקי קירכהוף), אם זרם החוג שקבענו פוגע תחילה בהדק החיובי של מקור מתח, כיצד יירשם מתח זה בווקטור?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">יירשם בסימן חיובי, כי זו עליית מתח.</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">יירשם בסימן שלילי, כי זהו מפל מתח.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">מדויק! כניסה להדק החיובי משמעותה איבוד פוטנציאל, ולכן זהו מפל מתח שנרשם במינוס בוקטור העליות.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">כל המקורות נרשמים תמיד בערכם המוחלט.</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="category">
+    <category>
+      <text>$course$/ניסוי 2/2. סופרפוזיציה ומאזן הספקים</text>
+    </category>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 2. סופרפוזיציה - איפוס מקור מתח</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">לפי משפט הסופרפוזיציה, כאשר אנו רוצים לחשב את תרומתו של מקור אחד במעגל, עלינו לאפס את שאר המקורות. כיצד נאפס מקור מתח אידיאלי?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">נחליף אותו בקצר (חוט מוליך חסר התנגדות).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד! קצר מבטיח שהמתח בין שתי הנקודות יהיה אפס.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">נחליף אותו בנתק (מעגל פתוח).</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">נחליף אותו בנגד השקול של המעגל.</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 2. סופרפוזיציה - מאזן הספקים</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מהו העיקרון הפיזיקלי העומד מאחורי "מאזן הספקים" במעגל חשמלי סגור?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">סך ההספק הנצרך על ידי הנגדים תמיד יהיה קטן מסך ההספק של המקורות בגלל הפסדי חום.</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">סך ההספק המסופק על ידי המקורות שווה בדיוק לסך ההספק הנצרך (המבוזבז) על ידי הצרכנים במעגל.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">בדיוק! זהו ביטוי ישיר של חוק שימור האנרגיה.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">ההספק על נגד העומס צריך להיות מקסימלי כדי לשמור על המאזן.</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="category">
+    <category>
+      <text>$course$/ניסוי 2/3. משפט תבנין והספק מקסימלי</text>
+    </category>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 3. תבנין - מציאת מתח תבנין</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">כיצד מוצאים באופן מעשי את ערכו של "מתח תבנין" במעגל עבור נגד עומס מסוים?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">מנתקים את נגד העומס לחלוטין (יוצרים נתק) ומודדים את המתח בין שתי הנקודות שנותרו פתוחות.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד. זהו "מתח חוג פתוח" (Open Circuit Voltage).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מחליפים את נגד העומס בחוט קצר ומודדים את הזרם הזורם דרכו.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מאפסים את כל מקורות המתח במעגל ומודדים את המפל על העומס.</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 3. תבנין - מציאת התנגדות תבנין</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">כיצד נחשב או נמדוד את "התנגדות תבנין" של מעגל המכיל מקורות בלתי תלויים?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">נחבר את כל המקורות במקביל ונמדוד את ההתנגדות הכללית.</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">ננתק את העומס, נאפס את כל מקורות המתח (נחליפם בקצר) ואת מקורות הזרם (בנתק), ונחשב את ההתנגדות השקולה מההדקים.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">מדויק! זוהי ההגדרה הקלאסית למציאת התנגדות תבנין.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">נמדוד את הזרם על נגד העומס ונחלק אותו במתח המקור הראשי.</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 3. תבנין - הספק מקסימלי</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">על פי משפט העברת ההספק המקסימלי, באיזה תנאי יקבל נגד העומס את ההספק הרב ביותר מהמעגל אליו הוא מחובר?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">כאשר התנגדות העומס היא אפס (קצר מוחלט).</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">כאשר התנגדות העומס גבוהה ככל האפשר (שואפת לאינסוף).</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">כאשר התנגדות העומס שווה בדיוק להתנגדות תבנין של המעגל המזין אותו.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">מעולה! זהו התנאי להעברת הספק מקסימלי והוא מהווה את שיא פרבולת ההספק.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="category">
+    <category>
+      <text>$course$/ניסוי 2/4. רכיבים לא ליניאריים</text>
+    </category>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 4. לא ליניארי - נורה לעומת נגד</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מהו ההבדל העיקרי בין התנהגות של נגד פחם רגיל (אוהמי) לבין התנהגות של נורת להט?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">בנגד ההתנגדות קבועה וגרף הזרם-מתח הוא קו ישר, בעוד שבנורה ההתנגדות משתנה ככל שהחוט מתחמם.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד. התחממות חוט הלהט מגדילה את התנגדותו, ולכן הגרף מתעקם (נראה פחות ליניארי ככל שהמתח עולה).</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">נגד עובד רק בזרם ישר (DC) ונורת להט עובדת רק בזרם חילופין (AC).</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">גרף המתח-זרם של הנורה הוא ליניארי לחלוטין העובר בראשית הצירים.</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 2 - 4. לא ליניארי - טרמיסטור NTC</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">בניסוי תבדקו רכיב הנקרא טרמיסטור מסוג NTC. מה מאפיין רכיב זה?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.0</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">התנגדותו עולה ככל שהטמפרטורה סביבו עולה.</p>]]></text>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">התנגדותו יורדת ככל שהטמפרטורה סביבו עולה (מקדם טמפרטורה שלילי).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">בדיוק! NTC פירושו Negative Temperature Coefficient.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">התנגדותו קבועה לחלוטין ואינה מושפעת משינויי חום.</p>]]></text>
+    </answer>
+  </question>
+
+</quiz>

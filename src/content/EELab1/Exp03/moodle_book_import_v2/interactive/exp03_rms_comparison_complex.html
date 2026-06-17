@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>exp03 rms comparison complex</title>
+</head>
+<body>
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
+        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <!-- להטמעה ישירה בעורך של Moodle באמצעות פלאגין JSXGraph -->
+<div id="exp03-rms-comparison-complex" class="interactive-panel" style="box-sizing: border-box; font-family: Arial, sans-serif; background: #f4f7fa; direction: rtl; text-align: right; padding: 16px;">
+
+    <div class="source-columns" style="box-sizing: border-box; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 16px 0; align-items: start;">
+        <div class="source-column" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 14px; min-width: 0;">
+            <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.05rem; margin: 0 0 10px; padding-bottom: 8px; border-bottom: 2px solid #00a4e4; color: #005696;">מעגל AC</h4>
+            <div class="heat-sim" style="box-sizing: border-box; background: #fff8e9; border: 1px solid #ffd793; border-radius: 8px; padding: 11px; margin: 10px 0; text-align: right;">
+                <strong style="box-sizing: border-box; display: block; color: #714100; font-size: .92rem; margin-bottom: 7px;">דימוי חימום בנגד לפי \(P_{avg}\)</strong>
+                <div class="heat-track" style="box-sizing: border-box; height: 14px; background: #fff; border: 1px solid #b66a00; border-radius: 999px; overflow: hidden; direction: ltr;"><div class="heat-fill" id="acHeatFill" style="box-sizing: border-box; height: 100%; width: 0; background: #b66a00; transition: width .2s ease;"></div></div>
+                <span class="heat-value" id="acHeatValue" style="box-sizing: border-box; direction: ltr; display: inline-block; color: #714100; font-weight: 700; margin-top: 6px;">12.5 mW</span>
+            </div>
+            <div class="metric-row" style="box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 12px;">
+                <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 12px; text-align: center; min-height: 82px; display: flex; flex-direction: column; justify-content: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(f\)</strong><span id="dispSeriesFreq" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">1.0 kHz</span></div>
+                <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 12px; text-align: center; min-height: 82px; display: flex; flex-direction: column; justify-content: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(R\)</strong><span id="dispSeriesR" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">1000 Ω</span></div>
+                <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 12px; text-align: center; min-height: 82px; display: flex; flex-direction: column; justify-content: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(V_{RMS}\)</strong><span id="dispSeriesVrms" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">3.54 V</span></div>
+                <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 12px; text-align: center; min-height: 82px; display: flex; flex-direction: column; justify-content: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(P_{avg}\)</strong><span id="dispSeriesPower" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">12.5 mW</span></div>
+            </div>
+            <div class="stacked-graphs" style="box-sizing: border-box; direction: ltr; display: grid; grid-template-rows: repeat(4, auto); gap: 12px; margin: 14px 0;">
+                <div class="graph-block" style="box-sizing: border-box;">
+                    <div class="graph-title" style="box-sizing: border-box; font-weight: 700; color: #263f50; margin: 14px 0 6px; font-size: 0.95rem;">זרם רגעי במעגל AC והשוואה לזרם DC שנבחר</div>
+                    <div class="small-graph" style="box-sizing: border-box; direction: ltr; border: 1px solid #c9d5df; border-radius: 8px; background: #fff; overflow: hidden; padding: 0;"><div id="seriesCurrentBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 220px; position: relative; overflow: hidden; margin: 0; border: 0; background: #ffffff;"></div></div>
+                </div>
+                <div class="graph-block" style="box-sizing: border-box;">
+                    <div class="graph-title" style="box-sizing: border-box; font-weight: 700; color: #263f50; margin: 14px 0 6px; font-size: 0.95rem;">מתח רגעי על הנגד והשוואה למתח DC שנבחר</div>
+                    <div class="small-graph" style="box-sizing: border-box; direction: ltr; border: 1px solid #c9d5df; border-radius: 8px; background: #fff; overflow: hidden; padding: 0;"><div id="seriesVoltageBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 220px; position: relative; overflow: hidden; margin: 0; border: 0; background: #ffffff;"></div></div>
+                </div>
+                <div class="graph-block" style="box-sizing: border-box;">
+                    <div class="graph-title" style="box-sizing: border-box; font-weight: 700; color: #263f50; margin: 14px 0 6px; font-size: 0.95rem;">הספק רגעי בנגד וההספק הממוצע</div>
+                    <div class="small-graph" style="box-sizing: border-box; direction: ltr; border: 1px solid #c9d5df; border-radius: 8px; background: #fff; overflow: hidden; padding: 0;"><div id="seriesPowerBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 220px; position: relative; overflow: hidden; margin: 0; border: 0; background: #ffffff;"></div></div>
+                </div>
+                <div class="graph-block" style="box-sizing: border-box;">
+                    <div class="graph-title" style="box-sizing: border-box; font-weight: 700; color: #263f50; margin: 14px 0 6px; font-size: 0.95rem;">עבודה מצטברת במעגל AC</div>
+                    <div class="small-graph" style="box-sizing: border-box; direction: ltr; border: 1px solid #c9d5df; border-radius: 8px; background: #fff; overflow: hidden; padding: 0;"><div id="seriesEnergyBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 220px; position: relative; overflow: hidden; margin: 0; border: 0; background: #ffffff;"></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="source-column" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 14px; min-width: 0;">
+            <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.05rem; margin: 0 0 10px; padding-bottom: 8px; border-bottom: 2px solid #00a4e4; color: #005696;">מעגל DC להשוואה</h4>
+            <div class="heat-sim" style="box-sizing: border-box; background: #fff8e9; border: 1px solid #ffd793; border-radius: 8px; padding: 11px; margin: 10px 0; text-align: right;">
+                <strong style="box-sizing: border-box; display: block; color: #714100; font-size: .92rem; margin-bottom: 7px;">דימוי חימום בנגד לפי \(P_{DC}\)</strong>
+                <div class="heat-track" style="box-sizing: border-box; height: 14px; background: #fff; border: 1px solid #b66a00; border-radius: 999px; overflow: hidden; direction: ltr;"><div class="heat-fill" id="dcHeatFill" style="box-sizing: border-box; height: 100%; width: 0; background: #b66a00; transition: width .2s ease;"></div></div>
+                <span class="heat-value" id="dcHeatValue" style="box-sizing: border-box; direction: ltr; display: inline-block; color: #714100; font-weight: 700; margin-top: 6px;">12.5 mW</span>
+            </div>
+            <div class="metric-row" style="box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 12px;">
+                <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 12px; text-align: center; min-height: 82px; display: flex; flex-direction: column; justify-content: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(R\)</strong><span id="dispSeriesDcR" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">1000 Ω</span></div>
+                <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 12px; text-align: center; min-height: 82px; display: flex; flex-direction: column; justify-content: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(V_{DC}\)</strong><span id="dispSeriesVdc" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">3.54 V</span></div>
+                <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 12px; text-align: center; min-height: 82px; display: flex; flex-direction: column; justify-content: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(P_{DC}\)</strong><span id="dispSeriesDcPower" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">12.5 mW</span></div>
+                <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 12px; text-align: center; min-height: 82px; display: flex; flex-direction: column; justify-content: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">התאמה ל-\(V_{RMS}\)</strong><span id="dcMatchStatus" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">שקול</span></div>
+            </div>
+            <div class="two-graphs" style="box-sizing: border-box; direction: ltr; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin: 14px 0;">
+                <div class="graph-block" style="box-sizing: border-box;">
+                    <div class="graph-title" style="box-sizing: border-box; font-weight: 700; color: #263f50; margin: 14px 0 6px; font-size: 0.95rem;">נקודת עבודה במקור DC: מתח, זרם והספק</div>
+                    <div class="mid-graph" style="box-sizing: border-box; direction: ltr; border: 1px solid #c9d5df; border-radius: 8px; background: #fff; overflow: hidden; padding: 0;"><div id="dcViBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 280px; position: relative; overflow: hidden; margin: 0; border: 0; background: #ffffff;"></div></div>
+                </div>
+                <div class="graph-block" style="box-sizing: border-box;">
+                    <div class="graph-title" style="box-sizing: border-box; font-weight: 700; color: #263f50; margin: 14px 0 6px; font-size: 0.95rem;">הספק קבוע בזמן במקור DC</div>
+                    <div class="mid-graph" style="box-sizing: border-box; direction: ltr; border: 1px solid #c9d5df; border-radius: 8px; background: #fff; overflow: hidden; padding: 0;"><div id="dcPowerTimeBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 280px; position: relative; overflow: hidden; margin: 0; border: 0; background: #ffffff;"></div></div>
+                </div>
+                <div class="graph-block" style="box-sizing: border-box;">
+                    <div class="graph-title" style="box-sizing: border-box; font-weight: 700; color: #263f50; margin: 14px 0 6px; font-size: 0.95rem;">עבודה מצטברת בזמן במקור DC</div>
+                    <div class="mid-graph" style="box-sizing: border-box; direction: ltr; border: 1px solid #c9d5df; border-radius: 8px; background: #fff; overflow: hidden; padding: 0;"><div id="dcWorkTimeBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 280px; position: relative; overflow: hidden; margin: 0; border: 0; background: #ffffff;"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="graph-title" style="box-sizing: border-box; font-weight: 700; color: #263f50; margin: 14px 0 6px; font-size: 0.95rem;">השוואת עבודה מצטברת: AC מול DC</div>
+    <div class="comparison-graph" style="box-sizing: border-box; direction: ltr; border: 1px solid #c9d5df; border-radius: 8px; background: #fff; overflow: hidden; padding: 0; margin: 12px 0;"><div id="comparisonEnergyBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 340px; position: relative; overflow: hidden; margin: 0; border: 0; background: #ffffff;"></div></div>
+
+    <div class="controls" style="box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 12px 0; align-items: end;">
+        <div class="control-box" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 13px;">
+            <label for="seriesVp" style="box-sizing: border-box; display: block; font-weight: 700; color: #263f50; margin-bottom: 8px; font-size: 0.9rem;">מתח שיא של המקור \(V_p\)</label>
+            <span class="control-value" id="ctrlSeriesVp" style="box-sizing: border-box; direction: ltr; display: inline-block; background: #eef7fb; border: 1px solid #b8daff; border-radius: 6px; color: #083e63; font-weight: 700; font-size: .95rem; padding: 4px 8px; margin: 2px 0 8px; min-width: 86px; text-align: center;">5.00 V</span>
+            <input type="range" id="seriesVp" min="1" max="330" step="0.1" value="5" style="width: 100%; box-sizing: border-box;">
+        </div>
+        <div class="control-box" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 13px;">
+            <label for="seriesR" style="box-sizing: border-box; display: block; font-weight: 700; color: #263f50; margin-bottom: 8px; font-size: 0.9rem;">התנגדות \(R\)</label>
+            <span class="control-value" id="ctrlSeriesR" style="box-sizing: border-box; direction: ltr; display: inline-block; background: #eef7fb; border: 1px solid #b8daff; border-radius: 6px; color: #083e63; font-weight: 700; font-size: .95rem; padding: 4px 8px; margin: 2px 0 8px; min-width: 86px; text-align: center;">1000 Ω</span>
+            <input type="range" id="seriesR" min="100" max="5000" step="100" value="1000" style="width: 100%; box-sizing: border-box;">
+        </div>
+        <div class="control-box" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 13px;">
+            <label for="seriesFreq" style="box-sizing: border-box; display: block; font-weight: 700; color: #263f50; margin-bottom: 8px; font-size: 0.9rem;">תדר \(f\) [kHz]</label>
+            <span class="control-value" id="ctrlSeriesFreq" style="box-sizing: border-box; direction: ltr; display: inline-block; background: #eef7fb; border: 1px solid #b8daff; border-radius: 6px; color: #083e63; font-weight: 700; font-size: .95rem; padding: 4px 8px; margin: 2px 0 8px; min-width: 86px; text-align: center;">1 kHz</span>
+            <input type="range" id="seriesFreq" min="0.05" max="10" step="0.05" value="1" style="width: 100%; box-sizing: border-box;">
+        </div>
+        <div class="control-box" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 13px;">
+            <label for="dcAuto" style="box-sizing: border-box; display: block; font-weight: 700; color: #263f50; margin-bottom: 8px; font-size: 0.9rem;">
+                <input type="checkbox" id="dcAuto" checked style="box-sizing: border-box; width: auto; margin-left: 8px;">
+                קבע \(V_{DC}=V_{RMS}\) אוטומטית
+            </label>
+            <span class="control-value" id="ctrlDcVoltage" style="box-sizing: border-box; direction: ltr; display: inline-block; background: #eef7fb; border: 1px solid #b8daff; border-radius: 6px; color: #083e63; font-weight: 700; font-size: .95rem; padding: 4px 8px; margin: 2px 0 8px; min-width: 86px; text-align: center;">3.54 V</span>
+            <input type="range" id="dcVoltage" min="0" max="330" step="0.1" value="3.5" disabled style="width: 100%; box-sizing: border-box;">
+        </div>
+        <div class="control-box" style="box-sizing: border-box; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 13px;">
+            <label style="box-sizing: border-box; display: block; font-weight: 700; color: #263f50; margin-bottom: 8px; font-size: 0.9rem;">הדגמת שקע \(230V_{AC}\)</label>
+            <button type="button" class="action-button" id="mainsDemo" style="box-sizing: border-box; width: 100%; border: 1px solid #005696; background: #005696; color: #fff; border-radius: 8px; padding: 10px 12px; font-weight: 700; cursor: pointer;">התחל משימת \(230V_{AC}\)</button>
+        </div>
+    </div>
+
+    <table class="comparison-table" style="box-sizing: border-box; width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0; font-size: .95rem; background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; overflow: hidden;" width="100%">
+        <thead style="box-sizing: border-box;">
+            <tr style="box-sizing: border-box;">
+                <th style="box-sizing: border-box; background: #083e63; color: #fff; border-bottom: 1px solid #0f5d8f; padding: 11px; text-align: center;" align="center">גודל להשוואה</th>
+                <th style="box-sizing: border-box; background: #083e63; color: #fff; border-bottom: 1px solid #0f5d8f; padding: 11px; text-align: center;" align="center">מעגל AC</th>
+                <th style="box-sizing: border-box; background: #083e63; color: #fff; border-bottom: 1px solid #0f5d8f; padding: 11px; text-align: center;" align="center">מעגל DC להשוואה</th>
+            </tr>
+        </thead>
+        <tbody style="box-sizing: border-box;">
+            <tr style="box-sizing: border-box;">
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; vertical-align: middle; text-align: right; font-weight: 700; color: #263f50;" valign="middle" align="right">מתח שימושי לחישוב הספק</td>
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; text-align: center; vertical-align: middle;" align="center" valign="middle">\(V_{RMS}\) = <span id="compAcVoltage" style="box-sizing: border-box; direction: ltr; display: inline-block; font-weight: 700; color: #005696;">3.54 V</span></td>
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; text-align: center; vertical-align: middle;" align="center" valign="middle">\(V_{DC}\) = <span id="compDcVoltage" style="box-sizing: border-box; direction: ltr; display: inline-block; font-weight: 700; color: #005696;">3.54 V</span></td>
+            </tr>
+            <tr style="box-sizing: border-box;">
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; vertical-align: middle; text-align: right; font-weight: 700; color: #263f50;" valign="middle" align="right">זרם שימושי לחישוב הספק</td>
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; text-align: center; vertical-align: middle;" align="center" valign="middle">\(I_{RMS}\) = <span id="compAcCurrent" style="box-sizing: border-box; direction: ltr; display: inline-block; font-weight: 700; color: #005696;">3.54 mA</span></td>
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; text-align: center; vertical-align: middle;" align="center" valign="middle">\(I_{DC}\) = <span id="compDcCurrent" style="box-sizing: border-box; direction: ltr; display: inline-block; font-weight: 700; color: #005696;">3.54 mA</span></td>
+            </tr>
+            <tr style="box-sizing: border-box;">
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; vertical-align: middle; text-align: right; font-weight: 700; color: #263f50;" valign="middle" align="right">הספק על הנגד</td>
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; text-align: center; vertical-align: middle;" align="center" valign="middle">\(P_{avg}\) = <span id="compAcPower" style="box-sizing: border-box; direction: ltr; display: inline-block; font-weight: 700; color: #005696;">12.5 mW</span></td>
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; text-align: center; vertical-align: middle;" align="center" valign="middle">\(P_{DC}\) = <span id="compDcPower" style="box-sizing: border-box; direction: ltr; display: inline-block; font-weight: 700; color: #005696;">12.5 mW</span></td>
+            </tr>
+            <tr style="box-sizing: border-box;">
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; vertical-align: middle; text-align: right; font-weight: 700; color: #263f50;" valign="middle" align="right">עבודה בחלון הגרף</td>
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; text-align: center; vertical-align: middle;" align="center" valign="middle">\(W_{AC}\) = <span id="compAcEnergy" style="box-sizing: border-box; direction: ltr; display: inline-block; font-weight: 700; color: #005696;">125.0 uJ</span></td>
+                <td style="box-sizing: border-box; border-top: 1px solid #d8e0e8; padding: 10px; text-align: center; vertical-align: middle;" align="center" valign="middle">\(W_{DC}\) = <span id="compDcEnergy" style="box-sizing: border-box; direction: ltr; display: inline-block; font-weight: 700; color: #005696;">125.0 uJ</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- תגית מוסתרת להרצת קוד ה-JS באמצעות הפלאגין של מודל -->
+<div style="box-sizing: border-box; display: none;"><jsxgraph width="1" height="1" style="box-sizing: border-box;">
+    (function () {
+    const seriesVpInput = document.getElementById('seriesVp');
+    const seriesRInput = document.getElementById('seriesR');
+    const seriesFreqInput = document.getElementById('seriesFreq');
+    const dcAutoInput = document.getElementById('dcAuto');
+    const dcVoltageInput = document.getElementById('dcVoltage');
+    const mainsDemoButton = document.getElementById('mainsDemo');
+    const ctrlSeriesVp = document.getElementById('ctrlSeriesVp');
+    const ctrlSeriesR = document.getElementById('ctrlSeriesR');
+    const ctrlSeriesFreq = document.getElementById('ctrlSeriesFreq');
+    const ctrlDcVoltage = document.getElementById('ctrlDcVoltage');
+    const dispSeriesFreq = document.getElementById('dispSeriesFreq');
+    const dispSeriesR = document.getElementById('dispSeriesR');
+    const dispSeriesVrms = document.getElementById('dispSeriesVrms');
+    const dispSeriesVdc = document.getElementById('dispSeriesVdc');
+    const dispSeriesPower = document.getElementById('dispSeriesPower');
+    const dispSeriesDcR = document.getElementById('dispSeriesDcR');
+    const dispSeriesDcPower = document.getElementById('dispSeriesDcPower');
+    const dcMatchStatus = document.getElementById('dcMatchStatus');
+    const acHeatFill = document.getElementById('acHeatFill');
+    const acHeatValue = document.getElementById('acHeatValue');
+    const dcHeatFill = document.getElementById('dcHeatFill');
+    const dcHeatValue = document.getElementById('dcHeatValue');
+    const compAcVoltage = document.getElementById('compAcVoltage');
+    const compDcVoltage = document.getElementById('compDcVoltage');
+    const compAcCurrent = document.getElementById('compAcCurrent');
+    const compDcCurrent = document.getElementById('compDcCurrent');
+    const compAcPower = document.getElementById('compAcPower');
+    const compDcPower = document.getElementById('compDcPower');
+    const compAcEnergy = document.getElementById('compAcEnergy');
+    const compDcEnergy = document.getElementById('compDcEnergy');
+
+    function seriesVp() { return parseFloat(seriesVpInput.value) || 5; }
+    function seriesR() { return parseFloat(seriesRInput.value) || 1000; }
+    function seriesFreqKhz() { return parseFloat(seriesFreqInput.value) || 1; }
+    function formatFrequency(khz) {
+      if (khz < 1) return (khz * 1000).toFixed(0) + ' Hz';
+      return khz.toFixed(2).replace(/\.?0+$/, '') + ' kHz';
+    }
+    function graphTimeEndMs() { return 3 / seriesFreqKhz(); }
+    function isDcAuto() { return dcAutoInput.checked; }
+
+    function seriesVoltage(tMs) { return seriesVp() * Math.sin(2 * Math.PI * seriesFreqKhz() * tMs); }
+    function seriesCurrentMa(tMs) { return (seriesVoltage(tMs) / seriesR()) * 1000; }
+    function seriesPowerMw(tMs) { return seriesVoltage(tMs) * seriesCurrentMa(tMs); }
+    function seriesAveragePowerMw() {
+      const vrms = seriesVp() / Math.sqrt(2);
+      return (vrms * vrms / seriesR()) * 1000;
+    }
+    function equivalentDcVoltage() {
+      return isDcAuto() ? seriesVp() / Math.sqrt(2) : (parseFloat(dcVoltageInput.value) || 0);
+    }
+    function equivalentDcCurrentMa() { return (equivalentDcVoltage() / seriesR()) * 1000; }
+    function dcPowerMw() { return equivalentDcVoltage() * equivalentDcCurrentMa(); }
+    function dcEnergyUj(tMs) { return dcPowerMw() * tMs; }
+
+    function seriesEnergyUj(tMs) {
+      const vp = seriesVp();
+      const r = seriesR();
+      const f = seriesFreqKhz();
+      const averagePowerMw = (vp * vp) / (2 * r) * 1000;
+      const oscillatingPartUj = (vp * vp) / (4 * r * Math.PI * f) * (1 - Math.cos(4 * Math.PI * f * tMs));
+      return averagePowerMw * tMs + oscillatingPartUj;
+    }
+
+    function niceCeil(value, minimum) {
+      const safeValue = Math.max(value, minimum);
+      const exponent = Math.floor(Math.log10(safeValue));
+      const base = Math.pow(10, exponent);
+      const normalized = safeValue / base;
+      let nice = 1;
+      if (normalized > 5) nice = 10;
+      else if (normalized > 2) nice = 5;
+      else if (normalized > 1) nice = 2;
+      return nice * base;
+    }
+
+    function getScaleValues() {
+      const vp = seriesVp();
+      const tEnd = graphTimeEndMs();
+      const currentPeakMa = (vp / seriesR()) * 1000;
+      const powerPeakMw = (vp * currentPeakMa);
+      const energyEndUj = seriesEnergyUj(tEnd);
+      const dcCurrentMa = equivalentDcCurrentMa();
+      const dcPowerEndMw = dcPowerMw();
+      const dcEnergyEndUj = dcEnergyUj(tEnd);
+      return {
+        voltageLimit: niceCeil(Math.max(vp, equivalentDcVoltage()) * 1.25, 2),
+        currentLimit: niceCeil(Math.max(currentPeakMa, dcCurrentMa) * 1.25, 2),
+        powerLimit: niceCeil(Math.max(powerPeakMw, dcPowerEndMw) * 1.18, 5),
+        energyLimit: niceCeil(Math.max(energyEndUj, dcEnergyEndUj) * 1.18, 10),
+        dcVoltageLimit: niceCeil(equivalentDcVoltage() * 1.8, 2),
+        dcCurrentLimit: niceCeil(dcCurrentMa * 1.8, 2),
+        dcPowerLimit: niceCeil(dcPowerEndMw * 1.8, 5),
+        dcWorkLimit: niceCeil(dcEnergyEndUj * 1.18, 10),
+        timeEnd: tEnd
+      };
+    }
+
+    function updateGraphScales() {
+      const scales = getScaleValues();
+      const xPad = scales.timeEnd * 0.14;
+      seriesCurrentBoard.setBoundingBox([-xPad, scales.currentLimit * 1.08, scales.timeEnd + xPad, -scales.currentLimit * 1.16], false);
+      seriesVoltageBoard.setBoundingBox([-xPad, scales.voltageLimit * 1.08, scales.timeEnd + xPad, -scales.voltageLimit * 1.16], false);
+      seriesPowerBoard.setBoundingBox([-xPad, scales.powerLimit * 1.08, scales.timeEnd + xPad, -0.18 * scales.powerLimit], false);
+      seriesEnergyBoard.setBoundingBox([-xPad, scales.energyLimit * 1.08, scales.timeEnd + xPad, -0.14 * scales.energyLimit], false);
+      comparisonEnergyBoard.setBoundingBox([-xPad, scales.energyLimit * 1.08, scales.timeEnd + xPad, -0.14 * scales.energyLimit], false);
+      dcViBoard.setBoundingBox([-0.18 * scales.dcVoltageLimit, scales.dcCurrentLimit * 1.08, scales.dcVoltageLimit * 1.08, -0.16 * scales.dcCurrentLimit], false);
+      dcPowerTimeBoard.setBoundingBox([-xPad, scales.dcPowerLimit * 1.08, scales.timeEnd + xPad, -0.18 * scales.dcPowerLimit], false);
+      dcWorkTimeBoard.setBoundingBox([-xPad, scales.dcWorkLimit * 1.08, scales.timeEnd + xPad, -0.14 * scales.dcWorkLimit], false);
+    }
+
+    const seriesCurrentBoard = JXG.JSXGraph.initBoard('seriesCurrentBoard', { boundingbox: [-0.5, 130, 10.5, -130], axis: true, showNavigation: false, showCopyright: false });
+    const seriesVoltageBoard = JXG.JSXGraph.initBoard('seriesVoltageBoard', { boundingbox: [-0.5, 13, 10.5, -13], axis: true, showNavigation: false, showCopyright: false });
+    const seriesPowerBoard = JXG.JSXGraph.initBoard('seriesPowerBoard', { boundingbox: [-0.5, 1600, 10.5, -80], axis: true, showNavigation: false, showCopyright: false });
+    const seriesEnergyBoard = JXG.JSXGraph.initBoard('seriesEnergyBoard', { boundingbox: [-0.5, 7600, 10.5, -300], axis: true, showNavigation: false, showCopyright: false });
+    const comparisonEnergyBoard = JXG.JSXGraph.initBoard('comparisonEnergyBoard', { boundingbox: [-0.5, 7600, 10.5, -300], axis: true, showNavigation: false, showCopyright: false });
+    const dcViBoard = JXG.JSXGraph.initBoard('dcViBoard', { boundingbox: [-0.8, 90, 10, -8], axis: true, showNavigation: false, showCopyright: false });
+    const dcPowerTimeBoard = JXG.JSXGraph.initBoard('dcPowerTimeBoard', { boundingbox: [-0.5, 900, 10.5, -60], axis: true, showNavigation: false, showCopyright: false });
+    const dcWorkTimeBoard = JXG.JSXGraph.initBoard('dcWorkTimeBoard', { boundingbox: [-0.5, 7600, 10.5, -300], axis: true, showNavigation: false, showCopyright: false });
+
+    seriesCurrentBoard.create('functiongraph', [seriesCurrentMa, 0, graphTimeEndMs], { strokeColor: '#28a745', strokeWidth: 3 });
+    seriesVoltageBoard.create('functiongraph', [seriesVoltage, 0, graphTimeEndMs], { strokeColor: '#005696', strokeWidth: 3 });
+    seriesPowerBoard.create('functiongraph', [seriesPowerMw, 0, graphTimeEndMs], { strokeColor: '#d9534f', strokeWidth: 3 });
+    seriesEnergyBoard.create('functiongraph', [seriesEnergyUj, 0, graphTimeEndMs], { strokeColor: '#8e44ad', strokeWidth: 3 });
+    comparisonEnergyBoard.create('functiongraph', [seriesEnergyUj, 0, graphTimeEndMs], { strokeColor: '#8e44ad', strokeWidth: 3 });
+    comparisonEnergyBoard.create('functiongraph', [dcEnergyUj, 0, graphTimeEndMs], { strokeColor: '#d9534f', strokeWidth: 2, dash: 2 });
+    
+    const dcP0 = dcViBoard.create('point', [0, 0], { visible: false });
+    const dcP1 = dcViBoard.create('point', [equivalentDcVoltage, 0], { visible: false });
+    const dcP2 = dcViBoard.create('point', [equivalentDcVoltage, equivalentDcCurrentMa], { visible: false });
+    const dcP3 = dcViBoard.create('point', [0, equivalentDcCurrentMa], { visible: false });
+    dcViBoard.create('polygon', [dcP0, dcP1, dcP2, dcP3], { 
+      fillColor: '#8e44ad', 
+      fillOpacity: 0.4, 
+      gradient: 'linear', 
+      gradientSecondColor: '#ffffff', 
+      gradientSecondOpacity: 0.0, 
+      gradientAngle: Math.PI / 4, 
+      borders: { strokeColor: '#8e44ad', strokeWidth: 2, dash: 2 }, 
+      highlight: false 
+    });
+    dcViBoard.create('text', [
+      function() { return equivalentDcVoltage() / 2; },
+      function() { return equivalentDcCurrentMa() / 2; },
+      function() { return 'P_{DC} = ' + dcPowerMw().toFixed(1) + ' mW'; }
+    ], { anchorX: 'middle', anchorY: 'middle', fontSize: 14, color: '#5e2a73', fontWeight: 'bold' });
+    dcViBoard.create('point', [equivalentDcVoltage, equivalentDcCurrentMa], { name: 'DC', size: 5, color: '#8e44ad', label: {offset: [10, 10]} });
+    dcPowerTimeBoard.create('functiongraph', [dcPowerMw, 0, graphTimeEndMs], { strokeColor: '#d9534f', strokeWidth: 3 });
+    dcWorkTimeBoard.create('functiongraph', [dcEnergyUj, 0, graphTimeEndMs], { strokeColor: '#8e44ad', strokeWidth: 3 });
+
+    function updateDisplay() {
+      const vp = seriesVp();
+      const r = seriesR();
+      const fKhz = seriesFreqKhz();
+      const vrms = vp / Math.sqrt(2);
+      const irmsMa = (vrms / r) * 1000;
+      const powerMw = seriesAveragePowerMw();
+      const timeEndMs = graphTimeEndMs();
+      const energyUj = seriesEnergyUj(timeEndMs);
+      
+      dcVoltageInput.disabled = isDcAuto();
+      if (isDcAuto()) dcVoltageInput.value = vrms.toFixed(1);
+      const vdc = equivalentDcVoltage();
+      const idcMa = (vdc / r) * 1000;
+      const dcp = vdc * idcMa;
+      const dce = dcp * timeEndMs;
+
+      ctrlSeriesVp.textContent = vp.toFixed(1) + ' V';
+      ctrlSeriesR.textContent = r.toFixed(0) + ' Ω';
+      ctrlSeriesFreq.textContent = formatFrequency(fKhz);
+      ctrlDcVoltage.textContent = vdc.toFixed(1) + ' V';
+      
+      dispSeriesFreq.textContent = formatFrequency(fKhz);
+      dispSeriesR.textContent = r.toFixed(0) + ' Ω';
+      dispSeriesVrms.textContent = vrms.toFixed(2) + ' V';
+      dispSeriesVdc.textContent = vdc.toFixed(2) + ' V';
+      dispSeriesPower.textContent = powerMw.toFixed(1) + ' mW';
+      dispSeriesDcR.textContent = r.toFixed(0) + ' Ω';
+      dispSeriesDcPower.textContent = dcp.toFixed(1) + ' mW';
+      
+      const diff = vdc - vrms;
+      dcMatchStatus.textContent = Math.abs(diff) <= 0.5 ? 'שקול' : (diff < 0 ? 'נמוך' : 'גבוה');
+      dcMatchStatus.style.color = Math.abs(diff) <= 0.5 ? '#28a745' : '#d9534f';
+
+      acHeatFill.style.width = Math.min(100, (powerMw / Math.max(powerMw, dcp, 1)) * 100) + '%';
+      dcHeatFill.style.width = Math.min(100, (dcp / Math.max(powerMw, dcp, 1)) * 100) + '%';
+      acHeatValue.textContent = powerMw.toFixed(1) + ' mW';
+      dcHeatValue.textContent = dcp.toFixed(1) + ' mW';
+
+      compAcVoltage.textContent = vrms.toFixed(2) + ' V';
+      compDcVoltage.textContent = vdc.toFixed(2) + ' V';
+      compAcCurrent.textContent = irmsMa.toFixed(2) + ' mA';
+      compDcCurrent.textContent = idcMa.toFixed(2) + ' mA';
+      compAcPower.textContent = powerMw.toFixed(1) + ' mW';
+      compDcPower.textContent = dcp.toFixed(1) + ' mW';
+      compAcEnergy.textContent = energyUj.toFixed(1) + ' uJ';
+      compDcEnergy.textContent = dce.toFixed(1) + ' uJ';
+
+      updateGraphScales();
+      [seriesCurrentBoard, seriesVoltageBoard, seriesPowerBoard, seriesEnergyBoard, comparisonEnergyBoard, dcViBoard, dcPowerTimeBoard, dcWorkTimeBoard].forEach(b => b.update());
+      
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+    }
+
+    [seriesVpInput, seriesRInput, seriesFreqInput, dcAutoInput, dcVoltageInput].forEach(el => el.addEventListener('input', updateDisplay));
+    mainsDemoButton.addEventListener('click', () => {
+        seriesVpInput.value = (230 * Math.sqrt(2)).toFixed(1);
+        seriesFreqInput.value = '0.05';
+        dcAutoInput.checked = false;
+        dcVoltageInput.disabled = false;
+        dcVoltageInput.value = '0';
+        updateDisplay();
+    });
+    updateDisplay();
+    })();
+</jsxgraph></div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

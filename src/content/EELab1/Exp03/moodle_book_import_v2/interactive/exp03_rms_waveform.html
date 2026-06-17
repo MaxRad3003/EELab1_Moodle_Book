@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>exp03 rms waveform</title>
+</head>
+<body>
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
+        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <!-- להטמעה ישירה בעורך של Moodle באמצעות פלאגין JSXGraph -->
+<div id="exp03-rms-waveform" class="interactive-panel" style="box-sizing: border-box; font-family: Arial, sans-serif; background: #fff; direction: rtl; text-align: right; padding: 10px;">
+
+        <div class="controls" style="box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 12px; align-items: end;">
+            <div class="control-box" style="box-sizing: border-box; background: #fff; border: 1px solid #cbd5df; border-radius: 8px; padding: 12px;">
+                <label for="rmsVp" style="box-sizing: border-box; display: block; font-weight: 700; color: #263f50; margin-bottom: 8px; font-size: 0.95rem;">מתח שיא \(V_p\)</label>
+                <span class="control-value" id="ctrlRmsVp" style="box-sizing: border-box; direction: ltr; display: inline-block; background: #eef7fb; border: 1px solid #b8daff; border-radius: 6px; color: #083e63; font-weight: 700; font-size: .95rem; padding: 4px 8px; margin: 2px 0 8px; min-width: 86px; text-align: center;">5.00 V</span>
+                <input type="range" id="rmsVp" min="1" max="12" step="0.1" value="5" style="width: 100%; box-sizing: border-box;">
+            </div>
+            <div class="control-box" style="box-sizing: border-box; background: #fff; border: 1px solid #cbd5df; border-radius: 8px; padding: 12px;">
+                <label for="rmsWave" style="box-sizing: border-box; display: block; font-weight: 700; color: #263f50; margin-bottom: 8px; font-size: 0.95rem;">צורת גל</label>
+                <select id="rmsWave" style="width: 100%; box-sizing: border-box;">
+                    <option value="sine" style="box-sizing: border-box;">סינוס</option>
+                    <option value="square" style="box-sizing: border-box;">ריבועי</option>
+                    <option value="triangle" style="box-sizing: border-box;">משולש</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="graph-wrap" style="box-sizing: border-box; direction: ltr; border: 1px solid #c9d5df; border-radius: 8px; background: #fff; overflow: hidden; padding: 0;">
+            <div id="rmsBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 360px; position: relative; overflow: hidden; margin: 0; border: 0; background: #ffffff;"></div>
+        </div>
+
+        <div class="metric-row" style="box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 12px;">
+            <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #cbd5df; border-radius: 8px; padding: 12px; text-align: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(V_p\)</strong><span id="dispVp" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">5.00 V</span></div>
+            <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #cbd5df; border-radius: 8px; padding: 12px; text-align: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(V_{pp}\)</strong><span id="dispVpp" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">10.00 V</span></div>
+            <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #cbd5df; border-radius: 8px; padding: 12px; text-align: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">\(V_{RMS}\)</strong><span id="dispVrms" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">3.54 V</span></div>
+            <div class="metric" style="box-sizing: border-box; background: #fff; border: 1px solid #cbd5df; border-radius: 8px; padding: 12px; text-align: center;"><strong style="box-sizing: border-box; display: block; color: #5f6f7b; font-size: .9rem; margin-bottom: 5px;">יחס \(V_{RMS}/V_p\)</strong><span id="dispRatio" style="box-sizing: border-box; font-weight: 700; color: #005696; font-size: 1.15rem; direction: ltr; display: inline-block;">0.707</span></div>
+        </div>
+    </div>
+
+<!-- תגית מוסתרת להרצת קוד ה-JS באמצעות הפלאגין של מודל -->
+<div style="box-sizing: border-box; display: none;"><jsxgraph width="1" height="1" style="box-sizing: border-box;">
+    (function () {
+    const rmsVpInput = document.getElementById('rmsVp');
+    const rmsWaveSelect = document.getElementById('rmsWave');
+    const dispVp = document.getElementById('dispVp');
+    const dispVpp = document.getElementById('dispVpp');
+    const dispVrms = document.getElementById('dispVrms');
+    const dispRatio = document.getElementById('dispRatio');
+    const ctrlRmsVp = document.getElementById('ctrlRmsVp');
+
+    function getRmsRatio() {
+      const wave = rmsWaveSelect.value;
+      if (wave === 'square') return 1;
+      if (wave === 'triangle') return 1 / Math.sqrt(3);
+      return 1 / Math.sqrt(2);
+    }
+
+    function normalizedWave(x) {
+      const wave = rmsWaveSelect.value;
+      if (wave === 'square') return Math.sin(x) >= 0 ? 1 : -1;
+      if (wave === 'triangle') return (2 / Math.PI) * Math.asin(Math.sin(x));
+      return Math.sin(x);
+    }
+
+    function peakVoltage() {
+      return parseFloat(rmsVpInput.value) || 5;
+    }
+
+    function voltageAt(x) {
+      return peakVoltage() * normalizedWave(x);
+    }
+
+    function rmsVoltage() {
+      return peakVoltage() * getRmsRatio();
+    }
+
+    const rmsBoard = JXG.JSXGraph.initBoard('rmsBoard', {
+      boundingbox: [-0.35, 13, 6.65, -13],
+      axis: true,
+      showNavigation: false,
+      showCopyright: false
+    });
+
+    rmsBoard.create('text', [5.7, -1.1, 't'], {fontSize: 15, fixed: true});
+    rmsBoard.create('text', [0.15, 12.1, 'v(t) [V]'], {fontSize: 15, fixed: true});
+    rmsBoard.create('functiongraph', [voltageAt, 0, 2 * Math.PI], {
+      strokeColor: '#005696',
+      strokeWidth: 3,
+      name: 'v(t)'
+    });
+    rmsBoard.create('functiongraph', [rmsVoltage, 0, 2 * Math.PI], {
+      strokeColor: '#28a745',
+      strokeWidth: 2,
+      dash: 2
+    });
+    rmsBoard.create('functiongraph', [function(){ return -rmsVoltage(); }, 0, 2 * Math.PI], {
+      strokeColor: '#28a745',
+      strokeWidth: 2,
+      dash: 2
+    });
+    rmsBoard.create('functiongraph', [function(){ return peakVoltage(); }, 0, 2 * Math.PI], {
+      strokeColor: '#d9534f',
+      strokeWidth: 1.5,
+      dash: 3
+    });
+    rmsBoard.create('functiongraph', [function(){ return -peakVoltage(); }, 0, 2 * Math.PI], {
+      strokeColor: '#d9534f',
+      strokeWidth: 1.5,
+      dash: 3
+    });
+    rmsBoard.create('text', [4.8, function(){ return rmsVoltage() + 0.45; }, '+VRMS'], {
+      fontSize: 14,
+      color: '#28a745',
+      fixed: true
+    });
+    rmsBoard.create('text', [4.8, function(){ return peakVoltage() + 0.45; }, '+Vp'], {
+      fontSize: 14,
+      color: '#d9534f',
+      fixed: true
+    });
+
+    function updateRmsDisplay() {
+      const vp = peakVoltage();
+      const vrms = rmsVoltage();
+      ctrlRmsVp.textContent = vp.toFixed(2) + ' V';
+      dispVp.textContent = vp.toFixed(2) + ' V';
+      dispVpp.textContent = (2 * vp).toFixed(2) + ' V';
+      dispVrms.textContent = vrms.toFixed(2) + ' V';
+      dispRatio.textContent = getRmsRatio().toFixed(3);
+      rmsBoard.update();
+      
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+    }
+
+    rmsVpInput.addEventListener('input', updateRmsDisplay);
+    rmsWaveSelect.addEventListener('change', updateRmsDisplay);
+    updateRmsDisplay();
+    }());
+</jsxgraph></div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

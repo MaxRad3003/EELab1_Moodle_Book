@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>01 PreLab 05 WorkPlan sub</title>
+</head>
+<body>
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
+        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl" style="box-sizing: border-box;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הכנה לניסוי 3 - המעגל ותוכנית עבודה</title>
+
+</head>
+<body id="exp03-01-prelab-05-workplan-sub" style="box-sizing: border-box; font-family: Arial,'Noto Sans Hebrew',sans-serif; line-height: 1.65; margin: 20px; color: #202124; background: #ffffff; direction: rtl; text-align: right;">
+<div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
+<div style="box-sizing: border-box; font-size: 0.9rem; color: #52616b; margin-bottom: 14px;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
+<!-- CHAPTER: HEADER -->
+<div class="mb-5" style="box-sizing: border-box; margin-bottom: 2rem;">
+    <h4 class="section-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 0; display: inline-block; color: #005696; font-size: 1.7rem; line-height: 1.35; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px;">הכנה לניסוי 3 - חלק ג': המעגל ותוכנית עבודה</h4>
+    <p class="mt-4" style="box-sizing: border-box; margin-bottom: 0.9rem; margin: 0 0 12px; font-size: 1.125rem; color: #52616b; margin-top: 1rem;">ניתוח מעגל RC טורי, חישוב הפרשי מופע, והכנת סימולציית Tinkercad.</p>
+</div>
+
+<!-- SECTION: RC CIRCUIT ANALYSIS -->
+<div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);" id="section-rc-theory">
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">📖 1. ניתוח תיאורטי של מעגל RC טורי</h4>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">בניסוי נבנה מעגל RC טורי המורכב מנגד \(R = 1 \text{ k}\Omega\) וקבל \(C = 100 \text{ nF}\) תחת הזנת סינוס:</p>
+    
+    <div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0; border-right: 4px solid #00a4e4;">
+        <strong style="box-sizing: border-box; color: #00a4e4; display: block; margin-bottom: 0.5rem;">נוסחאות מפתח:</strong>
+        <ul style="box-sizing: border-box; margin: 0; padding-right: 1.5rem; font-size: 0.95rem;">
+            <li class="mb-2" style="box-sizing: border-box; margin-bottom: 0.5rem;"><strong style="box-sizing: border-box;">היגב הקבל:</strong> \(X_C = \frac{1}{2\pi f C}\)</li>
+            <li class="mb-2" style="box-sizing: border-box; margin-bottom: 0.5rem;"><strong style="box-sizing: border-box;">עכבה כוללת:</strong> \(|Z| = \sqrt{R^2 + X_C^2}\)</li>
+            <li style="box-sizing: border-box;"><strong style="box-sizing: border-box;">זווית מופע הזרם (\(\theta_I\)):</strong> \(\arctan\left(\frac{X_C}{R}\right)\) (הזרם מקדים את המתח)</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SECTION: FREQUENCY CALCULATIONS -->
+<div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);" id="section-calculations">
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">📐 2. חישוב הפרשי מופע בתדרי הניסוי</h4>
+    <table class="data-table" style="box-sizing: border-box; border-spacing: 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e2e8f0; width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem;" width="100%">
+        <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" ead align="right" bgcolor="#f1f5f9">
+            </th><tr style="box-sizing: border-box;">
+                <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right" bgcolor="#f1f5f9">תדר האות (\(f\))</th>
+                <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right" bgcolor="#f1f5f9">היגב הקבל (\(X_C\))</th>
+                <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right" bgcolor="#f1f5f9">עכבה (\(|Z|\))</th>
+                <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right" bgcolor="#f1f5f9">מופע זרם (\(\theta_I\))</th>
+                <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right" bgcolor="#f1f5f9">מופע מתח קבל (\(\theta_{V_C}\))</th>
+            </tr>
+        
+        <tbody style="box-sizing: border-box;">
+            <tr style="box-sizing: border-box;"><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white"><strong style="box-sizing: border-box;">200 Hz</strong></td><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(\approx 7.96 \text{ k}\Omega\)</td><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(\approx 8.02 \text{ k}\Omega\)</td><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(+82.8^\circ\)</td><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(-7.2^\circ\)</td></tr>
+            <tr style="box-sizing: border-box;"><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white"><strong style="box-sizing: border-box;">1,000 Hz</strong></td><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(\approx 1.59 \text{ k}\Omega\)</td><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(\approx 1.88 \text{ k}\Omega\)</td><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(+57.9^\circ\)</td><td style="box-sizing: border-box; border-bottom: 1px solid #e2e8f0; background-color: white; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(-32.1^\circ\)</td></tr>
+            <tr style="box-sizing: border-box;"><td style="box-sizing: border-box; background-color: white; border-bottom: none; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white"><strong style="box-sizing: border-box;">3,000 Hz</strong></td><td style="box-sizing: border-box; background-color: white; border-bottom: none; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(\approx 530.5 \ \Omega\)</td><td style="box-sizing: border-box; background-color: white; border-bottom: none; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(\approx 1.13 \text{ k}\Omega\)</td><td style="box-sizing: border-box; background-color: white; border-bottom: none; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(+27.9^\circ\)</td><td style="box-sizing: border-box; background-color: white; border-bottom: none; word-break: normal; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top" bgcolor="white">\(-62.1^\circ\)</td></tr>
+        </tbody>
+    </table>
+    <div class="alert-box mt-4" style="box-sizing: border-box; background-color: #fffbeb; font-size: 15px; color: #92400e; background: #fff8e5; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 16px; margin: 18px 0; margin-top: 1rem;">
+        <strong style="box-sizing: border-box;">💡 תובנה:</strong> ככל שהתדר עולה, היגב הקבל קטן. כתוצאה מכך, מתח הקבל <strong style="box-sizing: border-box;">מפגר יותר</strong> אחרי מתח המקור, והזרם מתקרב להיות במופע אחד עם המתח.
+    </div>
+</div>
+
+<!-- SECTION: TINKERCAD MANDATORY TASK -->
+<div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-top: 4px solid #d9534f;" id="section-tinkercad-rc">
+    <div style="box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+        <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px; margin: 0; color: #d9534f;">🛠️ 3. חובה: מימוש ב-Tinkercad Circuits</h4>
+        <span style="box-sizing: border-box; background: #fef2f2; color: #d9534f; padding: 4px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; border: 1px solid #fee2e2;">משימת חובה</span>
+    </div>
+
+    <div class="step-box" style="box-sizing: border-box; background-color: white; margin-bottom: 1rem; transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; gap: 14px; align-items: flex-start; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 14px 0;">
+        <div class="step-number" style="box-sizing: border-box; background-color: #3b82f6; font-size: 1.25rem; width: 2.5rem; margin-left: 1.25rem; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); min-width: 38px; height: 38px; border-radius: 50%; background: #005696; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
+        <div class="step-content" style="box-sizing: border-box; flex: 1; min-width: 0;">
+            <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 0.25rem 0; color: #0f172a; font-size: 1.125rem;">חיבור המכשירים</h4>
+            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">חברו מחולל אותות (Function Generator) בטור לנגד וקבל. השתמשו באוסצילוסקופ (CH1 למקור, CH2 לקבל).</p>
+        </div>
+    </div>
+    
+    <div class="step-box" style="box-sizing: border-box; background-color: white; margin-bottom: 1rem; transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; gap: 14px; align-items: flex-start; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 14px 0;">
+        <div class="step-number" style="box-sizing: border-box; background-color: #3b82f6; font-size: 1.25rem; width: 2.5rem; margin-left: 1.25rem; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); min-width: 38px; height: 38px; border-radius: 50%; background: #005696; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
+        <div class="step-content" style="box-sizing: border-box; flex: 1; min-width: 0;">
+            <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 0.25rem 0; color: #0f172a; font-size: 1.125rem;">מדידת זמנים</h4>
+            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">בצעו סימולציה בתדרים שחישבתם. השתמשו בסמנים באוסצילוסקופ למדידת הפרש הזמן (\(\Delta t\)) בין שיאי הגלים.</p>
+        </div>
+    </div>
+
+    <div class="text-center mt-4" style="box-sizing: border-box; text-align: center; margin-top: 1rem;">
+        <a href="https://www.tinkercad.com/joinclass/49BG9NTLU" target="_blank" class="btn btn-danger" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-flex; align-items: center; justify-content: center; font-weight: 600; transition: all 0.2s ease; gap: 0.5rem; border: none; cursor: pointer; background-color: #ef4444; text-decoration: underline; padding: 1rem 2.5rem; border-radius: 999px; color: white;">
+            🚀 כניסה לביצוע המשימה ב-Tinkercad
+        </a>
+    </div>
+</div>
+
+<!-- SECTION: MATLAB ANALYSIS -->
+<div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white;" id="section-matlab-rc">
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px; color: #00a4e4;">📊 MATLAB Grader: RC Analysis</h4>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px; color: #94a3b8;">השלימו את המטלה המקוונת לאימות החישובים שלכם:</p>
+    
+    <div dir="ltr" style="box-sizing: border-box; background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 0.9rem; border-left: 4px solid #28a745;">
+        <span style="box-sizing: border-box; color: #64748b;">% Task Checklist:</span><br style="box-sizing: border-box;">
+        1. Input R = 1e3, C = 100e-9.<br style="box-sizing: border-box;">
+        2. Calculate XC and Z for test frequencies.<br style="box-sizing: border-box;">
+        3. Determine phase angle in degrees.
+    </div>
+</div>
+
+<div data-units-emphasis="exp3" style="box-sizing: border-box; background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 14px; margin: 18px 0;">
+<strong style="box-sizing: border-box; color: #005696;">דגש יחידות בניסוי 3:</strong>
+<span style="box-sizing: border-box;"> באוסצילוסקופ רשמו תמיד האם המתח הוא \(V_p\), \(V_{pp}\) או \(V_{RMS}\). זמן מחזור יש להמיר לשניות לפני חישוב \(f=1/T\). מופע נרשם במעלות, ותדר ב-Hz או kHz באופן עקבי.</span>
+</div>
+<div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="01_PreLab_04_DMM_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="01_PreLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="01_PreLab_06_Simulation_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

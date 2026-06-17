@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Exp02 JSXGraph before power area 20260609 010703</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #202124; line-height: 1.6; font-family: Arial, sans-serif;">
+        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הכנה לניסוי 2 - המחשות אינטראקטיביות JSXGraph</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
+<div class="moodle-snippet-custom" style="unicode-bidi: isolate; text-align: right; font-size: 16px; direction: rtl; color: #333; line-height: 1.6; font-family: Arial, sans-serif; max-width: 980px; margin: 0 auto;" dir="rtl">
+    <div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 &gt; הכנה &gt; המחשות JSXGraph</div>
+
+    <h3 class="section-title" style="margin: 0 0 18px 0; color: #0f172a; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.875rem; border-bottom: 3px solid #3b82f6; padding-bottom: 0.5rem; margin-top: 0; display: inline-block;">הכנה לניסוי 2 - המחשות אינטראקטיביות ב-JSXGraph</h3>
+    <p>עמוד זה מחבר בין החישוב האנליטי, הגרף והיחידות. הזיזו את המחוונים ובדקו כיצד שינוי מקור מתח, התנגדות פנימית או עומס משנה את נקודת העבודה ואת ההספק.</p>
+
+    <div class="warn" style="background: #fff9e6; border: 1px solid #f3d48b; border-right: 5px solid #ff9900; border-radius: 8px; padding: 14px; margin: 16px 0;">
+        <strong style="color:#8a5a00;">בדיקת Moodle:</strong>
+        אם הגרפים אינם מופיעים לאחר העלאה ל-Moodle Book, ייתכן שהמערכת מסננת תגיות <span dir="ltr">script</span> או חוסמת CDN. במקרה כזה נשאיר את העמוד כקישור HTML חיצוני או נטען את קבצי JSXGraph מקומית.
+    </div>
+
+    <div class="info" style="background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 14px; margin: 16px 0;">
+        <strong style="color:#005696;">דגש יחידות:</strong>
+        בגרפים כאן ציר המתח הוא V, ציר הזרם הוא mA, ציר ההספק הוא mW או W לפי הכותרת. לפני הצבה בנוסחאות ממירים תמיד ליחידות בסיס: A, V, \(\Omega\). לדוגמה: \(P=VI\) דורש זרם ב-A ולא ב-mA.
+    </div>
+
+    <div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+        <h4 class="sub-title" style="margin: 0 0 12px 0; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; color: #334155; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem;">1. קו עומס ונקודת עבודה באופיין I-V</h4>
+        <p>הקו הכחול מייצג את קו העומס של מקור תבנין: \(I=(V_{TH}-V)/R_{TH}\). הקו הירוק מייצג רכיב אוהמי. נקודת החיתוך היא נקודת העבודה.</p>
+        <div id="jxg-iv" class="jxgbox" aria-label="גרף אינטראקטיבי של קו עומס ונקודת עבודה" style="width: 100%; height: 360px; border: 1px solid #cbd5df; border-radius: 8px; background: #ffffff; margin: 12px 0;"></div>
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 12px 0;">
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label for="vthRange" style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;">\(V_{TH}\) [V]: <span id="vthVal">8.0</span></label><input id="vthRange" type="range" min="2" max="12" step="0.1" value="8" style="width: 100%;"></div>
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label for="rthRange" style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;">\(R_{TH}\) [\(\Omega\)]: <span id="rthVal">1000</span></label><input id="rthRange" type="range" min="200" max="3000" step="50" value="1000" style="width: 100%;"></div>
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label for="rlinRange" style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;">\(R_{load}\) [\(\Omega\)]: <span id="rlinVal">1500</span></label><input id="rlinRange" type="range" min="200" max="5000" step="50" value="1500" style="width: 100%;"></div>
+        </div>
+        <div id="ivReadout" class="readout" style="direction: ltr; text-align: left; background: #202124; color: #e8eaed; border-radius: 8px; padding: 12px; font-family: Consolas, monospace; overflow: auto;">ממתין לטעינת JSXGraph...</div>
+        <p class="small" style="color: #52616b; font-size: 0.92rem;">בדיקה מהירה: אם \(V=4V\) ו-\(I=2mA\), אז \(R=V/I=4/0.002=2000\Omega\). אי אפשר להציב 2 במקום 0.002 אם היחידה היא mA.</p>
+    </div>
+
+    <div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+        <h4 class="sub-title" style="margin: 0 0 12px 0; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; color: #334155; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem;">2. העברת הספק מקסימלי לעומס</h4>
+        <p>הגרף מציג \(P_L=\frac{V_{TH}^2 R_L}{(R_{TH}+R_L)^2}\). שימו לב שהמקסימום מתקבל סביב \(R_L=R_{TH}\).</p>
+        <div id="jxg-power" class="jxgbox" aria-label="גרף אינטראקטיבי של הספק העומס כפונקציה של התנגדות העומס" style="width: 100%; height: 360px; border: 1px solid #cbd5df; border-radius: 8px; background: #ffffff; margin: 12px 0;"></div>
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 12px 0;">
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label for="vthPowerRange" style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;">\(V_{TH}\) [V]: <span id="vthPowerVal">8.0</span></label><input id="vthPowerRange" type="range" min="2" max="12" step="0.1" value="8" style="width: 100%;"></div>
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label for="rthPowerRange" style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;">\(R_{TH}\) [\(\Omega\)]: <span id="rthPowerVal">1000</span></label><input id="rthPowerRange" type="range" min="200" max="3000" step="50" value="1000" style="width: 100%;"></div>
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label for="rlPowerRange" style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;">\(R_L\) [\(\Omega\)]: <span id="rlPowerVal">1000</span></label><input id="rlPowerRange" type="range" min="100" max="5000" step="50" value="1000" style="width: 100%;"></div>
+        </div>
+        <div id="powerReadout" class="readout" style="direction: ltr; text-align: left; background: #202124; color: #e8eaed; border-radius: 8px; padding: 12px; font-family: Consolas, monospace; overflow: auto;">ממתין לטעינת JSXGraph...</div>
+    </div>
+
+    <div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+        <h4 class="sub-title" style="margin: 0 0 12px 0; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; color: #334155; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem;">3. מה לכתוב בדוח</h4>
+        <table style="width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.94rem;" width="100%">
+            <thead><tr><th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 9px; text-align: right;" align="right">בדיקה</th><th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 9px; text-align: right;" align="right">מה רושמים</th><th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 9px; text-align: right;" align="right">יחידה נכונה</th></tr></thead>
+            <tbody>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">נקודת עבודה</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">מתח וזרם בנקודת החיתוך</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">V, mA או A</td></tr>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">שיפוע אופיין</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(R=\Delta V/\Delta I\)</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(\Omega\)</td></tr>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">הספק עומס</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(P_L=V_L I_L\)</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">W, או mW אחרי המרה</td></tr>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">תבנין</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(R_{TH}=V_{OC}/I_{SC}\)</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(\Omega\)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <noscript>
+        <div class="warn" style="background: #fff9e6; border: 1px solid #f3d48b; border-right: 5px solid #ff9900; border-radius: 8px; padding: 14px; margin: 16px 0;"><strong>JavaScript כבוי:</strong> הגרפים האינטראקטיביים דורשים JavaScript. ניתן עדיין להשתמש בנוסחאות ובטבלת היחידות בעמוד.</div>
+    </noscript>
+
+    <div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="01_PreLab_04_NonLinear_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a><a href="01_PreLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים הכנה</a><a href="01_PreLab_05_WorkPlan_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: תוכנית עבודה</a></div>
+</div>
+
+<script>
+(function () {
+    function byId(id) { return document.getElementById(id); }
+    function num(id) { return parseFloat(byId(id).value); }
+    function setText(id, value) { byId(id).textContent = value; }
+    function ma(a) { return a * 1000; }
+
+    if (!window.JXG || !JXG.JSXGraph) {
+        setText('ivReadout', 'JSXGraph לא נטען. בדקו האם Moodle חסם script/CDN.');
+        setText('powerReadout', 'JSXGraph לא נטען. בדקו האם Moodle חסם script/CDN.');
+        return;
+    }
+
+    var ivBoard = JXG.JSXGraph.initBoard('jxg-iv', { boundingbox: [-0.5, 35, 12.5, -5], axis: true, showCopyright: false, showNavigation: false });
+    ivBoard.create('text', [10.2, -2.5, 'V [V]'], { fixed: true, fontSize: 13 });
+    ivBoard.create('text', [-0.35, 31, 'I [mA]'], { fixed: true, fontSize: 13 });
+    ivBoard.create('functiongraph', [function (x) { return ma(Math.max(0, (num('vthRange') - x) / num('rthRange'))); }, 0, 12], { strokeColor: '#005696', strokeWidth: 3, name: 'קו עומס' });
+    ivBoard.create('functiongraph', [function (x) { return ma(x / num('rlinRange')); }, 0, 12], { strokeColor: '#28a745', strokeWidth: 3, name: 'רכיב אוהמי' });
+    ivBoard.create('point', [function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return vth * r / (rth + r); }, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return ma(vth / (rth + r)); }], { name: 'Q', size: 4, color: '#d9534f', fixed: true });
+
+    var powerBoard = JXG.JSXGraph.initBoard('jxg-power', { boundingbox: [0, 30, 5200, -2], axis: true, showCopyright: false, showNavigation: false });
+    powerBoard.create('text', [4300, -1.4, 'R_L [Ohm]'], { fixed: true, fontSize: 13 });
+    powerBoard.create('text', [80, 27, 'P_L [mW]'], { fixed: true, fontSize: 13 });
+    powerBoard.create('functiongraph', [function (x) { var v = num('vthPowerRange'), rth = num('rthPowerRange'); return 1000 * (v * v * x) / Math.pow(rth + x, 2); }, 1, 5000], { strokeColor: '#005696', strokeWidth: 3 });
+    powerBoard.create('point', [function () { return num('rlPowerRange'); }, function () { var v = num('vthPowerRange'), rth = num('rthPowerRange'), rl = num('rlPowerRange'); return 1000 * (v * v * rl) / Math.pow(rth + rl, 2); }], { name: 'P', size: 4, color: '#d9534f', fixed: true });
+    powerBoard.create('point', [function () { return num('rthPowerRange'); }, function () { var v = num('vthPowerRange'), rth = num('rthPowerRange'); return 1000 * (v * v * rth) / Math.pow(2 * rth, 2); }], { name: 'max', size: 4, color: '#28a745', fixed: true });
+
+    function updateIv() {
+        var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange');
+        var vq = vth * r / (rth + r), iq = vth / (rth + r), p = vq * iq;
+        setText('vthVal', vth.toFixed(1));
+        setText('rthVal', rth.toFixed(0));
+        setText('rlinVal', r.toFixed(0));
+        setText('ivReadout', 'V_Q = ' + vq.toFixed(3) + ' V | I_Q = ' + ma(iq).toFixed(3) + ' mA = ' + iq.toFixed(6) + ' A | P = ' + (1000 * p).toFixed(3) + ' mW');
+        ivBoard.update();
+    }
+
+    function updatePower() {
+        var v = num('vthPowerRange'), rth = num('rthPowerRange'), rl = num('rlPowerRange');
+        var i = v / (rth + rl), p = v * v * rl / Math.pow(rth + rl, 2), pmax = v * v / (4 * rth);
+        setText('vthPowerVal', v.toFixed(1));
+        setText('rthPowerVal', rth.toFixed(0));
+        setText('rlPowerVal', rl.toFixed(0));
+        setText('powerReadout', 'R_L = ' + rl.toFixed(0) + ' Ohm | I = ' + ma(i).toFixed(3) + ' mA | P_L = ' + (1000 * p).toFixed(3) + ' mW | P_max = ' + (1000 * pmax).toFixed(3) + ' mW כאשר R_L = R_TH');
+        powerBoard.update();
+    }
+
+    ['vthRange', 'rthRange', 'rlinRange'].forEach(function (id) { byId(id).addEventListener('input', updateIv); });
+    ['vthPowerRange', 'rthPowerRange', 'rlPowerRange'].forEach(function (id) { byId(id).addEventListener('input', updatePower); });
+    updateIv();
+    updatePower();
+}());
+</script>
+</body>
+</html>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
