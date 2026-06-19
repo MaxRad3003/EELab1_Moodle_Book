@@ -100,12 +100,15 @@ function build() {
         fs.writeFileSync(moodleDistPath, inlineHtml);
         console.log(`✅ Generated Inline CSS Snippet: ${moodleDistPath}`);
 
-        // 2. Generate Standalone Preview (Keep as is or use inlined?)
-        // Previews are better with a separate <style> for easier debugging, 
-        // but let's use the inlined one for 100% accuracy of what Moodle will show.
+        // 2. Generate Standalone Preview with MathJax support.
+        // Keep the Moodle output clean, but make local preview comfortable for editing LaTeX.
+        const previewHtml = previewTemplate
+            .replace('{{TITLE}}', title)
+            .replace('{{CONTENT}}', content);
+
         const previewDistPath = path.join(DIST_DIR, 'previews', folderName, fileName);
         ensureDir(path.dirname(previewDistPath));
-        fs.writeFileSync(previewDistPath, inlineHtml);
+        fs.writeFileSync(previewDistPath, previewHtml);
         console.log(`✅ Generated Standalone Preview: ${previewDistPath}`);
     });
 

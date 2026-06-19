@@ -3,6 +3,8 @@ dist/
 backups/
 tmp_h5p_inspect/
 tmp_h5p_inspect_content/
+h5p_src/Exp02_PreLab_H5P/
+h5p_src/Exp03_PreLab_H5P/
 
 # Local editor and OS noise
 .vscode/

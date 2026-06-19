@@ -37,3 +37,52 @@
 
 ## מצב נוכחי
 ניסוי 3 מוכן כגרסת Moodle Book אינטראקטיבית. בוטלו שינויי הסימון ההיררכי (H1/H2) והוחזרה גרסת ה-RMS המקורית (v1) לבקשת המשתמש.
+
+## עדכון אחרון - PreLab H5P, Question Bank והפצה ל-Moodle
+
+נשמר לאחר הכנת מערך הערכה מלא לפרקי ה-PreLab של ניסוי 3.
+
+### פעולות שבוצעו
+
+- נבנו 9 חבילות H5P, אחת לכל תת-פרק PreLab:
+  - Definitions
+  - Oscilloscope Guide
+  - RMS
+  - Conversions
+  - DMM
+  - Work Plan
+  - Simulation
+  - Mistakes
+  - Readiness
+- בכל חבילת H5P נבנו 5 שאלות רב-ברירה.
+- נבנה מאגר שאלות Moodle XML סופי ל-PreLab:
+  - `moodle_book_import_v2/Exp03_PreLab_Question_Bank.xml`
+  - סך הכל 45 שאלות.
+- נוספו בלוקים בכל עמוד PreLab שמציינים את קובץ ה-H5P המתאים להעלאה ל-Moodle.
+- נוסף סקריפט יצירה:
+  - `scripts/generate_exp03_prelab_assessments.js`
+- נוסף סקריפט הפצה:
+  - `scripts/package_exp03_moodle_release.ps1`
+- נוצר ZIP לייבוא Moodle Book:
+  - `Exp03_Moodle_Book_Import.zip`
+- נוצרה חבילת הפצה מלאה:
+  - `dist/release/Exp03_Moodle_Distribution`
+  - `dist/release/Exp03_Moodle_Distribution.zip`
+
+### הפעלה חוזרת
+
+לאחר עריכת שאלות, יש להריץ:
+
+```powershell
+node scripts\generate_exp03_prelab_assessments.js
+.\scripts\package_exp03_moodle_release.ps1
+```
+
+### קבצים להעלאה ל-Moodle
+
+- Moodle Book:
+  - `Exp03_Moodle_Book_Import.zip`
+- H5P:
+  - כל הקבצים בתיקיית `H5P_Quiz`
+- Moodle Question Bank:
+  - `Exp03_PreLab_Question_Bank.xml`
