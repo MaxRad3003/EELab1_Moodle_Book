@@ -1,0 +1,1254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="category">
+    <category><text>$course$/top/EELab1</text></category>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03</text></category>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab</text></category>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 01: מושגי AC בסיסיים</text></category>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 01_definitions Q1</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהו זמן מחזור \(T\) של אות מחזורי?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">הזמן הדרוש להשלמת מחזור אחד של האות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. לאחר זמן מחזור אחד צורת הגל חוזרת על עצמה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">המתח המרבי של האות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו מתח שיא, לא זמן מחזור.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מספר המחזורים בשנייה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו תדר.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הפרש המופע בין שני אותות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">הפרש מופע נמדד בזמן או במעלות.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 01_definitions Q2</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה הקשר בין תדר \(f\) לזמן מחזור \(T\)?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">\(f=1/T\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. כאשר T בשניות, f מתקבל בהרץ.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(f=T\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">תדר וזמן מחזור הם גדלים הופכיים.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(f=V_p/T\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">מתח השיא אינו חלק מהגדרת התדר.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(T=R/f\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">התנגדות אינה קשורה להגדרת התדר.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 01_definitions Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהו \(V_{pp}\) בגל AC?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">ההפרש בין הערך המרבי לערך המזערי של המתח.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. בגל סימטרי \(V_{pp}=2V_p\).</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הערך האפקטיבי של המתח.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו RMS.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הממוצע של המתח לאורך מחזור.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">בגל סימטרי הממוצע יכול להיות אפס.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הזרם דרך הנגד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו גודל אחר.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 01_definitions Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">בגל סינוס סימטרי סביב אפס, מהו הממוצע של \(v(t)\) לאורך מחזור שלם?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">אפס.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. החלק החיובי והחלק השלילי מתאזנים.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(V_p\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו מתח שיא.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(V_{RMS}\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">RMS אינו ממוצע פשוט של המתח.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(V_{pp}\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו שיא-לשיא.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 01_definitions Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מדוע חשוב להבדיל בין ערך רגעי לבין ערך אפקטיבי?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">כי הספק וחימום נקבעים לפי הערך האפקטיבי לאורך זמן.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. ערך רגעי משתנה ואינו מספיק לחישובי הספק ממוצע.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי ערך רגעי תמיד גדול מ-RMS.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא תמיד. הוא יכול להיות גם אפס או שלילי.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי RMS קיים רק ב-DC.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">RMS חשוב במיוחד במדידות AC.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי תדר נמדד בוולט.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">תדר נמדד בהרץ.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 02: אוסצילוסקופ</text></category>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 02_oscilloscope Q1</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">איזה ציר באוסצילוסקופ מייצג זמן?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">הציר האופקי.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. הציר האופקי הוא ציר הזמן.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הציר האנכי.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">הציר האנכי מייצג מתח.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כפתור העוצמה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה אינו ציר מדידה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כניסת האדמה בלבד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">האדמה היא נקודת ייחוס.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 02_oscilloscope Q2</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה מודד כיוון Volts/Div?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">כמה וולט מייצגת כל משבצת אנכית.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זה קובע את קנה המידה האנכי.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כמה שניות מייצגת כל משבצת.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו Time/Div.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">את תדר האות ישירות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">תדר מחושב מהמחזור או נמדד בכלי מדידה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">את התנגדות הגשש.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה אינו תפקיד הכיוון הזה.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 02_oscilloscope Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">כיצד מחשבים תדר מתוך מדידת מחזור באוסצילוסקופ?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">מודדים \(T\) ומחשבים \(f=1/T\).</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. יש להקפיד על יחידות.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מכפילים מתח בזמן.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה אינו תדר.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מחלקים \(V_{pp}\) ב-2.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה נותן \(V_p\) בגל סימטרי.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">קוראים רק את מספר המשבצות האנכיות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">צריך את הציר האופקי.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 02_oscilloscope Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה מטרת חיבור האדמה של הגשש?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">לקבוע נקודת ייחוס משותפת למדידה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. האוסצילוסקופ מודד מתח ביחס לאדמה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להגדיל את התדר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">האדמה אינה משנה את התדר.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">לבטל את כל המתח במעגל.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">חיבור שגוי עלול לגרום קצר, אך זו אינה המטרה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להפוך AC ל-DC.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה אינו תפקיד האדמה.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 02_oscilloscope Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה חשוב לבדוק לפני חיבור גשש למעגל?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">שהאדמה אינה יוצרת קצר ושקנה המידה מתאים לאות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זו בדיקה בטיחותית ומעשית.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">שה-Time/Div תמיד על מינימום.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">קנה המידה תלוי באות.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">שהמתח תמיד 0V.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא זו מטרת המדידה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">שאין צורך באישור מדריך.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">במעבדה יש לקבל אישור לפי הנהלים.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 03: RMS והספק</text></category>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 03_rms Q1</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה פירוש ערך RMS של מתח AC?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">מתח DC שקול שמפתח אותו הספק ממוצע על אותו נגד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זו המשמעות הפיזיקלית של RMS.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">המתח המרבי של האות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו \(V_p\).</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">המתח שיא-לשיא.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו \(V_{pp}\).</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הממוצע הפשוט של המתח.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">בגל סימטרי הממוצע הפשוט יכול להיות אפס.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 03_rms Q2</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהו \(V_{RMS}\) של גל סינוס ללא offset?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">\(V_p/\sqrt{2}\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(V_p\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה נכון לגל ריבועי סימטרי.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(V_p/\sqrt{3}\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה מתאים לגל משולש סימטרי.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(2V_p\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו \(V_{pp}\).</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 03_rms Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהו \(V_{RMS}\) של גל ריבועי סימטרי שערכיו \(+V_p\) ו-\(-V_p\)?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">\(V_p\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. הריבוע של המתח קבוע.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(V_p/\sqrt{2}\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה מתאים לסינוס.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">אפס</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">הממוצע של המתח אפס, אבל RMS אינו אפס.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(V_{pp}\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו שיא-לשיא.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 03_rms Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">באיזו נוסחה משתמשים להספק ממוצע על נגד?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">\(P_{avg}=V_{RMS}^2/R\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(P=V_{pp}/R\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">שיא-לשיא אינו נכנס כך לחישוב הספק.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(P=fT\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו קשר חסר יחידות להספק.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(P=R/V\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זו אינה נוסחת הספק.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 03_rms Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">בשקע רשת של \(230V\), למה הכוונה בדרך כלל?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">230V RMS.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. בשקע רשת הערך הנקוב הוא אפקטיבי.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">230V שיא.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">השיא בסינוס הוא בערך 325V.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">230V שיא-לשיא.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">שיא-לשיא בסינוס רשת הוא בערך 650V.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">230Hz.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו מתח, לא תדר.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 04: המרות יחידות</text></category>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 04_conversions Q1</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהו תדר של אות שזמן המחזור שלו \(T=2ms\)?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">500Hz</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. \(1/0.002=500\).</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">2Hz</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">יש להמיר מילישניות לשניות.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">0.5Hz</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה אינו החישוב הנכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">2000Hz</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה היה נכון ל-0.5ms.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 04_conversions Q2</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">אם \(V_{pp}=10V\) בגל סינוס סימטרי, מהו \(V_p\)?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">5V</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. \(V_p=V_{pp}/2\).</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">10V</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו שיא-לשיא.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">20V</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">כיוון ההמרה הפוך.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">7.07V</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו ערך RMS עבור \(V_p=10V\), לא כאן.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 04_conversions Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהו \(V_{RMS}\) בקירוב עבור גל סינוס עם \(V_p=10V\)?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">7.07V</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. \(10/\sqrt{2}\).</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">10V</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו השיא.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">14.14V</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו \(10\sqrt{2}\).</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">20V</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו שיא-לשיא.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 04_conversions Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">איזו המרה נכונה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">1kHz = 1000Hz</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">1ms = 1s</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">1ms הוא אלפית שנייה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">1V = 1000kV</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">הכיוון הפוך.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">1MHz = 1000Hz</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">1MHz הוא מיליון הרץ.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 04_conversions Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה חשוב לעשות לפני הצבה בנוסחאות?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">להמיר יחידות לבסיס מתאים כמו שניות, הרץ, וולט ואוהם.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. טעויות יחידות הן מקור נפוץ לשגיאות.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להתעלם מיחידות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">יחידות הן חלק מהחישוב.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להשתמש תמיד במילישניות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">תלוי בנוסחה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להציב \(V_{pp}\) במקום RMS.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה ייתן הספק שגוי.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 05: רב-מודד ו-True RMS</text></category>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 05_dmm Q1</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה מודד רב-מודד במצב ACV בדרך כלל?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">ערך RMS של המתח בתחום התדרים שהמכשיר תומך בו.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. יש לבדוק את מפרט המכשיר.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">תמיד מתח שיא.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">מדידת ACV מוצגת לרוב כ-RMS.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק מתח DC.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">מצב ACV מיועד ל-AC.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">התנגדות המעגל.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה מצב מדידה אחר.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 05_dmm Q2</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה היתרון של מד True RMS?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">מדידה מדויקת יותר גם לצורות גל שאינן סינוס טהור, בתחום המכשיר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הוא מבטל צורך ביחידות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">עדיין צריך יחידות.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הוא מודד רק DC.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">הוא שימושי במיוחד ב-AC.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הוא הופך את התדר לאפס.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 05_dmm Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מדוע מד שאינו True RMS עלול לטעות בגל ריבועי?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">כי הוא מכויל לרוב להנחת גל סינוס.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. צורת גל שונה משנה את היחס בין ממוצע, שיא ו-RMS.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי גל ריבועי אינו מתח.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">גל ריבועי הוא צורת מתח אפשרית.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי אין לו תדר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לגל ריבועי יש תדר.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי \(V_{RMS}\) תמיד אפס.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא נכון.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 05_dmm Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה יש לבדוק במפרט הרב-מודד לפני מדידת AC?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">תחום תדרים, תחום מתח, ויכולת True RMS.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">צבע המכשיר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא רלוונטי למדידה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">אורך הכבל בלבד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא מספיק.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מספר הספרות בלוגו.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא רלוונטי.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 05_dmm Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">למה אסור למדוד התנגדות במעגל פעיל?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">כי מקור מתח פעיל עלול לפגוע במדידה ובמכשיר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. מודדים התנגדות כשהמעגל מנותק ממקור.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי התנגדות קיימת רק ב-AC.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">התנגדות קיימת גם ב-DC.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי המד יראה תמיד 0.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא בהכרח, אבל המדידה אינה תקינה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי הדבר מגדיל את התדר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 06: תוכנית עבודה</text></category>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 06_work_plan Q1</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה עושים לפני הפעלת מקור אות במעגל?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">בודקים חיבורים, תחומי מדידה ומקבלים אישור מדריך.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מעלים מיד למתח מקסימלי.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה מסוכן ועלול לפגוע בציוד.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מחברים אדמה לכל נקודה אקראית.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">חיבור אדמה שגוי עלול לקצר.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מתעלמים מהאוסצילוסקופ.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">הוא כלי מרכזי בניסוי.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 06_work_plan Q2</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה חשוב לרשום לצד כל מדידה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">יחידות, תחום מדידה, תדר וצורת גל כאשר רלוונטי.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק מספר ללא יחידה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">מספר ללא יחידה אינו מספיק.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק שם הסטודנט.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא מספיק לניתוח.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק צבע החוטים.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא מספיק.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 06_work_plan Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">למה משנים פרמטר אחד בכל פעם?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">כדי להבין מה גרם לשינוי בתוצאה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זו שיטת עבודה ניסויית מסודרת.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כדי להאריך את הניסוי ללא צורך.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">המטרה היא בידוד גורמים.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי אסור לשנות תדר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">מותר לפי ההנחיות.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי כל הפרמטרים שווים תמיד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא נכון.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 06_work_plan Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה עושים כאשר התצוגה באוסצילוסקופ אינה יציבה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">בודקים trigger, time/div, volts/div וחיבורי גשש.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מניחים שהמעגל תקין בלי לבדוק.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">יש לאבחן.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מנתקים את האדמה בלבד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה עלול להחמיר את הבעיה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מחליפים מיד את כל הרכיבים.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">קודם מאבחנים.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 06_work_plan Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהו כלל בטיחות מרכזי בעבודה עם שקע/מתח רשת?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">לא מחברים ישירות ללא ציוד מתאים ואישור מדריך.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. מתח רשת מסוכן.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מותר לגעת במוליכים אם המדידה קצרה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">אסור.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">אין צורך בבידוד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">בידוד חיוני.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מתח RMS אינו מסוכן.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">230V RMS מסוכן מאוד.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 07: סימולציה</text></category>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 07_simulation Q1</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה היתרון של סימולציה לפני המעבדה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">אפשר לבדוק ציפיות, תחומי ערכים ושגיאות חיבור בלי לסכן ציוד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">היא מחליפה את המדידה בפועל.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">היא כלי הכנה, לא תחליף מלא.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">היא מבטלת צורך ביחידות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">גם בסימולציה צריך יחידות.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">היא תמיד מדויקת יותר מהמציאות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">מודלים מוגבלים.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 07_simulation Q2</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה כדאי להשוות בין סימולציה למדידה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">צורת גל, תדר, \(V_{pp}\), \(V_{RMS}\) ומופע.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק צבע הגרף.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא רלוונטי פיזיקלית.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק שם הקובץ.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא מספיק.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק זמן פתיחת התוכנה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא רלוונטי.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 07_simulation Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">אם הסימולציה והמדידה שונות מאוד, מה בודקים קודם?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">חיבורים, יחידות, ערכי רכיבים והגדרות מקור/מדידה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מוחקים את כל הנתונים.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">קודם מאבחנים.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מניחים שהמדידה תמיד שגויה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">גם הסימולציה יכולה להיות מוגדרת לא נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">משנים תוצאה ידנית.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">אסור.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 07_simulation Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה מייצג ground בסימולציה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">נקודת ייחוס למתחים במעגל.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">נגד נוסף.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">תדר המקור.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">אמצעי להגדלת RMS.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 07_simulation Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">למה חשוב להגדיר נכון amplitude בסימולציה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">כי תוכנות שונות עשויות לבקש שיא, RMS או שיא-לשיא.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. יש לקרוא את ההגדרה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי amplitude תמיד שווה לתדר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">אלו גדלים שונים.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי RMS תמיד אפס.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">כי הוא קובע את צבע החוט.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא רלוונטי.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 08: טעויות נפוצות ומוכנות</text></category>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 08_mistakes Q1</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהי טעות נפוצה בחישוב הספק AC?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">להציב \(V_p\) או \(V_{pp}\) במקום \(V_{RMS}\).</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זה משנה את ההספק באופן משמעותי.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להשתמש ביחידות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">שימוש ביחידות הוא חובה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">לחשב \(f=1/T\).</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה נכון כאשר היחידות תקינות.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">לבדוק חיבורים.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זו פעולה נכונה.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 08_mistakes Q2</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהי טעות נפוצה בחיבור אוסצילוסקופ?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">חיבור אדמת הגשש לנקודה שאינה אדמה ויצירת קצר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. יש להבין את נקודת הייחוס.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">בחירת Time/Div מתאים.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זו פעולה נכונה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">שימוש בגשש תקין.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זו פעולה נכונה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">קריאת יחידות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זו פעולה נכונה.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 08_mistakes Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">איזה סימן מצביע על בעיית trigger?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">הגל זז על המסך ואינו יציב.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הנגד משנה צבע בתרשים.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא קשור.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">התדר הופך להתנגדות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">היחידות נעלמות מהדוח.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זו בעיית רישום, לא trigger.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 08_mistakes Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה צריך לוודא לפני הגשת PreLab?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">שהסטודנט יודע לחשב RMS, למדוד תדר, ולזהות חיבורי מדידה בטוחים.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק שהשם מופיע בדף.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא מספיק.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק שהסימולציה נפתחה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא מספיק.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">שאין יחידות בטבלאות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">חייבות להיות יחידות.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 08_mistakes Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה עושים כאשר תוצאה אינה הגיונית?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">בודקים יחידות, תחום מדידה, חיבורים וחישוב לפני שמסיקים מסקנה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">משנים את הנתון כדי שיתאים לציפייה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">אסור.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מתעלמים מהמדידה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">יש לאבחן.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מכפילים תמיד פי 10.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">אין כלל כזה.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="category">
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 09: בדיקת מוכנות</text></category>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 09_readiness Q1</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">איזה שילוב פעולות מצביע על מוכנות טובה לניסוי?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">חישוב RMS, בדיקת חיבורי מדידה, הגדרת אוסצילוסקופ ורישום יחידות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. אלו יכולות בסיסיות לניסוי 3.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הפעלת מקור לפני בדיקת חיבורים.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה אינו בטיחותי.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מדידת התנגדות במעגל פעיל.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">אסור למדוד התנגדות במעגל מוזן.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">שימוש ב-Vpp במקום RMS בכל חישוב.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה יגרום לשגיאות הספק.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 09_readiness Q2</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה צריך לדעת לבצע עם אוסצילוסקופ לפני המעבדה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">לכוון Time/Div ו-Volts/Div ולמדוד מחזור ומתח.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">לחשב התנגדות ללא מעגל.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה אינו תפקיד האוסצילוסקופ.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להחליף את ספק הכוח.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">לא.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להגדיל את RMS דרך כפתור trigger.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">Trigger לא משנה RMS.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 09_readiness Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">איזו בדיקה מתאימה לסוף ההכנה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">השוואת תוצאה צפויה מסימולציה למדידה צפויה וליחידות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">מחיקת כל חישובי ההכנה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">צריך לשמור אותם.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">השארת טבלאות בלי יחידות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">יחידות חובה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">חיבור שקע רשת ישירות למעגל סטודנטים.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה מסוכן ואסור ללא ציוד מתאים ואישור.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 09_readiness Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהו סימן לכך שהסטודנט מבין RMS?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">הוא יודע להסביר מדוע 230V רשת הוא RMS ולא מתח שיא.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הוא מניח שכל גל עם אותו שיא מחמם באותה מידה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">צורת הגל משפיעה על RMS.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הוא משתמש תמיד בממוצע פשוט של המתח.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה אינו RMS.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">הוא מתעלם מצורת הגל.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">צורת הגל חשובה.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 09_readiness Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה הפעולה הנכונה כאשר יש ספק לגבי חיבור מדידה?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">לעצור, לקרוא למדריך, ולא להפעיל את המעגל עד לבדיקה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. בטיחות קודמת למדידה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להפעיל לזמן קצר בלבד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">גם זמן קצר עלול לגרום נזק.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להחזיק את החוט ביד ולבדוק.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">אסור.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">להגדיל את המתח כדי לראות מהר יותר.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">מסוכן.</div>]]></text></feedback>
+    </answer>
+  </question>
+</quiz>
