@@ -71,8 +71,8 @@ if (Test-Path $distDir) {
                 [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, $file.FullName, $file.Name) | Out-Null
             }
             
-            # Add subdirectories (like Figure, assets, H5P_Quiz, interactive)
-            $subDirs = Get-ChildItem -Path $moodleBookDir -Directory
+            # Add subdirectories (like Figure, assets, interactive) - skip H5P_Quiz
+            $subDirs = Get-ChildItem -Path $moodleBookDir -Directory | Where-Object { $_.Name -ne "H5P_Quiz" }
             foreach ($subDir in $subDirs) {
                 $subDirFiles = Get-ChildItem -Path $subDir.FullName -File -Recurse
                 foreach ($file in $subDirFiles) {
@@ -85,6 +85,18 @@ if (Test-Path $distDir) {
             $zip.Dispose()
         }
         Write-Host "✅ $expName packaged: release\${expName}_Moodle_Book_Import.zip" -ForegroundColor Green
+
+        # Copy H5P Quizzes to release folder for separate upload
+        $h5pSrcDir = Join-Path $moodleBookDir "H5P_Quiz"
+        if (Test-Path $h5pSrcDir) {
+            $h5pDestDir = Join-Path $releaseDir "${expName}_H5P_Quizzes"
+            if (Test-Path $h5pDestDir) {
+                Remove-Item -Path $h5pDestDir -Recurse -Force | Out-Null
+            }
+            New-Item -ItemType Directory -Path $h5pDestDir | Out-Null
+            Copy-Item -Path "$h5pSrcDir\*" -Destination $h5pDestDir -Force
+            Write-Host "✅ H5P Quizzes copied to: release\${expName}_H5P_Quizzes" -ForegroundColor Green
+        }
     }
 } else {
     Write-Warning "Dist directory not found!"
