@@ -2,188 +2,122 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>02 InLab 02 PartC IV sub</title>
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #202124; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>חלק ג: אופיין מתח-זרם של רכיבים שונים</title>
-    
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-<!-- 
-    MOODLE SNIPPET - USER CUSTOM DESIGN
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-custom" style="unicode-bidi: isolate; text-align: right; font-size: 16px; direction: rtl; color: #333; line-height: 1.6; font-family: Arial, sans-serif; max-width: 980px; margin: 0 auto;" dir="rtl">
-    
 
-    <div class="moodle-content-inner" style="unicode-bidi: isolate; text-align: right; direction: rtl; max-width: 980px; margin: 0 auto;">
-        <!-- EXP02 BREADCRUMB -->
-<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 > מעבדה > חלק ג אופיין I-V</div>
+<!-- EXP02 BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 13px; border-right: 4px solid var(--accent-color);">
+    ניסוי 2 &gt; מעבדה &gt; חלק ג אופיין I-V
+</div>
 <!-- /EXP02 BREADCRUMB -->
 
-        <!-- CHAPTER: HEADER -->
-<h3 class="section-title" style="margin-bottom: 0.75rem; display: inline-block; margin-top: 0; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">חלק ג': אופיין מתח-זרם של רכיבים שונים</h3>
-<p class="mb-4" style="margin-bottom: 1rem;">בחלק מסכם זה נבחן את הקשר הדינמי בין המתח לזרם (\(I = f(V)\)) עבור שלושה רכיבים שונים: נגד פחם ליניארי, נורת להט, וטרמיסטור מסוג NTC.</p>
+<h3 class="section-title">חלק ג': אופיין מתח-זרם (I-V) של רכיבים שונים</h3>
+<p class="lead">בחלק זה נבדוק ונקליט את היחס הדינמי בין המתח לזרם במעבר בין רכיב ליניארי אוהמי (נגד) לבין רכיבים לא-ליניאריים המושפעים מהספק וחום (מנורה ותרמיסטור).</p>
 
-<!-- SECTION: SCHEMATIC -->
-<div class="theory-card text-center" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); text-align: center;" id="section-schematic">
-    <strong class="text-primary d-block mb-3" style="color: #005696 !important; margin-bottom: 12px; display: block;">📐 שרטוט סכמתי — מעגל סריקת מאפייני I-V:</strong>
-    <div style="background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 20px; border-radius: 4px; display: inline-block; margin-bottom: 16px;">
-        <p class="mb-0 text-muted" style="margin: 0; color: #52616b;">ספק כוח משתנה &rarr; מד זרם &rarr; רכיב נבדק<br>מד מתח במקביל לרכיב</p>
-    </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: stretch; margin-top: 10px;">
-        <div style="flex: 1; min-width: 300px; max-width: 520px; border: 2px dashed #d9534f; padding: 10px; background-color: white; border-radius: 6px;">
-            <h4 style="font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin: 0 0 10px 0; font-size: 1.05rem;">מימוש וחיווט ב-Tinkercad</h4>
-            <iframe width="100%" height="280" src="https://www.tinkercad.com/embed/jOOeB1hD53n?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border: none; max-width: 450px;"></iframe>
-            <div style="text-align: center; margin-top: 12px;"><a href="https://www.tinkercad.com/things/jOOeB1hD53n" target="_blank" style="display: inline-block; background-color: #d9534f; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">פתיחת פעילות Tinkercad</a></div>
+<div class="theory-card text-center">
+    <strong class="text-primary d-block mb-3"><span class="fs-5">📐</span> סכימת חיווט מומלצת למדידת מאפייני I-V:</strong>
+    <p class="text-muted">בכל שלב נחבר ספק כוח יחיד בטור למד זרם (Amperage) ואל הרכיב הנבדק, כאשר מד מתח מחובר במקביל הדוק להדקי הרכיב.</p>
+    
+    <div class="row g-3 justify-content-center">
+        <div class="col-md-6">
+            <div class="p-3 border border-danger border-2 rounded bg-white h-100">
+                <h6 class="text-danger fw-bold">מימוש וירטואלי (Tinkercad)</h6>
+                <iframe width="100%" height="240" src="https://www.tinkercad.com/embed/jOOeB1hD53n?editbtn=1" style="border:0;"></iframe>
+                <div class="mt-2"><a href="https://www.tinkercad.com/things/jOOeB1hD53n" target="_blank" class="btn btn-outline-danger btn-sm">פתיחת Tinkercad</a></div>
+            </div>
         </div>
-        <div style="flex: 1; min-width: 300px; max-width: 520px; border: 2px dashed #005696; padding: 10px; background-color: white; border-radius: 6px;">
-            <h4 style="font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin: 0 0 10px 0; font-size: 1.05rem;">סריקת אופיין I-V ב-Falstad</h4>
-            <iframe width="100%" height="280" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBpUAB6JmAFiiMiVK9kv0qqeMnaoA7i5FQFAQ2PS8gD0uvrA0KaS7NhQVETsUPExjIxusDiocgjslLiMnAghegYAggoKKmgqEYjmBLFUluacCVSNzmaKKhlQGOQIIkVhEO4mtfVtlhaxdE7pAwhaddgANJMA3BZrjZv2a7PAQSOhBiNjCM2tjYnRsfEdC0st2+brSS9v0Wvxh8fF4aNIkkrKk7FMWOYHiItO8UuxPqtGBDduYVkjzL93CcAedpuiwVYbFDFlt0Si0TZMdjfAATABWUG6C0ZYB6KgAdogAGoAewANmhfABzFSKTnMhSRZioDBobn8wUiwrU+mMiioFSs5kcxAAJRUGDAst87JAKigAAoeQALBQYACUYvVPkilAIMrlCH1huNptFRUO4AguiAA" frameborder="0" allowfullscreen style="border: none; max-width: 450px;"></iframe>
-            <div style="text-align: center; margin-top: 12px;"><a href="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBpUAB6JmAFiiMiVK9kv0qqeMnaoA7i5FQFAQ2PS8gD0uvrA0KaS7NhQVETsUPExjIxusDiocgjslLiMnAghegYAggoKKmgqEYjmBLFUluacCVSNzmaKKhlQGOQIIkVhEO4mtfVtlhaxdE7pAwhaddgANJMA3BZrjZv2a7PAQSOhBiNjCM2tjYnRsfEdC0st2+brSS9v0Wvxh8fF4aNIkkrKk7FMWOYHiItO8UuxPqtGBDduYVkjzL93CcAedpuiwVYbFDFlt0Si0TZMdjfAATABWUG6C0ZYB6KgAdogAGoAewANmhfABzFSKTnMhSRZioDBobn8wUiwrU+mMiioFSs5kcxAAJRUGDAst87JAKigAAoeQALBQYACUYvVPkilAIMrlCH1huNptFRUO4AguiAA" target="_blank" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">פתיחת סימולציית Falstad</a></div>
+        <div class="col-md-6">
+            <div class="p-3 border border-primary border-2 rounded bg-white h-100">
+                <h6 class="text-primary fw-bold">סימולטור I-V (Falstad)</h6>
+                <iframe width="100%" height="240" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBpUAB6JmAFiiMiVK9kv0qqeMnaoA7i5FQFAQ2PS8gD0uvrA0KaS7NhQVETsUPExjIxusDiocgjslLiMnAghegYAggoKKmgqEYjmBLFUluacCVSNzmaKKhlQGOQIIkVhEO4mtfVtlhaxdE7pAwhaddgANJMA3BZrjZv2a7PAQSOhBiNjCM2tjYnRsfEdC0st2+brSS9v0Wvxh8fF4aNIkkrKk7FMWOYHiItO8UuxPqtGBDduYVkjzL93CcAedpuiwVYbFDFlt0Si0TZMdjfAATABWUG6C0ZYB6KgAdogAGoAewANmhfABzFSKTnMhSRZioDBobn8wUiwrU+mMiioFSs5kcxAAJRUGDAst87JAKigAAoeQALBQYACUYvVPkilAIMrlCH1huNptFRUO4AguiAA" style="border:0;"></iframe>
+                <div class="mt-2"><a href="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBpUAB6JmAFiiMiVK9kv0qqeMnaoA7i5FQFAQ2PS8gD0uvrA0KaS7NhQVETsUPExjIxusDiocgjslLiMnAghegYAggoKKmgqEYjmBLFUluacCVSNzmaKKhlQGOQIIkVhEO4mtfVtlhaxdE7pAwhaddgANJMA3BZrjZv2a7PAQSOhBiNjCM2tjYnRsfEdC0st2+brSS9v0Wvxh8fF4aNIkkrKk7FMWOYHiItO8UuxPqtGBDduYVkjzL93CcAedpuiwVYbFDFlt0Si0TZMdjfAATABWUG6C0ZYB6KgAdogAGoAewANmhfABzFSKTnMhSRZioDBobn8wUiwrU+mMiioFSs5kcxAAJRUGDAst87JAKigAAoeQALBQYACUYvVPkilAIMrlCH1huNptFRUO4AguiAA" target="_blank" class="btn btn-outline-primary btn-sm">פתיחת Falstad</a></div>
+            </div>
         </div>
     </div>
-    <p style="margin: 12px 0 0 0; color: #52616b;">השתמשו בסימולציות כדי לתרגל שינוי מתח, קריאת זרם, ורישום נקודות \(V,I\) לפני המדידה הפיזית.</p>
 </div>
-<!-- SECTION: PROCEDURE -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-procedure">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📝 שלבי העבודה ומהלך המדידה:</h4>
-    <ol>
-        <li class="mb-2" style="margin-bottom: 8px;">בנו מעגל בדיקה: ספק כוח משתנה בטור למד-זרם ואל הרכיב. חברו מד-מתח במקביל לרכיב.</li>
-        <li class="mb-2" style="margin-bottom: 8px;"><strong>נגד ליניארי:</strong> שנו את המתח (2V-10V) ורשמו את הזרם.</li>
-        <li class="mb-2" style="margin-bottom: 8px;"><strong>נורת להט:</strong> חזרו על המדידות. <strong>דגש:</strong> המתינו כ-3 שניות לייצוב חוט הלהט בכל שלב.</li>
-        <li><strong>טרמיסטור NTC:</strong> בצעו את סריקת המתחים פעם נוספת.</li>
+
+<div class="theory-card">
+    <h4 class="sub-title"><span class="fs-5">📋</span> מהלך המדידה וסריקת האופיין</h4>
+    <ol style="padding-right: 20px;">
+        <li class="mb-2"><strong>מדידת נגד פחם:</strong> חברו למטריצה נגד של \(1\text{ k}\Omega\). שנו את מתח המבוא במדרגות של \(2\text{ V}\) החל מ-\(2\text{ V}\) ועד ל-\(10\text{ V}\). רשמו בכל שלב את המתח המדויק על פני הנגד ואת הזרם דרכו.</li>
+        <li class="mb-2"><strong>מדידת נורת להט:</strong> החליפו את הנגד בנורת להט (Incandescent bulb). 
+            <strong class="text-danger">דגש חשוב:</strong> לאחר שינוי המתח, המתינו כ-3 שניות לפני רישום התוצאה. הטמפרטורה של חוט הלהט דורשת זמן הגעה לשיווי משקל תרמי, שבו הזרם מתייצב.
+        </li>
+        <li class="mb-2"><strong>מדידת טרמיסטור NTC:</strong> החליפו את הנורה בטרמיסטור. בצעו את סדרת המדידות שוב ורשמו את הערכים.</li>
     </ol>
 </div>
 
-<!-- SECTION: DATA TABLE -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-table">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 טבלה ריקה לרישום המדידות:</h4>
-    <table class="data-table" style="border-spacing: 0; margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #dae0e5; width: 100%; border-collapse: collapse; margin-top: 15px;" width="100%">
-        <thead>
-            <tr>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">מתח נמדד [V]</th>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">זרם בנגד [mA]</th>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">זרם בנורה [mA]</th>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">זרם בטרמיסטור [mA]</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">2.0</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td></tr>
-            <tr><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">4.0</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td></tr>
-            <tr><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">6.0</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td></tr>
-            <tr><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">8.0</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td></tr>
-            <tr><td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white">10.0</td><td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td><td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td></tr>
-        </tbody>
-    </table>
-</div>
-
-
-<!-- SECTION: ANALYSIS CONCEPTS -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-analysis-concepts">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🧠 ניתוח התוצאות: התנגדות סטטית ודינמית</h4>
-    <p>לאחר המדידה אין להסתפק בציור הגרף בלבד. חשבו גם את ההתנגדות בנקודות שונות ובדקו האם היא נשארת קבועה.</p>
-    <div style="background-color: #eef7fb; border-right: 4px solid #005696; padding: 12px 16px; border-radius: 5px; margin: 12px 0; direction: rtl;">
-        <p style="margin: 0 0 8px 0;"><strong>התנגדות סטטית בנקודת מדידה:</strong> \(R_{static}=\frac{V}{I}\)</p>
-        <p style="margin: 0;"><strong>התנגדות דינמית בין שתי נקודות סמוכות:</strong> \(R_{dynamic}=\frac{\Delta V}{\Delta I}\)</p>
+<div class="theory-card">
+    <h4 class="sub-title"><span class="fs-5">📊</span> טבלת ריכוז המדידות (חלק ג')</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center mb-0">
+            <thead>
+                <tr class="table-primary">
+                    <th>מתח נקוב [V]</th>
+                    <th>מתח נמדד [V]</th>
+                    <th>זרם בנגד [mA]</th>
+                    <th>זרם בנורה [mA]</th>
+                    <th>זרם בטרמיסטור [mA]</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="fw-bold">2.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">4.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">6.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">8.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">10.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <p style="margin-bottom: 0;">ברכיב ליניארי הערכים יהיו כמעט קבועים. ברכיב לא-ליניארי, כמו נורת להט או תרמיסטור, הערכים ישתנו עם נקודת העבודה.</p>
 </div>
 
-<!-- SECTION: EXTENDED DATA TABLE -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-analysis-table">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📈 טבלת עיבוד נתונים</h4>
-    <table style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: center;">
-        <thead>
-            <tr>
-                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">רכיב</th>
-                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">תחום מתח [V]</th>
-                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">האם הגרף ליניארי?</th>
-                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">כיצד משתנה \(R_{static}\)?</th>
-                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">מסקנה קצרה</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td style="padding: 10px; border: 1px solid #ddd;">נגד פחם</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
-            <tr><td style="padding: 10px; border: 1px solid #ddd;">נורת להט</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
-            <tr><td style="padding: 10px; border: 1px solid #ddd;">תרמיסטור NTC</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
-        </tbody>
-    </table>
-</div>
-
-<!-- SECTION: GRAPHING GUIDELINES -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-graphing">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📉 הנחיות שרטוט אופיין \(I-V\)</h4>
-    <ul style="margin: 0; padding-right: 22px;">
-        <li style="margin-bottom: 6px;">ציר אופקי: מתח הרכיב \(V\) ביחידות וולט.</li>
-        <li style="margin-bottom: 6px;">ציר אנכי: זרם הרכיב \(I\) ביחידות אמפר או מיליאמפר.</li>
-        <li style="margin-bottom: 6px;">שרטטו שלושה גרפים על אותה מערכת צירים או בשלושה גרפים נפרדים עם אותו קנה מידה.</li>
-        <li style="margin-bottom: 6px;">אל תחברו נקודות בקו ישר אם הרכיב לא ליניארי. השתמשו בעקומה חלקה או בסימון נקודות בלבד.</li>
-        <li>סמנו בבירור נקודות חריגות והסבירו האם הן נובעות משגיאת מדידה או מתכונת פיזיקלית של הרכיב.</li>
+<div class="theory-card">
+    <h4 class="sub-title"><span class="fs-5">🧠</span> הכנה לניתוח הנתונים בדוח</h4>
+    <p>בדוח המסכם, תתבקשו להשתמש בתוצאות אלו כדי לחשב את ההתנגדות הסטטית והדינמית של הרכיבים בנקודות עבודה שונות:</p>
+    <ul>
+        <li class="mb-2"><strong>התנגדות סטטית:</strong> \( R_{static} = V / I \) (תנו דוגמה לחישוב בנקודות של 4V ו-8V).</li>
+        <li><strong>התנגדות דינמית:</strong> \( r_{dynamic} = \Delta V / \Delta I \) (חשבו בין מדרגות המתח השונות והסבירו את כיוון השינוי - האם ההתנגדות גדלה או קטנה).</li>
     </ul>
 </div>
 
-<!-- SECTION: THINKING QUESTIONS -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-thinking-questions">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">❓ שאלות חשיבה לדוח</h4>
-    <ol style="margin: 0; padding-right: 22px;">
-        <li style="margin-bottom: 6px;">איזה רכיב הציג אופיין הקרוב ביותר לקו ישר?</li>
-        <li style="margin-bottom: 6px;">באיזה רכיב ההתנגדות השתנתה בצורה המשמעותית ביותר?</li>
-        <li style="margin-bottom: 6px;">מדוע בנורת להט חשוב להמתין לייצוב לפני רישום המדידה?</li>
-        <li style="margin-bottom: 6px;">האם האופיין עובר בראשית הצירים? אם לא, מה יכולה להיות הסיבה?</li>
-        <li>כיצד הייתם מזהים מתוך הגרף בלבד שרכיב הוא לא-ליניארי?</li>
-    </ol>
-</div>
-
-<!-- SECTION: MATLAB PROCESSING -->
-<div class="matlab-box" style="margin-bottom: 25px; text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 24px; border-radius: 8px; margin: 18px 0 25px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);" id="section-matlab-iv">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 עיבוד מומלץ ב-MATLAB</h4>
-    <p>הכניסו את וקטורי המדידה, שרטטו את \(I\) כפונקציה של \(V\), וחשבו התנגדות סטטית לכל נקודה.</p>
-    <div dir="ltr" style="background-color: #2b303b; color: #f8f8f2; padding: 15px; border-radius: 6px; font-family: Consolas, Courier New, monospace; font-size: 14px; margin-bottom: 10px; border-left: 4px solid #28a745; text-align: left;">
-        <div style="color: #c678dd; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #4f5b66; padding-bottom: 5px;">/* Suggested MATLAB workflow */</div>
-        <p style="color: #abb2bf; margin: 0;">plot(V, I, 'o-')<br>R_static = V ./ I;<br>dR_dynamic = diff(V) ./ diff(I);</p>
-    </div>
-    <p style="margin-bottom: 0; color: #52616b;">בדוח יש לצרף גרף, טבלת ערכים, ומסקנה קצרה לכל רכיב.</p>
-</div><!-- SECTION: FOOTER -->
-<div class="alert-box text-center" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0; text-align: center;">
-    <strong>💾 סיימתם למדוד?</strong> וודאו שכל הנתונים רשומים ושמורים היטב! אתם תזדקקו להם לשלב עיבוד הנתונים.
-</div>
 <!-- EXP02 NAVIGATION -->
-<div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="02_InLab_01_PartB_Thevenin_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a><a href="02_InLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים ניסוי מעשי</a><a href="03_PostLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: דוח מסכם</a></div>
+<div class="d-flex justify-content-center gap-3 mt-4 pt-3 border-top">
+    <a href="02_InLab_01_PartB_Thevenin_sub.html" class="btn btn-outline-danger">&larr; הקודם: חלק ב'</a>
+    <a href="03_PostLab.html" class="btn btn-primary">הבא: דוח מסכם &larr;</a>
+</div>
 <!-- /EXP02 NAVIGATION -->
-    </div>
-</div>
-
-
-
-
-<div data-units-emphasis="exp2" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
-<strong style="color:#005696;">דגש יחידות בניסוי 2:</strong>
-<span> בסופרפוזיציה, תבנין ואופייני I-V יש לשמור על יחידות בכל שלב: \(V\) למתחים, A או mA לזרמים, \(\Omega\) להתנגדויות ו-W להספק. שיפוע אופיין \(I-V\) אינו מספר בלבד: \(R=\Delta V/\Delta I\) מתקבל ב-\(\Omega\).</span>
-</div>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
 
 </body>
 </html>

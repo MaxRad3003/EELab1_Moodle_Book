@@ -2,154 +2,96 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>00 Intro</title>
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #202124; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ניסוי 2: משפטי רשת ורכיבים לא-ליניאריים</title>
-    
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-<!-- 
-    MOODLE SNIPPET - USER CUSTOM DESIGN
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-custom" style="unicode-bidi: isolate; text-align: right; font-size: 16px; direction: rtl; color: #333; line-height: 1.6; font-family: Arial, sans-serif; max-width: 980px; margin: 0 auto;" dir="rtl">
-    
 
-    <div class="moodle-content-inner" style="unicode-bidi: isolate; text-align: right; direction: rtl; max-width: 980px; margin: 0 auto;">
-        <!-- EXP02 BREADCRUMB -->
-<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 > מבוא</div>
+<!-- EXP02 BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 13px; border-right: 4px solid var(--accent-color);">
+    ניסוי 2 &gt; מבוא
+</div>
 <!-- /EXP02 BREADCRUMB -->
 
-        <!-- CHAPTER: HEADER -->
-<div id="ch-intro-header">
-    <div class="text-center mb-5" style="text-align: center;">
-        <h3 class="display-5 fw-bold text-primary" style="margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; font-weight: 700; color: #005696;">ניסוי 2: משפטי רשת ורכיבים לא-ליניאריים</h3>
-        <div class="mx-auto bg-danger" style="height: 5px; width: 80px; border-radius: 10px; background-color: #d9534f; background-color: #d9534f;"></div>
-    </div>
+<div class="text-center mb-5">
+    <h3 class="display-5 fw-bold text-primary">ניסוי 2: משפטי רשת ורכיבים לא-ליניאריים</h3>
+    <div class="mx-auto bg-danger" style="height: 5px; width: 80px; border-radius: 10px;"></div>
 </div>
-<!-- /CHAPTER: HEADER -->
 
-<!-- CHAPTER: THE BIG PICTURE -->
-<div class="info-box" style="box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 22px; margin: 18px 0;" id="ch-big-picture">
-    <h4 class="sub-title text-danger" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35; color: #d9534f;">🌍 התמונה הגדולה: למה זה חשוב?</h4>
-    <p style="font-size: 17px; text-align: justify; margin-bottom: 0;">
-        בחיים האמיתיים, מעגלים חשמליים אינם מורכבים רק מנגד וסוללה אחת. חשבו על רשת החשמל של עיר שלמה או על המעגלים בתוך הסמארטפון שלכם. כדי לנתח מערכות כאלו, אנחנו חייבים כלים חזקים שיאפשרו לנו "לפרק" את הבעיה לחלקים קטנים (סופרפוזיציה) או "לפשט" אזורים שלמים למעגל בסיסי (תבנין). בניסוי זה, תלמדו איך הופכים תיאוריה מופשטת לכלי עבודה עוצמתי.
+<div class="info-box">
+    <h4 class="sub-title text-danger" style="margin-top: 0;"><span class="fs-4">🌍</span> התמונה הגדולה: למה זה חשוב?</h4>
+    <p class="lead" style="text-align: justify; margin-bottom: 0;">
+        במציאות ההנדסית, מעגלים חשמליים אינם מורכבים רק מנגד בודד ומקור מתח יחיד. מערכות הספק של ערים שלמות, כרטיסים אלקטרוניים בסמארטפונים ומעגלי בקרה תעשייתיים כוללים רשתות מורכבות ומסועפות. כדי לנתח מערכות אלו ביעילות, אנו זקוקים לכלים מתמטיים ופיזיקליים חזקים המאפשרים לפשט את הבעיה: 
+        <strong>משפט ההרכבה (סופרפוזיציה)</strong> מאפשר לנו לפרק בעיה מרובת מקורות למספר תתי-בעיות פשוטות, בעוד ש-<strong>משפט תבנין (Thevenin)</strong> מאפשר לנו להחליף אזור שלם ומורכב ברשת במקור שקול פשוט. בניסוי זה נחקור גם את גבולות הליניאריות ונכיר רכיבים שאינם מצייתים לחוק אוהם הפשוט.
     </p>
 </div>
-<!-- /CHAPTER: THE BIG PICTURE -->
 
-<!-- CHAPTER: GOALS -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="ch-goals">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🎯 מטרות הלימוד:</h4>
-    <ul style="font-size: 16px; margin-bottom: 0; padding-right: 20px;">
-        <li style="margin-bottom: 8px;"><strong>לפרק ולשלוט:</strong> אימות מעשי של משפט ההרכבה (סופרפוזיציה).</li>
-        <li style="margin-bottom: 8px;"><strong>לפשט את המורכב:</strong> מציאת מעגל תבנין שקול למעגל רב-חוגי.</li>
-        <li style="margin-bottom: 8px;"><strong>לזהות התנהגות:</strong> הבנה מעמיקה של אופייני מתח-זרם (\(I-V\)).</li>
-        <li><strong>להבחין בין סוגים:</strong> זיהוי ההבדל בין רכיב אוהמי (ליניארי) ללא-אוהמי.</li>
+<div class="theory-card">
+    <h4 class="sub-title"><span class="fs-4">🎯</span> מטרות הלימוד והניסוי</h4>
+    <ul class="fs-6" style="padding-right: 20px;">
+        <li class="mb-2"><strong>פירוק רשתות ליניאריות:</strong> הבנה ואימות מעשי של משפט ההרכבה (סופרפוזיציה) ומאזן הספקים במעגל מרובה מקורות.</li>
+        <li class="mb-2"><strong>פישוט מעגלים מורכבים:</strong> מציאת שקול תבנין למעגל דו-פורטי ואימות משפט העברת הספק מרבי (Maximum Power Transfer).</li>
+        <li class="mb-2"><strong>ניתוח אופיינים דינמיים:</strong> חקירת התנהגות רכיבים לא-ליניאריים (נורת להט וטרמיסטור NTC) ומדידת אופיין מתח-זרם (\(I-V\)) שלהם.</li>
+        <li><strong>רכישת כלי פתרון מודרניים:</strong> שימוש בשיטות מטריציוניות ובתוכנת MATLAB לפתרון מערכות משוואות חשמליות.</li>
     </ul>
 </div>
-<!-- /CHAPTER: GOALS -->
 
-<!-- CHAPTER: THEORETICAL PILLARS -->
-<div id="ch-pillars">
-    <h4 class="block-title" style="margin-bottom: 0.75rem; line-height: 1.25; margin-top: 30px; color: #005696; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin: 24px 0 12px 0; font-size: 1.1rem; font-weight: bold;">🧱 עמודי התווך של הניסוי:</h4>
-    <div class="flex-grid" style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
-        <div class="flex-item theory-card" style="margin-top: 15px; flex: 1; min-width: 250px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="pillar-superposition">
-            <h5 class="sub-title" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">⚡ סופרפוזיציה</h5>
-            <p style="font-size: 14px; margin-bottom: 0;">היכולת לבודד השפעה של כל מקור מתח בנפרד ולחברן לתוצאה אחת. עובד רק במערכות ליניאריות!</p>
+<h4 class="block-title mt-5 mb-3 border-bottom pb-2">🧱 עמודי התווך של הניסוי</h4>
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="theory-card h-100">
+            <h5 class="text-primary fw-bold"><span class="fs-5">⚡</span> סופרפוזיציה</h5>
+            <p class="small mb-0 text-muted">שיטה לניתוח מעגלים ליניאריים על ידי בידוד ההשפעה של כל מקור בנפרד וחיבור התוצאות באופן אלגברי. נלמד מדוע השיטה פועלת עבור זרמים ומתחים, אך נכשלת בחישוב הספקים.</p>
         </div>
-        <div class="flex-item theory-card" style="margin-top: 15px; flex: 1; min-width: 250px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="pillar-thevenin">
-            <h5 class="sub-title" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🖇️ משפט תבנין</h5>
-            <p style="font-size: 14px; margin-bottom: 0;">הפיכת "קופסה שחורה" שלמה של רכיבים למקור מתח ונגד בטור. הלב של הנדסת חשמל.</p>
+    </div>
+    <div class="col-md-4">
+        <div class="theory-card h-100">
+            <h5 class="text-primary fw-bold"><span class="fs-5">🖇️</span> משפט תבנין</h5>
+            <p class="small mb-0 text-muted">אבן יסוד בהנדסת חשמל המאפשרת להציג כל מעגל ליניארי מורכב כמקור מתח יחיד בטור לנגד שקול. נלמד למדוד פרמטרים אלו וכיצד להתאים עומס לקבלת הספק מרבי.</p>
         </div>
-        <div class="flex-item theory-card" style="margin-top: 15px; flex: 1; min-width: 250px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="pillar-nonlinear">
-            <h5 class="sub-title" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">💡 אי-ליניאריות</h5>
-            <p style="font-size: 14px; margin-bottom: 0;">מפגש עם רכיבים ש"מתמרדים" נגד חוק אוהם הקבוע, כמו נורת הלהט והטרמיסטור.</p>
+    </div>
+    <div class="col-md-4">
+        <div class="theory-card h-100">
+            <h5 class="text-primary fw-bold"><span class="fs-5">💡</span> רכיבים לא-ליניאריים</h5>
+            <p class="small mb-0 text-muted">מפגש עם המציאות הפיזיקלית שבה התנגדות הרכיב תלויה בטמפרטורה, במתח או בזרם. נחקור את ההבדל בין רכיבי PTC ו-NTC ונלמד למצוא נקודת עבודה (Q-point) בשיטה גרפית.</p>
         </div>
     </div>
 </div>
-<!-- /CHAPTER: THEORETICAL PILLARS -->
 
-<!-- CHAPTER: ROADMAP -->
-<div id="ch-workflow">
-    <h4 class="block-title" style="margin-bottom: 0.75rem; line-height: 1.25; margin-top: 30px; color: #005696; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin: 24px 0 12px 0; font-size: 1.1rem; font-weight: bold;">🚀 מסלול הניסוי שלכם:</h4>
-    
-    <a href="01_PreLab.html" style="display: block; text-decoration: none; color: inherit;">
-        <div class="step-box" style="transition: transform 0.2s ease, box-shadow 0.2s ease; background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; gap: 14px;" id="flow-prelab">
-            <div class="step-number" style="box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); background-color: #005696; color: white; font-size: 22px; font-weight: bold; width: 40px; height: 40px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 14px; flex-shrink: 0; text-align: center;">1</div>
-            <div class="step-content" style="flex: 1;">
-                <h4 style="font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 5px 0; color: #005696; font-size: 18px;">הכנה וחקירה וירטואלית (Pre-Lab)</h4>
-                <p style="margin: 0; font-size: 14px; color: #555;">סימולציות, הכרת התיאוריה ובדיקה עצמית.</p>
-            </div>
+<h4 class="block-title mt-5 mb-3 border-bottom pb-2">🚀 מסלול הניסוי והלמידה שלכם</h4>
+<div class="vstack gap-3">
+    <a href="01_PreLab.html" class="step-box" style="text-decoration: none; color: inherit;">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <h4 class="fw-bold mb-1 text-primary">שלב א': הכנה וחקירה וירטואלית (Pre-Lab)</h4>
+            <p class="text-muted mb-0">מעבר על הרקע התיאורטי, ביצוע סימולציות אינטראקטיביות, תרגול פתרון מטריצות ב-MATLAB ומענה על בחני הכנה במודל.</p>
         </div>
     </a>
-
-    <a href="02_InLab.html" style="display: block; text-decoration: none; color: inherit;">
-        <div class="step-box" style="transition: transform 0.2s ease, box-shadow 0.2s ease; background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; gap: 14px;" id="flow-inlab">
-            <div class="step-number bg-danger" style="box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); background-color: #005696; color: white; font-size: 22px; font-weight: bold; width: 40px; height: 40px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 14px; flex-shrink: 0; text-align: center; background-color: #d9534f;">2</div>
-            <div class="step-content" style="flex: 1;">
-                <h4 style="font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 5px 0; color: #005696; font-size: 18px;">ניסוי מעשי (Physical Lab)</h4>
-                <p style="margin: 0; font-size: 14px; color: #555;">בניית המעגלים על המטריצה ואיסוף נתוני אמת.</p>
-            </div>
+    <a href="02_InLab.html" class="step-box" style="text-decoration: none; color: inherit;">
+        <div class="step-number" style="background-color: var(--danger-color);">2</div>
+        <div class="step-content">
+            <h4 class="fw-bold mb-1 text-primary">שלב ב': ביצוע הניסוי במעבדה (In-Lab)</h4>
+            <p class="text-muted mb-0">חיווט המעגלים על גבי מטריצה פיזית במעבדה, שימוש במכשירי המדידה (מד-מתח, מד-זרם) ואיסוף נתוני אמת בטבלאות המעקב.</p>
         </div>
     </a>
-
-    <a href="03_PostLab.html" style="display: block; text-decoration: none; color: inherit;">
-        <div class="step-box" style="transition: transform 0.2s ease, box-shadow 0.2s ease; background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; gap: 14px;" id="flow-analysis">
-            <div class="step-number bg-success" style="box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); background-color: #005696; color: white; font-size: 22px; font-weight: bold; width: 40px; height: 40px; display: inline-flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 14px; flex-shrink: 0; text-align: center; background-color: #28a745;">3</div>
-            <div class="step-content" style="flex: 1;">
-                <h4 style="font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 5px 0; color: #005696; font-size: 18px;">עיבוד נתונים ודוח מסכם (Post-Lab)</h4>
-                <p style="margin: 0; font-size: 14px; color: #555;">הזנת הנתונים ל-MATLAB Grader והשוואה בין התיאוריה למציאות.</p>
-            </div>
+    <a href="03_PostLab.html" class="step-box" style="text-decoration: none; color: inherit;">
+        <div class="step-number" style="background-color: var(--success-color);">3</div>
+        <div class="step-content">
+            <h4 class="fw-bold mb-1 text-primary">שלב ג': עיבוד נתונים ודוח מסכם (Post-Lab)</h4>
+            <p class="text-muted mb-0">ניתוח מתמטי של המדידות ב-MATLAB Grader, השוואה בין המודל התיאורטי למדידות בפועל וכתיבת מסקנות הנדסיות.</p>
         </div>
     </a>
 </div>
-<!-- /CHAPTER: ROADMAP -->
 
-<!-- CHAPTER: FOOTER -->
-<div class="success-banner" style="margin-top: 30px; padding: 18px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center;" id="ch-intro-footer">
-    <p class="h5 fw-bold text-secondary" style="font-size: 1.15rem; font-size: 1.15rem; margin: 0; font-weight: 700; color: #005696; color: #005696;">
-        מוכנים להתחיל? עברו לעמוד הבא והתחילו את שלב ההכנה. בהצלחה! 🎓
-    </p>
+<div class="alert alert-success mt-4 py-3 text-center fw-bold">
+    מוכנים להתחיל? עברו לעמוד הבא והתחילו את שלב ההכנה. בהצלחה! 🎓
 </div>
-<!-- /CHAPTER: FOOTER -->
+
 <!-- EXP02 NAVIGATION -->
-<div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="01_PreLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים הכנה</a><a href="01_PreLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: הכנה לניסוי</a></div>
+<div class="d-flex justify-content-center gap-3 mt-4 pt-3 border-top">
+    <a href="01_PreLab.html" class="btn btn-primary px-4">הבא: הכנה לניסוי &larr;</a>
+</div>
 <!-- /EXP02 NAVIGATION -->
-    </div>
-</div>
-
-
-
-
-
-
-<div data-units-emphasis="common" style="background:#fff8e5; border:1px solid #ffe08a; border-right:5px solid #f0ad4e; border-radius:8px; padding:14px; margin:18px 0;">
-<strong style="color:#8a5a00;">בדיקת יחידות לפני הגשה:</strong>
-<span> בכל מדידה וחישוב כתבו מספר + יחידה. לפני הצבה בנוסחה המירו ליחידות בסיס: V, A, \(\Omega\), F, H, s, Hz, W. בסוף ודאו שהיחידה שקיבלתם היא היחידה של הגודל שחיפשתם.</span>
-</div>
-</body>
-</html>
-
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
 
 </body>
 </html>

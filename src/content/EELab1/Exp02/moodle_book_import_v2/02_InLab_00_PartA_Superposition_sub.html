@@ -2,121 +2,84 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>02 InLab 00 PartA Superposition sub</title>
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #202124; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>חלק א: אימות משפט סופרפוזיציה ומאזן הספקים</title>
-    
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-<!-- 
-    MOODLE SNIPPET - USER CUSTOM DESIGN
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-custom" style="unicode-bidi: isolate; text-align: right; font-size: 16px; direction: rtl; color: #333; line-height: 1.6; font-family: Arial, sans-serif; max-width: 980px; margin: 0 auto;" dir="rtl">
-    
 
-    <div class="moodle-content-inner" style="unicode-bidi: isolate; text-align: right; direction: rtl; max-width: 980px; margin: 0 auto;">
-        <!-- EXP02 BREADCRUMB -->
-<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 > מעבדה > חלק א סופרפוזיציה</div>
+<!-- EXP02 BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 13px; border-right: 4px solid var(--accent-color);">
+    ניסוי 2 &gt; מעבדה &gt; חלק א סופרפוזיציה
+</div>
 <!-- /EXP02 BREADCRUMB -->
 
-        <!-- CHAPTER: HEADER -->
-<h3 class="section-title" style="margin-bottom: 0.75rem; display: inline-block; margin-top: 0; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">חלק א': אימות משפט סופרפוזיציה ומאזן הספקים</h3>
-<p class="mb-4" style="margin-bottom: 1rem;">בחלק זה נבדוק באופן מעשי מעגל בעל שני מקורות עירור בלתי תלויים, ונאמת את משפט ההרכבה (סופרפוזיציה) עבור זרמים במעגל. כמו כן, נאסוף נתונים שיאפשרו לנו לבצע בדיקת מאזן הספקים מלאה.</p>
+<h3 class="section-title">חלק א': אימות משפט סופרפוזיציה ומאזן הספקים</h3>
+<p class="lead">בחלק זה נרכיב באופן מעשי את הרשת הדו-חוגית ונמדוד את השפעותיהם של מקורות המתח על זרם העומס בצורה נפרדת ומשולבת.</p>
 
-<!-- SECTION: FALSTAD SIMULATION -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-falstad-superposition">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">חקירת המעגל ב-Falstad - משפט סופרפוזיציה</h4>
-    <p>הסימולציה מציגה את אותו מעגל עבודה לחלק א. השתמשו בה כדי לוודא את כיווני הזרמים ואת השפעת כל מקור מתח לפני המדידה במעבדה.</p>
-    <div style="border: 2px dashed #ccc; padding: 10px; background-color: white; text-align: center; border-radius: 5px;">
-        <iframe width="100%" height="450" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" frameborder="0" allowfullscreen style="border: none;"></iframe>
-        <div style="text-align: center; margin-top: 12px;"><a href="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" target="_blank" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">פתיחת סימולציית Falstad</a></div>
-    </div>
-    <p style="margin-top: 10px; color: #52616b;">ערכים: V1=5V, V2=3V, R1=300&Omega;, R2=1k&Omega;, RL=1k&Omega;</p>
-</div>
-<!-- SECTION: PROCEDURE -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-procedure">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📝 שלבי העבודה ומהלך המדידה:</h4>
-    <ol>
-        <li class="mb-2" style="margin-bottom: 8px;">הרכיבו את רשת הנגדים: \(R_1 = 300\Omega\), \(R_2 = 1k\Omega\), \(R_L = 1k\Omega\).</li>
-        <li class="mb-2" style="margin-bottom: 8px;">חברו את הספקים: \(V_1 = 5V\), \(V_2 = 3V\) (אדמה משותפת).</li>
-        <li class="mb-2" style="margin-bottom: 8px;"><strong>מצב 1 (מלא):</strong> מדדו את הזרם דרך העומס (\(I_L\)).</li>
-        <li class="mb-2" style="margin-bottom: 8px;"><strong>מצב 2 (רק V1):</strong> כבו את \(V_2\), קצרו את הדקיו לאדמה. מדדו \(I'_L\).</li>
-        <li><strong>מצב 3 (רק V2):</strong> כבו את \(V_1\), קצרו את הדקיו לאדמה. מדדו \(I''_L\).</li>
+<div class="theory-card">
+    <h4 class="sub-title"><span class="fs-5">📋</span> מהלך המדידה והניסוי במעבדה</h4>
+    <ol style="padding-right: 20px;">
+        <li class="mb-2">הרכיבו על גבי לוח המטריצה את הנגדים הבאים: \(R_1 = 300\,\Omega\), \(R_2 = 1\text{ k}\Omega\), \(R_L = 1\text{ k}\Omega\).</li>
+        <li class="mb-2">כוונו את ערוצי ספק הכוח DC למתחים הבאים: \(V_1 = 5\text{ V}\), \(V_2 = 3\text{ V}\). חברו אותם למעגל (ודאו אדמה משותפת!).</li>
+        <li class="mb-2"><strong>מצב מלא (שני המקורות פועלים):</strong> הדליקו את שני הספקים. מדדו בעזרת רב-מודד דיגיטלי (במצב זרם DC) את הזרם הזורם דרך נגד העומס \(R_L\) (העבירו את רב המודד לטור לענף המרכזי). רשמו את הערך \(I_L\).</li>
+        <li class="mb-2"><strong>מצב חלקי א' (רק V1 פעיל):</strong> כבו את המקור \(V_2\). <strong>חשוב:</strong> נתקו את החוט המחבר את \(V_2\) למעגל, וקצרו את קצה הנגד \(R_2\) ישירות לפס האדמה (GND). מדדו ורשמו את הזרם \(I'_L\).</li>
+        <li class="mb-2"><strong>מצב חלקי ב' (רק V2 פעיל):</strong> כבו את המקור \(V_1\), החזירו את חיבורי \(V_2\). נתקו את \(V_1\) וקצרו את קצה הנגד \(R_1\) לאדמה. מדדו ורשמו את הזרם \(I''_L\).</li>
     </ol>
 </div>
 
-<!-- SECTION: DATA TABLE -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-table">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 טבלה ריקה לרישום המדידות:</h4>
-    <table class="data-table" style="border-spacing: 0; margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #dae0e5; width: 100%; border-collapse: collapse; margin-top: 15px;" width="100%">
-        <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" ead bgcolor="#003366" align="right">
-            </th><tr>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">מצב עירור המעגל</th>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">נוסחה תיאורטית</th>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">זרם נמדד [mA]</th>
-            </tr>
-        
-        <tbody>
-            <tr>
-                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מצב מלא: V1 ו-V2 פועלים</td>
-                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">I<sub>L</sub> = I'<sub>L</sub> + I''<sub>L</sub></td>
-                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
-            </tr>
-            <tr>
-                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מצב חלקי א': רק V1 פועל</td>
-                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">I'<sub>L</sub></td>
-                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
-            </tr>
-            <tr>
-                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מצב חלקי ב': רק V2 פועל</td>
-                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">I''<sub>L</sub></td>
-                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
-            </tr>
-        </tbody>
-    </table>
+<div class="theory-card">
+    <h4 class="sub-title"><span class="fs-5">📊</span> טבלת ריכוז המדידות (חלק א')</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center mb-0">
+            <thead>
+                <tr class="table-primary">
+                    <th>מצב עירור המעגל</th>
+                    <th>נוסחה תיאורטית</th>
+                    <th>זרם מחושב [mA]</th>
+                    <th>זרם נמדד בפועל [mA]</th>
+                    <th>סטייה יחסית [%]</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="fw-bold">מצב מלא: \(V_1\) ו-\(V_2\) פעילים</td>
+                    <td style="direction: ltr;">\(I_L = I'_L + I''_L\)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">מצב חלקי א': רק \(V_1\) פעיל (\(V_2\) מקוצר)</td>
+                    <td style="direction: ltr;">\(I'_L\)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">מצב חלקי ב': רק \(V_2\) פעיל (\(V_1\) מקוצר)</td>
+                    <td style="direction: ltr;">\(I''_L\)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
-<!-- SECTION: FOOTER -->
-<div class="alert-box text-center" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0; text-align: center;">
-    <strong>💾 סיימתם למדוד?</strong> וודאו שכל הנתונים רשומים ושמורים היטב! אתם תזדקקו להם לשלב עיבוד הנתונים.
+<div class="alert alert-info mt-4 mb-0">
+    <strong>💾 טיפ הנדסי לחישוב סטייה:</strong>
+    את הסטייה באחוזים חשבו לפי הנוסחה הבאה: 
+    \(\text{Error (\%)} = \frac{|I_{\text{measured}} - I_{\text{calculated}}|}{I_{\text{calculated}}} \cdot 100\). 
+    סטייה של פחות מ-5% נחשבת לתקינה במעבדה פיזית ומיוחסת לטולרנס (אי-דיוק מובנה) של הנגדים.
 </div>
+
 <!-- EXP02 NAVIGATION -->
-<div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="02_InLab.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a><a href="02_InLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים ניסוי מעשי</a><a href="02_InLab_01_PartB_Thevenin_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: חלק ב</a></div>
+<div class="d-flex justify-content-center gap-3 mt-4 pt-3 border-top">
+    <a href="02_InLab.html" class="btn btn-outline-danger">&larr; הקודם: מעבדה (תוכן)</a>
+    <a href="02_InLab_01_PartB_Thevenin_sub.html" class="btn btn-primary">הבא: חלק ב' &larr;</a>
+</div>
 <!-- /EXP02 NAVIGATION -->
-    </div>
-</div>
-
-
-
-
-
-<div data-units-emphasis="exp2" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
-<strong style="color:#005696;">דגש יחידות בניסוי 2:</strong>
-<span> בסופרפוזיציה, תבנין ואופייני I-V יש לשמור על יחידות בכל שלב: \(V\) למתחים, A או mA לזרמים, \(\Omega\) להתנגדויות ו-W להספק. שיפוע אופיין \(I-V\) אינו מספר בלבד: \(R=\Delta V/\Delta I\) מתקבל ב-\(\Omega\).</span>
-</div>
-</body>
-</html>
-
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
 
 </body>
 </html>

@@ -154,10 +154,35 @@ function build() {
             currentStyles += '\n' + jsxgraphCss;
         }
 
+        // Extract head elements (scripts, links) and body content from source HTML to avoid nesting
+        let headInject = '';
+        const headMatch = content.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
+        if (headMatch) {
+            const headContent = headMatch[1];
+            const tags = headContent.match(/<(script|link)\b[^>]*>(?:[\s\S]*?<\/\1>)?/gi) || [];
+            headInject = tags.join('\n');
+        }
+
+        let bodyContent = content;
+        const bodyMatch = content.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyMatch) {
+            bodyContent = bodyMatch[1].trim();
+        } else {
+            // fallback: strip html, head, body tags if they exist
+            bodyContent = bodyContent.replace(/<!DOCTYPE html>/gi, '');
+            bodyContent = bodyContent.replace(/<html[^>]*>/gi, '').replace(/<\/html>/gi, '');
+            bodyContent = bodyContent.replace(/<head[^>]*>[\s\S]*?<\/head>/gi, '');
+            bodyContent = bodyContent.replace(/<body[^>]*>/gi, '').replace(/<\/body>/gi, '');
+        }
+
         // 1. Generate Moodle Snippet with Inline CSS
-        const fullHtml = moodleTemplate
+        let fullHtml = moodleTemplate
             .replace('{{TITLE}}', title)
-            .replace('{{CONTENT}}', content);
+            .replace('{{CONTENT}}', bodyContent);
+            
+        if (headInject) {
+            fullHtml = fullHtml.replace('</head>', `${headInject}\n</head>`);
+        }
         
         // Inline the CSS
         // Prepend currentStyles to ensure they are processed even if they aren't in the HTML yet

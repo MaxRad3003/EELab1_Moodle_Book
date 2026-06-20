@@ -2,128 +2,93 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>01 PreLab 04 NonLinear sub</title>
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #202124; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>הכנה לניסוי 2 - חלק ד: רכיבים לא-ליניאריים ונקודת עבודה</title>
-    
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-<!-- 
-    MOODLE SNIPPET - USER CUSTOM DESIGN
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-custom" style="unicode-bidi: isolate; text-align: right; font-size: 16px; direction: rtl; color: #333; line-height: 1.6; font-family: Arial, sans-serif; max-width: 980px; margin: 0 auto;" dir="rtl">
-    
 
-    <div class="moodle-content-inner" style="unicode-bidi: isolate; text-align: right; direction: rtl; max-width: 980px; margin: 0 auto;">
-        <!-- EXP02 BREADCRUMB -->
-<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 > הכנה > רכיבים לא ליניאריים</div>
+<!-- EXP02 BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 13px; border-right: 4px solid var(--accent-color);">
+    ניסוי 2 &gt; הכנה &gt; רכיבים לא ליניאריים
+</div>
 <!-- /EXP02 BREADCRUMB -->
 
-        <!-- CHAPTER: HEADER -->
-<h3 class="section-title" style="margin-bottom: 0.75rem; display: inline-block; margin-top: 0; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">הכנה לניסוי 2 - חלק ד': רכיבים לא-ליניאריים (טרמיסטור) ונקודת עבודה</h3>
-<p class="mb-4" style="margin-bottom: 1rem;">בעמוד זה נצא מהעולם האידיאלי של "חוק אוהם" ונכיר רכיבים אמיתיים שהתנגדותם משתנה, נלמד כיצד למצוא את "נקודת העבודה" שלהם (Q-Point), ונחקור את השפעתם על המערכת.</p>
+<h3 class="section-title">חלק ד': רכיבים לא-ליניאריים (מנורה ותרמיסטור) ונקודת עבודה</h3>
+<p class="lead">בעמוד זה נשתחרר מהנחת העבודה של חוק אוהם הקבוע ונלמד כיצד לנתח רכיבים אמיתיים שהתנגדותם משתנה דינמית, וכיצד קובעים את נקודת העבודה שלהם.</p>
 
-<!-- SECTION: THEORY -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-theory">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📖 1. תיאוריה: מהו רכיב לא-ליניארי?</h4>
-    <p>בניגוד לנגד רגיל, ברכיבים מסוימים ההתנגדות משתנה כתוצאה מתנאי הסביבה. בניסוי זה נכיר שניים כאלו:</p>
-    <ul>
-        <li class="mb-2" style="margin-bottom: 8px;"><strong>נורת להט (Incandescent Lamp):</strong> ככל שהיא מתחממת, ההתנגדות שלה <strong>עולה</strong> (PTC).</li>
-        <li class="mb-2" style="margin-bottom: 8px;"><strong>טרמיסטור (NTC):</strong> ככל שהוא מתחמם, ההתנגדות שלו דווקא <strong>יורדת</strong>.</li>
+<div class="theory-card">
+    <h4 class="sub-title"><span class="fs-4">📖</span> 1. רקע עיוני: רכיבים אוהמיים מול לא-אוהמיים</h4>
+    <p>ברכיבים ליניאריים (נגדי פחם רגילים), הקשר בין המתח לזרם הוא קו ישר קבוע העובר בראשית הצירים (\(I = V/R\)). אולם, ברכיבים הנדסיים רבים ההתנגדות מושפעת מטמפרטורת הרכיב שמשתנה כתוצאה מההספק החשמלי המתפזר עליו:</p>
+    
+    <div class="row g-3 my-2">
+        <div class="col-md-6">
+            <div class="p-3 border rounded bg-white h-100">
+                <strong class="text-primary d-block mb-2">💡 נורת להט (PTC - Positive Temperature Coefficient)</strong>
+                חוט הלהט עשוי מתכת (טונגסטן). ככל שעולה הזרם, הטמפרטורה שלו מטפסת ועמה תנודות הסריג המתכתי המפריעות למעבר האלקטרונים. כתוצאה מכך, <strong>ההתנגדות עולה</strong> עם עליית המתח (שיפוע אופיין הזרם הולך ומתמתן).
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded bg-white h-100">
+                <strong class="text-primary d-block mb-2">🔥 טרמיסטור (NTC - Negative Temperature Coefficient)</strong>
+                רכיב מוליך-למחצה שבו אנרגיית החום משחררת אלקטרונים נוספים לפס ההולכה. ככל שהזרם עולה והרכיב מתחמם, מספר נושאי המטען גדל בצורה מעריכית ולכן <strong>ההתנגדות יורדת</strong> בחדות (שיפוע אופיין הזרם הולך ונעשה תלול).
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="theory-card bg-light">
+    <h4 class="sub-title text-dark"><span class="fs-4">📊</span> 2. התנגדות סטטית מול התנגדות דינמית</h4>
+    <p>ברכיבים לא-ליניאריים עלינו להבחין בין שני סוגי התנגדויות בנקודת העבודה \(Q(V_Q, I_Q)\):</p>
+    <ul style="padding-right: 20px;">
+        <li class="mb-2"><strong>התנגדות סטטית (\(R_{static}\)):</strong> ההתנגדות הכוללת של הרכיב בנקודה ספציפית:
+            <div class="my-2 font-weight-bold text-primary" style="direction: ltr;">
+                \( R_{static} = \frac{V_Q}{I_Q} \)
+            </div>
+        </li>
+        <li><strong>התנגדות דינמית/דיפרנציאלית (\(r_{dynamic}\)):</strong> התנגדות הרכיב לשינויים קטנים מסביב לנקודת העבודה (מיוצגת על ידי שיפוע המשיק לעקומה):
+            <div class="my-2 font-weight-bold text-danger" style="direction: ltr;">
+                \( r_{dynamic} = \frac{dV}{dI} \approx \frac{\Delta V}{\Delta I} \)
+            </div>
+        </li>
     </ul>
-    <div class="quote-box" style="font-style: italic; border-radius: 0 0.375rem 0.375rem 0; border-right: 4px solid #d9534f; margin: 10px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px;">
-        <strong>⚠️ בעיה חישובית:</strong> מכיוון שההתנגדות אינה קבועה, לא ניתן לפתור את המעגל בעזרת אלגברה פשוטה. לשם כך הומצאה "נקודת העבודה".
-    </div>
 </div>
 
-<!-- SECTION: Q-POINT -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-qpoint">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🎯 2. מציאת נקודת עבודה בשיטה גרפית</h4>
-    <p>כדי למצוא מה יהיה המתח והזרם בפועל, אנו משתמשים ב<strong>קו עומס (Load Line)</strong>.</p>
-    <p>אנו משרטטים על אותה מערכת צירים שני קווים:</p>
-    <ol>
-        <li class="mb-1" style="margin-bottom: 4px;">את <strong>אופיין הרכיב (I-V Curve)</strong> - שהוא לרוב עקומה.</li>
-        <li class="mb-1" style="margin-bottom: 4px;">את <strong>אופיין המעגל (קו העומס)</strong> - שהוא קו ישר הנמתח בין \(V_{OC}\) לבין \(I_{SC}\).</li>
+<div class="theory-card">
+    <h4 class="sub-title"><span class="fs-4">🎯</span> 3. קביעת נקודת עבודה (Q-point) בשיטה גרפית</h4>
+    <p>כאשר מחברים רכיב לא-ליניארי (כמו דיודה או טרמיסטור) למקור מתח מעשי בעל התנגדות פנימית \(R_{TH}\), לא ניתן לפתור את המעגל באמצעות חוק אוהם פשוט כי התנגדות הרכיב עצמו אינה ידועה מראש. השיטה הגרפית מציעה פתרון אלגנטי המבוסס על שרטוט שני עקומים במערכת צירים משותפת:</p>
+    
+    <ol style="padding-right: 20px;">
+        <li class="mb-2"><strong>אופיין הרכיב:</strong> עקומה המייצגת את הזרם דרך הרכיב לכל מתח נתון (\(I = f(V)\)).</li>
+        <li class="mb-2"><strong>קו העומס (Load Line):</strong> קו ישר המייצג את המגבלות שמציב מעגל הזינה (מקור המתח והנגד הטורי):
+            <div class="my-2 font-weight-bold text-primary" style="direction: ltr;">
+                \( I = \frac{V_{TH} - V}{R_{TH}} \)
+            </div>
+            קו זה נמתח בין שתי נקודות הקצה: נקודת מתח הריקם על ציר ה-\(V\) (\(V_{TH}, 0\)) ונקודת זרם הקצר על ציר ה-\(I\) (\(0, I_{SC} = V_{TH}/R_{TH}\)).
+        </li>
     </ol>
-    <div class="alert-box text-center" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0; text-align: center;">
-        <strong>נקודת החיתוך היא נקודת העבודה (Q-Point)!</strong>
-    </div>
-</div>
-
-<!-- SECTION: MATLAB ANALYSIS -->
-<div class="matlab-box" style="margin-bottom: 25px; text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 24px; border-radius: 8px; margin: 18px 0 25px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);" id="section-matlab-qpoint">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 3. חקירה מתמטית (MATLAB Grader)</h4>
-    <p>הזינו את תוצאות הסימולציה שניתנו לכם עבור אופיין הטרמיסטור, וציירו את קו העומס כדי לאתר את ה-Q-Point.</p>
-    <div class="text-center mt-3" style="text-align: center;">
-        <span style="display: inline-block; background-color: #eef2f5; color: #52616b; padding: 10px 18px; border: 1px dashed #aab4bf; border-radius: 6px; font-weight: bold; margin: 4px 0;">לפתיחת המטלה: Exp02_NonLinear_QPoint <span style="display: inline-block; color: #856404; background-color: #fff3cd; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 8px;">קישור יעודכן במודל</span></span>
-    </div>
-</div>
-
-<!-- SECTION: BONUS TASK -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border: 1px solid #d6bbf7; background-color: #fdfbff;" id="section-bonus">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35; color: #6a1b9a;">🎁 4. משימת בונוס ב-MATLAB: תמסורת לא-ליניארית</h4>
-    <p><strong>מה קורה כאשר נחליף את העומס בנורת להט?</strong> ההתנגדות תשתנה עם עליית המתח, ולכן יחס חלוקת המתח ישתנה ברציפות. <strong>השיפוע כבר לא יהיה קבוע!</strong></p>
     
-    <p class="fw-bold" style="color: #6a1b9a; font-weight: 700;">📝 הוכיחו זאת בעצמכם:</p>
-    <p>שרטטו כיצד פונקציית התמסורת \(H_{lamp}\) משתנה ככל שמתח המבוא עולה.</p>
-    
-    <div class="text-center mt-3" style="text-align: center;">
-        <span style="display: inline-block; background-color: #eef2f5; color: #52616b; padding: 10px 18px; border: 1px dashed #aab4bf; border-radius: 6px; font-weight: bold; margin: 4px 0;">לפתיחת המטלה (בונוס): Exp02_NonLinear_TransferFunction <span style="display: inline-block; color: #856404; background-color: #fff3cd; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 8px;">קישור יעודכן במודל</span></span>
+    <div class="alert alert-success border-start border-4 border-success mt-3 mb-0 text-center fw-bold">
+        נקודת החיתוך בין קו העומס לאופיין הרכיב היא נקודת העבודה (Q-point) המייצגת את המתח והזרם השוררים במעגל בפועל!
     </div>
 </div>
 
-<!-- SECTION: MOODLE QUESTION BANK -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-quizzes">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📝 5. שאלות הבנה מסכמות - Moodle Question</h4>
-    <div class="text-center" style="text-align: center;">
-        <div class="mb-4" style="margin-bottom: 1rem;">
-            <p class="text-right"><strong>1. מאגר שאלות חובה:</strong> רכיבים לא ליניאריים ונקודת עבודה.</p>
-            <span style="display: inline-block; background-color: #e8f4f8; color: #005696; padding: 10px 18px; border-radius: 4px; font-weight: bold;">שאלות חובה מנוהלות ב-Moodle Question XML</span>
-        </div>
-        <div style="border-top: 1px dashed #ccc; padding-top: 20px;">
-            <p class="text-right" style="color: #6a1b9a;"><strong>2. מאגר שאלות בונוס:</strong> תמסורת לא ליניארית.</p>
-            <span style="display: inline-block; background-color: #f3e8ff; color: #6a1b9a; padding: 10px 18px; border-radius: 4px; font-weight: bold;">שאלות בונוס מנוהלות ב-Moodle Question XML</span>
-        </div>
+<div class="card mt-4">
+    <div class="card-header bg-primary text-white font-weight-bold">
+        📊 קישור למטלת ההכנה במודל
+    </div>
+    <div class="card-body bg-white text-center">
+        <p class="mb-2">עליכם לפתור גרפית את נקודת העבודה של טרמיסטור ב-MATLAB Grader:</p>
+        <span class="badge bg-warning text-dark fs-6 p-2">מטלת MATLAB Grader: Exp02_NonLinear_QPoint</span>
+        <div class="small text-muted mt-2">הקישור זמין במודל. הגשה זו חובה.</div>
     </div>
 </div>
+
 <!-- EXP02 NAVIGATION -->
-<div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="01_PreLab_03_TransferFunction_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a><a href="01_PreLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים הכנה</a><a href="01_PreLab_05_JSXGraph_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: המחשות JSXGraph</a></div>
+<div class="d-flex justify-content-center gap-3 mt-4 pt-3 border-top">
+    <a href="01_PreLab_03_TransferFunction_sub.html" class="btn btn-outline-danger">&larr; הקודם: פונקציית תמסורת</a>
+    <a href="01_PreLab_05_JSXGraph_sub.html" class="btn btn-primary">הבא: המחשות JSXGraph &larr;</a>
+</div>
 <!-- /EXP02 NAVIGATION -->
-    </div>
-</div>
-
-
-
-
-<div data-units-emphasis="exp2" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
-<strong style="color:#005696;">דגש יחידות בניסוי 2:</strong>
-<span> בסופרפוזיציה, תבנין ואופייני I-V יש לשמור על יחידות בכל שלב: \(V\) למתחים, A או mA לזרמים, \(\Omega\) להתנגדויות ו-W להספק. שיפוע אופיין \(I-V\) אינו מספר בלבד: \(R=\Delta V/\Delta I\) מתקבל ב-\(\Omega\).</span>
-</div>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
 
 </body>
 </html>
