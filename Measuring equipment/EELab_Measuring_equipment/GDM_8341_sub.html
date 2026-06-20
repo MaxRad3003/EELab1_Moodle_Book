@@ -2,120 +2,710 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>רב-מודד ספרתי GDM-8341</title>
+    <title>רב-מודד ספרתי GDM-8341 - מדריך מעבדה מקיף</title>
+    <!-- טעינת גופנים מודרניים של Google Fonts התומכים בעברית ובאנגלית -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* עיצוב כללי של הדף לחוויה יוקרתית */
+        body {
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            font-family: 'Assistant', 'Segoe UI', Arial, sans-serif;
+            color: #1e293b;
+        }
+        
+        .guide-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 16px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* כותרת ראשית מעוצבת עם גרדיאנט מודרני כחול (DMM) */
+        .header-banner {
+            background: linear-gradient(135deg, #1e293b, #0056b3);
+            color: #ffffff;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-banner h1 {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .header-banner p {
+            margin: 12px 0 0 0;
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* כפתור חזרה מעוצב עם מעברים חלקים */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #334155;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .back-btn:hover {
+            background-color: #1e293b;
+            transform: translateX(-5px); /* תואם ל-RTL */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .back-btn span {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+
+        /* כותרות פרקים */
+        h2.section-title {
+            color: #0056b3;
+            border-right: 5px solid #0056b3;
+            padding-right: 15px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-family: 'Rubik', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        h3.subsection-title {
+            color: #1e293b;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* גריד של כרטיסי מידע */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+        }
+
+        /* תיבות תמונה */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .img-box {
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+        }
+
+        .img-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            transition: transform 0.3s ease;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.03);
+        }
+
+        .img-caption {
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* עיצוב טבלת הבקרות */
+        .controls-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .controls-table th {
+            background-color: #1e293b;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 14px 16px;
+            text-align: right;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .controls-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            background-color: #ffffff;
+            vertical-align: middle;
+        }
+
+        .controls-table tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        .controls-table tr:hover td {
+            background-color: #f1f5f9;
+        }
+
+        /* אקורדיון הדגמות מעוצב */
+        details.demo-accordion {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details.demo-accordion[open] {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #cbd5e1;
+        }
+
+        summary.demo-summary {
+            padding: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: #f8fafc;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            outline: none;
+            color: #1e293b;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-family: 'Rubik', sans-serif;
+            border-bottom: 1px solid transparent;
+        }
+
+        details.demo-accordion[open] summary.demo-summary {
+            border-bottom-color: #e2e8f0;
+            background-color: #f1f5f9;
+            color: #0056b3;
+        }
+
+        summary.demo-summary:hover {
+            background-color: #f1f5f9;
+            color: #0056b3;
+        }
+
+        .demo-content {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .demo-step {
+            margin-bottom: 15px;
+            padding-right: 15px;
+            border-right: 3px solid #cbd5e1;
+        }
+
+        .demo-step-num {
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        /* תיבות אזהרה וטיפים מודרניות */
+        .alert-box {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .alert-warning {
+            background-color: #fff5f5;
+            border-right: 5px solid #ef4444;
+            color: #991b1b;
+        }
+
+        .alert-tip {
+            background-color: #f0fdf4;
+            border-right: 5px solid #22c55e;
+            color: #166534;
+        }
+
+        .alert-info {
+            background-color: #f0f9ff;
+            border-right: 5px solid #0284c7;
+            color: #075985;
+        }
+
+        .alert-box strong {
+            font-size: 16px;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        /* כפתורי קישור חיצוניים */
+        .external-link-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #0056b3;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            text-align: center;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(0, 86, 179, 0.15);
+        }
+
+        .external-link-btn:hover {
+            background-color: #004085;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
 <!-- התחלת תוכן הדף -->
-<div dir="rtl" style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #2c3e50; max-width: 900px; margin: 20px auto; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <!-- כותרת ראשית -->
+<div dir="rtl" class="guide-container" style="max-width: 1000px; margin: 30px auto; padding: 30px; border-radius: 16px; background-color: #ffffff; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+    
     <!-- כפתור חזרה לאינדקס -->
-    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-bottom: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
-    <div style="background-color: #2c3e50; color: white; padding: 20px; border-radius: 8px 8px 0 0; margin: -30px -30px 30px -30px; text-align: center;">
-        <h1 style="margin: 0; font-size: 28px;">רב-מודד ספרתי GDM-8341</h1>
-        <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">מדריך תפעול מתקדם - מעבדת חשמל</p>
+    <a href="Index.html" class="back-btn" style="display: inline-flex; align-items: center; padding: 10px 20px; background-color: #334155; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; margin-bottom: 25px; transition: all 0.2s ease; border: 1px solid transparent;">
+        <span>&larr;</span> חזרה לאינדקס המכשירים
+    </a>
+    
+    <!-- כותרת ראשית -->
+    <div class="header-banner" style="background: linear-gradient(135deg, #1e293b, #0056b3); color: #ffffff; padding: 35px 25px; border-radius: 12px; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+        <h1>רב-מודד ספרתי שולחני GDM-8341</h1>
+        <p>מדריך שימוש מתקדם, פונקציות מתמטיות והדגמות מעשיות במעבדה</p>
     </div>
 
-    <!-- פרק: רקע כללי -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #2c3e50; border-right: 5px solid #2c3e50; padding-right: 15px; margin-bottom: 20px;">רקע כללי</h2>
-        <p>רב-מודד דיגיטלי (<strong>DMM - Digital Multimeter</strong>) הוא מכשיר מדידה רב-תכליתי המסוגל למדוד מתח, זרם והתנגדות. לרב-מודד יש בדרך כלל מספר זוגות הדקים נפרדים, ותמיד קיים הדק משותף בשם <strong>COMMON</strong>, המסומן לרוב בצבע שחור. זוג הדקים אחד משמש למדידת מתח והתנגדות, ואילו הדקים נוספים משמשים למדידות זרם בטווחים שונים.</p>
-    </section>
+    <!-- פרק 1: רקע כללי וטכנולוגי -->
+    <section>
+        <h2 class="section-title" style="color: #0056b3; border-right: 5px solid #0056b3; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">1. רקע כללי וטכנולוגי</h2>
+        <div class="card-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            <div class="info-card">
+                <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">מהו רב-מודד ספרתי שולחני?</h3>
+                <p>רב-מודד ספרתי שולחני (<strong>Benchtop Digital Multimeter - DMM</strong>) הוא מכשיר מדידה מדויק המהווה את לב מערך המדידות במעבדת החשמל. בשונה ממכשירים ניידים ידניים, מכשיר שולחני מציע רזולוציה גבוהה משמעותית, דיוק בסיסי מעולה של קריאות, יציבות תרמית גבוהה וחיבור למחשב לעיבוד נתונים אוטומטי.</p>
+            </div>
+            <div class="info-card">
+                <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">ייחודו של ה-GDM-8341</h3>
+                <p>ה-GDM-8341 מציע תצוגה בת <strong>50,000 ספרות (Counts)</strong> המאפשרת רגישות מדידה גבוהה מאוד (למשל, מדידת מתח ברזולוציה של עד \( 10\,\mu\text{V} \)). המכשיר כולל <strong>תצוגה כפולה (Dual Display)</strong> המאפשרת להציג שתי מדידות של אותו אות בו-זמנית, פונקציות מתמטיות מובנות (כמו \( MX+B \), \( dB/dBm \) וערכי קצה), ומערכת הגנות זרם מובנית מתקדמת.</p>
+            </div>
+        </div>
 
-    <!-- פרק: דגם GDM-8341 -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #2c3e50; border-right: 5px solid #2c3e50; padding-right: 15px; margin-bottom: 20px;">דגם GDM-8341</h2>
-        <p>דגם GDM-8341 הוא רב-מודד ספרתי מתקדם המציע דיוק של 50,000 ספרות ותצוגה כפולה ברורה. המכשיר מתאים למדידות מדויקות של רכיבים אלקטרוניים ומעגלים מורכבים.</p>
-        <!-- חלק: תמונה -->
-        <div style="text-align: center; margin: 25px 0;">
-            <img src="Figure/gdm8341_main.png" alt="GDM-8341 Front Panel" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
+        <div class="alert-box alert-info" style="padding: 16px 20px; border-radius: 8px; margin: 20px 0; display: flex; flex-direction: column; gap: 6px; background-color: #f0f9ff; border-right: 5px solid #0284c7; color: #075985;">
+            <strong>💡 True RMS (ערך יעיל אמיתי):</strong>
+            מכשיר זה מודד ערך יעיל אמיתי (True RMS) עבור מתחי וזרמי AC. בניגוד למודדים פשוטים המניחים שהאות הוא סינוס טהור ומחשבים ערך ממוצע מוכפל בקבוע, מודד True RMS מחשב אנלוגית/דיגיטלית את ה-Root-Mean-Square המדויק של האות, כולל הרמוניות, רעשים וצורות גל לא סינוסואידליות (כמו גל מרובע או משולש קטום).
         </div>
     </section>
 
-    <!-- פרק: פונקציות מדידה וניווט -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #2c3e50; border-right: 5px solid #2c3e50; padding-right: 15px; margin-bottom: 20px;">פונקציות מדידה וניווט</h2>
-        <!-- חלק: טבלת פונקציות -->
-        <table style="width: 100%; border-collapse: collapse; background: #f8f9fa;">
+    <!-- פרק 2: מבנה המכשיר וחיבורים -->
+    <section>
+        <h2 class="section-title" style="color: #0056b3; border-right: 5px solid #0056b3; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">2. לוח המכשיר וחיבורים</h2>
+        <p>להלן תצלום המבט החזיתי של ה-GDM-8341. שימו לב להדקי הכניסה הייעודיים לימין המכשיר המופרדים לקבוצות מדידה שונות.</p>
+        
+        <div class="image-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 25px 0;">
+            <div class="img-box" style="max-width: 500px; text-align: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; flex: 1; min-width: 280px;">
+                <img style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);" src="Figure/gdm8341_main.png" alt="GW Instek GDM-8341 Front Panel">
+                <div class="img-caption" style="font-size: 0.9em; color: #64748b; margin-top: 10px; font-weight: 600;">לוח הבקרה הקדמי והדקי החיבור של ה-GDM-8341</div>
+            </div>
+        </div>
+
+        <div class="alert-box alert-warning" style="padding: 16px 20px; border-radius: 8px; margin: 20px 0; display: flex; flex-direction: column; gap: 6px; background-color: #fff5f5; border-right: 5px solid #ef4444; color: #991b1b;">
+            <strong>⚠️ סכנת שריפת נתיך הזרם:</strong>
+            יש לוודא היטב כי הפרובים מחוברים להדקי המתח (INPUT HI/LO) לפני ביצוע מדידת מתח. חיבור המכשיר במקביל למעגל כאשר הפרובים נמצאים בהדקי mA או 10A יגרום לקצר מיידי ולשריפת נתיך המכשיר.
+        </div>
+
+        <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">מפרט הדקי המדידה והקשרם לחיווט:</h3>
+        <table class="controls-table" style="width: 100%; border-collapse: collapse; margin: 25px 0; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
             <thead>
-                <tr style="background-color: #34495e; color: white;">
-                    <th style="padding: 12px; border: 1px solid #dee2e6; width: 20%;">כפתור</th>
-                    <th style="padding: 12px; border: 1px solid #dee2e6;">פונקציה עיקרית</th>
-                    <th style="padding: 12px; border: 1px solid #dee2e6;">מידע נוסף</th>
+                <tr>
+                    <th style="width: 20%; text-align: center;">הדק פיזי</th>
+                    <th style="width: 25%;">שם החיבור במכשיר</th>
+                    <th style="width: 55%;">תפקיד ושימוש במעבדה</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_dcv.png" alt="DCV" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">מתח DC</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">מדידת ערך ממוצע של אות DC.</td>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_input_v.png" alt="V/Ohm Terminals" style="height: 35px; border-radius: 4px; border: 1px solid #cbd5e1;"></td>
+                    <td><strong>INPUT HI / LO</strong></td>
+                    <td>הדקי המדידה הראשיים למתח (DC/AC), התנגדות 2 חוטים, תדר, דיודה וקיבול קבלים. הדק ה-LO מיועד לייחוס.</td>
                 </tr>
                 <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_resistance.png" alt="Resistance" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">התנגדות / מוליכות</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">לחיצה נוספת עוברת למדידת מוליכות.</td>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_input_comp.png" alt="Sense Terminals" style="height: 35px; border-radius: 4px; border: 1px solid #cbd5e1;"></td>
+                    <td><strong>SENSE HI / LO</strong></td>
+                    <td>הדקי חישה ייעודיים למדידת התנגדות מדויקת בשיטת 4 חוטים (Kelvin) לביטול התנגדות כבלי המדידה.</td>
                 </tr>
                 <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_hz.png" alt="Frequency" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">תדר / מחזור אות</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">לחיצה נוספת מציגה את זמן המחזור (Period).</td>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_input_low_a.png" alt="mA Terminal" style="height: 35px; border-radius: 4px; border: 1px solid #cbd5e1;"></td>
+                    <td><strong>mA</strong></td>
+                    <td>הדק למדידת זרמים נמוכים (עד \( 500\text{ mA} \)). מוגן על ידי נתיך מהיר של \( 0.5\text{ A} \) בגב המכשיר.</td>
                 </tr>
                 <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_diode_cap.png" alt="Diode/Cap" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">דיודה / קיבול</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">מעבר בין בדיקת דיודות למדידת קיבול (Capacitance).</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_2nd.png" alt="2nd Function" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">תצוגה משנית (Dual Display)</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">מאפשר הצגת שתי מדידות בו-זמנית (למשל מתח ותדר).</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_rel.png" alt="Relative" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">מדידה יחסית (REL)</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">שומר ערך ייחוס ומחסיר אותו מהמדידות הבאות (קיזוז).</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_math.png" alt="Math" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">חישובים מתמטיים (MATH)</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">ביצוע חישובים כמו \( MX+B \), \( 1/X \) או אחוז סטייה.</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_trig.png" alt="Trigger" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">טריגר (TRIG)</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">ביצוע מדידה בודדת באופן ידני.</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_int_ext.png" alt="Int/Ext" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">מקור טריגר (INT/EXT)</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">החלפה בין דגימה רציפה למצב ידני/חיצוני.</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #dee2e6; text-align: center;"><img src="Figure/gdm8341_auto_enter.png" alt="Auto" style="height: 35px;"></td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">Auto / Enter</td>
-                    <td style="padding: 12px; border: 1px solid #dee2e6;">בחירת טווח אוטומטית או אישור ערך בתפריט.</td>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_input_a.png" alt="10A Terminal" style="height: 35px; border-radius: 4px; border: 1px solid #cbd5e1;"></td>
+                    <td><strong>10A</strong></td>
+                    <td>הדק מדידת זרם גבוה (עד \( 10\text{ A} \)). מוגן על ידי נתיך הספק גבוה של \( 10\text{ A} \).</td>
                 </tr>
             </tbody>
         </table>
     </section>
 
-    <!-- פרק: מקשי עזר וניווט -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #2c3e50; border-right: 5px solid #2c3e50; padding-right: 15px; margin-bottom: 20px;">מקשי עזר וניווט</h2>
-        <!-- חלק: רשימת מקשים -->
-        <ul style="padding-right: 20px;">
-            <li style="margin-bottom: 10px;"><strong>SHIFT/EXIT:</strong> מאפשר גישה לפונקציות המשניות (בצבע כחול) או יציאה מתפריטים.</li>
-            <li style="margin-bottom: 10px;"><strong>Arrow Keys (חצים):</strong> ניווט בתפריטים. חצים למעלה/למטה משנים טווח ידני. חצים ימינה/שמאלה משנים את קצב הרענון (מהיר, בינוני, איטי).</li>
-            <li style="margin-bottom: 10px;"><strong>MENU:</strong> כניסה להגדרות המערכת, תצורת מדידה ותקשורת.</li>
-        </ul>
+    <!-- פרק 3: בקרות עיקריות וממשק המשתמש -->
+    <section>
+        <h2 class="section-title" style="color: #0056b3; border-right: 5px solid #0056b3; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">3. פונקציות המדידה והניווט</h2>
+        <p>להלן פירוט הלחצנים העיקריים בחזית המכשיר, תפקידם והאפשרויות הטכנולוגיות שהם פותחים:</p>
+        
+        <table class="controls-table" style="width: 100%; border-collapse: collapse; margin: 25px 0; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+            <thead>
+                <tr>
+                    <th style="width: 15%; text-align: center;">לחצן</th>
+                    <th style="width: 25%;">שם הפונקציה</th>
+                    <th style="width: 35%;">תיאור טכני ותפקיד</th>
+                    <th style="width: 25%;">טיפ שימוש מעשי</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_dcv.png" alt="DCV" style="height: 30px;"></td>
+                    <td><strong>DCV / ACV</strong></td>
+                    <td>מדידת מתח ישר (DC) או מתח חילופין (AC). מעבר בין המצבים בלחיצה חוזרת.</td>
+                    <td>במצב AC המכשיר מודד ערך יעיל אמיתי (True RMS).</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_resistance.png" alt="Resistance" style="height: 30px;"></td>
+                    <td><strong>Resistance / 2W / 4W</strong></td>
+                    <td>מדידת התנגדות בשיטת 2 חוטים (רגילה) או 4 חוטים (SENSE) למדידות מדויקות מאוד.</td>
+                    <td>לחיצה ארוכה או שימוש ב-SHIFT יכניסו את המודד למדידת 4-חוטים (Kelvin).</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_hz.png" alt="Frequency" style="height: 30px;"></td>
+                    <td><strong>Hz / Period</strong></td>
+                    <td>מדידת תדר האות בכניסה או זמן המחזור (Period) שלו.</td>
+                    <td>שימוש מעולה לבדיקת תדר רשת החשמל או מוצא של מחולל אותות.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_diode_cap.png" alt="Diode / Cap" style="height: 30px;"></td>
+                    <td><strong>Diode / Capacitance</strong></td>
+                    <td>בדיקת מוליכות דיודות (מפל מתח קדמי) או מדידת קיבול קבלים.</td>
+                    <td><strong>חשוב:</strong> חובה לפרוק קבלים לחלוטין לפני חיבורם למדידה!</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_2nd.png" alt="2nd Display" style="height: 30px;"></td>
+                    <td><strong>2nd Function</strong></td>
+                    <td>הפעלת התצוגה המשנית למדידה כפולה בו-זמנית.</td>
+                    <td>מאפשר להציג מתח AC על המסך הראשי ותדר האות במסך המשני.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_rel.png" alt="Relative" style="height: 30px;"></td>
+                    <td><strong>Relative (REL)</strong></td>
+                    <td>קביעת ערך נוכחי כערך ייחוס (\( 0 \)) וביצוע מדידות יחסיות אליו.</td>
+                    <td>מומלץ לקוזז התנגדות פרובים על ידי קצר ופעולת REL לפני מדידות נמוכות.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_math.png" alt="Math" style="height: 30px;"></td>
+                    <td><strong>Math Functions</strong></td>
+                    <td>חישובים מתמטיים מובנים: \( MX+B \), \( 1/X \), אחוז סטייה, dB, dBm.</td>
+                    <td>שימושי לכיול חיישנים ולתרגום מתח לערך פיזיקלי ישירות במודד.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_trig.png" alt="Trigger" style="height: 30px;"></td>
+                    <td><strong>Trigger (TRIG)</strong></td>
+                    <td>שליחת פקודת דגימה בודדת למכשיר באופן ידני.</td>
+                    <td>נצרך בעיקר בעבודה מול תפריטי תוכנת מחשב או דגימות מבוקרות.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_int_ext.png" alt="Int/Ext" style="height: 30px;"></td>
+                    <td><strong>Int/Ext Trigger Source</strong></td>
+                    <td>בחירת מקור הטריגר: פנימי (דגימה רציפה) או חיצוני/ידני.</td>
+                    <td>מעביר את המודד למצב "המתנה" לקבלת פקודה ידנית או מרחוק.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><img src="Figure/gdm8341_auto_enter.png" alt="Auto" style="height: 30px;"></td>
+                    <td><strong>Auto / Enter</strong></td>
+                    <td>בחירה אוטומטית של טווח המדידה המתאים, או אישור תפריט.</td>
+                    <td>מבטיח רזולוציה מקסימלית אוטומטית בהתאם לגודל האות הנמדד.</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 
-    <!-- חלק: קישור חיצוני -->
-    <div style="margin-top: 30px; text-align: left;">
-        <a href="https://www.manufakturet.create.aau.dk/digitalAssets/858/858521_gdm8341-gdm-8342-um.pdf" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #2c3e50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">למדריך למשתמש המלא &larr;</a>
-    </div>
+    <!-- פרק 4: הדגמות מעשיות במעבדה -->
+    <section>
+        <h2 class="section-title" style="color: #0056b3; border-right: 5px solid #0056b3; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">4. הדגמות ותהליכי עבודה מעשיים</h2>
+        <p>לפניכם 5 הדגמות מעשיות שלב-אחר-שלב המכסות את השימושים המתקדמים ביותר של ה-GDM-8341 במעבדה:</p>
 
-    <!-- כפתור חזרה לאינדקס -->
-    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
+        <!-- הדגמה 1 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 1: מדידת מתח AC ותדר במקביל (Dual Display)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 1:</span>
+                    חברו את פרובי המדידה (אדום להדק INPUT HI, שחור להדק COM).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 2:</span>
+                    לחצו על לחצן <strong>ACV</strong> להעברת המכשיר למדידת מתח חילופין (על המסך תופיע היחידה AC V).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 3:</span>
+                    לחצו על הלחצן <strong>2nd</strong> [תצוגה משנית] ולאחר מכן לחצו על לחצן <strong>Hz</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 4:</span>
+                    חברו את הפרובים אל מקור מתח החילופין (למשל מוצא שנאי המעבדה). 
+                    התצוגה הראשית תציג את המתח היעיל (\( V_{\text{rms}} \)) והתצוגה המשנית הקטנה מימין תציג את תדר המתח במקביל (למשל \( 50.01\text{ Hz} \)).
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 2 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 2: מדידת התנגדות מדויקת בשיטת 4 חוטים (4-Wire Kelvin)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>מדידה זו משמשת לביטול התנגדות כבלי המדידה ומגעי המעגל בעבודה עם נגדים קטנים מאוד (\( < 10\,\Omega \)):</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 1:</span>
+                    חברו שני זוגות כבלים למודד: זוג ראשון להדקי INPUT HI & LO, וזוג שני להדקי SENSE HI & LO.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 2:</span>
+                    לחצו על <strong>SHIFT</strong> ולאחר מכן על לחצן <strong>Ω</strong> (או לחצו לחיצה ממושכת על בורר ההתנגדות) כדי להעביר את המכשיר למצב <strong>4W Ω</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 3:</span>
+                    חברו את קצוות הכבלים לנגד הנמדד באופן הבא: כבלי ה-INPUT וכבלי ה-SENSE של צד HI מתחברים יחד לאותה רגל של הנגד. כנ"ל לגבי צד LO.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 4:</span>
+                    קראו את הערך על גבי המסך. שימו לב שהערך יציב ומדויק מאוד ואינו כולל את עכבת החוטים (\( \approx 0.1-0.3\,\Omega \)), דבר הקריטי במעגלי חישה זרם שנט (Shunt).
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 3 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 3: קיזוז התנגדות פרובים באמצעות פונקציה יחסית (REL)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 1:</span>
+                    חברו את הפרובים כרגיל למדידת התנגדות 2 חוטים (INPUT HI & LO) והעבירו למצב <strong>Ω</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 2:</span>
+                    הצמידו בחוזקה את קצוות הפרובים זה לזה. המכשיר יראה ערך קטן מאוד שאינו אפס (למשל \( 0.184\,\Omega \)) עקב עכבת המגעים והכבלים.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 3:</span>
+                    כאשר הפרובים מקוצרים, לחצו על לחצן <strong>REL</strong>. התצוגה תתאפס ותראה ערך של \( 0.000\,\Omega \). מעתה ערך זה יופחת מכל מדידה.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 4:</span>
+                    מדדו את הנגד הרצוי. הערך המוצג כעת הוא ההתנגדות הנטו של הרכיב.
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 4 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 4: שימוש בפונקציה מתמטית (MATH: MX+B) לכיול קריאת חיישן</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>נניח שיש לנו חיישן טמפרטורה המוציא מתח ליניארי של \( 10\,\text{mV} \) לכל מעלה צלזיוס (\( 10\,\text{mV}/^{\circ}\text{C} \)) עם היסט של \( 500\,\text{mV} \) ב-0 מעלות. הנוסחה היא: \( V = 0.01 \cdot T + 0.5 \), כלומר \( T = 100 \cdot V - 50 \). נגדיר זאת במכשיר:</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 1:</span>
+                    לחצו על לחצן <strong>MATH</strong> והשתמשו בחצים כדי לבחור בפונקציית <strong>MX+B</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 2:</span>
+                    הגדירו את המקדם \( M = 100 \) ואת קבוע ההיסט \( B = -50 \) באמצעות חצי הניווט ומקש ה-Enter.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 3:</span>
+                    העבירו את המכשיר למדידת מתח <strong>DCV</strong> ולחצו שוב על <strong>MATH</strong> להפעלת החישוב.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 4:</span>
+                    חברו את הדקי החיישן לכניסה. המכשיר יבצע את החישוב בזמן אמת ויציג את הטמפרטורה ישירות במעלות צלזיוס.
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 5 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 5: מדידת קיבול קבלים (Capacitance) ופריקה נכונה</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 1:</span>
+                    <strong>בטיחות ראשונה:</strong> נתקו את הקבל מהמתח במעגל וקצרו את רגליו באמצעות נגד פריקה (למשל \( 1\text{ k}\Omega \)) למשך מספר שניות כדי לפרוק אנרגיה אגורה.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 2:</span>
+                    לחצו על הלחצן <strong>Diode / Capacitance</strong> פעמיים עד שיוצג מחוון הקיבול (יחידות כגון nF או uF).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 3:</span>
+                    חברו את הקבל לפרובים המחוברים להדקי INPUT. בקבל אלקטרוליטי הקפידו לחבר את הפרוב האדום לקוטב החיובי של הקבל.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #0056b3;">שלב 4:</span>
+                    המתינו 2-3 שניות (עבור קבלים גדולים הטעינה לוקחת זמן) וקראו את ערך הקיבול. השוו אותו לקיבול הנומינלי הרשום על גבי הרכיב כדי לבדוק את תקינותו.
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- פרק 5: פתרון תקלות וצ'קליסט לסטודנט -->
+    <section>
+        <h2 class="section-title" style="color: #0056b3; border-right: 5px solid #0056b3; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">5. פתרון תקלות וצ'קליסט למעבדה</h2>
+        
+        <div class="alert-box alert-warning" style="padding: 16px 20px; border-radius: 8px; margin: 20px 0; display: flex; flex-direction: column; gap: 6px; background-color: #fff5f5; border-right: 5px solid #ef4444; color: #991b1b;">
+            <strong>⚠️ סכנת פגיעה במכשיר או שריפת נתיך:</strong>
+            חל איסור מוחלט לחבר פרובים להדקי mA או A ולמדוד מתח במקביל למעגל. התנגדות המבוא של המכשיר במצב זרם שואפת לאפס. חיבור כזה יוצר קצר קשה וישרוף מיידית את נתיך ההגנה הראשי. תמיד ודאו שהפרובים נמצאים בהדקי INPUT HI/LO לפני החלפת מצבי עבודה למדידת מתח!
+        </div>
+
+        <div class="info-card" style="margin-top: 20px;">
+            <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">צ'קליסט איתור תקלות במדידות:</h3>
+            <ul style="padding-right: 20px; line-height: 1.8;">
+                <li><strong>למה המכשיר מציג OL?</strong>
+                    OL פירושו Overload (חריגת טווח). אם בחרתם טווח ידני, שנו אותו לטווח גבוה יותר או העבירו למצב AUTO. אם אתם מודדים התנגדות, OL עשוי להצביע על מעגל פתוח (נתק).
+                </li>
+                <li><strong>הקריאה של זרם ה-DC מראה תמיד 0.000mA:</strong>
+                    בסבירות גבוהה מאוד נתיך ההגנה הפנימי של כניסת הזרם שרוף עקב חיבור לא נכון בעבר. קראו למדריך/ללבורנט לבדיקת הנתיך בחלק האחורי או החלפתו.
+                </li>
+                <li><strong>מדידת המתח משתנה ואינה יציבה:</strong>
+                    ודאו שפרובי הבדיקה מוכנסים היטב עד הסוף להדקים, ושנקודות החיבור במטריצה (Breadboard) אינן רופפות או מחומצנות.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- פרק 6: סרטוני הדרכה מומלצים -->
+    <section>
+        <h2 class="section-title" style="color: #0056b3; border-right: 5px solid #0056b3; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">6. סרטוני הדרכה והסברים ויזואליים</h2>
+        <p>סרטוני וידאו מומלצים להרחבת הידע המעשי והבנת עקרונות המדידה של מולטימטרים דיגיטליים שולחניים:</p>
+        
+        <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-top: 15px;">
+            <ul style="padding-right: 20px; margin-bottom: 0; list-style-type: none;">
+                <li style="margin-bottom: 15px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+                    <strong style="color: #0056b3; font-size: 16px;">▶️ יסודות השימוש במולטימטר ספרתי במעבדה (EEVblog #564):</strong><br>
+                    סרטון יסודי שמסביר איך מודדים מתח, זרם והתנגדות ומציג את השפעת עכבת הכניסה של המכשיר.
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=kYV0y026k0o" target="_blank" style="color: #0056b3; font-weight: bold; text-decoration: underline;">צפייה בסרטון ב-YouTube &larr;</a>
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <strong style="color: #0056b3; font-size: 16px;">▶️ מה זה True RMS ולמה הוא קריטי? (EEVblog #842):</strong><br>
+                    הסבר עומק הממחיש את ההבדל בין קריאת ממוצע לבין קריאת ערך יעיל אמיתי על גלים שונים.
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=zJg1P1H0m9A" target="_blank" style="color: #0056b3; font-weight: bold; text-decoration: underline;">צפייה בסרטון ב-YouTube &larr;</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- קישורים ומידע נוסף -->
+    <section style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 20px; text-align: left;">
+        <a href="https://www.manufakturet.create.aau.dk/digitalAssets/858/858521_gdm8341-gdm-8342-um.pdf" target="_blank" class="external-link-btn" style="display: inline-block; padding: 12px 24px; background-color: #0056b3; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background-color 0.2s ease, transform 0.2s ease; text-align: center; margin-top: 15px; box-shadow: 0 4px 6px rgba(0, 86, 179, 0.15);">
+            להורדת המדריך הרשמי למשתמש (PDF) &larr;
+        </a>
+    </section>
 </div>
+
+
+
+<script>
+(function() {
+    function updateBackLink() {
+        const isMoodleBook = window.location.href.includes('/mod/book/') || 
+                             document.querySelector('.path-mod-book') || 
+                             document.querySelector('[id*="mod_book"]');
+                             
+        if (!isMoodleBook) {
+            console.log('Not in Moodle Book. Keeping relative links.');
+            return; 
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        let bookId = urlParams.get('id');
+        
+        if (!bookId) {
+            const anyBookLink = document.querySelector('a[href*="id="]');
+            if (anyBookLink) {
+                const match = anyBookLink.href.match(/[?&]id=(d+)/);
+                if (match) bookId = match[1];
+            }
+        }
+        
+        if (bookId) {
+            const backBtn = document.querySelector('.back-btn');
+            if (backBtn) {
+                backBtn.href = 'https://moodle.sce.ac.il/mod/book/view.php?id=' + bookId;
+            }
+        }
+    }
+    updateBackLink();
+    window.addEventListener('load', updateBackLink);
+    setTimeout(updateBackLink, 500);
+    setTimeout(updateBackLink, 1500);
+})();
+</script>
 </body>
-</html>>
+</html>

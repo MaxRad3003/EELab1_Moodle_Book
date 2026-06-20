@@ -2,23 +2,17 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>02 InLab 03 PhaseMeasurement sub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניסוי 3 - מדידת הפרש מופע</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.4.1/jsxgraph.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.4.1/jsxgraphcore.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl" style="box-sizing: border-box;">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ניסוי 3 - מדידת הפרש מופע</title>
-
-</head>
-<body id="exp03-02-inlab-03-phasemeasurement-sub" style="box-sizing: border-box; font-family: Arial,'Noto Sans Hebrew',sans-serif; line-height: 1.65; margin: 20px; color: #202124; background: #ffffff; direction: rtl; text-align: right;">
-<div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
+<body id="exp03-02-inlab-03-phasemeasurement-sub" style="margin: 20px; padding: 0; background-color: #f8fafc; font-family: Arial,'Noto Sans Hebrew',sans-serif; direction: rtl; text-align: right; box-sizing: border-box; line-height: 1.65; color: #202124; background: #ffffff;">
+    <div dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; text-align: right; font-size: 16px; padding: 20px;">
+        <div style="box-sizing: border-box; direction: rtl; text-align: right; max-width: 980px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
 <div style="box-sizing: border-box; font-size: 0.9rem; color: #52616b; margin-bottom: 14px;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
 <!-- CHAPTER: HEADER -->
 <div class="mb-5" style="box-sizing: border-box; margin-bottom: 2rem;">
@@ -49,13 +43,16 @@
     <div class="danger-box" style="box-sizing: border-box; background-color: #fef2f2; font-size: 15px; color: #991b1b; background: #fff1f1; border: 1px solid #f5c6cb; border-right: 5px solid #d9534f; border-radius: 8px; padding: 16px; margin: 18px 0;">
         <strong style="box-sizing: border-box;">⚠️ אדמה משותפת:</strong> הדקי האדמה של שני הערוצים מחוברים פנימית. חברו את שני "תניני האדמה" לאותה נקודה (אדמת המקור) למניעת קצרים.
     </div>
+    <div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 4px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0;">
+        <strong style="box-sizing: border-box;">הגדרת GDS-2072A למדידת מופע:</strong> הפעילו CH1 ו-CH2, הגדירו לשניהם Probe factor זהה, כוונו Volts/Div כך ששני הגלים נראים בבירור, בחרו Trigger Source = CH1, והשתמשו ב-Cursors או ב-Measure למדידת \(T\) ו-\(\Delta t\).
+    </div>
 </div>
 
 <!-- SECTION: METHOD 1 - TIME SHIFT -->
 <div class="mt-5" style="box-sizing: border-box; margin-top: 2rem;">
     <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">🔄 2. שיטה 1: מדידה לפי הפרש זמנים</h4>
     <div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-        <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">ספרו את מספר המשבצות למחזור (\(N\)) ואת מספר המשבצות המייצגות את ההפרש האופקי (\(K\)):</p>
+        <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">מדדו בעזרת Cursors את זמן המחזור \(T\) ואת ההפרש האופקי \(\Delta t\). אם מודדים ידנית, ספרו את מספר המשבצות למחזור (\(N\)) ואת מספר המשבצות המייצגות את ההפרש האופקי (\(K\)):</p>
         <div class="text-center" style="box-sizing: border-box; font-size: 1.5rem; margin: 1.5rem 0; padding: 1rem; background: #f7fafc; border-radius: 6px; color: #00a4e4; text-align: center;">
             \(\phi = 360^\circ \times \frac{K}{N}\)
         </div>
@@ -83,7 +80,7 @@
 <div class="mt-5" style="box-sizing: border-box; margin-top: 2rem;">
     <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">🔄 3. שיטה 2: עקומת ליסז'ו (מצב X-Y)</h4>
     <div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-        <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">העבירו את הסקופ למצב X-Y. מדדו את גובה חיתוך הציר (\(A\)) ואת גובה השיא (\(B\)):</p>
+        <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">ב-GDS-2072A העבירו את התצוגה למצב X-Y דרך תפריט Display/X-Y לפי תפריט המכשיר. מדדו את גובה חיתוך הציר (\(A\)) ואת גובה השיא (\(B\)):</p>
         <div class="text-center" style="box-sizing: border-box; font-size: 1.5rem; margin: 1.5rem 0; padding: 1rem; background: #f7fafc; border-radius: 6px; color: #00a4e4; text-align: center;">
             \(\phi = \arcsin\left(\frac{A}{B}\right)\)
         </div>
@@ -108,23 +105,15 @@
     </div>
 </div>
 
+<div class="warn" style="box-sizing: border-box; background: #fff8e5; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong style="box-sizing: border-box;">שמירה לדו"ח:</strong> לכל אחד מהתדרים שמרו צילום מסך במצב Dual Channel עם הסמנים, ובנוסף צילום מסך אחד לפחות במצב X-Y. בשם הקובץ ציינו תדר ושיטה, למשל <span dir="ltr" style="box-sizing: border-box;">Exp03_phase_1000Hz_XY.png</span>.</div>
+
 <div data-units-emphasis="exp3" style="box-sizing: border-box; background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 14px; margin: 18px 0;">
 <strong style="box-sizing: border-box; color: #005696;">דגש יחידות בניסוי 3:</strong>
 <span style="box-sizing: border-box;"> באוסצילוסקופ רשמו תמיד האם המתח הוא \(V_p\), \(V_{pp}\) או \(V_{RMS}\). זמן מחזור יש להמיר לשניות לפני חישוב \(f=1/T\). מופע נרשם במעלות, ותדר ב-Hz או kHz באופן עקבי.</span>
 </div>
 <div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="02_InLab_02_FrequencyScope_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="02_InLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="02_InLab_04_Applications_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div>
 </div>
-</body>
-</html>
-
-
-
-
-
-
         </div>
     </div>
-</div>
-
 </body>
 </html>

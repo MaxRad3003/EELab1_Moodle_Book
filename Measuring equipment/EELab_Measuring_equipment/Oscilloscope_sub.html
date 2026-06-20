@@ -2,122 +2,589 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>אוסילוסקופ / משקף תנודות (Oscilloscope)</title>
+    <title>מבוא לאוסילוסקופ / משקף תנודות - מדריך מעבדה מקיף</title>
+    <!-- טעינת גופנים מודרניים של Google Fonts התומכים בעברית ובאנגלית -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* עיצוב כללי של הדף לחוויה יוקרתית */
+        body {
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            font-family: 'Assistant', 'Segoe UI', Arial, sans-serif;
+            color: #1e293b;
+        }
+        
+        .guide-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 16px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* כותרת ראשית מעוצבת עם גרדיאנט מודרני כתום (Oscilloscope) */
+        .header-banner {
+            background: linear-gradient(135deg, #1e293b, #e65100);
+            color: #ffffff;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-banner h1 {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .header-banner p {
+            margin: 12px 0 0 0;
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* כפתור חזרה מעוצב עם מעברים חלקים */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #334155;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .back-btn:hover {
+            background-color: #1e293b;
+            transform: translateX(-5px); /* תואם ל-RTL */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .back-btn span {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+
+        /* כותרות פרקים */
+        h2.section-title {
+            color: #e65100;
+            border-right: 5px solid #e65100;
+            padding-right: 15px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-family: 'Rubik', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        h3.subsection-title {
+            color: #1e293b;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* גריד של כרטיסי מידע */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+        }
+
+        /* תיבות תמונה */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .img-box {
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+        }
+
+        .img-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            transition: transform 0.3s ease;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.03);
+        }
+
+        .img-caption {
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* אקורדיון הדגמות מעוצב */
+        details.demo-accordion {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details.demo-accordion[open] {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #cbd5e1;
+        }
+
+        summary.demo-summary {
+            padding: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: #f8fafc;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            outline: none;
+            color: #1e293b;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-family: 'Rubik', sans-serif;
+            border-bottom: 1px solid transparent;
+        }
+
+        details.demo-accordion[open] summary.demo-summary {
+            border-bottom-color: #e2e8f0;
+            background-color: #f1f5f9;
+            color: #e65100;
+        }
+
+        summary.demo-summary:hover {
+            background-color: #f1f5f9;
+            color: #e65100;
+        }
+
+        .demo-content {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .demo-step {
+            margin-bottom: 15px;
+            padding-right: 15px;
+            border-right: 3px solid #cbd5e1;
+        }
+
+        .demo-step-num {
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        /* תיבות אזהרה וטיפים מודרניות */
+        .alert-box {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .alert-warning {
+            background-color: #fff5f5;
+            border-right: 5px solid #ef4444;
+            color: #991b1b;
+        }
+
+        .alert-tip {
+            background-color: #f0fdf4;
+            border-right: 5px solid #22c55e;
+            color: #166534;
+        }
+
+        .alert-info {
+            background-color: #f0f9ff;
+            border-right: 5px solid #0284c7;
+            color: #075985;
+        }
+
+        .alert-box strong {
+            font-size: 16px;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        /* כפתורי קישור חיצוניים */
+        .external-link-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #e65100;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            text-align: center;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(230, 81, 0, 0.15);
+        }
+
+        .external-link-btn:hover {
+            background-color: #b33f00;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
 <!-- התחלת תוכן הדף -->
-<div dir="rtl" style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #2c3e50; max-width: 900px; margin: 20px auto; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+<div dir="rtl" class="guide-container" style="max-width: 1000px; margin: 30px auto; padding: 30px; border-radius: 16px; background-color: #ffffff; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+    
+    <!-- כפתור חזרה לאינדקס -->
+    <a href="Index.html" class="back-btn" style="display: inline-flex; align-items: center; padding: 10px 20px; background-color: #334155; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; margin-bottom: 25px; transition: all 0.2s ease; border: 1px solid transparent;">
+        <span>&larr;</span> חזרה לאינדקס המכשירים
+    </a>
     
     <!-- כותרת ראשית -->
-    <!-- כפתור חזרה לאינדקס -->
-    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-bottom: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
-    <div style="background-color: #f57c00; color: white; padding: 20px; border-radius: 8px 8px 0 0; margin: -30px -30px 30px -30px; text-align: center;">
-        <h1 style="margin: 0; font-size: 28px;">אוסילוסקופ / משקף תנודות (Oscilloscope)</h1>
-        <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">מדריך עקרונות ומגבלות מדידה</p>
+    <div class="header-banner" style="background: linear-gradient(135deg, #1e293b, #e65100); color: #ffffff; padding: 35px 25px; border-radius: 12px; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+        <h1>מדריך עקרונות ומבוא לאוסילוסקופ</h1>
+        <p>עקרונות מדידה בסיסיים, סכנת קצר האדמה המשותפת ושיטות מדידת זרם עקיפה</p>
     </div>
 
-    <!-- פרק: מהו אוסילוסקופ? -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #f57c00; border-right: 5px solid #f57c00; padding-right: 15px; margin-bottom: 20px;">מהו אוסילוסקופ?</h2>
-        <p>אוסילוסקופ (בעברית: <strong>משקף תנודות</strong>) הוא מכשיר מדידה חשוב ושימושי, המיועד בעיקר לניתוח צורות אות מחזוריות במישור הזמן. המכשיר מציג את שינויי המתח כפונקציה של הזמן על גבי מסך הכולל סקלת ערכים המחולקת לשנתות.</p>
-        <p>קיימות שתי גרסאות עיקריות למכשיר:</p>
-        <ul style="padding-right: 20px;">
-            <li><strong>אנלוגי:</strong> מבוסס על מסך קטודה (CRT).</li>
-            <li><strong>דיגיטלי:</strong> מבוסס על מסך גביש נוזלי (LCD), כמו חלק מהמכשירים הנמצאים במעבדה.</li>
-        </ul>
-        <p>לאוסילוסקופ יש בדרך כלל לפחות שני ערוצי מדידה (Ch1 ו-Ch2), המאפשרים להציג שני אותות בו-זמנית על אותה סקלה. החיבור למכשיר מתבצע בעזרת כבל קואקסיאלי עם מחבר <strong>BNC</strong>.</p>
-        
-        <!-- חלק: לוח קדמי -->
-        <div style="text-align: center; margin: 25px 0;">
-            <img src="Figure/osc_front_panel.png" alt="Oscilloscope Front Panel" style="max-width: 80%; border: 1px solid #ccc; border-radius: 8px;">
-            <p style="font-size: 0.85em; color: #7f8c8d;">איור: לוח קדמי טיפוסי של אוסילוסקופ דיגיטלי</p>
+    <!-- פרק 1: מהו אוסילוסקופ? -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">1. עקרונות תיאורטיים ומבוא</h2>
+        <div class="card-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            <div class="info-card">
+                <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">הצגת מתח כפונקציה של הזמן</h3>
+                <p>אוסילוסקופ (<strong>Oscilloscope</strong>) הוא מכשיר מדידה אלקטרוני המדמה גרף דו-ממדי של אותות מתח בזמן אמת. ציר ה-\( Y \) (האנכי) מייצג את גובה המתח החשמלי, וציר ה-\( X \) (האופקי) מייצג את ציר הזמן. המכשיר מאפשר לראות ישירות את צורת הגל, למדוד משרעת (Amplitude), זמן מחזור, תדר, הפרשי פאזה, רעשים ועיוותים באות.</p>
+            </div>
+            <div class="info-card">
+                <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">חיבור המכשיר וכבלים קואקסיאליים</h3>
+                <p>החיבור אל האוסילוסקופ מתבצע באמצעות מחברי <strong>BNC</strong> מיוחדים וכבלים קואקסיאליים מוגנים. כבלים אלו כוללים מוליך פנימי מרכזי (המעביר את האות הנמדד) וסיכוך מתכת חיצוני השזור סביבו (המשמש כאדמת ייחוס ומגן על האות מפני רעשים אלקטרומגנטיים סביבתיים). קצה הכבל מפוצל לפרוב מדידה (Probe) המכיל סיכת מדידה ותפס קצה ("תנין") שחור המייצג את האדמה.</p>
+            </div>
+        </div>
+
+        <div class="image-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 25px 0;">
+            <div class="img-box" style="max-width: 500px; text-align: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; flex: 1; min-width: 280px;">
+                <img style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);" src="Figure/osc_front_panel.png" alt="Typical Digital Oscilloscope Front Panel">
+                <div class="img-caption" style="font-size: 0.9em; color: #64748b; margin-top: 10px; font-weight: 600;">מבט על הלוח הקדמי הטיפוסי ומסך השנתות של אוסילוסקופ</div>
+            </div>
         </div>
     </section>
 
-    <!-- פרק: סימולטור אינטראקטיבי -->
-    <section style="margin-bottom: 40px; border-top: 1px solid #eee; padding-top: 20px;">
-        <h2 style="color: #f57c00; border-right: 5px solid #f57c00; padding-right: 15px; margin-bottom: 20px;">סימולטור אוסילוסקופ וירטואלי</h2>
-        <p style="margin-bottom: 15px;">כדי להתנסות בעבודה עם המכשיר עוד לפני ההגעה למעבדה, ניתן להשתמש בסימולטור הבא המדמה את פעולת המכשיר בזמן אמת:</p>
+    <!-- פרק 2: סכנת קצר האדמות המשותפת -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">2. מלכודת האדמה המשותפת (Common Ground Loop Trap)</h2>
+        <p>זוהי טעות המעבדה הנפוצה ביותר ובעלת פוטנציאל הנזק הגבוה ביותר עבור סטודנטים מתחילים:</p>
         
-        <!-- חלק: Iframe סימולטור -->
+        <div class="alert-box alert-warning" style="padding: 16px 20px; border-radius: 8px; margin: 20px 0; display: flex; flex-direction: column; gap: 6px; background-color: #fff5f5; border-right: 5px solid #ef4444; color: #991b1b;">
+            <strong>⚠️ סכנת קצר קשה ושריפת מעגלים (Common Ground Constraint):</strong>
+            הדקי האדמה (הסיכוך החיצוני של מחבר ה-BNC והתנינים השחורים של הפרובים) של <strong>כל ערוצי האוסילוסקופ</strong> מחוברים פנימית זה לזה וכן <strong>מחוברים פיזית לשלדת המכשיר ולאדמת רשת החשמל של המעבדה (Earth Ground)</strong>.
+            <br>
+            <strong>המשמעות:</strong>
+            אם תחברו את תנין האדמה של ערוץ 1 לנקודה אחת במעגל, ואת תנין האדמה של ערוץ 2 לנקודה אחרת במעגל שאינה באותו פוטנציאל, אתם תיצרו <strong>קצר חשמלי מוחלט</strong> דרך גוף האוסילוסקופ שישרוף את המעגל, את פרוב המכשיר או את ספק הכוח. 
+            <br>
+            <strong>כלל ברזל:</strong>
+            בכל מעגל המחובר לאוסילוסקופ מותר לחבר אך ורק <strong>תנין אדמה שחור אחד בלבד</strong>. תנין האדמה השני של הערוץ הנוסף חייב להישאר מנותק וחופשי באוויר!
+        </div>
+    </section>
+
+    <!-- פרק 3: סימולטור אוסילוסקופ וירטואלי -->
+    <section style="margin-bottom: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">3. סימולטור אוסילוסקופ אינטראקטיבי</h2>
+        <p style="margin-bottom: 15px;">לתרגול מקדים של כיוון בסיס זמן, רגישות מתח, וחיבורים לפני הכניסה הפיזית למעבדה, השתמשו בסימולטור הבא:</p>
+        
         <div style="margin-bottom: 20px;">
             <iframe 
               src="https://physics-zone.com/virtual-oscilloscope/" 
               width="100%" 
               height="700px" 
-              style="border: 1px solid #ccc; border-radius: 8px;" 
+              style="border: 1px solid #cbd5e1; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);" 
               allowfullscreen>
             </iframe>
         </div>
 
-        <!-- חלק: הסבר מורחב על הסימולטור -->
-        <div style="background-color: #f1f8e9; border: 1px solid #c5e1a5; padding: 25px; border-radius: 8px;">
-            <h4 style="margin-top: 0; color: #33691e;">מדריך למשתמש בסימולטור (מתורגם ומורחב):</h4>
-            <p>הסימולטור מאפשר לדמות מדידה של אותות ממחולל אותות. להלן הנחיות לשימוש יעיל:</p>
-            <ul style="padding-right: 20px; line-height: 1.8;">
-                <li><strong>הפעלה (Power):</strong> לחצו על לחצן ההפעלה האדום בשני המכשירים (האוסילוסקופ והמחולל).</li>
-                <li><strong>חיבור פרובים:</strong> גררו את קצה הכבל (הפרוב) היוצא מהמחולל (Signal Out), וחברו אותו לכניסת ה-CH1 באוסילוסקופ.</li>
-                <li><strong>הגדרת אות במחולל:</strong> שנו את התדר (Frequency) ואת האמפליטודה (Amplitude) במחולל האותות, וצפו בשינוי המתקבל על מסך האוסילוסקופ.</li>
-                <li><strong>ייצוב התמונה (Trigger):</strong> אם הגל "רץ" על המסך, סובבו את לחצן ה-Level באזור ה-Trigger עד שהגל יתייצב.</li>
-                <li><strong>מדידות ידניות:</strong> לחצו על הלחצן <strong>Cursors</strong> כדי להפעיל סמנים למדידת מתח (\( V \)) וזמן (\( T \)).</li>
+        <div class="alert-box alert-tip" style="padding: 16px 20px; border-radius: 8px; margin: 20px 0; display: flex; flex-direction: column; gap: 6px; background-color: #f0fdf4; border-right: 5px solid #22c55e; color: #166534;">
+            <strong>🛠️ הנחיות מהירות לעבודה בסימולטור:</strong>
+            <ul>
+                <li>לחצו על לחצני ההפעלה האדומים (Power) כדי להדליק את האוסילוסקופ ואת מחולל האותות.</li>
+                <li>גררו את כבל ה-BNC מהמחולל וחברו אותו ישירות לכניסת ה-CH1 באוסילוסקופ.</li>
+                <li>שנו את התדר (Frequency) במחולל האותות וכווננו את ה-<strong>TIME/DIV</strong> באוסילוסקופ כדי לראות 2-3 מחזורים ברורים.</li>
+                <li>כווננו את ה-<strong>VOLTS/DIV</strong> באוסילוסקופ כדי שהגל ימלא את רוב גובה המסך ללא קטיעה.</li>
             </ul>
-            <p style="margin-top: 15px; border-top: 1px dashed #c5e1a5; padding-top: 10px;">
-                לעיון במדריך המלא והמפורט של האתר (באנגלית): 
-                <a href="https://physics-zone.com/simulation-manual-virtual-oscilloscope/" target="_blank" style="color: #33691e; font-weight: bold; text-decoration: underline;">Simulation Manual - Virtual Oscilloscope</a>.
-            </p>
         </div>
     </section>
 
-    <!-- פרק: כללי ברזל ומגבלות פדגוגיות -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #d84315; border-right: 5px solid #d84315; padding-right: 15px; margin-bottom: 20px;">דגשים פדגוגיים ומגבלות מדידה חשובות</h2>
-        <div style="background-color: #fff3e0; border: 1px solid #ffe0b2; padding: 20px; border-radius: 8px;">
-            <ul style="padding-right: 20px;">
-                <li style="margin-bottom: 15px;">
-                    <strong style="color: #d32f2f;">מגבלת האדמה המשותפת (Common Ground):</strong> 
-                    לשני ערוצי המדידה (CH1, CH2) יש <strong>הדק אדמה משותף</strong> המחובר פנימית לשלדת המכשיר ולאדמת המעבדה. 
-                    <br><em style="color: #5d4037;">משמעות:</em> חיבור תניני האדמה של שני פרובים לנקודות שונות במעגל, שביניהן קיים הפרש פוטנציאלים, יגרום ל<strong>קצר חשמלי</strong>. יש להקפיד על נקודת אדמה אחת בלבד למעגל.
-                </li>
-                <li style="margin-bottom: 15px;">
-                    <strong>מדידת זרם:</strong> 
-                    האוסילוסקופ הוא מכשיר למדידת <strong>מתח בלבד</strong>. כדי למדוד זרם משתמשים ב"שיטת הנגד" (Shunt): מודדים את המתח על נגד ידוע המחובר בטור למעגל, ומחשבים את הזרם לפי חוק אוהם (\( I = V/R \)).
-                </li>
-                <li style="margin-bottom: 15px;">
-                    <strong>צימוד (Coupling - AC/DC):</strong> 
+    <!-- פרק 4: הדגמות מעשיות ותהליכים שלב-אחר-שלב -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">4. תהליכי עבודה והדגמות מעשיות</h2>
+        <p>להלן 5 תהליכי עבודה המקנים מיומנויות יסוד קריטיות בשימוש במשקף התנודות:</p>
+
+        <!-- הדגמה 1 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 1: חיווט נכון במדידה דו-ערוצית ומניעת קצר אדמות</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>נניח שאנו רוצים למדוד בו-זמנית את מתח הכניסה למעגל ומתח המוצא על רכיב פנימי:</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    זהו את נקודת האדמה המשותפת (Ground) של המעגל שלכם (הנקודה שמחוברת למינוס של ספק הכוח).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    חברו את תנין האדמה השחור של הפרוב של <strong>ערוץ 1 (CH1)</strong> לנקודת אדמה זו.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    חברו את סיכת המדידה של פרוב ערוץ 1 לנקודת הכניסה של האות למעגל.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    חברו את סיכת המדידה של פרוב <strong>ערוץ 2 (CH2)</strong> לנקודת המוצא הרצויה. 
+                    <strong>השאירו את תנין האדמה השחור של ערוץ 2 מנותק באוויר!</strong> הוא מוארק כבר פנימית למעגל דרך ערוץ 1.
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 2 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 2: מדידת זרם עקיפה באמצעות נגד שנט (Shunt Resistor)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>האוסילוסקופ מסוגל למדוד מתח בלבד. כדי לצפות בצורת גל הזרם, נשתמש בחוק אוהם:</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    חברו נגד קטן בעל ערך ידוע ומדויק (למשל נגד שנט \( R_s = 1\,\Omega \) או \( 10\,\Omega \)) בטור לענף שבו תרצו למדוד את הזרם.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    חברו את פרוב האוסילוסקופ במקביל לנגד השנט (ודאו שחוק האדמה המשותפת לא מופר - הציבו את הנגד צמוד לאדמת המעגל כדי שתנין האדמה יתחבר לאדמה הכללית).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    מדדו את ערך מתח הפיק-לפיק (\( V_{p-p} \)) או ה-RMS על גבי נגד השנט.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    חשבו את הזרם בכל רגע נתון בעזרת חוק אוהם: \( I = \frac{V_{R_s}}{R_s} \). 
+                    לדוגמה, אם נגד השנט הוא \( 10\,\Omega \) והמתח הנמדד עליו הוא \( 120\,\text{mV}_{\text{rms}} \), הזרם בענף הוא \( I = \frac{120\text{ mV}}{10\ \Omega} = 12\,\text{mA}_{\text{rms}} \).
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 3 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 3: איתור אות רעש קטן על גבי מתח ישר (AC vs. DC Coupling)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>מצב זה שימושי מאוד לבדיקת אדוות מתח (Ripple) של ספקי כוח חשמליים:</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    חברו את הפרוב למוצא ספק כוח DC של \( 5\text{ V} \). במצב צימוד <strong>DC Coupling</strong>, תראו קו ישר בגובה של \( 5\text{ V} \) מעל קו האפס.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    אם ננסה להגדיל את הרגישות האנכית (להקטין את ה-VOLTS/DIV) כדי לראות רעשים זעירים, האות יברח מיד מחוץ לגבולות המסך עקב היסט ה-DC הגבוה.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    העבירו את צימוד הערוץ למצב <strong>AC Coupling</strong>. קבל המבוא הפנימי יחסום את רמת ה-\( 5\text{ V} \). האות ירד ויתמרכז בדיוק על קו האפס הווירטואלי.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    כעת ניתן להגדיל בבטחה את הרגישות האנכית לערכים זעירים של \( 5\text{ mV/DIV} \) או \( 10\text{ mV/DIV} \), ולצפות ברעש, תנודות ואדוות החילופין הזעירות המולבשות על מתח ה-DC.
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 4 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 4: פיצוי וכיול פרוב האוסילוסקופ (Probe Compensation)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>התאמת קיבול כבל הפרוב לקיבול כניסת האוסילוסקופ לקבלת תגובת תדר שטוחה:</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    חברו את פרוב ה-BNC לכניסת CH1, והעבירו את בורר הפרוב (על גבי הידית) למצב <strong>x10</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    חברו את קצה הפרוב להדק ה-<strong>CAL</strong> הפנימי בחזית המכשיר המפיק גל ריבועי של \( 1\text{ kHz} \).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    הביטו בצורת הגל הריבועי המופיע על המסך:
                     <ul>
-                        <li><strong>DC Coupling:</strong> מציג את האות המלא (כולל רמת ה-DC).</li>
-                        <li><strong>AC Coupling:</strong> מסנן את רמת ה-DC ומציג רק את רכיב ה-AC (שימושי לבדיקת "רעש" על ספק כוח).</li>
+                        <li>אם הפינות העליונות מעוגלות - הפרוב נמצא ב<strong>תת-פיצוי (Under-compensation)</strong>.</li>
+                        <li>אם הפינות חדות עם שפיץ בולט (Overshoot) - הפרוב נמצא ב<strong>פיצוי-יתר (Over-compensation)</strong>.</li>
                     </ul>
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    השתמשו במברג כיול פלסטי קטן וסובבו את קבל הכוונון (Trimmer) הנמצא על גוף מחבר ה-BNC או על ראש הפרוב, עד לקבלת גל ריבועי שטוח לחלוטין וישר בפינותיו.
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 5 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 5: שימוש בסמנים (Cursors) למדידה ידנית מדויקת</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    הציגו גל מחזורי יציב על המסך. לחצו על כפתור <strong>Cursors</strong> בלוח המכשיר.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    בחרו בתפריט המסך את סוג הסמנים הרצוי: <strong>Voltage</strong> למדידת מתחים (סמנים אופקיים) או <strong>Time</strong> למדידת זמנים ותדר (סמנים אנכיים).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    סובבו את בוררי השליטה (Multipurpose knobs) כדי להזיז את סמן 1 וסמן 2:
+                    <ul>
+                        <li>במדידת זמן: הציבו את סמן 1 בתחילת מחזור הגל ואת סמן 2 בדיוק בסוף המחזור.</li>
+                        <li>במדידת מתח: הציבו את סמן 1 בשיא העליון של הגל ואת סמן 2 בשפל התחתון שלו.</li>
+                    </ul>
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    קראו את הערכים המוצגים בתפריט הצדדי: המרחק בין הסמנים (\( \Delta V \) או \( \Delta T \)) והתדר המחושב אוטומטית (\( f = 1/\Delta T \)).
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- פרק 5: פתרון תקלות וצ'קליסט לתלמיד -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">5. פתרון תקלות וצ'קליסט למעבדה</h2>
+        
+        <div class="info-card">
+            <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">צ'קליסט איתור בעיות יסוד באוסילוסקופ:</h3>
+            <ul style="padding-right: 20px; line-height: 1.8;">
+                <li><strong>האם המעגל שלי מקוצר?</strong>
+                    אם חיברתם את אדמות הפרובים של שני ערוצים לנקודות שונות במעגל, נתקו מיד את אחד מהם והשאירו רק אדמה אחת משותפת.
                 </li>
-                <li style="margin-bottom: 15px;">
-                    <strong>מגבלת רוחב פס (Bandwidth):</strong> 
-                    לכל אוסילוסקופ יש תדר גבול עליון. מדידה של אות בתדר הקרוב לרוחב הפס של המכשיר עלולה לגרום לירידה באמפליטודה המוצגת (ניחות של 3 \( dB \)).
+                <li><strong>האות שקט ואינו מתייצב (ריצה חופשית):</strong>
+                    בדקו שוב את בורר ה-TRIGGER SOURCE. אם האות מוזן ל-CH1, ה-Source חייב להיות מכוון ל-CH1.
+                </li>
+                <li><strong>המתח נראה קטן פי 10 מהערך הצפוי במעגל:</strong>
+                    בדקו את מתג הפרוב הפיזי (x1/x10). אם הפרוב מכוון ל-x10, עליכם להגדיר גם בהגדרות התפריט של הערוץ באוסילוסקופ (Probe Setup) יחס של 10X כדי שהמכשיר יכפיל אוטומטית ויציג את המתח האמיתי.
                 </li>
             </ul>
         </div>
     </section>
 
-    <!-- פרק: מושגי יסוד בתצוגה -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #f57c00; border-right: 5px solid #f57c00; padding-right: 15px; margin-bottom: 20px;">מושגי יסוד בתצוגה</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div style="padding: 15px; border: 1px solid #e0e0e0; border-radius: 8px;">
-                <h4 style="margin-top: 0; color: #e65100;">Volts/Div</h4>
-                <p style="font-size: 0.9em; margin-bottom: 0;">קובע את קנה המידה האנכי (מתח). כל משבצת מייצגת מספר וולטים שהוגדר. הגדלת הערך "תכווץ" את הגל אנכית.</p>
-            </div>
-            <div style="padding: 15px; border: 1px solid #e0e0e0; border-radius: 8px;">
-                <h4 style="margin-top: 0; color: #e65100;">Time/Div</h4>
-                <p style="font-size: 0.9em; margin-bottom: 0;">קובע את קנה המידה האופקי (זמן). מאפשר "למתוח" או "לכווץ" את האות על פני ציר הזמן כדי לראות יותר או פחות מחזורים.</p>
-            </div>
+    <!-- פרק 6: סרטוני הדרכה מומלצים -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">6. סרטוני הדרכה מומלצים ב-YouTube</h2>
+        <p>לפניכם שני סרטונים מומלצים ומבוקשים מאוד המכסים את הבנת האוסילוסקופ והימנעות מטעויות אדמה קריטיות:</p>
+        
+        <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-top: 15px;">
+            <ul style="padding-right: 20px; margin-bottom: 0; list-style-type: none;">
+                <li style="margin-bottom: 15px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+                    <strong style="color: #e65100; font-size: 16px;">▶️ כיצד להשתמש באוסילוסקופ - יסודות והדגמות מעשיות (EEVblog #279):</strong><br>
+                    מדריך מקיף וברור המלמד את כל פונקציות המכשיר, בסיס זמן, טריגר ופעולות מדידה בסיסיות.
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=hUIgAu31CY4" target="_blank" style="color: #e65100; font-weight: bold; text-decoration: underline;">צפייה בסרטון ב-YouTube &larr;</a>
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <strong style="color: #e65100; font-size: 16px;">▶️ מלכודת האדמה של פרובים באוסילוסקופ (How Not To Blow Up Your Scope):</strong><br>
+                    סרטון חובה לכל סטודנט הממחיש באופן מעשי כיצד חיבור לא נכון של אדמת הפרוב גורם לקצר דרך הארקת הבניין.
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=xaELqAo4kkQ" target="_blank" style="color: #e65100; font-weight: bold; text-decoration: underline;">צפייה בסרטון ב-YouTube &larr;</a>
+                </li>
+            </ul>
         </div>
     </section>
-
-    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; text-align: center;">
-        <p style="font-weight: bold; color: #e65100;">זכרו: האוסילוסקופ מאפשר לראות את צורת האות במעגל בזמן אמת. השתמשו בו בזהירות ובתבונה.</p>
-    </div>
-    
-    <!-- כפתור חזרה לאינדקס -->
-    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
 </div>
+
+
+
+<script>
+(function() {
+    function updateBackLink() {
+        const isMoodleBook = window.location.href.includes('/mod/book/') || 
+                             document.querySelector('.path-mod-book') || 
+                             document.querySelector('[id*="mod_book"]');
+                             
+        if (!isMoodleBook) {
+            console.log('Not in Moodle Book. Keeping relative links.');
+            return; 
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        let bookId = urlParams.get('id');
+        
+        if (!bookId) {
+            const anyBookLink = document.querySelector('a[href*="id="]');
+            if (anyBookLink) {
+                const match = anyBookLink.href.match(/[?&]id=(d+)/);
+                if (match) bookId = match[1];
+            }
+        }
+        
+        if (bookId) {
+            const backBtn = document.querySelector('.back-btn');
+            if (backBtn) {
+                backBtn.href = 'https://moodle.sce.ac.il/mod/book/view.php?id=' + bookId;
+            }
+        }
+    }
+    updateBackLink();
+    window.addEventListener('load', updateBackLink);
+    setTimeout(updateBackLink, 500);
+    setTimeout(updateBackLink, 1500);
+})();
+</script>
 </body>
-</html>ml>
+</html>

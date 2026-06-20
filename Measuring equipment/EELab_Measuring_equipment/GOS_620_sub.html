@@ -2,102 +2,638 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>אוסילוסקופ אנלוגי GOS-620</title>
+    <title>אוסילוסקופ אנלוגי GOS-620 - מדריך מעבדה מקיף</title>
+    <!-- טעינת גופנים מודרניים של Google Fonts התומכים בעברית ובאנגלית -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* עיצוב כללי של הדף לחוויה יוקרתית */
+        body {
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            font-family: 'Assistant', 'Segoe UI', Arial, sans-serif;
+            color: #1e293b;
+        }
+        
+        .guide-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 16px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* כותרת ראשית מעוצבת עם גרדיאנט מודרני כתום (Oscilloscope) */
+        .header-banner {
+            background: linear-gradient(135deg, #1e293b, #e65100);
+            color: #ffffff;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-banner h1 {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .header-banner p {
+            margin: 12px 0 0 0;
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* כפתור חזרה מעוצב עם מעברים חלקים */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #334155;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .back-btn:hover {
+            background-color: #1e293b;
+            transform: translateX(-5px); /* תואם ל-RTL */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .back-btn span {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+
+        /* כותרות פרקים */
+        h2.section-title {
+            color: #e65100;
+            border-right: 5px solid #e65100;
+            padding-right: 15px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-family: 'Rubik', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        h3.subsection-title {
+            color: #1e293b;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* גריד של כרטיסי מידע */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+        }
+
+        /* אזורי בקרה מיוחדים צבעוניים */
+        .control-zone-box {
+            background: #fff8f5;
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 5px solid #ff9800;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .control-zone-box:hover {
+            transform: scale(1.01);
+        }
+
+        .control-zone-box h3 {
+            margin-top: 0;
+            color: #e65100;
+            font-family: 'Rubik', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* תיבות תמונה */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .img-box {
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 500px;
+        }
+
+        .img-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            transition: transform 0.3s ease;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.03);
+        }
+
+        .img-caption {
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* אקורדיון הדגמות מעוצב */
+        details.demo-accordion {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details.demo-accordion[open] {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #cbd5e1;
+        }
+
+        summary.demo-summary {
+            padding: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: #f8fafc;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            outline: none;
+            color: #1e293b;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-family: 'Rubik', sans-serif;
+            border-bottom: 1px solid transparent;
+        }
+
+        details.demo-accordion[open] summary.demo-summary {
+            border-bottom-color: #e2e8f0;
+            background-color: #f1f5f9;
+            color: #e65100;
+        }
+
+        summary.demo-summary:hover {
+            background-color: #f1f5f9;
+            color: #e65100;
+        }
+
+        .demo-content {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .demo-step {
+            margin-bottom: 15px;
+            padding-right: 15px;
+            border-right: 3px solid #cbd5e1;
+        }
+
+        .demo-step-num {
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        /* תיבות אזהרה וטיפים מודרניות */
+        .alert-box {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .alert-warning {
+            background-color: #fff5f5;
+            border-right: 5px solid #ef4444;
+            color: #991b1b;
+        }
+
+        .alert-tip {
+            background-color: #f0fdf4;
+            border-right: 5px solid #22c55e;
+            color: #166534;
+        }
+
+        .alert-info {
+            background-color: #f0f9ff;
+            border-right: 5px solid #0284c7;
+            color: #075985;
+        }
+
+        .alert-box strong {
+            font-size: 16px;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        /* כפתורי קישור חיצוניים */
+        .external-link-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #e65100;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            text-align: center;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(230, 81, 0, 0.15);
+        }
+
+        .external-link-btn:hover {
+            background-color: #b33f00;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
 <!-- התחלת תוכן הדף -->
-<div dir="rtl" style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #2c3e50; max-width: 900px; margin: 20px auto; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+<div dir="rtl" class="guide-container" style="max-width: 1000px; margin: 30px auto; padding: 30px; border-radius: 16px; background-color: #ffffff; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+    
+    <!-- כפתור חזרה לאינדקס -->
+    <a href="Index.html" class="back-btn" style="display: inline-flex; align-items: center; padding: 10px 20px; background-color: #334155; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; margin-bottom: 25px; transition: all 0.2s ease; border: 1px solid transparent;">
+        <span>&larr;</span> חזרה לאינדקס המכשירים
+    </a>
     
     <!-- כותרת ראשית -->
-    <!-- כפתור חזרה לאינדקס -->
-    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-bottom: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
-    <div style="background-color: #4db6ac; color: white; padding: 20px; border-radius: 8px 8px 0 0; margin: -30px -30px 30px -30px; text-align: center;">
-        <h1 style="margin: 0; font-size: 28px;">אוסילוסקופ אנלוגי GOS-620</h1>
-        <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">מדריך תפעול לאוסילוסקופ אנלוגי</p>
+    <div class="header-banner" style="background: linear-gradient(135deg, #1e293b, #e65100); color: #ffffff; padding: 35px 25px; border-radius: 12px; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+        <h1>אוסילוסקופ אנלוגי GOS-620</h1>
+        <p>מדריך תפעול מקיף, תהליכי כיול ידניים והדגמות מעשיות</p>
     </div>
 
-    <!-- פרק: רקע כללי -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #00796b; border-right: 5px solid #00796b; padding-right: 15px; margin-bottom: 20px;">רקע כללי</h2>
-        <p>מכשיר ה-GOS-620 הוא אוסילוסקופ אנלוגי קלאסי בעל רוחב פס של \( 20MHz \). המכשיר מבוסס על שפופרת קרן קתודית (CRT) ומאפשר צפייה בשני ערוצים במקביל. זהו כלי יעיל להבנת הבסיס הפיזיקלי של המדידה, משום שכל פעולה מתבצעת באופן ידני וללא תיווך דיגיטלי.</p>
+    <!-- פרק 1: רקע כללי וטכנולוגי -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">1. רקע כללי וטכנולוגי</h2>
+        <div class="card-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            <div class="info-card">
+                <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">הבסיס הפיזיקלי של האוסילוסקופ האנלוגי</h3>
+                <p>אוסילוסקופ אנלוגי מבוסס על <strong>שפופרת קרן קתודית (CRT - Cathode Ray Tube)</strong>. תותח אלקטרונים בחלקו האחורי של המכשיר יורה אלומת אלקטרונים ממוקדת לעבר מסך המצופה חומר זרחני הפולט אור בפגיעה. לוחות פיזור אלקטרוסטטיים פנימיים (אנכיים ואופקיים) מסיטים את אלומה זו בהתאם למתח הכניסה הנמדד (לציר האנכי, \( Y \)) ומתח השן-משור הפנימי הקובע את קצב הסריקה בזמן (לציר האופקי, \( X \)).</p>
+            </div>
+            <div class="info-card">
+                <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">מדוע לעבוד עם מכשיר אנלוגי?</h3>
+                <p>מכשיר ה-GOS-620 מציע רוחב פס של \( 20\text{ MHz} \) ועבודה דו-ערוצית. השימוש בו אידיאלי להוראת יסודות משום שאין תיווך דיגיטלי, קצב דגימה או שגיאות קידוד. האות המופיע על המסך הוא תמונת מתח חיה ורציפה בזמן אמת. כל פעולת ייצוב (טריגר) וכיוון קו האפס חייבים להתבצע באופן ידני, ובכך הסטודנט רוכש הבנה אינטואיטיבית של מבנה האות.</p>
+            </div>
+        </div>
+
+        <div class="alert-box alert-warning" style="padding: 16px 20px; border-radius: 8px; margin: 20px 0; display: flex; flex-direction: column; gap: 6px; background-color: #fff5f5; border-right: 5px solid #ef4444; color: #991b1b;">
+            <strong>⚠️ סכנת פגיעה במסך הזרחני (CRT Burn-in):</strong>
+            נקודת אור מרוכזת ובהירה מאוד שנשארת ללא תנועה במקום אחד על גבי המסך עלולה לשרוף ולפגוע לצמיתות בציפוי הזרחני הפנימי של ה-CRT. לעולם אל תשאירו את הבהירות (INTEN) בערך מקסימלי, ובעבודה במצב ללא סריקה אופקית (כגון במצב X-Y או קו אפס קצר), דאגו לעמעם את עוצמת האלומה למינימום הנחוץ לצפייה.
+        </div>
+    </section>
+
+    <!-- פרק 2: מבנה המכשיר ולוח קדמי -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">2. לוח המכשיר וחלוקת בקרות</h2>
+        <p>להלן צילום הלוח הקדמי של ה-GOS-620. השליטה במכשיר מחולקת לארבעה אזורים פונקציונליים מרכזיים:</p>
         
-        <!-- חלק: תמונת המכשיר -->
-        <div style="text-align: center; margin: 25px 0;">
-            <img src="Figure/gos620_front.jpg" alt="GOS-620 Front Panel" style="max-width: 80%; border: 1px solid #ccc; border-radius: 8px;">
-            <p style="font-size: 0.85em; color: #7f8c8d;">איור 1: הלוח הקדמי של האוסילוסקופ האנלוגי GOS-620</p>
+        <div class="image-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 25px 0;">
+            <div class="img-box" style="max-width: 500px; text-align: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; flex: 1; min-width: 280px;">
+                <img style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);" src="Figure/gos620_front.jpg" alt="GW Instek GOS-620 Front Panel">
+                <div class="img-caption" style="font-size: 0.9em; color: #64748b; margin-top: 10px; font-weight: 600;">מבט חזיתי על לוח הבקרות הידני של ה-GOS-620</div>
+            </div>
+        </div>
+
+        <div class="control-zone-box" style="background: #fff8f5; padding: 20px; border-radius: 10px; border-right: 5px solid #ff9800; margin-bottom: 20px; transition: transform 0.2s ease;">
+            <h3>1. בקרות מסך ושפופרת (CRT Section)</h3>
+            <p>שולטות באלומת האלקטרונים ובכיול הפיזי של התצוגה:</p>
+            <ul>
+                <li><strong>INTEN:</strong> בקרת עוצמת ההארה (עוצמת אלומת האלקטרונים).</li>
+                <li><strong>FOCUS:</strong> כיוון מיקוד האלומה לקבלת קו דק וחד.</li>
+                <li><strong>TRACE ROTATION:</strong> בורר פנימי מכויל מברג ליישור הקו האופקי ביחס לשנתות המסך (ביטול השפעת השדה המגנטי של כדור הארץ).</li>
+                <li><strong>CAL (מחבר כיול):</strong> הדק קטן המפיק גל ריבועי פנימי קבוע של \( 2\text{ Vp-p} \) בתדר של \( 1\text{ kHz} \) לצורכי בדיקה וכיול פרובים.</li>
+            </ul>
+        </div>
+
+        <div class="control-zone-box" style="background: #fff8f5; padding: 20px; border-radius: 10px; border-right: 5px solid #ff9800; margin-bottom: 20px; transition: transform 0.2s ease;">
+            <h3>2. בקרה אנכית (Vertical Section - CH1 & CH2)</h3>
+            <p>קובעת את קנה המידה האנכי (רגישות המתח):</p>
+            <ul>
+                <li><strong>VOLTS/DIV:</strong> קביעת מספר הוולטים המיוצגים על ידי כל משבצת (Division) אנכית. לכל ערוץ קיים בורר פנימי אדום (VARIABLE) - הוא חייב להיות מסובב ימינה עד הסוף למצב נעול (CAL) כדי שהקריאה תהיה מכוילת!</li>
+                <li><strong>AC-GND-DC:</strong> 
+                    <ul>
+                        <li><strong>AC:</strong> חסימת רכיב ה-DC של האות על ידי קבל פנימי, מציג רק את רכיב ה-AC (שימושי לצפייה באדוות קטנות על גבי מתח ישר).</li>
+                        <li><strong>GND:</strong> ניתוק אות הכניסה לחלוטין וחיבור מגבר ההטיה לאדמה. משמש לקביעת מיקום קו האפס (\( 0\text{V} \)).</li>
+                        <li><strong>DC:</strong> צימוד ישיר המעביר את האות המלא כולל רמות DC וחילופין במקביל.</li>
+                    </ul>
+                </li>
+                <li><strong>VERT MODE:</strong> בחירת מצב תצוגה: ערוץ 1 בלבד, ערוץ 2 בלבד, DUAL (הצגת שני הערוצים על ידי מיתוג מהיר - CHOP/ALT) או ADD (סכום אלגברי של המתחים בשני הערוצים).</li>
+            </ul>
+        </div>
+
+        <div class="control-zone-box" style="background: #fff8f5; padding: 20px; border-radius: 10px; border-right: 5px solid #ff9800; margin-bottom: 20px; transition: transform 0.2s ease;">
+            <h3>3. בקרה אופקית (Horizontal Section)</h3>
+            <p>קובעת את קנה המידה האופקי (ציר הזמן):</p>
+            <ul>
+                <li><strong>TIME/DIV:</strong> קביעת מהירות סריקת הקרן. קובע כמה זמן מייצגת כל משבצת אופקית.</li>
+                <li><strong>x10 MAG:</strong> מתיחה אופקית פי 10 של הגל. שימושי לבדיקת זמני עלייה חדים של אותות מהירים. מופעל לרוב על ידי משיכה החוצה של בורר ה-POSITION האופקי.</li>
+            </ul>
+        </div>
+
+        <div class="control-zone-box" style="background: #fff8f5; padding: 20px; border-radius: 10px; border-right: 5px solid #ff9800; margin-bottom: 20px; transition: transform 0.2s ease;">
+            <h3>4. מערכת הסנכרון והטריגר (Trigger Section)</h3>
+            <p>מיועדת לייצוב התמונה על המסך ומניעת "ריצה" או היבהוב של הגל:</p>
+            <ul>
+                <li><strong>TRIGGER MODE:</strong> בחירה בין <strong>AUTO</strong> (סריקה חופשית גם ללא אות כניסה) לבין <strong>NORM</strong> (סריקה מתחילה רק כאשר קיים אות כניסה שעובר את סף הטריגר).</li>
+                <li><strong>SOURCE:</strong> קובע מאיזה ערוץ יילקח אות הסנכרון (CH1, CH2, LINE - תדר הרשת, או EXT - כניסה חיצונית).</li>
+                <li><strong>LEVEL:</strong> קובע את המתח הספציפי שבו תתחיל סריקת הקרן אופקית. כיוון נכון מייצב את התצוגה.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- פרק: חלוקת אזורי הבקרה -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #00796b; border-right: 5px solid #00796b; padding-right: 15px; margin-bottom: 20px;">חלוקת אזורי הבקרה</h2>
-        <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
-            <div style="background: #e0f2f1; padding: 15px; border-radius: 8px; border-right: 4px solid #009688;">
-                <h3 style="margin-top: 0; color: #004d40;">1. בקרות מסך (CRT)</h3>
-                <ul style="margin-bottom: 0;">
-                    <li><strong>INTEN:</strong> שולט בעוצמת ההארה של הקרן. <strong>זהירות:</strong> אין להשאיר נקודה מוארת ללא תנועה בזמן ממושך כדי לא לפגוע בציפוי הזרחני של המסך.</li>
-                    <li><strong>FOCUS:</strong> כיוון החדות.</li>
-                    <li><strong>TRACE ROTATION:</strong> בורר פנימי (דורש מברג) ליישור אופקי של הקרן.</li>
-                    <li><strong>CAL:</strong> יציאת כיול המפיקה גל מרובע של \( 2V_{p-p} \) בתדר \( 1kHz \).</li>
-                </ul>
-            </div>
-            
-            <div style="background: #e0f2f1; padding: 15px; border-radius: 8px; border-right: 4px solid #009688;">
-                <h3 style="margin-top: 0; color: #004d40;">2. בקרות אנכיות (CH1 / CH2)</h3>
-                <ul style="margin-bottom: 0;">
-                    <li><strong>VOLTS/DIV:</strong> קובע את הרגישות האנכית. סיבוב הבורר הפנימי (VARIABLE) למצב CAL מבטיח דיוק במדידה.</li>
-                    <li><strong>AC-GND-DC:</strong> 
-                        <ul>
-                            <li><strong>AC:</strong> חוסם \( DC \) - מאפשר לראות רק את רכיב החילופין.</li>
-                            <li><strong>GND:</strong> מנתק את הכניסה ומציג קו אפס. חיוני לקביעת ייחוס (Baseline).</li>
-                            <li><strong>DC:</strong> מציג את האות המלא.</li>
-                        </ul>
-                    </li>
-                    <li><strong>VERT MODE:</strong> בחירה בין CH1, CH2, DUAL (שני ערוצים) או ADD (חיבור מתחים).</li>
-                </ul>
-            </div>
+    <!-- פרק 3: הדגמות מעשיות ותהליכי עבודה -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">3. הדגמות ותהליכי עבודה שלב-אחר-שלב</h2>
+        <p>להלן 5 הדגמות מעשיות מפורטות ליישום במעבדת החשמל האנלוגית:</p>
 
-            <div style="background: #e0f2f1; padding: 15px; border-radius: 8px; border-right: 4px solid #009688;">
-                <h3 style="margin-top: 0; color: #004d40;">3. בקרות אופקיות (Horizontal)</h3>
-                <ul style="margin-bottom: 0;">
-                    <li><strong>TIME/DIV:</strong> בסיס הזמן. קובע את מהירות הסריקה האופקית.</li>
-                    <li><strong>x10 MAG:</strong> משיכת בורר ה-Position האופקי תגדיל את התצוגה פי 10 (שימושי לבחינת חזיתות גל מהירות).</li>
-                </ul>
+        <!-- הדגמה 1 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 1: כיול ראשוני וכיוון קו האפס (Baseline Alignment)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    חברו את המכשיר לרשת החשמל והדליקו אותו באמצעות לחצן ה-POWER. המתינו כ-60 שניות להתחממות שפופרת הקרן.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    קבעו את <strong>VERT MODE</strong> ל-CH1, ואת בורר הצימוד <strong>AC-GND-DC</strong> של CH1 למצב <strong>GND</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    כווננו את לחצני הבהירות (INTEN) והמיקוד (FOCUS) עד לקבלת קו אופקי דק וברור.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    השתמשו בבורר ה-<strong>POSITION</strong> האנכי של ערוץ 1 כדי להציב את קו האפס בדיוק על גבי ציר האמצע האופקי המרכזי של המסך. זהו כעת ציר הייחוס שלכם (\( 0\text{ V} \)).
+                </div>
             </div>
-            
-            <div style="background: #e0f2f1; padding: 15px; border-radius: 8px; border-right: 4px solid #009688;">
-                <h3 style="margin-top: 0; color: #004d40;">4. בקרות טריגר (Trigger)</h3>
-                <ul style="margin-bottom: 0;">
-                    <li><strong>MODE:</strong> בדרך כלל משתמשים ב-AUTO לסריקה חופשית או NORM לייצוב ידני.</li>
-                    <li><strong>SOURCE:</strong> בחירת מקור אות הסנכרון.</li>
-                    <li><strong>LEVEL:</strong> הזזת נקודת ההתחלה של הסריקה על גבי הגל עד לקבלת תמונה יציבה.</li>
-                </ul>
+        </details>
+
+        <!-- הדגמה 2 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 2: חיבור אות וכיול עצמי בעזרת מחבר ה-CAL הפנימי</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    חברו פרוב קואקסיאלי (BNC) לכניסת ה-<strong>CH1</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    חברו את תפס הראש של הפרוב להדק ה-<strong>CAL</strong> (הנמצא מתחת למסך), ואת תנין האדמה השחור השאירו חופשי או חברו להדק האדמה השכן במכשיר.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    העבירו את בורר הצימוד <strong>AC-GND-DC</strong> של CH1 למצב <strong>DC</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    כוונו את בורר ה-<strong>VOLTS/DIV</strong> לערך של \( 1\text{ V/DIV} \) ואת בורר ה-<strong>TIME/DIV</strong> לערך של \( 0.5\text{ ms/DIV} \).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 5:</span>
+                    אם הגל הריבועי רץ אופקית, סובבו באיטיות את בורר ה-<strong>LEVEL</strong> באזור הטריגר עד שהגל יתייצב על המסך. 
+                    ודאו כי הגל הריבועי תופס בדיוק 2 משבצות אנכיות בגובהו (ערך פיק-לפיק של \( 2\text{ Vp-p} \)) ומחזור אחד של הגל תופס בדיוק 2 משבצות אופקיות באורכו (זמן מחזור \( T = 2 \times 0.5\text{ ms} = 1\text{ ms} \), המתאים לתדר \( f = 1\text{ kHz} \)). 
+                    אם הגובה שונה, ודאו כי הבורר האדום הפנימי של ה-VOLTS/DIV מסובב ימינה עד למצב נעילת ה-CAL.
+                </div>
             </div>
+        </details>
+
+        <!-- הדגמה 3: שיטת X-Y ומדידת מופע (Lissajous Patterns) -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 3: מדידת הפרש מופע (פאזה) בשיטת X-Y (צורות ליסז'ו)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>שיטה זו משמשת למדידת הפרש הפאזה (\( \theta \)) בין שני אותות סינוסואידליים בעלי תדר זהה במדויק:</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    חברו אות ראשון (למשל מתח כניסה למעגל מפתח מופע RC) ל-CH1 (ציר X), ואות שני (מתח על הקבל) ל-CH2 (ציר Y).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    סובבו את בורר ה-<strong>TIME/DIV</strong> ימינה עד הסוף למצב <strong>X-Y</strong>. מצב זה מנתק את סריקת ציר הזמן הפנימית, וערוץ 1 יקבע כעת את הסטייה האופקית.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    העבירו את שני הערוצים לצימוד <strong>AC</strong>, וכווננו את הבהירות (INTEN) למצב מתון כדי למנוע נזק למסך. שנו את בוררי ה-VOLTS/DIV בשני הערוצים לקבלת צורה אליפטית רחבה המשתרעת היטב על פני המסך.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    מקמו את מרכז האליפסה בדיוק בראשית הצירים המרכזית. מדדו את הגובה \( Y_0 \) (חיתוך האליפסה עם ציר ה-Y האנכי המרכזי) ואת הגובה המקסימלי \( Y_{\text{max}} \) (קצה האליפסה העליון ביותר).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 5:</span>
+                    חשבו את הפרש המופע באמצעות הנוסחה: \( \sin(\theta) = \frac{Y_0}{Y_{\text{max}}} \). קו אלכסוני ישר יציין \( 0^{\circ} \) או \( 180^{\circ} \), בעוד שעיגול מושלם יציין \( 90^{\circ} \).
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 4 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 4: שימוש בבקרות הטריגר (Trigger Level & Slope) לייצוב צורת גל</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    חברו אות חילופין סינוסי לא יציב או "בורח" מהמחולל ל-CH1.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    ודאו שבורר ה-<strong>TRIGGER SOURCE</strong> מכוון ל-<strong>CH1</strong> (ערוץ המקור המכיל את האות).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    העבירו את בורר ה-TRIGGER MODE ממצב AUTO למצב <strong>NORM</strong>. שימו לב שהתמונה עשויה להיעלם כליל אם סף הטריגר אינו מכוון.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    סובבו באיטיות את בורר ה-<strong>LEVEL</strong> לשני הכיוונים. כאשר סף הטריגר יחצה את מתח הגל, הגל יופיע ויתייצב מיידית על גבי המסך.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 5:</span>
+                    שנו את מצב מתג ה-<strong>SLOPE</strong> מ-"+" (חיובי) ל-"-" (שלילי). שימו לב שנקודת ההתחלה של הגל בצד שמאל של המסך משתנה בין כיוון עלייה (Slope חיובי) לכיוון ירידה (Slope שלילי) של המתח.
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 5 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 5: מתיחה אופקית (x10 MAG) לצפייה בחזית גל מהירה</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 1:</span>
+                    הזינו גל מרובע מהיר (למשל \( 50\text{ kHz} \)) ל-CH1. כוונו את בסיס הזמן (TIME/DIV) כך שתראו מספר מחזורים של האות.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 2:</span>
+                    השתמשו בבורר ה-<strong>POSITION</strong> האופקי כדי למקם את חזית העלייה המהירה של הגל (הקו האנכי העולה) בדיוק במרכז המסך.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 3:</span>
+                    משכו החוצה את בורר המיקום האופקי (Horizontal POSITION) כדי להפעיל את מצב ה-<strong>x10 MAG</strong>. 
+                    במצב זה, האות יימתח אופקית פי 10 על המסך, ורזולוציית הזמן תגדל (כל משבצת מייצגת כעת עשירית מהזמן המופיע על בורר ה-TIME/DIV).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #e65100;">שלב 4:</span>
+                    השתמשו בבורר ה-POSITION האופקי כדי לנוע ימינה ושמאלה על גבי האות המתוח ולבחון את זמן העלייה של הגל הריבועי בצורה מפורטת.
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- פרק 4: פתרון תקלות וצ'קליסט לתלמיד -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">4. פתרון תקלות וצ'קליסט איתור בעיות</h2>
+        
+        <div class="info-card">
+            <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">צ'קליסט לפתרון בעיות נפוצות באוסילוסקופ אנלוגי:</h3>
+            <ul style="padding-right: 20px; line-height: 1.8;">
+                <li><strong>אין קו או נקודה על המסך בכלל:</strong>
+                    <ul>
+                        <li>האם המכשיר דולק ונורית ה-POWER מוארת?</li>
+                        <li>האם עוצמת הבהירות (INTEN) אינה נמוכה מדי? סובבו אותה ימינה.</li>
+                        <li>ייתכן שהקרן נמצאת מחוץ לגבולות התצוגה. לחצו על כפתור <strong>BEAM FINDER</strong> (אם קיים) או העבירו את הצימוד ל-GND והשתמשו בבוררי ה-POSITION האנכיים והאופקיים כדי להחזיר את הקרן למרכז.</li>
+                    </ul>
+                </li>
+                <li><strong>הקריאות שלי אינן מתאימות לחישוב התיאורטי (למשל מתח נמוך מדי):</strong>
+                    ודאו שהבוררים האדומים הפנימיים (VARIABLE) של ה-VOLTS/DIV ושל ה-TIME/DIV מסובבים ימינה עד הסוף לנקודת ה-CAL הנעולה. אם הבורר משוחרר, המדידה אינה מכוילת ועלולה לכלול סטייה של עשרות אחוזים.
+                </li>
+                <li><strong>צורת הגל כל הזמן רצה אופקית ואינה מתייצבת:</strong>
+                    ודאו שבורר ה-TRIGGER SOURCE מכוון לערוץ שבו מוזן האות שלכם. כוונו את ה-TRIGGER LEVEL בעדינות ימינה ושמאלה עד שהתמונה תינעל. אם האות חלש מדי, העבירו את ה-TRIGGER MODE למצב NORM.
+                </li>
+            </ul>
         </div>
     </section>
 
-    <!-- חלק: תהליך מדידה בסיסי -->
-    <div style="background-color: #fff3e0; border: 1px solid #ffe0b2; padding: 20px; border-radius: 8px; margin-top: 30px;">
-        <h3 style="margin-top: 0; color: #e65100;">תהליך מדידה בסיסי במכשיר אנלוגי</h3>
-        <ol style="padding-right: 20px; line-height: 1.8; margin-bottom: 0;">
-            <li>הדליקו את המכשיר והמתינו כדקה לחימום השפופרת.</li>
-            <li>העבירו את מתג <strong>AC-GND-DC</strong> למצב <strong>GND</strong>.</li>
-            <li>השתמשו בבורר ה-<strong>POSITION</strong> כדי למקם את הקו בדיוק על השנת המרכזית (ייחוס \( 0V \)).</li>
-            <li>העבירו למצב <strong>DC</strong>. ספרו את המשבצות האנכיות מהשיא לשיא.</li>
-            <li>הכפילו את מספר המשבצות בערך ה-<strong>VOLTS/DIV</strong> כדי לקבל את המתח (\( V_{p-p} \)).</li>
-        </ol>
-    </div>
-
-    <!-- פרק: קישורים ומידע נוסף -->
-    <section style="margin-bottom: 30px; border-top: 1px solid #eee; padding-top: 20px;">
-        <h2 style="color: #00796b; border-right: 5px solid #00796b; padding-right: 15px; margin-bottom: 20px;">מידע טכני נוסף</h2>
-        <div style="text-align: left;">
-            <a href="https://www.gwinstek.com/en-global/products/detail/GOS-620" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #00796b; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">דף מוצר רשמי (GW Instek) &larr;</a>
+    <!-- פרק 5: סרטוני הדרכה מומלצים -->
+    <section>
+        <h2 class="section-title" style="color: #e65100; border-right: 5px solid #e65100; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">5. סרטוני הדרכה מעשיים ב-YouTube</h2>
+        <p>להלן סרטוני הדרכה מצוינים שיעזרו לכם להבין את העבודה עם אוסילוסקופ אנלוגי ויסודות הסנכרון והטריגר:</p>
+        
+        <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-top: 15px;">
+            <ul style="padding-right: 20px; margin-bottom: 0; list-style-type: none;">
+                <li style="margin-bottom: 15px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+                    <strong style="color: #e65100; font-size: 16px;">▶️ מדריך וידאו מלא: כיצד להשתמש באוסילוסקופ אנלוגי (MIT/Tutorials):</strong><br>
+                    הסבר מעשי מעולה המציג את תותח האלקטרונים, עבודה עם בוררי המיקום, כיוון מתח וזמן וסוגי הצימוד (AC/DC/GND).
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=tU21U72tVms" target="_blank" style="color: #e65100; font-weight: bold; text-decoration: underline;">צפייה בסרטון ב-YouTube &larr;</a>
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <strong style="color: #e65100; font-size: 16px;">▶️ הבנת עקרונות הטריגר באוסילוסקופ (EEVblog #279):</strong><br>
+                    שיעור יסודי של דייב ג'ונס המסביר מהו טריגר, כיצד פועל ה-Level, מה ההבדל בין Auto ל-Normal וכיצד לייצב גלים מורכבים.
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=hUIgAu31CY4" target="_blank" style="color: #e65100; font-weight: bold; text-decoration: underline;">צפייה בסרטון ב-YouTube &larr;</a>
+                </li>
+            </ul>
         </div>
     </section>
 
-    <!-- כפתור חזרה לאינדקס -->
-    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
+    <!-- קישורים ומידע נוסף -->
+    <section style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 20px; text-align: left;">
+        <a href="https://www.gwinstek.com/en-global/products/detail/GOS-620" target="_blank" class="external-link-btn" style="display: inline-block; padding: 12px 24px; background-color: #e65100; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background-color 0.2s ease, transform 0.2s ease; text-align: center; margin-top: 15px; box-shadow: 0 4px 6px rgba(230, 81, 0, 0.15);">
+            למידע טכני נוסף באתר הרשמי של GW Instek &larr;
+        </a>
+    </section>
 </div>
+
+
+
+<script>
+(function() {
+    function updateBackLink() {
+        const isMoodleBook = window.location.href.includes('/mod/book/') || 
+                             document.querySelector('.path-mod-book') || 
+                             document.querySelector('[id*="mod_book"]');
+                             
+        if (!isMoodleBook) {
+            console.log('Not in Moodle Book. Keeping relative links.');
+            return; 
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        let bookId = urlParams.get('id');
+        
+        if (!bookId) {
+            const anyBookLink = document.querySelector('a[href*="id="]');
+            if (anyBookLink) {
+                const match = anyBookLink.href.match(/[?&]id=(d+)/);
+                if (match) bookId = match[1];
+            }
+        }
+        
+        if (bookId) {
+            const backBtn = document.querySelector('.back-btn');
+            if (backBtn) {
+                backBtn.href = 'https://moodle.sce.ac.il/mod/book/view.php?id=' + bookId;
+            }
+        }
+    }
+    updateBackLink();
+    window.addEventListener('load', updateBackLink);
+    setTimeout(updateBackLink, 500);
+    setTimeout(updateBackLink, 1500);
+})();
+</script>
 </body>
-</html>>
+</html>

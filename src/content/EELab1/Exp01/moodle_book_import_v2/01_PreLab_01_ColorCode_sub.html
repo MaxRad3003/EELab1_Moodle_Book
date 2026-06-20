@@ -2,28 +2,12 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01 PreLab 01 ColorCode sub</title>
 </head>
-<body>
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>נגדים וצופן צבעים</title>
-</head>
-<body>
-<div class="moodle-page-container">
-<!-- 
-    MOODLE SNIPPET - INLINE CSS VERSION
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-inline" dir="rtl" style="color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-        <!-- NAVIGATION: BACK TO INDEX -->
+<body style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; text-align: right; font-size: 16px; margin: 20px; background-color: #f8fafc;">
+<div class="moodle-page-container" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; text-align: right; font-size: 16px; max-width: 980px; margin: 0 auto; background: #ffffff; padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);">
+    <!-- NAVIGATION: BACK TO INDEX -->
         <div style="margin-bottom: 2rem;">
             <a href="01_PreLab.html" style="text-decoration: none; color: #005696; font-weight: bold; display: inline-flex; align-items: center; gap: 5px; background: #f8f9fa; padding: 8px 15px; border-radius: 5px; border: 1px solid #dee2e6;">
                 <span>⬅️</span> חזרה לתוכן העניינים
@@ -77,6 +61,293 @@
 </div>
 <!-- /SECTION: COLOR TABLE -->
 
+<!-- SECTION: INTERACTIVE WIDGET -->
+<div id="section-interactive-calculator" style="background-color: #ffffff; padding: 25px; border-radius: 12px; border: 1px solid #cbd5e1; margin-top: 25px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05); margin-bottom: 2rem;">
+    <h3 style="font-weight: 700; margin-bottom: 1.5rem; line-height: 1.25; color: #005696; margin-top: 0; text-align: center; font-size: 1.5rem;">📱 מחשבון צופן צבעים אינטראקטיבי</h3>
+    
+    <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+        
+        <!-- Interactive Resistor SVG Rendering -->
+        <div style="width: 100%; max-width: 400px; background-color: #f8fafc; padding: 30px 10px; border-radius: 8px; display: flex; justify-content: center; align-items: center; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);">
+            <svg id="resistor-svg" width="320" height="80" viewBox="0 0 320 80" style="display: block; overflow: visible;">
+                <defs>
+                    <!-- Dropshadow for realism -->
+                    <filter id="resistor-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.15" />
+                    </filter>
+                    <!-- Metallic gradient for leads -->
+                    <linearGradient id="lead-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#94a3b8" />
+                        <stop offset="50%" stop-color="#cbd5e1" />
+                        <stop offset="100%" stop-color="#64748b" />
+                    </linearGradient>
+                    <!-- Resistor body gradient -->
+                    <linearGradient id="body-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#f2ebd9" />
+                        <stop offset="20%" stop-color="#fbf9f4" />
+                        <stop offset="80%" stop-color="#f2ebd9" />
+                        <stop offset="100%" stop-color="#decfa4" />
+                    </linearGradient>
+                </defs>
+                <!-- Metal Leads -->
+                <rect x="0" y="37" width="320" height="6" rx="3" fill="url(#lead-grad)" />
+                <!-- Resistor Body -->
+                <rect x="60" y="15" width="200" height="50" rx="12" fill="url(#body-grad)" stroke="#dcd3b8" stroke-width="1.5" filter="url(#resistor-shadow)" />
+                
+                <!-- Bulges (caps) on the sides to make it look realistic -->
+                <path d="M 68,15 Q 60,30 60,40 Q 60,50 68,65 Z" fill="#decfa4" opacity="0.4" />
+                <path d="M 252,15 Q 260,30 260,40 Q 260,50 252,65 Z" fill="#decfa4" opacity="0.4" />
+                
+                <!-- Color Bands (rectangles with transition) -->
+                <!-- Band 1 (first value) -->
+                <rect id="svg-band-1" x="90" y="15" width="14" height="50" fill="#8B4513" style="transition: fill 0.3s;" />
+                <!-- Band 2 (second value) -->
+                <rect id="svg-band-2" x="125" y="15" width="14" height="50" fill="#008000" style="transition: fill 0.3s;" />
+                <!-- Band 3 (multiplier) -->
+                <rect id="svg-band-3" x="160" y="15" width="14" height="50" fill="#f00" style="transition: fill 0.3s;" />
+                <!-- Band 4 (tolerance) -->
+                <rect id="svg-band-4" x="215" y="15" width="14" height="50" fill="#ffd700" style="transition: fill 0.3s;" />
+            </svg>
+        </div>
+
+        <!-- Resistance Value Readout -->
+        <div style="text-align: center; background-color: #f1f5f9; padding: 15px; border-radius: 8px; width: 100%; max-width: 400px; border: 1px solid #cbd5e1;">
+            <div style="font-size: 0.9rem; color: #64748b; font-weight: bold; margin-bottom: 5px;">תוצאת החישוב:</div>
+            <div style="display: flex; justify-content: center; align-items: baseline; gap: 8px; flex-wrap: wrap;">
+                <span id="calc-val" style="font-size: 2.2rem; font-weight: 800; color: #005696; font-family: 'Assistant', 'Segoe UI', system-ui, sans-serif;">1.5 kΩ</span>
+                <span id="calc-tol" style="font-size: 1.3rem; font-weight: 600; color: #d97706;">±5%</span>
+            </div>
+            <!-- Interactive Formula -->
+            <div id="calc-formula" style="font-size: 1rem; color: #334155; margin-top: 8px; font-weight: bold; direction: ltr;">
+                15 × 10² Ω = 1,500 Ω
+            </div>
+            <!-- Range info -->
+            <div style="margin-top: 10px; border-top: 1px dashed #cbd5e1; padding-top: 8px; text-align: right; font-size: 0.9rem; color: #334155;">
+                <div style="font-weight: bold; margin-bottom: 6px; text-align: center; color: #475569;">טווח ערכים תקין (סטייה מותרת):</div>
+                <div style="display: flex; justify-content: space-between; padding: 2px 10px;">
+                    <span>ערך מינימלי:</span>
+                    <strong id="calc-min" style="direction: ltr; font-weight: 700; color: #005696;">1,425 Ω</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 2px 10px;">
+                    <span>ערך מקסימלי:</span>
+                    <strong id="calc-max" style="direction: ltr; font-weight: 700; color: #005696;">1,575 Ω</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-top: 10px;">
+            <!-- Band 1 Dropdown -->
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+                <label style="font-size: 0.85rem; font-weight: bold; color: #475569;">ספרה 1 (פס 1):</label>
+                <select id="sel-band-1" style="padding: 8px; border-radius: 6px; border: 1px solid #cbd5e1; background: #ffffff; font-weight: bold; font-family: inherit; font-size: 0.9rem; outline: none; transition: all 0.2s;">
+                    <option value="0">שחור (0)</option>
+                    <option value="1" selected>חום (1)</option>
+                    <option value="2">אדום (2)</option>
+                    <option value="3">כתום (3)</option>
+                    <option value="4">צהוב (4)</option>
+                    <option value="5">ירוק (5)</option>
+                    <option value="6">כחול (6)</option>
+                    <option value="7">סגול (7)</option>
+                    <option value="8">אפור (8)</option>
+                    <option value="9">לבן (9)</option>
+                </select>
+            </div>
+            <!-- Band 2 Dropdown -->
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+                <label style="font-size: 0.85rem; font-weight: bold; color: #475569;">ספרה 2 (פס 2):</label>
+                <select id="sel-band-2" style="padding: 8px; border-radius: 6px; border: 1px solid #cbd5e1; background: #ffffff; font-weight: bold; font-family: inherit; font-size: 0.9rem; outline: none; transition: all 0.2s;">
+                    <option value="0">שחור (0)</option>
+                    <option value="1">חום (1)</option>
+                    <option value="2">אדום (2)</option>
+                    <option value="3">כתום (3)</option>
+                    <option value="4">צהוב (4)</option>
+                    <option value="5" selected>ירוק (5)</option>
+                    <option value="6">כחול (6)</option>
+                    <option value="7">סגול (7)</option>
+                    <option value="8">אפור (8)</option>
+                    <option value="9">לבן (9)</option>
+                </select>
+            </div>
+            <!-- Band 3 Dropdown (Multiplier) -->
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+                <label style="font-size: 0.85rem; font-weight: bold; color: #475569;">מכפיל (פס 3):</label>
+                <select id="sel-band-3" style="padding: 8px; border-radius: 6px; border: 1px solid #cbd5e1; background: #ffffff; font-weight: bold; font-family: inherit; font-size: 0.9rem; outline: none; transition: all 0.2s;">
+                    <option value="1">שחור (×1)</option>
+                    <option value="10">חום (×10)</option>
+                    <option value="100" selected>אדום (×100)</option>
+                    <option value="1000">כתום (×1k)</option>
+                    <option value="10000">צהוב (×10k)</option>
+                    <option value="100000">ירוק (×100k)</option>
+                    <option value="1000000">כחול (×1M)</option>
+                    <option value="10000000">סגול (×10M)</option>
+                    <option value="0.1">זהב (×0.1)</option>
+                    <option value="0.01">כסף (×0.01)</option>
+                </select>
+            </div>
+            <!-- Band 4 Dropdown (Tolerance) -->
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+                <label style="font-size: 0.85rem; font-weight: bold; color: #475569;">דיוק (פס 4):</label>
+                <select id="sel-band-4" style="padding: 8px; border-radius: 6px; border: 1px solid #cbd5e1; background: #ffffff; font-weight: bold; font-family: inherit; font-size: 0.9rem; outline: none; transition: all 0.2s;">
+                    <option value="1">חום (±1%)</option>
+                    <option value="2">אדום (±2%)</option>
+                    <option value="0.5">ירוק (±0.5%)</option>
+                    <option value="0.25">כחול (±0.25%)</option>
+                    <option value="0.1">סגול (±0.1%)</option>
+                    <option value="0.05">אפור (±0.05%)</option>
+                    <option value="5" selected>זהב (±5%)</option>
+                    <option value="10">כסף (±10%)</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+(function() {
+    const colors = {
+        "0": { hex: "#000000", text: "#ffffff" },
+        "1": { hex: "#8B4513", text: "#ffffff" },
+        "2": { hex: "#ef4444", text: "#ffffff" },
+        "3": { hex: "#f97316", text: "#ffffff" },
+        "4": { hex: "#eab308", text: "#000000" },
+        "5": { hex: "#22c55e", text: "#ffffff" },
+        "6": { hex: "#3b82f6", text: "#ffffff" },
+        "7": { hex: "#a855f7", text: "#ffffff" },
+        "8": { hex: "#6b7280", text: "#ffffff" },
+        "9": { hex: "#ffffff", text: "#000000" },
+        "0.1": { hex: "#d97706", text: "#ffffff" },
+        "0.01": { hex: "#94a3b8", text: "#ffffff" }
+    };
+
+    const multiplierLabels = {
+        "1": "10⁰",
+        "10": "10¹",
+        "100": "10²",
+        "1000": "10³",
+        "10000": "10⁴",
+        "100000": "10⁵",
+        "1000000": "10⁶",
+        "10000000": "10⁷",
+        "0.1": "10⁻¹",
+        "0.01": "10⁻²"
+    };
+
+    const toleranceColors = {
+        "1": "#8B4513",
+        "2": "#ef4444",
+        "0.5": "#22c55e",
+        "0.25": "#3b82f6",
+        "0.1": "#a855f7",
+        "0.05": "#6b7280",
+        "5": "#d97706",
+        "10": "#94a3b8"
+    };
+
+    const sel1 = document.getElementById('sel-band-1');
+    const sel2 = document.getElementById('sel-band-2');
+    const sel3 = document.getElementById('sel-band-3');
+    const sel4 = document.getElementById('sel-band-4');
+
+    const svgBand1 = document.getElementById('svg-band-1');
+    const svgBand2 = document.getElementById('svg-band-2');
+    const svgBand3 = document.getElementById('svg-band-3');
+    const svgBand4 = document.getElementById('svg-band-4');
+
+    const calcVal = document.getElementById('calc-val');
+    const calcTol = document.getElementById('calc-tol');
+    const calcFormula = document.getElementById('calc-formula');
+    const calcMin = document.getElementById('calc-min');
+    const calcMax = document.getElementById('calc-max');
+
+    function formatNumber(num) {
+        return num.toLocaleString('he-IL', { maximumFractionDigits: 2 });
+    }
+
+    function update() {
+        const d1 = parseInt(sel1.value);
+        const d2 = parseInt(sel2.value);
+        const mVal = parseFloat(sel3.value);
+        const tVal = parseFloat(sel4.value);
+
+        // Update colors
+        const c1 = colors[sel1.value];
+        const c2 = colors[sel2.value];
+        const c3 = colors[sel3.value];
+        const c4 = toleranceColors[sel4.value];
+
+        svgBand1.setAttribute('fill', c1.hex);
+        svgBand2.setAttribute('fill', c2.hex);
+        svgBand3.setAttribute('fill', c3.hex);
+        svgBand4.setAttribute('fill', c4);
+
+        // Update selector styles
+        sel1.style.backgroundColor = c1.hex;
+        sel1.style.color = c1.text;
+        sel1.style.borderColor = c1.hex;
+
+        sel2.style.backgroundColor = c2.hex;
+        sel2.style.color = c2.text;
+        sel2.style.borderColor = c2.hex;
+
+        sel3.style.backgroundColor = c3.hex;
+        sel3.style.color = c3.text;
+        sel3.style.borderColor = c3.hex;
+
+        sel4.style.backgroundColor = c4;
+        sel4.style.color = "#ffffff";
+        if (sel4.value === "5" || sel4.value === "10") {
+            sel4.style.color = "#000000";
+        }
+        sel4.style.borderColor = c4;
+
+        // Computation
+        const base = (d1 * 10) + d2;
+        const total = base * mVal;
+
+        // Display formatted value
+        let displayStr = "";
+        if (total >= 1000000) {
+            displayStr = formatNumber(total / 1000000) + " MΩ";
+        } else if (total >= 1000) {
+            displayStr = formatNumber(total / 1000) + " kΩ";
+        } else {
+            displayStr = formatNumber(total) + " Ω";
+        }
+
+        calcVal.textContent = displayStr;
+        calcTol.textContent = "±" + tVal + "%";
+
+        // Formula update
+        const multPower = multiplierLabels[sel3.value];
+        const rawFormulaStr = d1 + "" + d2 + " × " + multPower + " Ω = " + formatNumber(total) + " Ω";
+        calcFormula.textContent = rawFormulaStr;
+
+        // Range limits
+        const minVal = total * (1 - tVal / 100);
+        const maxVal = total * (1 + tVal / 100);
+
+        function formatWithUnit(val) {
+            if (val >= 1000000) return formatNumber(val / 1000000) + " MΩ";
+            if (val >= 1000) return formatNumber(val / 1000) + " kΩ";
+            return formatNumber(val) + " Ω";
+        }
+
+        calcMin.textContent = formatWithUnit(minVal) + " (" + formatNumber(minVal) + " Ω)";
+        calcMax.textContent = formatWithUnit(maxVal) + " (" + formatNumber(maxVal) + " Ω)";
+    }
+
+    sel1.addEventListener('change', update);
+    sel2.addEventListener('change', update);
+    sel3.addEventListener('change', update);
+    sel4.addEventListener('change', update);
+
+    update();
+})();
+</script>
+<!-- /SECTION: INTERACTIVE WIDGET -->
+
 <!-- SECTION: CALCULATION EXAMPLE -->
 <div id="section-example" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
     <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">איך מחשבים? דוגמה מעשית</h3>
@@ -128,24 +399,6 @@
     <a href="01_PreLab_02_Equipment_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">הבא: מכשירי מדידה ←</a>
 </div>
 <!-- /NAVIGATION: BOOK PREV NEXT -->
-
-    </div>
 </div>
-
-
-</div>
-</body>
-</html>
-
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
-
 </body>
 </html>

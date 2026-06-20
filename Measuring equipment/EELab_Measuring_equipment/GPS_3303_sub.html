@@ -2,106 +2,576 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>ספק כוח DC מיוצב GPS-3303</title>
+    <title>ספק כוח DC מיוצב GPS-3303 - מדריך מעבדה מקיף</title>
+    <!-- טעינת גופנים מודרניים של Google Fonts התומכים בעברית ובאנגלית -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* עיצוב כללי של הדף לחוויה יוקרתית */
+        body {
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            font-family: 'Assistant', 'Segoe UI', Arial, sans-serif;
+            color: #1e293b;
+        }
+        
+        .guide-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 16px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* כותרת ראשית מעוצבת עם גרדיאנט מודרני ירוק (Power Supply) */
+        .header-banner {
+            background: linear-gradient(135deg, #1e293b, #2e7d32);
+            color: #ffffff;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-banner h1 {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .header-banner p {
+            margin: 12px 0 0 0;
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* כפתור חזרה מעוצב עם מעברים חלקים */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #334155;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .back-btn:hover {
+            background-color: #1e293b;
+            transform: translateX(-5px); /* תואם ל-RTL */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .back-btn span {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+
+        /* כותרות פרקים */
+        h2.section-title {
+            color: #2e7d32;
+            border-right: 5px solid #2e7d32;
+            padding-right: 15px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-family: 'Rubik', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        h3.subsection-title {
+            color: #1e293b;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* גריד של כרטיסי מידע */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+        }
+
+        /* תיבות תמונה */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .img-box {
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            flex: 1;
+            min-width: 260px;
+            max-width: 420px;
+        }
+
+        .img-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            transition: transform 0.3s ease;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.03);
+        }
+
+        .img-caption {
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* אקורדיון הדגמות מעוצב */
+        details.demo-accordion {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details.demo-accordion[open] {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #cbd5e1;
+        }
+
+        summary.demo-summary {
+            padding: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: #f8fafc;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            outline: none;
+            color: #1e293b;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-family: 'Rubik', sans-serif;
+            border-bottom: 1px solid transparent;
+        }
+
+        details.demo-accordion[open] summary.demo-summary {
+            border-bottom-color: #e2e8f0;
+            background-color: #f1f5f9;
+            color: #2e7d32;
+        }
+
+        summary.demo-summary:hover {
+            background-color: #f1f5f9;
+            color: #2e7d32;
+        }
+
+        .demo-content {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .demo-step {
+            margin-bottom: 15px;
+            padding-right: 15px;
+            border-right: 3px solid #cbd5e1;
+        }
+
+        .demo-step-num {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        /* תיבות אזהרה וטיפים מודרניות */
+        .alert-box {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .alert-warning {
+            background-color: #fff5f5;
+            border-right: 5px solid #ef4444;
+            color: #991b1b;
+        }
+
+        .alert-tip {
+            background-color: #f0fdf4;
+            border-right: 5px solid #22c55e;
+            color: #166534;
+        }
+
+        .alert-info {
+            background-color: #f0f9ff;
+            border-right: 5px solid #0284c7;
+            color: #075985;
+        }
+
+        .alert-box strong {
+            font-size: 16px;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        /* כפתורי קישור חיצוניים */
+        .external-link-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #2e7d32;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            text-align: center;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(46, 125, 50, 0.15);
+        }
+
+        .external-link-btn:hover {
+            background-color: #1b5e20;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
 <!-- התחלת תוכן הדף -->
-<div dir="rtl" style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #2c3e50; max-width: 900px; margin: 20px auto; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+<div dir="rtl" class="guide-container" style="max-width: 1000px; margin: 30px auto; padding: 30px; border-radius: 16px; background-color: #ffffff; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+    
+    <!-- כפתור חזרה לאינדקס -->
+    <a href="Index.html" class="back-btn" style="display: inline-flex; align-items: center; padding: 10px 20px; background-color: #334155; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; margin-bottom: 25px; transition: all 0.2s ease; border: 1px solid transparent;">
+        <span>&larr;</span> חזרה לאינדקס המכשירים
+    </a>
     
     <!-- כותרת ראשית -->
-    <!-- כפתור חזרה לאינדקס -->
-    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-bottom: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
-    <div style="background-color: #2e7d32; color: white; padding: 20px; border-radius: 8px 8px 0 0; margin: -30px -30px 30px -30px; text-align: center;">
-        <h1 style="margin: 0; font-size: 28px;">ספק כוח DC מיוצב GPS-3303</h1>
-        <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">בקרת מתח וזרם רב-ערוצית</p>
+    <div class="header-banner" style="background: linear-gradient(135deg, #1e293b, #2e7d32); color: #ffffff; padding: 35px 25px; border-radius: 12px; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+        <h1>ספק כוח DC מיוצב GPS-3303</h1>
+        <p>מדריך עבודה במצבים עצמאיים, טוריים ומקביליים והגדרות זרם בטוחות</p>
     </div>
 
-    <!-- פרק: רקע כללי -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-bottom: 20px;">רקע כללי</h2>
-        <p>ספק כוח הוא יחידה אלקטרונית שתפקידה לספק למעגלים אלקטרוניים את המתח והזרם החשמלי הדרושים להפעלתם. במעגל זרם ישר (\( DC \)), ספק הכוח יכול לשמש כמקור מתח או כמקור זרם, לפי הצורך.</p>
-        <p>בדרך כלל, ספק הכוח מאופיין על ידי מתח נקוב וזרם מרבי שהוא מסוגל לספק ללא ירידה משמעותית במתח היציאה. ההזנה לספקי הכוח במעבדה מגיעה מרשת החשמל הביתית ומומרת למתחי \( DC \) יציבים.</p>
-    </section>
+    <!-- פרק 1: רקע כללי וטכנולוגי -->
+    <section>
+        <h2 class="section-title" style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">1. רקע כללי וטכנולוגי</h2>
+        <div class="card-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            <div class="info-card">
+                <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">עקרון הפעולה של ספק כוח ליניארי מיוצב</h3>
+                <p>ספק כוח ליניארי מיוצב (<strong>Linear Regulated Power Supply</strong>) משמש להמרת מתח הרשת החילופי (\( 220\text{ VAC} \)) למתח ישר (\( DC \)) יציב ונקי מאוד מרעשים. התהליך מתבצע על ידי הפחתת המתח באמצעות שנאי, יישורו באמצעות גשר דיודות, סינון אדוות באמצעות קבלי סינון גדולים, וויסות מדויק באמצעות טרנזיסטורי הספק הפועלים באזור הפעיל שלהם (כלומר, "שורפים" את עודף המתח כחום). התוצאה היא מתח מוצא עם רמת רעש (Ripple & Noise) נמוכה במיוחד (\( < 1\text{ mV}_{\text{rms}} \)).</p>
+            </div>
+            <div class="info-card">
+                <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">הבנת מעבר המצבים (CV / CC Crossover)</h3>
+                <p>ספק הכוח מסוגל לפעול בשני מצבים עיקריים בהתאם לעומס:</p>
+                <ul>
+                    <li><strong>מתח קבוע (CV - Constant Voltage):</strong> הספק שומר על המתח שהוגדר (\( V_{\text{set}} \)) קבוע. הזרם נקבע על ידי התנגדות העומס (\( I = V/R_L \)). נורית ה-CV מוארת ב<strong>ירוק</strong>.</li>
+                    <li><strong>זרם קבוע (CC - Constant Current):</strong> כאשר הזרם הנצרך מגיע לגבול הזרם שהגדרתם (\( I_{\text{set}} \)), הספק עובר אוטומטית למצב הגנת זרם ומפחית את מתח המוצא כדי לשמור על זרם קבוע. נורית ה-CC מוארת ב<strong>אדום</strong>.</li>
+                </ul>
+            </div>
+        </div>
 
-    <!-- פרק: דגם GPS-3303 -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-bottom: 20px;">דגם GPS-3303</h2>
-        <p>ספק הכוח GPS-3303 הוא ספק ליניארי מיוצב המציע 3 ערוצים נפרדים. הוא מאפשר גמישות מרבית על ידי חיבור הערוצים בטור או במקביל להגדלת המתח או הזרם בהתאמה.</p>
-        
-        <!-- חלק: תמונות המכשיר -->
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 25px 0;">
-            <div style="text-align: center; flex: 1; min-width: 300px;">
-                <img src="Figure/gps3303_photo.jpg" alt="GPS-3303 Photo" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px;">
-                <p style="font-size: 0.85em; color: #7f8c8d;">איור 1: מבט כללי על ספק הכוח GPS-3303</p>
-            </div>
-            <div style="text-align: center; flex: 1; min-width: 300px;">
-                <img src="Figure/gps3303_description.png" alt="GPS-3303 Controls" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px;">
-                <p style="font-size: 0.85em; color: #7f8c8d;">איור 2: מיפוי בקרות הלוח הקדמי</p>
-            </div>
+        <div class="alert-box alert-info" style="padding: 16px 20px; border-radius: 8px; margin: 20px 0; display: flex; flex-direction: column; gap: 6px; background-color: #f0f9ff; border-right: 5px solid #0284c7; color: #075985;">
+            <strong>💡 נקודת המעבר (Crossover Point):</strong>
+            המעבר בין מצב CV למצב CC נקבע על ידי חוק אוהם בהתאם להתנגדות העומס הקריטית: \( R_{\text{crit}} = \frac{V_{\text{set}}}{I_{\text{set}}} \). 
+            אם התנגדות העומס \( R_L > R_{\text{crit}} \), המכשיר יפעל במצב CV. 
+            אם התנגדות העומס \( R_L < R_{\text{crit}} \), המכשיר יעבור למצב CC כדי להגן על המעגל.
         </div>
     </section>
 
-    <!-- פרק: מאפיינים טכניים ובטיחות -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-bottom: 20px;">מאפיינים טכניים ובטיחות</h2>
-        <div style="background-color: #f1f8e9; padding: 20px; border-radius: 8px; border: 1px solid #c8e6c9;">
+    <!-- פרק 2: מבנה המכשיר וחיבורים קדמיים -->
+    <section>
+        <h2 class="section-title" style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">2. לוח הבקרה וחיבורי המוצא</h2>
+        <p>להלן צילום המכשיר ודיאגרמת המיפוי של בקרות הלוח הקדמי של ה-GPS-3303. המכשיר כולל 3 ערוצי מוצא עצמאיים:</p>
+        
+        <div class="image-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 25px 0;">
+            <div class="img-box" style="text-align: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; flex: 1; min-width: 260px; max-width: 420px;">
+                <img style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);" src="Figure/gps3303_photo.jpg" alt="GW Instek GPS-3303 General View">
+                <div class="img-caption" style="font-size: 0.9em; color: #64748b; margin-top: 10px; font-weight: 600;">צילום כללי של ספק הכוח השולחני GPS-3303</div>
+            </div>
+            <div class="img-box" style="text-align: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; flex: 1; min-width: 260px; max-width: 420px;">
+                <img style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);" src="Figure/gps3303_description.png" alt="GPS-3303 Front Panel Controls Diagram">
+                <div class="img-caption" style="font-size: 0.9em; color: #64748b; margin-top: 10px; font-weight: 600;">מיפוי ולחצני השליטה בחזית המכשיר</div>
+            </div>
+        </div>
+
+        <div class="alert-box alert-warning" style="padding: 16px 20px; border-radius: 8px; margin: 20px 0; display: flex; flex-direction: column; gap: 6px; background-color: #fff5f5; border-right: 5px solid #ef4444; color: #991b1b;">
+            <strong>⚠️ בטיחות בחיבורים טוריים וקצרים:</strong>
+            ספק הכוח מסוגל לספק מתחים של עד \( 60\text{ V} \) במצב טורי. מתח מעל \( 60\text{ V}_{\text{DC}} \) מוגדר כמתח מסוכן למגע אדם ועלול לגרום להתחשמלות. הקפידו תמיד לחבר את כבלי המעגל כאשר יציאת הספק כבויה (לחצן OUTPUT כבוי או המכשיר מכובה), ונתקו את המעגל לפני שינוי חיווט פיזי.
+        </div>
+    </section>
+
+    <!-- פרק 3: הדגמות מעשיות שלב-אחר-שלב -->
+    <section>
+        <h2 class="section-title" style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">3. הדגמות ותהליכי עבודה מעשיים במעבדה</h2>
+        <p>להלן 5 הדגמות מפורטות ליישום במעבדה, המראות את כל מצבי העבודה של ה-GPS-3303:</p>
+
+        <!-- הדגמה 1 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 1: הגדרת מגבלת זרם בטוחה (Current Limit) למעגל רגיש</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>מניעת שריפת רכיבים (כמו דיודות או שבבים) במקרה של קצר לא מכוון במעגל:</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 1:</span>
+                    הדליקו את ספק הכוח. ודאו כי לחצן ה-<strong>OUTPUT</strong> כבוי (או שאין מעגל מחובר להדקים).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 2:</span>
+                    כוונו את המתח הרצוי לעבודה (למשל \( 5\text{ V} \)) באמצעות בורר ה-VOLTAGE של ערוץ 1 (Master).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 3:</span>
+                    חברו כבל קצר (גשר בננה-בננה) ישירות בין הדק הפלוס הראשי לבין הדק המינוס הראשי של ערוץ 1.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 4:</span>
+                    הפעילו את ה-OUTPUT (נורית ה-CC האדומה תידלק מיד כיוון שהספק נמצא בקצר מוחלט). סובבו את בורר ה-CURRENT של הערוץ עד שהצג יראה את זרם ההגנה המקסימלי הרצוי (למשל \( 100\text{ mA} \)).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 5:</span>
+                    כבו את ה-OUTPUT, נתקו את גשר הקצר, וחברו את המעגל הנבדק. המעגל מוגן כעת: גם אם קיים קצר במעגל שלכם, הזרם לעולם לא יעבור את ה-\( 100\text{ mA} \) והמתח ייפול מיד כדי להגן על הרכיבים.
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 2 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 2: עבודה במצב טורי (Tracking Series) לקבלת מתח כפול (עד 60V)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 1:</span>
+                    ודאו שאין כבלים מחוברים להדקי המכשיר.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 2:</span>
+                    לחצו על לחצני ה-<strong>TRACKING</strong> למצב טורי (לחצן שמאלי לחוץ פנימה, לחצן ימני בחוץ). במצב זה מתבצע חיבור טורי פנימי במכשיר בין שני הערוצים.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 3:</span>
+                    חברו את העומס החיצוני שלכם בין הדק הפלוס (אדום) של ערוץ ה-<strong>MASTER</strong> לבין הדק המינוס (שחור) של ערוץ ה-<strong>SLAVE</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 4:</span>
+                    כווננו את המתח באמצעות בורר ה-VOLTAGE של ערוץ ה-MASTER. ערוץ ה-SLAVE יעקוב אחריו בצורה מדויקת. המתח הכולל על העומס יהיה סכום המתחים (פעמיים המתח המוצג בערוץ ה-MASTER, עד ל-\( 60\text{ V} \)).
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 3 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 3: עבודה במצב מקבילי (Tracking Parallel) לקבלת זרם כפול (עד 6A)</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 1:</span>
+                    ודאו שאין כבלים מחוברים להדקי המכשיר.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 2:</span>
+                    לחצו על שני לחצני ה-<strong>TRACKING</strong> למצב מקבילי (שני הלחצנים לחוצים פנימה). חיבור זה יוצר חיבור מקבילי פנימי בין שני מקורות הזרם.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 3:</span>
+                    חברו את העומס החיצוני שלכם אך ורק להדקי הפלוס (אדום) והמינוס (שחור) של ערוץ ה-<strong>MASTER</strong>.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 4:</span>
+                    כווננו את המתח והזרם באמצעות בוררי ערוץ ה-MASTER בלבד. הזרם המקסימלי שהספק יוכל לספק כעת לעומס מוכפל ל-\( 6\text{ A} \), כאשר ערוץ ה-SLAVE תורם מחצית מהזרם באופן מבוקר.
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 4 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 4: יצירת ספק כוח דואלי סימטרי (±15V) למעגלי מגברי שרת</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>מגברי שרת (Op-Amps) רבים דורשים הזנה דו-קוטבית סימטרית ביחס לאדמה משותפת:</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 1:</span>
+                    העבירו את המכשיר למצב טורי <strong>SERIES</strong> (לחצן שמאלי לחוץ פנימה, ימני בחוץ).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 2:</span>
+                    כווננו את המתח בערוץ ה-MASTER ל-\( 15\text{ V} \). ערוץ ה-SLAVE יעקוב ויציג גם הוא \( 15\text{ V} \).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 3:</span>
+                    הגדירו את נקודת הייחוס: חברו כבל מהדק המינוס (שחור) של ערוץ ה-MASTER (שמחובר פנימית לפלוס של ה-SLAVE) לנקודת ה-<strong>GROUND</strong> של המעגל שלכם. זוהי נקודת ה-\( 0\text{ V} \) המשותפת.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 4:</span>
+                    חברו כבל מהדק הפלוס (אדום) של ערוץ ה-MASTER לחיבור ה- \( +15\text{ V} \) במעגל שלכם.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 5:</span>
+                    חברו כבל מהדק המינוס (שחור) של ערוץ ה-SLAVE לחיבור ה- \( -15\text{ V} \) במעגל שלכם. כעת קיבלתם מקור סימטרי מושלם של \( \pm 15\text{ V} \).
+                </div>
+            </div>
+        </details>
+
+        <!-- הדגמה 5 -->
+        <details class="demo-accordion" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease;">
+            <summary class="demo-summary" style="padding: 16px; font-weight: 600; cursor: pointer; background-color: #f8fafc; user-select: none; display: flex; align-items: center; justify-content: space-between; outline: none; color: #1e293b; transition: background-color 0.2s ease, color 0.2s ease; font-family: 'Rubik', sans-serif; border-bottom: 1px solid transparent;">
+                <span>📘 הדגמה 5: שימוש בערוץ 3 הקבוע (Fixed 5V/3A) למעגלים דיגיטליים</span>
+                <span>▼</span>
+            </summary>
+            <div class="demo-content" style="padding: 20px; background-color: #ffffff;">
+                <p>ערוץ 3 מפיק מתח קבוע של \( 5\text{ V} \) המוגן פנימית עד לזרם של \( 3\text{ A} \), אידיאלי להזנת מעגלי מיקרו-בקרים (כמו ארדואינו) או רכיבים לוגיים מסדרת TTL:</p>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 1:</span>
+                    זהו את הדקי ערוץ 3 הממוקמים במרכז התחתון של חזית המכשיר (מסומנים כ-5V ויציאת ה-GND השכנה).
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 2:</span>
+                    חברו את הדק הפלוס האדום של ערוץ 3 לכניסת ה-VCC (\( +5\text{ V} \)) של המעגל הלוגי.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 3:</span>
+                    חברו את הדק המינוס השחור של ערוץ 3 ל-GND של המעגל הלוגי.
+                </div>
+                <div class="demo-step" style="margin-bottom: 15px; padding-right: 15px; border-right: 3px solid #cbd5e1;">
+                    <span class="demo-step-num" style="font-weight: bold; color: #2e7d32;">שלב 4:</span>
+                    הפעילו את המעגל. המכשיר יספק מתח יציב במיוחד של \( 5\text{ V} \) ללא צורך בכיוון ידני של בוררי המתח.
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- פרק 4: פתרון תקלות וצ'קליסט לתלמיד -->
+    <section>
+        <h2 class="section-title" style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">4. פתרון תקלות וצ'קליסט למעבדה</h2>
+        
+        <div class="info-card">
+            <h3 class="subsection-title" style="color: #1e293b; font-size: 18px; margin-top: 20px; margin-bottom: 10px; font-weight: 600;">צ'קליסט לאיתור תקלות בספק כוח:</h3>
             <ul style="padding-right: 20px; line-height: 1.8;">
-                <li><strong>יציבות גבוהה:</strong> ויסות מתח וזרם מדויק עם רמת רעש (Ripple & Noise) נמוכה מאוד (\( < 1mV_{rms} \)).</li>
-                <li><strong>הגנה מעומס יתר:</strong> מנגנון הגנה מובנה המגביל את הזרם למניעת נזק למעגל הנבדק.</li>
-                <li><strong>קירור חכם:</strong> מאוורר פנימי הפועל אוטומטית כשטמפרטורת המכשיר עולה על \( 32^{\circ}C \).</li>
-                <li><strong>בטיחות:</strong> בעבודה במצב טורי מעל \( 60V_{DC} \), קיימת סכנת התחשמלות. יש לנהוג בזהירות יתרה בחיבורים.</li>
+                <li><strong>למה המכשיר מראה מתח נמוך מאוד ונורית ה-CC האדומה דולקת?</strong>
+                    המכשיר נכנס למצב הגבלת זרם. ייתכן שקיים קצר חשמלי במעגל שלכם, או שמגבלת הזרם (Current Limit) שהגדרתם נמוכה מדי לצורכי המעגל. נתקו את המעגל, ודאו שאין קצרים, והגדילו מעט את מגבלת הזרם.
+                </li>
+                <li><strong>הגדרתי מצב טורי אך ערוץ ה-SLAVE אינו מגיב לבוררי המתח שלו:</strong>
+                    במצב טורי או מקבילי (Tracking Series/Parallel), השליטה המלאה על המתח והזרם של שני הערוצים עוברת באופן בלעדי לערוץ ה-<strong>MASTER</strong>. בוררי ערוץ ה-SLAVE מנוטרלים פנימית כדי להבטיח מעקב מושלם.
+                </li>
+                <li><strong>האם מותר לחבר את הדק האדמה הירוק (GND) להדק המינוס השחור?</strong>
+                    הדק האדמה הירוק מחובר פיזית לשלדת המכשיר ולאדמת המעבדה. הדקי הפלוס והמינוס מבודדים לחלוטין מהאדמה (Floating). מותר ואף מומלץ לחבר את הדק המינוס (שחור) אל הדק הירוק (GND) אם אתם מעוניינים לייצב את פוטנציאל המעגל שלכם ביחס לאדמת המעבדה ולמנוע רעשים אלקטרוסטטיים.
+                </li>
             </ul>
         </div>
     </section>
 
-    <!-- פרק: מצבי עבודה (Tracking) -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-bottom: 20px;">מצבי עבודה (Tracking)</h2>
-        <p>הספק מאפשר בחירה בין שלושה מצבי עבודה עיקריים באמצעות לחצני ה-Tracking:</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 15px;">
-            <div style="flex: 1; min-width: 250px; background: #e8f5e9; padding: 15px; border-radius: 8px; border-right: 4px solid #2e7d32;">
-                <h4 style="margin-top: 0; color: #1b5e20;">מצב עצמאי (Independent)</h4>
-                <p style="font-size: 0.95em;">כל ערוץ פועל כספק כוח נפרד ומבודד לחלוטין. ניתן לקבוע מתח וזרם שונים לכל יציאה.</p>
-            </div>
-            <div style="flex: 1; min-width: 250px; background: #e8f5e9; padding: 15px; border-radius: 8px; border-right: 4px solid #2e7d32;">
-                <h4 style="margin-top: 0; color: #1b5e20;">מצב טורי (Series)</h4>
-                <p style="font-size: 0.95em;">חיבור פנימי של שתי יציאות בטור לקבלת מתח כפול (עד \( 60V \)). השליטה מתבצעת דרך ערוץ ה-Master.</p>
-            </div>
-            <div style="flex: 1; min-width: 250px; background: #e8f5e9; padding: 15px; border-radius: 8px; border-right: 4px solid #2e7d32;">
-                <h4 style="margin-top: 0; color: #1b5e20;">מצב מקבילי (Parallel)</h4>
-                <p style="font-size: 0.95em;">חיבור פנימי של שתי יציאות במקביל לקבלת זרם כפול (עד \( 6A \)). השליטה מתבצעת דרך ערוץ ה-Master.</p>
-            </div>
+    <!-- פרק 5: סרטוני הדרכה מומלצים -->
+    <section>
+        <h2 class="section-title" style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-top: 35px; margin-bottom: 20px; font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 600;">5. סרטוני הדרכה מומלצים ב-YouTube</h2>
+        <p>להלן סרטוני וידאו שימושיים המסבירים את אופן השימוש הנכון והבטוח בספקי כוח שולחניים במעבדה:</p>
+        
+        <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-top: 15px;">
+            <ul style="padding-right: 20px; margin-bottom: 0; list-style-type: none;">
+                <li style="margin-bottom: 15px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+                    <strong style="color: #2e7d32; font-size: 16px;">▶️ מדריך עבודה מלא עם ספק כוח שולחני (EEVblog #224):</strong><br>
+                    הסבר מעולה של דייב ג'ונס על מצבי CV ו-CC, הגדרת הגבלת זרם, והגנה על מעגלים אלקטרוניים רגישים במהלך בדיקה.
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=k38yv8c8L3o" target="_blank" style="color: #2e7d32; font-weight: bold; text-decoration: underline;">צפייה בסרטון ב-YouTube &larr;</a>
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <strong style="color: #2e7d32; font-size: 16px;">▶️ חיבור ספקי כוח בטור ובמקביל (Series and Parallel Modes):</strong><br>
+                    הדגמה ויזואלית המראה כיצד לחבר נכון שני ערוצים בטור או במקביל כדי להכפיל את המתח או הזרם באופן בטוח.
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=R91i2N4B1lA" target="_blank" style="color: #2e7d32; font-weight: bold; text-decoration: underline;">צפייה בסרטון ב-YouTube &larr;</a>
+                </li>
+            </ul>
         </div>
     </section>
 
-    <!-- פרק: ממשק משתמש ותפעול -->
-    <section style="margin-bottom: 30px;">
-        <h2 style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-bottom: 20px;">ממשק משתמש ותפעול</h2>
-        <ul style="padding-right: 20px;">
-            <li style="margin-bottom: 10px;"><strong>נורות חיווי (Crossover):</strong> 
-                <span style="color: #2e7d32; font-weight: bold;">ירוק (CV)</span> - מתח קבוע, 
-                <span style="color: #c62828; font-weight: bold;">אדום (CC)</span> - זרם קבוע (הגנה מופעלת).
-            </li>
-            <li style="margin-bottom: 10px;"><strong>ערוץ 3 (Fixed):</strong> יציאה קבועה של \( 5V \) / \( 3A \), אידיאלית למעגלים לוגיים.</li>
-            <li style="margin-bottom: 10px;"><strong>הגדרת הגבלת זרם:</strong> מומלץ לקצר את ההדקים ולכוון את הזרם המרבי הרצוי לפני חיבור העומס.</li>
-        </ul>
+    <!-- קישורים ומידע נוסף -->
+    <section style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 20px; text-align: left;">
+        <a href="https://www.gwinstek.com/en-global/products/downloadSeriesDownNew/8071/1210" target="_blank" class="external-link-btn" style="display: inline-block; padding: 12px 24px; background-color: #2e7d32; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background-color 0.2s ease, transform 0.2s ease; text-align: center; margin-top: 15px; box-shadow: 0 4px 6px rgba(46, 125, 50, 0.15);">
+            להורדת המדריך הרשמי למשתמש (PDF) &larr;
+        </a>
     </section>
-
-    <!-- פרק: קישורים נוספים -->
-    <section style="margin-bottom: 30px; border-top: 1px solid #eee; padding-top: 20px;">
-        <h2 style="color: #2e7d32; border-right: 5px solid #2e7d32; padding-right: 15px; margin-bottom: 20px;">מידע טכני נוסף</h2>
-        <div style="text-align: left;">
-            <a href="https://www.gwinstek.com/en-global/products/downloadSeriesDownNew/8071/1210" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #2e7d32; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">הורדת מדריך למשתמש המלא (GW Instek) &larr;</a>
-        </div>
-    </section>
-
-    <!-- חלק: טיפ עבודה -->
-    <div style="background-color: #fff3e0; border: 1px solid #ffe0b2; color: #e65100; padding: 15px; border-radius: 8px;">
-        <strong>טיפ עבודה:</strong> הגדירו תמיד את מגבלת הזרם (Current Limit) לפני חיבור המעגל, כדי להגן על רכיבים רגישים מפני זרם יתר.
-    </div>
-
-    <!-- כפתור חזרה לאינדקס -->
-    <a href="Index.html" style="display: inline-block; padding: 8px 16px; background-color: #37474f; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px;">&rarr; חזרה לאינדקס המכשירים</a>
 </div>
+
+
+
+<script>
+(function() {
+    function updateBackLink() {
+        const isMoodleBook = window.location.href.includes('/mod/book/') || 
+                             document.querySelector('.path-mod-book') || 
+                             document.querySelector('[id*="mod_book"]');
+                             
+        if (!isMoodleBook) {
+            console.log('Not in Moodle Book. Keeping relative links.');
+            return; 
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        let bookId = urlParams.get('id');
+        
+        if (!bookId) {
+            const anyBookLink = document.querySelector('a[href*="id="]');
+            if (anyBookLink) {
+                const match = anyBookLink.href.match(/[?&]id=(d+)/);
+                if (match) bookId = match[1];
+            }
+        }
+        
+        if (bookId) {
+            const backBtn = document.querySelector('.back-btn');
+            if (backBtn) {
+                backBtn.href = 'https://moodle.sce.ac.il/mod/book/view.php?id=' + bookId;
+            }
+        }
+    }
+    updateBackLink();
+    window.addEventListener('load', updateBackLink);
+    setTimeout(updateBackLink, 500);
+    setTimeout(updateBackLink, 1500);
+})();
+</script>
 </body>
 </html>

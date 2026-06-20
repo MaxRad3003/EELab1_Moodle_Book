@@ -1,5 +1,6 @@
 node_modules/
 dist/
+release/
 backups/
 tmp_h5p_inspect/
 tmp_h5p_inspect_content/

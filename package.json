@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "node scripts/build.js",
-    "clean": "node -e \"require('fs').rmSync('dist', {recursive: true, force: true})\""
+    "clean": "node -e \"require('fs').rmSync('dist', {recursive: true, force: true})\"",
+    "release": "powershell -ExecutionPolicy Bypass -File scripts/release.ps1"
   },
   "dependencies": {
     "i": "^0.3.7"

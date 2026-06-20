@@ -2,45 +2,41 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>01 PreLab 02 OscilloscopeGuide sub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדריך אוסצילוסקופ GDS-2072A</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.4.1/jsxgraph.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.4.1/jsxgraphcore.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
-            ﻿<!DOCTYPE html>
-<html lang="he" dir="rtl" style="box-sizing: border-box;">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>מדריך אוסצילוסקופ מהיר</title>
-
-</head>
-<body id="exp03-01-prelab-02-oscilloscopeguide-sub" style="box-sizing: border-box; font-family: Arial,'Noto Sans Hebrew',sans-serif; line-height: 1.65; margin: 20px; color: #202124; background: #ffffff; direction: rtl; text-align: right;">
-<div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
+<body id="exp03-01-prelab-02-oscilloscopeguide-sub" style="margin: 20px; padding: 0; background-color: #f8fafc; font-family: Arial,'Noto Sans Hebrew',sans-serif; direction: rtl; text-align: right; box-sizing: border-box; line-height: 1.65; color: #202124; background: #ffffff;">
+    <div dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; text-align: right; font-size: 16px; padding: 20px;">
+        <div style="box-sizing: border-box; direction: rtl; text-align: right; max-width: 980px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
 <div style="box-sizing: border-box; font-size: 0.9rem; color: #52616b; margin-bottom: 14px;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
 <!-- CHAPTER: OSCILLOSCOPE GUIDE HEADER -->
-<h3 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.7rem; line-height: 1.35; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px;">הכנה לניסוי 3 - מדריך אוסצילוסקופ מהיר</h3>
+<h3 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.7rem; line-height: 1.35; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px;">הכנה לניסוי 3 - מדריך מהיר לסקופ GDS-2072A</h3>
 <!-- SECTION: PAGE PURPOSE -->
-<div class="info" style="box-sizing: border-box; background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong style="box-sizing: border-box;">מטרת העמוד:</strong> לתת לסטודנט “דף כפתורים” קצר לפני המעבדה, כדי שהזמן במעבדה יוקדש למדידה ולא לחיפוש פונקציות.</div>
+<div class="info" style="box-sizing: border-box; background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong style="box-sizing: border-box;">מטרת העמוד:</strong> לתת לסטודנט “דף כפתורים” קצר עבור GDS-2072A, כדי שהזמן במעבדה יוקדש למדידה ולא לחיפוש פונקציות. למדריך המכשיר המלא: <a href="./GDS_2072A_sub.html" target="_blank" style="box-sizing: border-box; color: #005696; font-weight: 700;">GDS-2072A</a>.</div>
 <!-- SECTION: OSCILLOSCOPE CONTROL CARDS -->
 <div class="grid" style="box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 14px;">
 <!-- PART: VOLTAGE SCALE CONTROL -->
-<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Volt/Div</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">קובע כמה וולט מייצגת כל משבצת אנכית. משתמשים בו כדי להכניס את האות למסך בלי חיתוך.</p></div>
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Volts/Div - Vertical</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">בקר הסקאלה האנכית של CH1 או CH2. קובע כמה וולט מייצגת כל משבצת אנכית ומשמש להכנסת האות למסך בלי חיתוך.</p></div>
 <!-- PART: TIME SCALE CONTROL -->
-<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Time/Div</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">קובע כמה זמן מייצגת כל משבצת אופקית. ממנו מחשבים זמן מחזור ותדר.</p></div>
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Time/Div - Horizontal</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">בקר הסקאלה האופקית. קובע כמה זמן מייצגת כל משבצת, וממנו מחשבים זמן מחזור ותדר כאשר לא משתמשים ב-Measure.</p></div>
 <!-- PART: TRIGGER CONTROL -->
-<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Trigger</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">מייצב את התמונה. אם הגל “רץ”, כוונו מקור Trigger לערוץ הנמדד ואת הסף למרכז האות.</p></div>
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Trigger</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">מייצב את התמונה. ב-GDS-2072A בחרו מקור Trigger לערוץ הנמדד, לרוב CH1, וכוונו את הסף למרכז האות.</p></div>
 <!-- PART: INPUT COUPLING -->
 <div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">AC/DC Coupling</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">DC מציג גם היסט ישר. AC מסנן רכיב DC ומציג בעיקר את רכיב החילופין.</p></div>
 <!-- PART: PROBE ATTENUATION -->
 <div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Probe x1/x10</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">חייבים להתאים בין מצב הפרוב להגדרה בסקופ. אי התאמה תגרום לקריאה פי 10 שגויה.</p></div>
 <!-- PART: CURSOR AND AUTO MEASUREMENTS -->
-<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Cursor / Measure</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">מאפשר מדידה ישירה של מתח, זמן, תדר והפרש זמן בין שני גלים.</p></div>
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Cursor / Measure</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">Measure נותן מדידה אוטומטית של \(V_{pp}\), \(V_{RMS}\), תדר וזמן מחזור. Cursors מתאים למדידת \(\Delta t\) בין שני גלים.</p></div>
+<!-- PART: SAVE AND DOCUMENTATION -->
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Save/Recall + USB</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">בסוף כל מדידה מרכזית שמרו צילום מסך, ובמדידות שיש לעבד בדו"ח שמרו גם Waveform/CSV לפי הצורך.</p></div>
 </div>
 <!-- SECTION: OPERATING RULE -->
-<div class="warn" style="box-sizing: border-box; background: #fff8e5; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong style="box-sizing: border-box;">כלל עבודה:</strong> מתחילים ב-Auto Set רק כדי למצוא אות, ואז עוברים לכיוון ידני של Volt/Div, Time/Div ו-Trigger.</div>
+<div class="warn" style="box-sizing: border-box; background: #fff8e5; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong style="box-sizing: border-box;">כלל עבודה:</strong> מתחילים ב-Auto Set רק כדי למצוא אות, ואז עוברים לכיוון ידני של Volts/Div, Time/Div ו-Trigger. לפני רישום תוצאה בדקו גם Probe factor ו-Coupling.</div>
 <!-- SECTION: MEASUREMENT REFERENCE TABLE -->
 <table style="box-sizing: border-box; width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .95rem;" width="100%"><thead style="box-sizing: border-box;"><tr style="box-sizing: border-box;"><th style="box-sizing: border-box; background: #005696; color: #fff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right">מה רוצים למדוד?</th><th style="box-sizing: border-box; background: #005696; color: #fff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right">כפתור מרכזי</th><th style="box-sizing: border-box; background: #005696; color: #fff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right">מה לרשום בדו"ח?</th></tr></thead><tbody style="box-sizing: border-box;">
 <tr style="box-sizing: border-box;"><td style="box-sizing: border-box; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">מתח שיא</td><td style="box-sizing: border-box; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">Volt/Div + מספר משבצות</td><td style="box-sizing: border-box; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(V_p = N_{div}\cdot V/div\)</td></tr>
@@ -51,18 +47,7 @@
 <!-- NAVIGATION: PREVIOUS / CONTENTS / NEXT -->
 <div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="01_PreLab_02_RMS_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="01_PreLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="01_PreLab_03_Conversions_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div>
 </div>
-</body>
-</html>
-
-
-
-
-
-
-
         </div>
     </div>
-</div>
-
 </body>
 </html>

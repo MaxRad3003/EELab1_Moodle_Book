@@ -7,10 +7,10 @@
       "platform": "Moodle Book",
       "title": "מדריך ציוד: רב-מודד וספק כוח",
       "linkText": "פתיחת מדריך הציוד במודל",
-      "url": "https://moodle.sce.ac.il/mod/book/view.php?id=1212809&chapterid=142",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/Index.html",
       "location": "Global equipment links",
       "status": "ready",
-      "notes": "קישור גלובלי למונחים: רב-מודד, DMM, ספק כוח, DC Power Supply"
+      "notes": "קישור גלובלי לספר Moodle המעודכן של מדריכי מכשירי המדידה"
     },
     {
       "id": "prelab_quiz",
@@ -28,7 +28,7 @@
       "title": "מבחן בטיחות",
       "linkText": "מעבר למבחן הבטיחות במודל",
       "url": "",
-      "location": "01_PreLab_Exp01_00_Safety_sub.html",
+      "location": "01_PreLab_00_Safety_sub.html",
       "status": "missing",
       "notes": "אם מבחן הבטיחות הוא פעילות כללית בקורס, אפשר לקשר אליו כאן"
     },
@@ -49,7 +49,7 @@
       "linkText": "פתיחת פעילות Tinkercad",
       "url": "https://www.tinkercad.com/things/3Ehb7iogzWc-basic-",
       "embedUrl": "https://www.tinkercad.com/embed/3Ehb7iogzWc?editbtn=1",
-      "location": "01_PreLab_Exp01_04_Tinkercad_sub.html",
+      "location": "01_PreLab_04_Tinkercad_sub.html",
       "status": "ready",
       "notes": "קישור לפעילות Tinkercad של ניסוי 1"
     },
@@ -59,7 +59,7 @@
       "title": "סימולציות טורי/מקבילי, קצר ונתק",
       "linkText": "פתיחת סימולציית Falstad",
       "url": "",
-      "location": "02_InLab_Exp01_02_PartC_sub.html",
+      "location": "02_InLab_02_PartC_sub.html",
       "status": "missing",
       "notes": "אפשר לשים קישור יחיד לדף Moodle עם כמה סימולציות, או קישור Falstad ישיר"
     },
@@ -69,7 +69,7 @@
       "title": "עיבוד מדידות וחישוב סטייה יחסית",
       "linkText": "פתיחת פעילות MATLAB Grader",
       "url": "",
-      "location": "03_PostLab_Exp01_00_Report_sub.html",
+      "location": "03_PostLab.html",
       "status": "missing",
       "notes": "להכניס קישור Moodle לפעילות MATLAB Grader"
     },
@@ -79,9 +79,99 @@
       "title": "הגשת דוח מסכם",
       "linkText": "הגשת הדוח המסכם",
       "url": "",
-      "location": "03_PostLab_Exp01_00_Report_sub.html",
+      "location": "03_PostLab.html",
       "status": "missing",
       "notes": "להכניס קישור למטלת ההגשה במודל"
+    },
+    {
+      "id": "gdm8245",
+      "platform": "Moodle Book",
+      "title": "GDM-8245 - מולטימטר בסיסי",
+      "linkText": "מדריך למולטימטר GDM-8245",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/GDM_8245_sub.html",
+      "location": "01_PreLab_02_Equipment_sub.html",
+      "status": "ready",
+      "notes": "קישור למדריך Moodle של רב-מודד GDM-8245"
+    },
+    {
+      "id": "gdm8341",
+      "platform": "Moodle Book",
+      "title": "GDM-8341 - מולטימטר מתקדם",
+      "linkText": "מדריך למולטימטר GDM-8341",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/GDM_8341_sub.html",
+      "location": "01_PreLab_02_Equipment_sub.html",
+      "status": "ready",
+      "notes": "קישור למדריך Moodle של רב-מודד GDM-8341"
+    },
+    {
+      "id": "agilent33220a",
+      "platform": "Moodle Book",
+      "title": "Agilent 33220A - מחולל דיגיטלי",
+      "linkText": "מדריך למחולל Agilent 33220A",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/Agilent_33220A_sub.html",
+      "location": "01_PreLab_02_Equipment_sub.html",
+      "status": "ready",
+      "notes": "קישור למדריך Moodle של מחולל האותות Agilent 33220A"
+    },
+    {
+      "id": "gfg8219a",
+      "platform": "Moodle Book",
+      "title": "GFG-8219A - מחולל אנלוגי",
+      "linkText": "מדריך למחולל GFG-8219A",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/GFG_8219A_sub.html",
+      "location": "01_PreLab_02_Equipment_sub.html",
+      "status": "ready",
+      "notes": "קישור למדריך Moodle של מחולל האותות GFG-8219A"
+    },
+    {
+      "id": "gps3303",
+      "platform": "Moodle Book",
+      "title": "GPS-3303 - ספק כוח DC מיוצב",
+      "linkText": "מדריך לספק כוח GPS-3303",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/GPS_3303_sub.html",
+      "location": "01_PreLab_02_Equipment_sub.html",
+      "status": "ready",
+      "notes": "קישור למדריך Moodle של ספק הכוח GPS-3303"
+    },
+    {
+      "id": "gpm8212",
+      "platform": "Moodle Book",
+      "title": "GPM-8212 - מד הספק דיגיטלי",
+      "linkText": "מדריך למד הספק GPM-8212",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/GPM_8212_sub.html",
+      "location": "01_PreLab_02_Equipment_sub.html",
+      "status": "ready",
+      "notes": "קישור למדריך Moodle של מד ההספק GPM-8212"
+    },
+    {
+      "id": "oscilloscope_intro",
+      "platform": "Moodle Book",
+      "title": "מבוא ועקרונות האוסילוסקופ",
+      "linkText": "מדריך מבוא לאוסילוסקופ",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/Oscilloscope_sub.html",
+      "location": "01_PreLab_02_Equipment_sub.html",
+      "status": "ready",
+      "notes": "קישור למבוא על עקרונות האוסילוסקופ במודל"
+    },
+    {
+      "id": "gds2072a",
+      "platform": "Moodle Book",
+      "title": "GDS-2072A - אוסילוסקופ דיגיטלי",
+      "linkText": "מדריך לאוסילוסקופ GDS-2072A",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/GDS_2072A_sub.html",
+      "location": "01_PreLab_02_Equipment_sub.html",
+      "status": "ready",
+      "notes": "קישור למדריך Moodle של אוסילוסקופ GDS-2072A"
+    },
+    {
+      "id": "gos620",
+      "platform": "Moodle Book",
+      "title": "GOS-620 - אוסילוסקופ אנלוגי",
+      "linkText": "מדריך לאוסילוסקופ GOS-620",
+      "url": "../../../../../Measuring equipment/EELab_Measuring_equipment/GOS_620_sub.html",
+      "location": "01_PreLab_02_Equipment_sub.html",
+      "status": "ready",
+      "notes": "קישור למדריך Moodle של אוסילוסקופ GOS-620"
     }
   ]
 }

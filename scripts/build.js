@@ -13,6 +13,75 @@ const jsxgraphCore = fs.readFileSync(path.join(TEMPLATES_DIR, 'jsxgraph_core.js'
 const jsxgraphCss = fs.readFileSync(path.join(TEMPLATES_DIR, 'jsxgraph.css'), 'utf8');
 const previewTemplate = fs.readFileSync(path.join(TEMPLATES_DIR, 'preview_standalone.html'), 'utf8');
 const buildFilter = process.env.BUILD_FILTER || process.argv[2] || '';
+const equipmentLinksPath = path.join(SRC_DIR, 'EELab1', 'Moodle_Measuring_equipment_links.txt');
+
+function parseEquipmentLinks() {
+    if (!fs.existsSync(equipmentLinksPath)) {
+        return new Map();
+    }
+
+    const titleToUrl = new Map();
+    const lines = fs.readFileSync(equipmentLinksPath, 'utf8')
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean);
+
+    for (let i = 1; i < lines.length; i++) {
+        if (lines[i].startsWith('https://')) {
+            titleToUrl.set(lines[i - 1], lines[i]);
+        }
+    }
+
+    const titleByLocalFile = new Map([
+        ['Agilent_33220A_sub.html', 'Agilent 33220A - מחולל דיגיטלי'],
+        ['GDM_8245_sub.html', 'GDM-8245 - מולטימטר בסיסי'],
+        ['GDM_8341_sub.html', 'GDM-8341 - מולטימטר מתקדם'],
+        ['GDS_2072A_sub.html', 'GDS-2072A - אוסילוסקופ דיגיטלי'],
+        ['GFG_8219A_sub.html', 'GFG-8219A - מחולל אנלוגי'],
+        ['GOS_620_sub.html', 'GOS-620 - אוסילוסקופ אנלוגי'],
+        ['GPM_8212_sub.html', 'GPM-8212 - מד הספק דיגיטלי'],
+        ['GPS_3303_sub.html', 'GPS-3303 - ספק כוח DC מיוצב'],
+        ['Oscilloscope_sub.html', 'מבוא ועקרונות האוסילוסקופ'],
+    ]);
+
+    const fileToUrl = new Map();
+    const firstMoodleUrl = [...titleToUrl.values()][0];
+    if (firstMoodleUrl) {
+        fileToUrl.set('Index.html', firstMoodleUrl.replace(/&chapterid=\d+$/, ''));
+    }
+
+    for (const [fileName, title] of titleByLocalFile) {
+        const url = titleToUrl.get(title);
+        if (url) {
+            fileToUrl.set(fileName, url);
+        }
+    }
+
+    return fileToUrl;
+}
+
+const equipmentFileToMoodleUrl = parseEquipmentLinks();
+
+function applyMoodleEquipmentLinks(content) {
+    let result = content;
+
+    for (const [fileName, moodleUrl] of equipmentFileToMoodleUrl) {
+        const escapedFileName = fileName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const localPathRegex = new RegExp(`(?:\\.\\./)+Measuring equipment/EELab_Measuring_equipment/${escapedFileName}`, 'g');
+        const hrefRegex = new RegExp(`href="[^"]*${escapedFileName}"`, 'g');
+        result = result.replace(localPathRegex, moodleUrl);
+        result = result.replace(hrefRegex, `href="${moodleUrl}"`);
+    }
+
+    result = result.replace(/<a\b([^>]*href="https:\/\/moodle\.sce\.ac\.il\/mod\/book\/view\.php\?id=1215290[^"]*"[^>]*)>/g, (match, attrs) => {
+        if (/\starget=/.test(attrs)) {
+            return match;
+        }
+        return `<a${attrs} target="_blank">`;
+    });
+
+    return result;
+}
 
 /**
  * Recursively get all files in a directory
@@ -60,7 +129,12 @@ function build() {
             const distPath = path.join(DIST_DIR, 'moodle_ready', folderName, fileName);
             ensureDir(path.dirname(distPath));
             try {
-                fs.copyFileSync(file, distPath);
+                if (/\.(json|md|txt)$/i.test(fileName)) {
+                    const content = applyMoodleEquipmentLinks(fs.readFileSync(file, 'utf8'));
+                    fs.writeFileSync(distPath, content);
+                } else {
+                    fs.copyFileSync(file, distPath);
+                }
                 console.log(`✅ Copied Asset: ${distPath}`);
             } catch (error) {
                 console.warn(`⚠️ Skipped Asset: ${file} (${error.code || error.message})`);
@@ -69,6 +143,7 @@ function build() {
         }
 
         let content = fs.readFileSync(file, 'utf8');
+        content = applyMoodleEquipmentLinks(content);
         const title = fileName.replace('.html', '').replace(/_/g, ' ');
 
         // Handle JSXGraph Inlining

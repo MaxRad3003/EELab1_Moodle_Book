@@ -2,28 +2,31 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>02 InLab 02 FrequencyScope sub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניסוי 3 - מדידות זמן ותדר</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.4.1/jsxgraph.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.4.1/jsxgraphcore.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl" style="box-sizing: border-box;">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ניסוי 3 - מדידות זמן ותדר</title>
-
-</head>
-<body id="exp03-02-inlab-02-frequencyscope-sub" style="box-sizing: border-box; font-family: Arial,'Noto Sans Hebrew',sans-serif; line-height: 1.65; margin: 20px; color: #202124; background: #ffffff; direction: rtl; text-align: right;">
-<div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
+<body id="exp03-02-inlab-02-frequencyscope-sub" style="margin: 20px; padding: 0; background-color: #f8fafc; font-family: Arial,'Noto Sans Hebrew',sans-serif; direction: rtl; text-align: right; box-sizing: border-box; line-height: 1.65; color: #202124; background: #ffffff;">
+    <div dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; text-align: right; font-size: 16px; padding: 20px;">
+        <div style="box-sizing: border-box; direction: rtl; text-align: right; max-width: 980px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
 <div style="box-sizing: border-box; font-size: 0.9rem; color: #52616b; margin-bottom: 14px;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
 <!-- CHAPTER: HEADER -->
 <div class="mb-5" style="box-sizing: border-box; margin-bottom: 2rem;">
     <h4 class="section-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 0; display: inline-block; color: #005696; font-size: 1.7rem; line-height: 1.35; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px;">שלב ב': מדידות זמן מחזור ותדר באוסצילוסקופ</h4>
     <p class="mt-4" style="box-sizing: border-box; margin-bottom: 0.9rem; margin: 0 0 12px; font-size: 1.125rem; color: #52616b; margin-top: 1rem;">חקירת ציר הזמן: לימוד מדידת זמן מחזור (\(T\)) וחישוב התדר (\(f\)) מתוך רשת האוסצילוסקופ.</p>
+</div>
+
+<!-- SECTION: SCOPE REFERENCE -->
+<div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0;">
+    <strong style="box-sizing: border-box; color: #005696;">עבודה עם הסקופ הדיגיטלי GDS-2072A:</strong>
+    <span style="box-sizing: border-box;"> לפני ביצוע המדידה פתחו את מדריך הסקופ, זהו את בקרי <strong style="box-sizing: border-box;">Horizontal / Time/Div</strong>, את כפתור <strong style="box-sizing: border-box;">Measure</strong> ואת בקרי ה-Trigger, ולאחר מכן בצעו את המדידה על גבי המסך.</span>
+    <div style="box-sizing: border-box; margin-top: 12px;">
+        <a href="./GDS_2072A_sub.html" target="_blank" style="box-sizing: border-box; display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">פתיחת מדריך GDS-2072A</a>
+    </div>
 </div>
 
 <!-- SECTION: SCHEMATIC GRID -->
@@ -61,21 +64,21 @@
         <div class="step-number" style="box-sizing: border-box; background-color: #3b82f6; font-size: 1.25rem; width: 2.5rem; margin-left: 1.25rem; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); min-width: 38px; height: 38px; border-radius: 50%; background: #005696; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
         <div class="step-content" style="box-sizing: border-box; flex: 1; min-width: 0;">
             <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 0.25rem 0; color: #0f172a; font-size: 1.125rem;">כיול התצוגה</h4>
-            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">כווננו את המחולל ל-10kHz. שנו את בורר ה-Time/Div כך שיוצג מחזור אחד שלם בצורה רחבה וברורה.</p>
+            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">כווננו את המחולל ל-10kHz וחברו את יציאת המחולל ל-CH1 בסקופ GDS-2072A. שנו את בקר ה-Horizontal Time/Div כך שיוצגו מחזור אחד עד שלושה מחזורים בצורה רחבה וברורה.</p>
         </div>
     </div>
     <div class="step-box" style="box-sizing: border-box; background-color: white; margin-bottom: 1rem; transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; gap: 14px; align-items: flex-start; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 14px 0;">
         <div class="step-number" style="box-sizing: border-box; background-color: #3b82f6; font-size: 1.25rem; width: 2.5rem; margin-left: 1.25rem; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); min-width: 38px; height: 38px; border-radius: 50%; background: #005696; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
         <div class="step-content" style="box-sizing: border-box; flex: 1; min-width: 0;">
             <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 0.25rem 0; color: #0f172a; font-size: 1.125rem;">ספירת משבצות</h4>
-            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">ספרו כמה משבצות אופקיות תופס מחזור אחד. ודאו שהבורר העדין (Cal) נעול ימינה!</p>
+            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">ייצבו את האות בעזרת Trigger, ואז ספרו כמה משבצות אופקיות תופס מחזור אחד. רשמו גם את ערך ה-Time/Div המופיע במסך הסקופ.</p>
         </div>
     </div>
     <div class="step-box" style="box-sizing: border-box; background-color: white; margin-bottom: 1rem; transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; gap: 14px; align-items: flex-start; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 14px 0;">
         <div class="step-number" style="box-sizing: border-box; background-color: #3b82f6; font-size: 1.25rem; width: 2.5rem; margin-left: 1.25rem; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); min-width: 38px; height: 38px; border-radius: 50%; background: #005696; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</div>
         <div class="step-content" style="box-sizing: border-box; flex: 1; min-width: 0;">
             <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 0.25rem 0; color: #0f172a; font-size: 1.125rem;">חישוב והשוואה</h4>
-            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">חשבו את התדר (\(1/T\)) והשוו אותו לערך המופיע על צג המחולל.</p>
+            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">חשבו את התדר (\(1/T\)) והשוו אותו גם לערך המופיע על צג המחולל וגם למדידה האוטומטית של הסקופ דרך תפריט Measure.</p>
         </div>
     </div>
 </div>
@@ -101,8 +104,63 @@
     </table>
 </div>
 
+<!-- SECTION: DATA COLLECTION FOR REPORT -->
+<div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">💾 איסוף נתונים ושמירה לדו"ח המסכם</h4>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; color: #52616b;">בכל תדר נמדד יש לשמור גם את הנתונים המספריים וגם תיעוד חזותי של מסך הסקופ. כך תוכלו לבצע עיבוד מסודר בדו"ח ולבדוק בדיעבד אם המדידה הייתה יציבה ונכונה.</p>
+
+    <div style="box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 14px; margin-top: 14px;">
+        <div style="box-sizing: border-box; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; background: #f8fafc;">
+            <strong style="box-sizing: border-box; color: #005696;">מה לרשום במחברת / בקובץ הנתונים</strong>
+            <ul style="box-sizing: border-box; margin: 10px 0 0 0; padding-right: 20px;">
+                <li style="box-sizing: border-box;">תדר מכוון במחולל.</li>
+                <li style="box-sizing: border-box;">מספר המשבצות האופקיות למחזור אחד.</li>
+                <li style="box-sizing: border-box;">ערך Time/Div כפי שמופיע במסך הסקופ.</li>
+                <li style="box-sizing: border-box;">זמן מחזור מחושב \(T\) ותדר מחושב \(f=1/T\).</li>
+                <li style="box-sizing: border-box;">מדידה אוטומטית מהסקופ: Period או Frequency, אם השתמשתם ב-Measure.</li>
+            </ul>
+        </div>
+
+        <div style="box-sizing: border-box; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; background: #f8fafc;">
+            <strong style="box-sizing: border-box; color: #005696;">מה לשמור מהסקופ</strong>
+            <ul style="box-sizing: border-box; margin: 10px 0 0 0; padding-right: 20px;">
+                <li style="box-sizing: border-box;">צילום מסך לכל תדר מרכזי בטבלה.</li>
+                <li style="box-sizing: border-box;">בתמונה חייבים להופיע צורת הגל, Time/Div, V/Div וערכי Measure אם מוצגים.</li>
+                <li style="box-sizing: border-box;">אם אפשר, שמרו גם קובץ CSV של נקודות המדידה לצורך גרפים ועיבוד ממוחשב.</li>
+                <li style="box-sizing: border-box;">ודאו שהאות יציב לפני שמירת צילום המסך או הנתונים.</li>
+            </ul>
+        </div>
+
+        <div style="box-sizing: border-box; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; background: #f8fafc;">
+            <strong style="box-sizing: border-box; color: #005696;">איך לשמור ב-GDS-2072A</strong>
+            <ol style="box-sizing: border-box; margin: 10px 0 0 0; padding-right: 20px;">
+                <li style="box-sizing: border-box;">חברו התקן USB לכניסת ה-USB הקדמית של הסקופ.</li>
+                <li style="box-sizing: border-box;">ייצבו את האות על המסך וודאו שמופיעים ערכי הסקאלה וה-Measure הדרושים.</li>
+                <li style="box-sizing: border-box;">לחצו על <strong style="box-sizing: border-box;">Save/Recall</strong> ובחרו שמירת <strong style="box-sizing: border-box;">Image / Hardcopy</strong> לשמירת צילום מסך.</li>
+                <li style="box-sizing: border-box;">אם נדרש עיבוד ממוחשב, בחרו שמירת <strong style="box-sizing: border-box;">Waveform / CSV</strong> עבור הערוץ הנמדד, בדרך כלל CH1.</li>
+                <li style="box-sizing: border-box;">לאחר השמירה, בדקו שהקובץ הופיע בהתקן ה-USB לפני ניתוקו מהמכשיר.</li>
+            </ol>
+        </div>
+
+        <div style="box-sizing: border-box; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; background: #f8fafc;">
+            <strong style="box-sizing: border-box; color: #005696;">שמות קבצים מומלצים</strong>
+            <p style="box-sizing: border-box; margin: 10px 0 8px 0; color: #52616b;">תנו לקבצים שמות שמאפשרים להבין את המדידה בלי לפתוח את הקובץ.</p>
+            <div style="box-sizing: border-box; direction: ltr; text-align: left; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px; font-family: Consolas, monospace; font-size: 0.9rem;">
+Exp03_B_Freq_0p5kHz_CH1.png<br>
+Exp03_B_Freq_10kHz_CH1.png<br>
+Exp03_B_Freq_50kHz_CH1.csv
+            </div>
+        </div>
+    </div>
+
+    <div style="box-sizing: border-box; background: #fff8e1; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 14px; margin-top: 16px;">
+        <strong style="box-sizing: border-box; color: #8a5a00;">לפני סיום המדידה:</strong>
+        <span style="box-sizing: border-box;"> פתחו לפחות צילום מסך אחד וקובץ נתונים אחד מהמכשיר או מהמחשב, וודאו שהם נשמרו בצורה תקינה. בדו"ח המסכם צרפו צילום מסך מייצג, טבלת נתונים מלאה, ודוגמת חישוב אחת של \(T\) ו-\(f\).</span>
+    </div>
+</div>
+
 <div class="danger-box" style="box-sizing: border-box; background-color: #fef2f2; font-size: 15px; color: #991b1b; background: #fff1f1; border: 1px solid #f5c6cb; border-right: 5px solid #d9534f; border-radius: 8px; padding: 16px; margin: 18px 0;">
-    <strong style="box-sizing: border-box;">⚠️ אזהרת כיול:</strong> אם כפתור ה-VAR (או CAL) במרכז בורר הזמן אינו נעול, כל מדידת זמן שתבצעו תהיה שגויה. ודאו תמיד שהמכשיר במצב Calibrated.
+    <strong style="box-sizing: border-box;">⚠️ אזהרת מדידה בסקופ דיגיטלי:</strong> ודאו שהאות יציב בעזרת Trigger, שה-Probe factor במסך מתאים לפרוב המחובר (למשל x1 או x10), ושערך ה-Time/Div נלקח מהמסך בזמן המדידה. אם משתמשים במדידה אוטומטית דרך Measure, השוו אותה גם לחישוב הידני מתוך המשבצות.
 </div>
 
 <div data-units-emphasis="exp3" style="box-sizing: border-box; background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 14px; margin: 18px 0;">
@@ -111,17 +169,7 @@
 </div>
 <div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="02_InLab_01_VoltageScope_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="02_InLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="02_InLab_03_PhaseMeasurement_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div>
 </div>
-</body>
-</html>
-
-
-
-
-
-
         </div>
     </div>
-</div>
-
 </body>
 </html>

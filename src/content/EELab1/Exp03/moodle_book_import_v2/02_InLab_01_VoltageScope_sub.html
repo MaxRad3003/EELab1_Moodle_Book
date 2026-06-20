@@ -2,28 +2,26 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>02 InLab 01 VoltageScope sub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניסוי 3 - מדידות מתח באוסצילוסקופ</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.4.1/jsxgraph.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.4.1/jsxgraphcore.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl" style="box-sizing: border-box;">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ניסוי 3 - מדידות מתח באוסצילוסקופ</title>
-
-</head>
-<body id="exp03-02-inlab-01-voltagescope-sub" style="box-sizing: border-box; font-family: Arial,'Noto Sans Hebrew',sans-serif; line-height: 1.65; margin: 20px; color: #202124; background: #ffffff; direction: rtl; text-align: right;">
-<div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
+<body id="exp03-02-inlab-01-voltagescope-sub" style="margin: 20px; padding: 0; background-color: #f8fafc; font-family: Arial,'Noto Sans Hebrew',sans-serif; direction: rtl; text-align: right; box-sizing: border-box; line-height: 1.65; color: #202124; background: #ffffff;">
+    <div dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; text-align: right; font-size: 16px; padding: 20px;">
+        <div style="box-sizing: border-box; direction: rtl; text-align: right; max-width: 980px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
 <div style="box-sizing: border-box; font-size: 0.9rem; color: #52616b; margin-bottom: 14px;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
 <!-- CHAPTER: HEADER -->
 <div class="mb-5" style="box-sizing: border-box; margin-bottom: 2rem;">
     <h4 class="section-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 0; display: inline-block; color: #005696; font-size: 1.7rem; line-height: 1.35; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px;">שלב א': הנחתת אותות ומדידות באוסצילוסקופ</h4>
     <p class="mt-4" style="box-sizing: border-box; margin-bottom: 0.9rem; margin: 0 0 12px; font-size: 1.125rem; color: #52616b; margin-top: 1rem;">לימוד השימוש במנחתי מתח (Attenuation) והשוואת קריאות מתח בין האוסצילוסקופ לרב-מודד.</p>
+</div>
+
+<div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 4px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0;">
+    <strong style="box-sizing: border-box;">עבודה עם GDS-2072A בשלב זה:</strong> חברו את יציאת המחולל ל-CH1, בדקו שה-Probe factor בסקופ תואם לפרוב או לכבל BNC, בחרו Coupling מתאים, כוונו Volts/Div ו-Trigger, ואז השתמשו ב-Measure למדידת \(V_{pp}\) או \(V_{RMS}\).
 </div>
 
 <!-- SECTION: SCHEMATIC -->
@@ -39,7 +37,7 @@
                 <div style="box-sizing: border-box; position: absolute; top: -20px; width: 100%; text-align: center; font-size: 0.75rem; color: #52616b;">BNC Cable</div>
             </div>
             <div style="box-sizing: border-box; flex: 1; padding: 1rem; background: #1e293b; color: #10b981; border-radius: 6px; font-size: 0.85rem; border: 2px solid #334155;">
-                <strong style="box-sizing: border-box;">אוסצילוסקופ</strong><br style="box-sizing: border-box;">Oscilloscope
+                <strong style="box-sizing: border-box;">GDS-2072A</strong><br style="box-sizing: border-box;">CH1
             </div>
         </div>
     </div>
@@ -52,7 +50,7 @@
         <div class="step-number" style="box-sizing: border-box; background-color: #3b82f6; font-size: 1.25rem; width: 2.5rem; margin-left: 1.25rem; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); min-width: 38px; height: 38px; border-radius: 50%; background: #005696; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
         <div class="step-content" style="box-sizing: border-box; flex: 1; min-width: 0;">
             <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 0.25rem 0; color: #0f172a; font-size: 1.125rem;">מדידת ייחוס</h4>
-            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">כווננו את המחולל לסינוס. מדדו ב-DMM (מצב AC) מתח של \(U_{eff} = 7 \text{ V}\).</p>
+            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">כווננו את המחולל לסינוס. מדדו ב-DMM (מצב AC) מתח של \(U_{eff} = 7 \text{ V}\). במקביל הציגו את האות ב-GDS-2072A על CH1 וודאו שהתמונה יציבה לפני רישום ערך.</p>
         </div>
     </div>
     <div class="step-box" style="box-sizing: border-box; background-color: white; margin-bottom: 1rem; transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; gap: 14px; align-items: flex-start; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 14px 0;">
@@ -71,13 +69,15 @@
     </div>
 </div>
 
+<div class="warn" style="box-sizing: border-box; background: #fff8e5; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong style="box-sizing: border-box;">לפני מילוי הטבלה:</strong> רשמו במחברת גם את ההגדרות שהופיעו על מסך ה-GDS-2072A: Probe factor, Coupling, Volts/Div, Time/Div, ומדידת Measure שבה השתמשתם. שמרו צילום מסך מייצג עבור כל סוג גל או מצב הנחתה מרכזי.</div>
+
 <!-- SECTION: DATA TABLE 3.1 -->
 <div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
     <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">📊 טבלה 3.1: ריכוז מדידות וחישובי מתח</h4>
     <p class="small text-muted mb-4" style="box-sizing: border-box; margin-top: 0; font-size: 0.875rem; margin: 0 0 12px; color: #64748b; margin-bottom: 1rem;">הערה: לחישוב RMS השתמשו במקדמים: סינוס (0.707), ריבועי (1.0), משולש (0.577).</p>
     
     <div style="box-sizing: border-box; overflow-x: auto;">
-        <table class="data-table" style="box-sizing: border-box; border-spacing: 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e2e8f0; width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem; font-size: 0.85rem;" width="100%">
+        <table class="data-table" style="box-sizing: border-box; border-spacing: 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e2e8f0; width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.85rem;" width="100%">
             <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" ead align="right" bgcolor="#f1f5f9">
                 </th><tr style="box-sizing: border-box;">
                     <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" rowspan="2" align="right" bgcolor="#f1f5f9">סוג הגל</th>
@@ -103,7 +103,7 @@
     </div>
 </div>
 
-<div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0; border-right: 4px solid #00a4e4;">
+<div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 4px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0;">
     <strong style="box-sizing: border-box;">💡 טיפ לדו"ח:</strong> שימו לב להבדל בין קריאת ה-DMM לבין החישוב עבור גל ריבועי ומשולש. האם ה-DMM שלכם הוא True RMS? הסבירו זאת בדו"ח המסכם.
 </div>
 
@@ -113,17 +113,7 @@
 </div>
 <div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="02_InLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="02_InLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="02_InLab_02_FrequencyScope_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div>
 </div>
-</body>
-</html>
-
-
-
-
-
-
         </div>
     </div>
-</div>
-
 </body>
 </html>

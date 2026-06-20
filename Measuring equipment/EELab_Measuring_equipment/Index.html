@@ -2,99 +2,361 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>מדריך מכשירי מדידה - מעבדת חשמל ואלקטרוניקה</title>
+    <title>מדריכי מכשירי מדידה - מעבדת חשמל ואלקטרוניקה</title>
+    <!-- טעינת גופנים מודרניים של Google Fonts התומכים בעברית ובאנגלית -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* עיצוב כללי של הדף לחוויה יוקרתית */
+        body {
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            font-family: 'Assistant', 'Segoe UI', Arial, sans-serif;
+            color: #1e293b;
+        }
+        
+        .hub-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 16px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* כותרת ראשית מעוצבת עם גרדיאנט כהה יוקרתי */
+        .hub-header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #ffffff;
+            padding: 45px 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hub-header h1 {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hub-header p {
+            margin: 15px 0 0 0;
+            font-size: 20px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hub-intro {
+            text-align: center;
+            font-size: 18px;
+            color: #475569;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* רשת הקטגוריות */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
+        }
+
+        .category-header {
+            padding: 20px;
+            color: #ffffff;
+            font-family: 'Rubik', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* גרדיאנטים ייעודיים לכל קטגוריית מכשיר */
+        .cat-dmm { background: linear-gradient(135deg, #1e293b, #0056b3); }
+        .cat-func { background: linear-gradient(135deg, #1e293b, #b91c1c); }
+        .cat-power { background: linear-gradient(135deg, #1e293b, #2e7d32); }
+        .cat-scope { background: linear-gradient(135deg, #1e293b, #e65100); }
+
+        .category-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .device-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .device-item {
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .device-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .device-link {
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            display: inline-block;
+            margin-bottom: 6px;
+            transition: color 0.2s ease, transform 0.2s ease;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .device-link:hover {
+            transform: translateX(-3px); /* תואם ל-RTL */
+        }
+
+        .cat-dmm-link { color: #0056b3; }
+        .cat-dmm-link:hover { color: #004085; }
+
+        .cat-func-link { color: #b91c1c; }
+        .cat-func-link:hover { color: #991b1b; }
+
+        .cat-power-link { color: #2e7d32; }
+        .cat-power-link:hover { color: #1b5e20; }
+
+        .cat-scope-link { color: #e65100; }
+        .cat-scope-link:hover { color: #b33f00; }
+
+        .device-desc {
+            margin: 0;
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* תיבת הערות דידקטית */
+        .hub-note {
+            margin-top: 50px;
+            background-color: #fff8f5;
+            border-right: 5px solid #ff9800;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .hub-note h4 {
+            margin-top: 0;
+            color: #e65100;
+            font-family: 'Rubik', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .hub-note p {
+            margin: 0;
+            color: #475569;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
 <!-- התחלת תוכן הדף -->
-<div dir="rtl" style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #2c3e50; max-width: 1000px; margin: 20px auto; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+<div dir="rtl" class="hub-container" style="max-width: 1100px; margin: 40px auto; padding: 30px; border-radius: 16px; background-color: #ffffff; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+    
     <!-- כותרת ראשית -->
-    <div style="background-color: #37474f; color: white; padding: 40px 20px; border-radius: 8px; text-align: center; margin-bottom: 40px;">
-        <h1 style="margin: 0; font-size: 32px;">מדריך מכשירי מדידה - מעבדת חשמל ואלקטרוניקה</h1>
-        <p style="margin: 15px 0 0 0; font-size: 18px; opacity: 0.9;">מאגר מידע דידקטי לסטודנטים ולמרצים</p>
+    <div class="hub-header" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; padding: 45px 30px; border-radius: 12px; text-align: center; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+        <h1>מדריכי מכשירי מדידה - מעבדת חשמל ואלקטרוניקה</h1>
+        <p>מאגר מידע מקיף, תהליכי עבודה והדגמות לסטודנטים במעבדה</p>
     </div>
 
-    <p style="font-size: 1.1em; text-align: center; margin-bottom: 40px;">ברוכים הבאים למאגר ה-Wiki של המעבדה. כאן תמצאו מדריכים מפורטים, הסברי פונקציות וכללי בטיחות לכל מכשירי המדידה הקיימים.</p>
+    <p class="hub-intro" style="text-align: center; font-size: 18px; color: #475569; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.7;">
+        ברוכים הבאים לפורטל המכשירים הלימודי של המעבדה. לפניכם מדריכים אינטראקטיביים ומפורטים לכל מכשירי המדידה והספקים הקיימים. כל מדריך כולל הסברים פיזיקליים, הוראות בטיחות מפורטות, צילומי מכשירים, ו-5 הדגמות מעשיות שלב-אחר-שלב בליווי סרטוני וידאו.
+    </p>
 
-    <!-- חלק: רשת קטגוריות -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+    <!-- רשת קטגוריות המכשירים -->
+    <div class="categories-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+        
         <!-- קטגוריה: רב-מודד ספרתי -->
-        <div style="border: 1px solid #cfd8dc; border-radius: 10px; overflow: hidden; transition: transform 0.2s;">
-            <div style="background-color: #0056b3; color: white; padding: 15px; font-weight: bold; font-size: 18px;">רב-מודד ספרתי (DMM)</div>
-            <div style="padding: 20px;">
-                <ul style="list-style-type: none; padding: 0;">
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
-                        <a href="GDM_8245_sub.html" style="text-decoration: none; color: #0056b3; font-weight: bold; font-size: 1.1em;">GDM-8245</a>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מדריך בסיסי למדידות מתח, זרם והתנגדות.</p>
+        <div class="category-card" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: all 0.3s ease; display: flex; flex-direction: column;">
+            <div class="category-header cat-dmm" style="padding: 20px; color: #ffffff; font-family: 'Rubik', sans-serif; font-size: 20px; font-weight: 600; background: linear-gradient(135deg, #1e293b, #0056b3);">רב-מודד ספרתי (DMM)</div>
+            <div class="category-content" style="padding: 20px; flex-grow: 1;">
+                <ul class="device-list" style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="device-item" style="margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
+                        <a href="GDM_8245_sub.html" class="device-link cat-dmm-link" style="text-decoration: none; font-weight: 700; font-size: 17px; display: inline-block; margin-bottom: 6px; transition: color 0.2s ease, transform 0.2s ease; font-family: 'Rubik', sans-serif; color: #0056b3;">GDM-8245 - מולטימטר בסיסי</a>
+                        <p class="device-desc" style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">מדריך מדידת מתח, זרם, התנגדות, קיבול ודיודה. הסברים על מנגנוני True RMS ומדידת זרם בטור.</p>
                     </li>
-                    <li>
-                        <a href="GDM_8341_sub.html" style="text-decoration: none; color: #0056b3; font-weight: bold; font-size: 1.1em;">GDM-8341</a>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מדריך מתקדם: פונקציות מתמטיות, תצוגה כפולה וטריגר.</p>
+                    <li class="device-item" style="margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
+                        <a href="GDM_8341_sub.html" class="device-link cat-dmm-link" style="text-decoration: none; font-weight: 700; font-size: 17px; display: inline-block; margin-bottom: 6px; transition: color 0.2s ease, transform 0.2s ease; font-family: 'Rubik', sans-serif; color: #0056b3;">GDM-8341 - מולטימטר מתקדם</a>
+                        <p class="device-desc" style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">רזולוציית 50,000 counts, תצוגה כפולה (Dual Display), פונקציות מתמטיות (MX+B) ומדידת 4 חוטים (Kelvin).</p>
                     </li>
                 </ul>
             </div>
         </div>
 
         <!-- קטגוריה: מחוללי אותות -->
-        <div style="border: 1px solid #cfd8dc; border-radius: 10px; overflow: hidden;">
-            <div style="background-color: #d32f2f; color: white; padding: 15px; font-weight: bold; font-size: 18px;">מחוללי אותות (Function Generators)</div>
-            <div style="padding: 20px;">
-                <ul style="list-style-type: none; padding: 0;">
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
-                        <a href="Agilent_33220A_sub.html" style="text-decoration: none; color: #d32f2f; font-weight: bold; font-size: 1.1em;">Agilent 33220A</a>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מחולל דיגיטלי מדויק עם אפשרות לאותות שרירותיים.</p>
+        <div class="category-card" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: all 0.3s ease; display: flex; flex-direction: column;">
+            <div class="category-header cat-func" style="padding: 20px; color: #ffffff; font-family: 'Rubik', sans-serif; font-size: 20px; font-weight: 600; background: linear-gradient(135deg, #1e293b, #b91c1c);">מחוללי אותות (Function Generators)</div>
+            <div class="category-content" style="padding: 20px; flex-grow: 1;">
+                <ul class="device-list" style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="device-item" style="margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
+                        <a href="Agilent_33220A_sub.html" class="device-link cat-func-link" style="text-decoration: none; font-weight: 700; font-size: 17px; display: inline-block; margin-bottom: 6px; transition: color 0.2s ease, transform 0.2s ease; font-family: 'Rubik', sans-serif; color: #b91c1c;">Agilent 33220A - מחולל דיגיטלי</a>
+                        <p class="device-desc" style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">יצירת אותות שרירותיים (Arbitrary), שיטת DDS, ניווט בתפריטים, עכבת מוצא 50Ω והגדרת עומס load impedance.</p>
                     </li>
-                    <li>
-                        <a href="GFG_8219A_sub.html" style="text-decoration: none; color: #d32f2f; font-weight: bold; font-size: 1.1em;">GFG-8219A</a>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מחולל אנלוגי משולב עם מונה תדר.</p>
+                    <li class="device-item" style="margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
+                        <a href="GFG_8219A_sub.html" class="device-link cat-func-link" style="text-decoration: none; font-weight: 700; font-size: 17px; display: inline-block; margin-bottom: 6px; transition: color 0.2s ease, transform 0.2s ease; font-family: 'Rubik', sans-serif; color: #b91c1c;">GFG-8219A - מחולל אנלוגי</a>
+                        <p class="device-desc" style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">מחולל אותות אנלוגי VCO מבוסס מתנד מבוקר מתח, שילוב מונה תדר מובנה וכניסות אפנון תדר חיצוני.</p>
                     </li>
                 </ul>
             </div>
         </div>
 
         <!-- קטגוריה: ספקי כוח ומדי הספק -->
-        <div style="border: 1px solid #cfd8dc; border-radius: 10px; overflow: hidden;">
-            <div style="background-color: #2e7d32; color: white; padding: 15px; font-weight: bold; font-size: 18px;">ספקי כוח ומדי הספק</div>
-            <div style="padding: 20px;">
-                <ul style="list-style-type: none; padding: 0;">
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
-                        <a href="GPS_3303_sub.html" style="text-decoration: none; color: #2e7d32; font-weight: bold; font-size: 1.1em;">ספק כוח GPS-3303</a>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">עבודה במצבי טורי, מקבילי ועצמאי.</p>
+        <div class="category-card" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: all 0.3s ease; display: flex; flex-direction: column;">
+            <div class="category-header cat-power" style="padding: 20px; color: #ffffff; font-family: 'Rubik', sans-serif; font-size: 20px; font-weight: 600; background: linear-gradient(135deg, #1e293b, #2e7d32);">ספקי כוח ומדי הספק</div>
+            <div class="category-content" style="padding: 20px; flex-grow: 1;">
+                <ul class="device-list" style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="device-item" style="margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
+                        <a href="GPS_3303_sub.html" class="device-link cat-power-link" style="text-decoration: none; font-weight: 700; font-size: 17px; display: inline-block; margin-bottom: 6px; transition: color 0.2s ease, transform 0.2s ease; font-family: 'Rubik', sans-serif; color: #2e7d32;">GPS-3303 - ספק כוח DC מיוצב</a>
+                        <p class="device-desc" style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">עבודה במצבי Tracking (טורי, מקבילי, עצמאי), הגבלת זרם בטוחה, ויצירת ספק כוח דואלי סימטרי (±15V).</p>
                     </li>
-                    <li>
-                        <a href="GPM_8212_sub.html" style="text-decoration: none; color: #2e7d32; font-weight: bold; font-size: 1.1em;">מד הספק GPM-8212</a>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מדידת הספק פעיל וגורם הספק (PF).</p>
+                    <li class="device-item" style="margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
+                        <a href="GPM_8212_sub.html" class="device-link cat-power-link" style="text-decoration: none; font-weight: 700; font-size: 17px; display: inline-block; margin-bottom: 6px; transition: color 0.2s ease, transform 0.2s ease; font-family: 'Rubik', sans-serif; color: #2e7d32;">GPM-8212 - מד הספק דיגיטלי</a>
+                        <p class="device-desc" style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">מדידת הספק פעיל (Watt), הספק מדומה (VA), וגורם הספק (Power Factor) במעגלים חד-פאזיים.</p>
                     </li>
                 </ul>
             </div>
         </div>
 
         <!-- קטגוריה: משקפי תנודות -->
-        <div style="border: 1px solid #cfd8dc; border-radius: 10px; overflow: hidden;">
-            <div style="background-color: #f57c00; color: white; padding: 15px; font-weight: bold; font-size: 18px;">אוסילוסקופים / משקפי תנודות (Oscilloscopes)</div>
-            <div style="padding: 20px;">
-                <ul style="list-style-type: none; padding: 0;">
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
-                        <a href="Oscilloscope_sub.html" style="text-decoration: none; color: #f57c00; font-weight: bold; font-size: 1.1em;">מבוא לאוסילוסקופ</a>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">כללי בטיחות, מגבלת אדמה ומדידת זרם עקיפה.</p>
+        <div class="category-card" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: all 0.3s ease; display: flex; flex-direction: column;">
+            <div class="category-header cat-scope" style="padding: 20px; color: #ffffff; font-family: 'Rubik', sans-serif; font-size: 20px; font-weight: 600; background: linear-gradient(135deg, #1e293b, #e65100);">משקפי תנודות (Oscilloscopes)</div>
+            <div class="category-content" style="padding: 20px; flex-grow: 1;">
+                <ul class="device-list" style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="device-item" style="margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
+                        <a href="Oscilloscope_sub.html" class="device-link cat-scope-link" style="text-decoration: none; font-weight: 700; font-size: 17px; display: inline-block; margin-bottom: 6px; transition: color 0.2s ease, transform 0.2s ease; font-family: 'Rubik', sans-serif; color: #e65100;">מבוא ועקרונות האוסילוסקופ</a>
+                        <p class="device-desc" style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">כללי בטיחות קריטיים: מלכודת האדמה המשותפת (Common Ground), מדידת זרם עקיפה (Shunt), וסימולטור וירטואלי.</p>
                     </li>
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
-                        <a href="GDS_2072A_sub.html" style="text-decoration: none; color: #f57c00; font-weight: bold; font-size: 1.1em;">אוסילוסקופ דיגיטלי GDS-2072A</a>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">בקרות הלוח הקדמי, תפריטים ומדידה דיגיטלית.</p>
+                    <li class="device-item" style="margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
+                        <a href="GDS_2072A_sub.html" class="device-link cat-scope-link" style="text-decoration: none; font-weight: 700; font-size: 17px; display: inline-block; margin-bottom: 6px; transition: color 0.2s ease, transform 0.2s ease; font-family: 'Rubik', sans-serif; color: #e65100;">GDS-2072A - אוסילוסקופ דיגיטלי</a>
+                        <p class="device-desc" style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">מכשיר דיגיטלי מהיר, בקרות תפריט, הגדרות קני מידה, ומדידות אוטומטיות מלאות בעזרת סמנים וטריגר.</p>
                     </li>
-                    <li>
-                        <a href="GOS_620_sub.html" style="text-decoration: none; color: #f57c00; font-weight: bold; font-size: 1.1em;">אוסילוסקופ אנלוגי GOS-620</a>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מדריך תפעול אנלוגי, קביעת קו אפס וכיול ידני.</p>
+                    <li class="device-item" style="margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;">
+                        <a href="GOS_620_sub.html" class="device-link cat-scope-link" style="text-decoration: none; font-weight: 700; font-size: 17px; display: inline-block; margin-bottom: 6px; transition: color 0.2s ease, transform 0.2s ease; font-family: 'Rubik', sans-serif; color: #e65100;">GOS-620 - אוסילוסקופ אנלוגי</a>
+                        <p class="device-desc" style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">מכשיר CRT מבוסס שפופרת קתודית, כיוון בהירות ומיקוד, כיול קו אפס ידני, שיטת X-Y וצורות ליסז'ו.</p>
                     </li>
                 </ul>
             </div>
         </div>
+
     </div>
 
-    <!-- חלק: הערה חשובה -->
-    <div style="margin-top: 50px; background-color: #fff3e0; border: 1px solid #ffe0b2; padding: 20px; border-radius: 8px;">
-        <h4 style="margin-top: 0; color: #e65100;">הערה חשובה לשימוש ב-Wiki:</h4>
-        <p style="margin-bottom: 0;">לצורך הצגת התמונות במערכת ה-Moodle, יש להעלות את קבצי התמונה לתיקיית הקבצים של הקורס ולעדכן את הקישורים בתוך קוד ה-HTML של כל עמוד.</p>
+    <!-- הערה חשובה לסטודנטים -->
+    <div class="hub-note" style="margin-top: 50px; background-color: #fff8f5; border-right: 5px solid #ff9800; padding: 25px; border-radius: 8px;">
+        <h4>💡 הערה לסטודנטים במעבדה:</h4>
+        <p>
+            שימו לב להוראות הבטיחות בכל אחד מהמדריכים, בייחוד בנושאי מדידות זרם וחיבור אדמות האוסילוסקופ. הבנת פעולת המכשירים מראש תמנע נזק לציוד יקר ותקצר משמעותית את זמן ביצוע הניסויים בפועל. מומלץ להיעזר בסימולטורים ובסרטוני הווידאו המצורפים לפני כל מעבדה.
+        </p>
     </div>
 </div>
+
+
+
+<script>
+(function() {
+    function updateMoodleLinks() {
+        const isMoodleBook = window.location.href.includes('/mod/book/') || 
+                             document.querySelector('.path-mod-book') || 
+                             document.querySelector('[id*="mod_book"]');
+                             
+        if (!isMoodleBook) {
+            console.log('Not in Moodle Book. Keeping relative links.');
+            return; 
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        let bookId = urlParams.get('id');
+        
+        if (!bookId) {
+            const anyBookLink = document.querySelector('a[href*="id="]');
+            if (anyBookLink) {
+                const match = anyBookLink.href.match(/[?&]id=(d+)/);
+                if (match) bookId = match[1];
+            }
+        }
+        
+        if (!bookId) return;
+        
+        const chapterMap = {};
+        const allLinks = Array.from(document.querySelectorAll('a[href*="chapterid="]'));
+        const hubContainer = document.querySelector('.hub-container');
+        const externalLinks = allLinks.filter(a => !hubContainer || !hubContainer.contains(a));
+        
+        externalLinks.forEach(a => {
+            const href = a.href;
+            const text = a.textContent || '';
+            const match = href.match(/[?&]chapterid=(d+)/);
+            if (match) {
+                const chapterId = match[1];
+                if (text.includes('8245')) chapterMap['8245'] = chapterId;
+                else if (text.includes('8341')) chapterMap['8341'] = chapterId;
+                else if (text.includes('33220')) chapterMap['33220'] = chapterId;
+                else if (text.includes('8219')) chapterMap['8219'] = chapterId;
+                else if (text.includes('3303')) chapterMap['3303'] = chapterId;
+                else if (text.includes('8212')) chapterMap['8212'] = chapterId;
+                else if (text.includes('מבוא') || text.includes('עקרונות')) chapterMap['Oscilloscope'] = chapterId;
+                else if (text.includes('2072')) chapterMap['2072'] = chapterId;
+                else if (text.includes('620')) chapterMap['620'] = chapterId;
+            }
+        });
+        
+        if (hubContainer) {
+            const links = hubContainer.querySelectorAll('a');
+            links.forEach(a => {
+                const href = a.getAttribute('href') || '';
+                let key = null;
+                if (href.includes('8245')) key = '8245';
+                else if (href.includes('8341')) key = '8341';
+                else if (href.includes('33220')) key = '33220';
+                else if (href.includes('8219')) key = '8219';
+                else if (href.includes('3303')) key = '3303';
+                else if (href.includes('8212')) key = '8212';
+                else if (href.includes('Oscilloscope_sub') || href.includes('Oscilloscope')) key = 'Oscilloscope';
+                else if (href.includes('2072')) key = '2072';
+                else if (href.includes('620')) key = '620';
+                
+                if (key && chapterMap[key]) {
+                    a.href = 'https://moodle.sce.ac.il/mod/book/view.php?id=' + bookId + '&chapterid=' + chapterMap[key];
+                }
+            });
+        }
+    }
+    
+    updateMoodleLinks();
+    window.addEventListener('load', updateMoodleLinks);
+    setTimeout(updateMoodleLinks, 500);
+    setTimeout(updateMoodleLinks, 1500);
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+רב-מודד ספרתי (DMM)
+
+GDM-8245 - מולטימטר בסיסי
+https://moodle.sce.ac.il/mod/book/view.php?id=1215290&chapterid=1465
+
+GDM-8341 - מולטימטר מתקדם
+https://moodle.sce.ac.il/mod/book/view.php?id=1215290&chapterid=1466
+
+מחוללי אותות (Function Generators)
+
+Agilent 33220A - מחולל דיגיטלי
+https://moodle.sce.ac.il/mod/book/view.php?id=1215290&chapterid=1464
+
+GFG-8219A - מחולל אנלוגי
+https://moodle.sce.ac.il/mod/book/view.php?id=1215290&chapterid=1468
+
+ספקי כוח ומדי הספק
+
+GPS-3303 - ספק כוח DC מיוצב
+https://moodle.sce.ac.il/mod/book/view.php?id=1215290&chapterid=1471
+
+GPM-8212 - מד הספק דיגיטלי
+https://moodle.sce.ac.il/mod/book/view.php?id=1215290&chapterid=1470
+
+משקפי תנודות (Oscilloscopes)
+
+מבוא ועקרונות האוסילוסקופ
+https://moodle.sce.ac.il/mod/book/view.php?id=1215290&chapterid=1473
+
+GDS-2072A - אוסילוסקופ דיגיטלי
+https://moodle.sce.ac.il/mod/book/view.php?id=1215290&chapterid=1467
+
+GOS-620 - אוסילוסקופ אנלוגי
+https://moodle.sce.ac.il/mod/book/view.php?id=1215290&chapterid=1469
+
+
+הקישורים צריכים להיפתך בחלון חדש
