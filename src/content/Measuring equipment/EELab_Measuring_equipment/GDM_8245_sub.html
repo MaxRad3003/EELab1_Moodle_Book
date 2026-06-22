@@ -1,0 +1,309 @@
+<!-- BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 14px; border-radius: 6px;">
+    <a href="Index.html" style="text-decoration: none; color: inherit; font-weight: bold;">← חזרה לאינדקס המכשירים</a>
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- HEADER -->
+<div class="text-center mb-4">
+    <h1 class="display-5 fw-bold text-primary" style="margin-top: 1rem; margin-bottom: 0.5rem;">רב-מודד ספרתי שולחני GDM-8245</h1>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 80px; border-radius: 10px;"></div>
+</div>
+<!-- /HEADER -->
+
+<!-- INTRODUCTION -->
+<div class="info-box border-primary">
+    <h3 class="sub-title text-primary" style="margin-top: 0;"><i class="fas fa-info-circle"></i> רקע כללי ועקרונות מדידה</h3>
+    <p class="lead">
+        רב-מודד ספרתי (<strong>DMM - Digital Multimeter</strong>) הוא המכשיר הבסיסי ביותר בכל מעבדת חשמל ואלקטרוניקה. הוא משמש למדידת שלוש הגדולים הפיזיקליים העיקריים: <strong>מתח (Voltage)</strong>, <strong>זרם (Current)</strong> ו<strong>התנגדות (Resistance)</strong>.
+    </p>
+    <p>
+        הבנת אופן החיבור של רב-המודד למעגל היא תנאי הכרחי למדידה נכונה ולשמירה על תקינות המכשיר:
+    </p>
+    <ul>
+        <li><strong>מדידת מתח:</strong> מתבצעת תמיד <strong>במקביל</strong> לרכיב הנמדד. לרב-המודד במצב זה יש התנגדות פנימית עצומה (בסביבות \(10\text{ M}\Omega\)), כדי לא להעמיס על המעגל ולא לשנות את זרמי המעגל.</li>
+        <li><strong>מדידת זרם:</strong> מתבצעת תמיד <strong>בטור</strong> (כחלק מהענף שבו זורם הזרם). במצב זה, יש לפתוח/לנתק את המעגל ולחבר את המכשיר כך שהזרם יעבור דרכו. לרב-המודד במצב זה יש התנגדות פנימית אפסית (שואפת לאפס), ולכן חיבורו במקביל למקור מתח יגרום ל<strong>קצר מיידי וישרוף את פיוז ההגנה של המכשיר!</strong></li>
+        <li><strong>מדידת התנגדות:</strong> מתבצעת תמיד <strong>מחוץ למעגל</strong> (כאשר הרכיב מנותק לחלוטין מכל מקור מתח). המכשיר מזרים זרם קטן ידוע דרך הרכיב ומודד את מפל המתח עליו כדי לחשב את ההתנגדות לפי חוק אוהם.</li>
+    </ul>
+</div>
+<!-- /INTRODUCTION -->
+
+<!-- CONNECTION SVG SCHEMATICS -->
+<div class="theory-card my-4">
+    <h4 class="sub-title text-primary" style="margin-top: 0;"><i class="fas fa-project-diagram"></i> דיאגרמת חיבור נכונה של רב-מודד במעגל</h4>
+    <p class="small text-muted text-center">התרשים הבא מציג את ההבדל המהותי בין חיבור DMM למדידת מתח (במקביל) לעומת מדידת זרם (בטור):</p>
+    
+    <div class="text-center py-2">
+        <svg viewBox="0 0 800 360" width="100%" height="auto" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left Side: Voltage Measurement -->
+            <g transform="translate(10, 10)">
+                <!-- Boundary box -->
+                <rect x="0" y="0" width="370" height="320" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+                <text x="185" y="25" font-family="sans-serif" font-weight="bold" font-size="14" fill="#0f172a" text-anchor="middle">א. מדידת מתח במקביל (Voltage Connection)</text>
+                
+                <!-- Circuit Components -->
+                <!-- Voltage Source -->
+                <circle cx="80" cy="180" r="20" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <text x="80" y="175" font-family="sans-serif" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">+</text>
+                <text x="80" y="195" font-family="sans-serif" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">-</text>
+                <text x="45" y="185" font-family="sans-serif" font-size="12" fill="#475569">Vs</text>
+                
+                <!-- Resistor -->
+                <rect x="200" y="150" width="30" height="60" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <text x="215" y="185" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">R</text>
+                
+                <!-- Connection wires -->
+                <path d="M 80 160 L 80 100 L 215 100 L 215 150" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <path d="M 80 200 L 80 260 L 215 260 L 215 210" fill="none" stroke="#0f172a" stroke-width="2"/>
+                
+                <!-- DMM Box (Parallel) -->
+                <rect x="280" y="140" width="70" height="80" rx="5" fill="#f1f5f9" stroke="#3b82f6" stroke-width="2"/>
+                <circle cx="315" cy="180" r="18" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5"/>
+                <text x="315" y="186" font-family="sans-serif" font-weight="bold" font-size="18" fill="#3b82f6" text-anchor="middle">V</text>
+                
+                <!-- Probes -->
+                <path d="M 215 100 L 280 160" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3" stroke-linecap="round"/>
+                <path d="M 215 260 L 280 200" fill="none" stroke="#000000" stroke-width="1.5" stroke-dasharray="3,3" stroke-linecap="round"/>
+                
+                <!-- Labels -->
+                <circle cx="215" cy="100" r="4" fill="#ef4444"/>
+                <circle cx="215" cy="260" r="4" fill="#000000"/>
+                <text x="255" y="125" font-family="sans-serif" font-size="10" fill="#ef4444" font-weight="bold">פרוב אדום (+)</text>
+                <text x="255" y="250" font-family="sans-serif" font-size="10" fill="#000000" font-weight="bold">פרוב שחור (-)</text>
+            </g>
+            
+            <!-- Right Side: Current Measurement -->
+            <g transform="translate(420, 10)">
+                <!-- Boundary box -->
+                <rect x="0" y="0" width="370" height="320" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+                <text x="185" y="25" font-family="sans-serif" font-weight="bold" font-size="14" fill="#0f172a" text-anchor="middle">ב. מדידת זרם בטור (Current Connection)</text>
+                
+                <!-- Circuit Components -->
+                <!-- Voltage Source -->
+                <circle cx="80" cy="180" r="20" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <text x="80" y="175" font-family="sans-serif" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">+</text>
+                <text x="80" y="195" font-family="sans-serif" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">-</text>
+                <text x="45" y="185" font-family="sans-serif" font-size="12" fill="#475569">Vs</text>
+                
+                <!-- DMM Box in series -->
+                <rect x="170" y="70" width="80" height="60" rx="5" fill="#f1f5f9" stroke="#ef4444" stroke-width="2"/>
+                <circle cx="210" cy="100" r="16" fill="#ffffff" stroke="#ef4444" stroke-width="1.5"/>
+                <text x="210" y="106" font-family="sans-serif" font-weight="bold" font-size="16" fill="#ef4444" text-anchor="middle">A</text>
+                <text x="210" y="145" font-family="sans-serif" font-size="10" fill="#ef4444" font-weight="bold" text-anchor="middle">מכשיר בטור (מנתק קו)</text>
+                
+                <!-- Resistor -->
+                <rect x="290" y="150" width="30" height="60" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <text x="305" y="185" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">R</text>
+                
+                <!-- Wires showing series path -->
+                <!-- From source to DMM entry -->
+                <path d="M 80 160 L 80 100 L 170 100" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <!-- From DMM exit to resistor -->
+                <path d="M 250 100 L 305 100 L 305 150" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <!-- From resistor back to source -->
+                <path d="M 305 210 L 305 260 L 80 260 L 80 200" fill="none" stroke="#0f172a" stroke-width="2"/>
+                
+                <circle cx="170" cy="100" r="3" fill="#ef4444"/>
+                <circle cx="250" cy="100" r="3" fill="#000000"/>
+            </g>
+        </svg>
+    </div>
+</div>
+<!-- /CONNECTION SVG SCHEMATICS -->
+
+<!-- DEVICE OVERVIEW -->
+<div class="card border-primary my-4">
+    <div class="card-header bg-primary text-white">
+        <h3 class="m-0 fs-5"><i class="fas fa-tools"></i> הכרת לוח המכשיר וחיבוריו</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            ה-<strong>GDM-8245</strong> הוא רב-מודד דיגיטלי שולחני מדויק ונוח לשימוש. בלוח הקדמי שלו נמצאים מסך תצוגה בעל 4.5 ספרות (עד ערך מרבי של 19999), מקשי בחירת פונקציית מדידה וארבעה הדקי חיבור (שקעי בננה).
+        </p>
+        
+        <div class="row my-4 align-items-center">
+            <div class="col-md-7">
+                <p>
+                    באיור משמאל ניתן לראות את המראה הפיזי של המכשיר בעמדת המעבדה שלכם.
+                    שימו לב ללחצן ההפעלה הראשי (POWER) בצבע אדום, ולתצוגה הדיגיטלית המרכזית.
+                    בחלק התחתון של חזית המכשיר קיימים ארבעה הדקים המשמשים לחיבור כבלי הבננה בהתאם לסוג המדידה הנדרש.
+                </p>
+            </div>
+            <div class="col-md-5 text-center">
+                <div class="card p-2 bg-light shadow-sm">
+                    <img src="Figure/gdm8245_main.jpg" alt="GDM-8245 Front Panel Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
+                    <p class="mb-0 mt-1 small text-muted">הלוח הקדמי של מכשיר GDM-8245 בעמדה</p>
+                </div>
+            </div>
+        </div>
+        
+        <h4 class="text-primary mt-4">מיפוי חיבורים (Terminals) והדקים</h4>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered text-right">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th style="width: 25%;">שם ההדק במכשיר</th>
+                        <th style="width: 20%;">צבע נפוץ</th>
+                        <th>ייעוד ותפקיד המדידה</th>
+                        <th>הגנות ומגבלות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">V / &Omega; / S / -H-</td>
+                        <td class="text-danger fw-bold">אדום</td>
+                        <td>הדק הכניסה הראשי למדידת <strong>מתח (AC/DC)</strong>, <strong>התנגדות (&Omega;)</strong>, <strong>קיבול (-H-)</strong> ובדיקת <strong>דיודות/רציפות</strong>.</td>
+                        <td>מתח מרבי של \(1000\text{ V DC}\) או \(750\text{ V AC}\).</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">COM</td>
+                        <td class="text-dark fw-bold">שחור</td>
+                        <td><strong>הדק הייחוס המשותף (Common Ground)</strong>. מהווה את נקודת הייחוס ("אדמה") עבור כל סוגי המדידות. פרוב המדידה השחור מחובר תמיד לכאן.</td>
+                        <td>אין הגנה עצמאית - הדק ייחוס משותף.</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">mA / 0.5A</td>
+                        <td class="text-danger fw-bold">אדום</td>
+                        <td>כניסה למדידת <strong>זרמים נמוכים</strong> (עד \(500\text{ mA}\)) בצימוד AC או DC.</td>
+                        <td>מוגן על ידי נתיך מהיר (Fuse) של \(0.5\text{ A} / 250\text{ V}\). חריגה תשרוף את הפיוז!</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">20A</td>
+                        <td class="text-danger fw-bold">אדום</td>
+                        <td>כניסה למדידת <strong>זרמים גבוהים</strong> (מ-\(500\text{ mA}\) ועד מקסימום \(20\text{ A}\)).</td>
+                        <td><strong>לא מוגן בנתיך!</strong> חיבור שגוי במצב זה עלול להרוס את המכשיר או לחולל שרפה. הגבלת זמן מדידה בזרם מקסימלי: עד 15 שניות.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /DEVICE OVERVIEW -->
+
+<!-- MEASUREMENT FUNCTIONS -->
+<div class="card border-primary my-4">
+    <div class="card-header bg-primary text-white">
+        <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> מקשי פונקציות מדידה וטווחים (Ranges)</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            הבחירה בין סוגי המדידות נעשית באמצעות לחיצה על מקשי הבקרה בחזית המכשיר. עבור רוב המדידות קיימת אפשרות לשינוי טווח ידני או אוטומטי (Autorange).
+        </p>
+        
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded h-100">
+                    <h5 class="text-primary fw-bold">⚡ DCV / ACV (מדידות מתח)</h5>
+                    <p class="small text-muted mb-0">
+                        למדידת מתח ישר לחצו על <strong>DCV</strong>. למדידת מתח חילופין לחצו על <strong>ACV</strong>. 
+                        אם המתח הנמדד נמוך במיוחד (בטווח המילי-וולט), ניתן ללחוץ תחילה על מקש <strong>SHIFT</strong> ולאחר מכן על מקש ה-mV המתאים.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded h-100">
+                    <h5 class="text-primary fw-bold">🔌 DCA / ACA (מדידות זרם)</h5>
+                    <p class="small text-muted mb-0">
+                        למדידת זרם ישר לחצו על <strong>DCA</strong>. למדידת זרם חילופין (ערך יעיל RMS) לחצו על <strong>ACA</strong>.
+                        <strong>שים לב:</strong> העבר תמיד את פרוב המדידה האדום לשקע ה-mA או ה-20A בהתאם לגודל הזרם הצפוי, וחבר את המכשיר בטור בלבד!
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded h-100">
+                    <h5 class="text-primary fw-bold">📐 &Omega; (מדידת התנגדות)</h5>
+                    <p class="small text-muted mb-0">
+                        לחצו על מקש <strong>&Omega;</strong>. וודאו שהנגד הנמדד מנותק לחלוטין מכל מקור מתח במעגל כדי למנוע קריאה שגויה או נזק למכשיר. 
+                        במידה ומופיעה על הצג האות <strong>OL</strong> (Overload), פירושו של דבר שההתנגדות גדולה מהטווח הנוכחי - הגדילו את הטווח במכשיר.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded h-100">
+                    <h5 class="text-primary fw-bold">🔊 בדיקת רציפות ודיודות</h5>
+                    <p class="small text-muted mb-0">
+                        לחצו על מקש <strong>Continuity</strong> (סמל של רמקול/גל קול). המכשיר ישמיע צפצוף רציף אם ההתנגדות בין הפרובים נמוכה מ-10 אוהם (שימושי לבדיקת קצרים ומגעים).
+                        לחיצה על מקש <strong>SHIFT</strong> ולאחר מכן על מקש הרציפות תעביר לבדיקת דיודה, המציגה את מפל מתח המוליך על צומת הדיודה (כ-0.6-0.7 וולט עבור סיליקון).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /MEASUREMENT FUNCTIONS -->
+
+<!-- COMMON PITFALLS & TIPS -->
+<div class="alert alert-danger p-4 my-4">
+    <h4 class="alert-heading text-danger fw-bold"><i class="fas fa-bug"></i> טעויות נפוצות והנחיות עבודה בטוחה:</h4>
+    <ul class="mb-0 mt-2" style="padding-right: 20px;">
+        <li class="mb-2">
+            <strong>שריפת נתיך הזרם (mA Fuse):</strong> הטעות השכיחה ביותר במעבדה היא חיבור פרובי המכשיר במקביל לרכיב כאשר פרוב המכשיר נמצא בשקע ה-mA ומצב המכשיר הוא מדידת זרם. התנגדות המכשיר שואפת לאפס, מה שיוצר קצר מוחלט. 
+            <br><span class="text-dark fw-bold">הפתרון:</span> לפני כל חיבור למעגל, עצור וודא: מתח במקביל, זרם בטור!
+        </li>
+        <li class="mb-2">
+            <strong>מדידת התנגדות בתוך המעגל:</strong> מדידת נגד כאשר הוא מחובר למעגל עם נגדים אחרים תמדוד את "ההתנגדות השקולה" של כל הענפים המקבילים לו, ותיתן תוצאה שגויה. בנוסף, אם המעגל מחובר למתח, המדידה תשתבש ואף תסכן את ה-DMM.
+            <br><span class="text-dark fw-bold">ההנחיה:</span> יש לנתק לפחות רגל אחת של הנגד מהמעגל לפני המדידה.
+        </li>
+        <li class="mb-2">
+            <strong>הנחתת שגיאת המדידה (שגיאת העמסה):</strong> במעגלים בעלי התנגדויות גבוהות מאוד (מעל \(100\text{ k}\Omega\)), חיבור מד-מתח במקביל יקטין את ההתנגדות השקולה של הענף ויגרום לשגיאה במתח המוצג (Loading Effect). יש לקחת זאת בחשבון בחישובים התיאורטיים.
+        </li>
+    </ul>
+</div>
+<!-- /COMMON PITFALLS & TIPS -->
+
+<!-- PRACTICAL DEMONSTRATION & STEP-BY-STEP GUIDE -->
+<div class="card border-primary my-4">
+    <div class="card-header bg-primary text-white">
+        <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="text-primary fw-bold">הדגמה מעשית: אימות חוק אוהם במעגל DC פשוט</h4>
+        <p>
+            בניסוי זה נשתמש ברב-המודד <strong>GDM-8245</strong> כדי לאמת את הקשר הליניארי בין מתח, זרם והתנגדות (\(V = I \cdot R\)) עבור נגד של \(1\text{ k}\Omega\).
+        </p>
+
+        <div class="bg-light p-3 rounded border-start border-primary border-4 mb-3">
+            <h5 class="fw-bold text-primary"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי למדידות:</h5>
+            
+            <h6 class="fw-bold text-primary mt-2">שלב א': מדידת ערך ההתנגדות המדויק (R)</h6>
+            <ol style="padding-right: 20px;">
+                <li>ודאו כי הנגד מנותק לחלוטין מכל מקור מתח או מעגל.</li>
+                <li>לחצו על מקש <strong>\(\Omega\)</strong> בפנל הקדמי של הרב-מודד.</li>
+                <li>חברו את הכבל האדום לשקע <strong>V / \(\Omega\)</strong> ואת הכבל השחור לשקע <strong>COM</strong>.</li>
+                <li>געו עם קצוות הפרובים בשני קצוות הנגד. רשמו את הערך המוצג (לדוגמה: \(0.985\text{ k}\Omega\)).</li>
+            </ol>
+
+            <h6 class="fw-bold text-primary mt-3">שלב ב': מדידת מתח במקביל (V)</h6>
+            <ol style="padding-right: 20px;">
+                <li>חברו את הנגד למקור מתח DC וכוונו את הספק ל-\(5\text{ V}\).</li>
+                <li>לחצו על מקש <strong>DCV</strong> ברב-מודד.</li>
+                <li>ודאו כי הפרוב האדום בשקע <strong>V / \(\Omega\)</strong> והשחור ב-<strong>COM</strong>.</li>
+                <li>געו עם הפרובים בשני קצוות הנגד (אדום לפוטנציאל הגבוה, שחור לנמוך). רשמו את המתח המוצג (למשל: \(5.002\text{ V}\)).</li>
+            </ol>
+
+            <h6 class="fw-bold text-primary mt-3">שלב ג': מדידת זרם בטור (I) - זהירות!</h6>
+            <ol style="padding-right: 20px;">
+                <li><strong>כבו את ספק הכוח.</strong></li>
+                <li>לחצו על מקש <strong>DCA</strong> ברב-מודד.</li>
+                <li><strong>העבירו</strong> את הפרוב האדום משקע המתח אל שקע ה-<strong>mA / 0.5A</strong> (השחור נשאר ב-<strong>COM</strong>).</li>
+                <li>נתקו רגל אחת של הנגד מהספק (פתחו את המעגל).</li>
+                <li>חברו את הרב-מודד בטור: געו עם הפרוב האדום בחוט שמגיע מהספק, ועם הפרוב השחור ברגל הנגד שניתקתם.</li>
+                <li>הפעילו את הספק. רשמו את הזרם (למשל: \(5.08\text{ mA}\)).</li>
+                <li><strong>כבו את הספק מיד בסיום המדידה</strong> והחזירו את הפרוב האדום לשקע המתח <strong>V/\(\Omega\)</strong> כדי למנוע קצר במדידה הבאה.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- DOWNLOAD LINK -->
+<div class="text-left my-4">
+    <a href="https://datasheet.octopart.com/GDM-8245-Instek-datasheet-11997973.pdf" target="_blank" class="btn btn-outline-danger">
+        <i class="fas fa-file-pdf"></i> למדריך המשתמש המלא של היצרן (PDF) ←
+    </a>
+</div>
+<!-- /DOWNLOAD LINK -->
+
+<!-- NAVIGATE BACK TO INDEX -->
+<div class="d-flex justify-content-start mt-4 pt-3 border-top">
+    <a href="Index.html" class="btn btn-primary">← חזרה לאינדקס מכשירי מדידה</a>
+</div>

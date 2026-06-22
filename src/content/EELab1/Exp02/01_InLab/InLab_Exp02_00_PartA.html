@@ -1,87 +1,109 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>InLab Exp02 00 PartA</title>
-</head>
-<body>
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!-- 
-    MOODLE SNIPPET - USER CUSTOM DESIGN
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-    
-
-    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-        <!-- CHAPTER: HEADER -->
-<h2 class="section-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.875rem; display: inline-block; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 5px; margin-top: 0;">חלק א': אימות משפט סופרפוזיציה ומאזן הספקים</h2>
+<!-- CHAPTER: HEADER -->
+<h3 class="section-title" style="margin-bottom: 0.75rem; display: inline-block; margin-top: 0; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">חלק א': אימות משפט סופרפוזיציה ומאזן הספקים</h3>
 <p class="mb-4" style="margin-bottom: 1rem;">בחלק זה נבדוק באופן מעשי מעגל בעל שני מקורות עירור בלתי תלויים, ונאמת את משפט ההרכבה (סופרפוזיציה) עבור זרמים במעגל. כמו כן, נאסוף נתונים שיאפשרו לנו לבצע בדיקת מאזן הספקים מלאה.</p>
 
+<!-- SECTION: MEASUREMENT EQUIPMENT GUIDELINES -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-equipment-guide-parta">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🔌 חיבור וכיול ציוד המדידה:</h4>
+    <p style="margin-top: 0; margin-bottom: 0.9rem;">לפני בניית המעגל וביצוע המדידות, עברו על הנחיות השימוש במכשירים (לפרטים נוספים ראו את <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1212809" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">מדריך ציוד המדידה במודל</a>):</p>
+    <ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
+        <li style="margin-bottom: 8px;"><strong>ספקי כוח (DC Power Supply):</strong> נשתמש בשני ערוצים עצמאיים של ספק הכוח <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1212809" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">GW Instek GPS-3303</a> במצב עצמאי (Independent). כוונו את מתח ערוץ 1 ל-\(V_1 = 5.0\text{V}\) ואת ערוץ 2 ל-\(V_2 = 3.0\text{V}\). חברו את הדקי ה-COM (השחורים) של שני הערוצים זה לזה על המטריצה ליצירת אדמה משותפת (GND).</li>
+        <li style="margin-bottom: 8px;"><strong>הגבלת זרם בטיחותית:</strong> לפני הפעלת היציאות (Output ON), כוונו את הגבלת הזרם (Current Limit) בשני הערוצים לערך של כ-\(100\text{mA}\) כדי להגן על הנגדים והמכשור מפני קצרים.</li>
+        <li style="margin-bottom: 8px;"><strong>מד זרם דיגיטלי (DMM):</strong> נשתמש ברב-מודד דיגיטלי מדגם <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1212809" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">GDM-8245 / GDM-8341</a> למדידת זרם העומס \(I_L\). חברו את הכבל השחור ליציאת COM ואת הכבל האדום ליציאת mA, וכוונו את הבורר למצב <strong>DC mA</strong>.</li>
+        <li style="margin-bottom: 8px;"><strong>חיבור מד הזרם בטור:</strong> כדי למדוד את הזרם \(I_L\), עליכם לחבר את מד הזרם <strong>בטור</strong> לנגד העומס \(R_L\). אל תחברו את מד הזרם במקביל למקורות או לרכיבים!</li>
+        <li style="margin-bottom: 8px;"><strong>ביצוע "קצר" למקור:</strong> בשלבים 2 ו-3, כאשר נדרש לכבות מקור (למשל \(V_2\)) ולקצר את הדקיו, נתקו את כבל הספק מהמעגל וחברו במקומו חוט קצר ישירות לנקודת האדמה המשותפת (GND). <strong>אין לקצר ישירות את הדקי הספק עצמם כשהוא דולק!</strong></li>
+    </ul>
+</div>
+
 <!-- SECTION: SCHEMATIC -->
-<div class="theory-card text-center" id="section-schematic" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); text-align: center;">
-    <strong class="text-primary d-block mb-3">📐 שרטוט סכמתי — מעגל רשת T בעל שני מקורות:</strong>
-    <img src="../../assets/images/סופרפוזיציה-schematic.png" alt="Superposition Schematic" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
-    <p class="mt-2 text-muted">V1=5V, V2=3V, R1=300&Omega;, R2=1k&Omega;, RL=1k&Omega;</p>
+<div class="theory-card text-center" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); text-align: center;" id="section-schematic">
+    <strong class="text-primary d-block mb-3" style="color: #005696 !important; margin-bottom: 12px; display: block;">📐 שרטוט סכמתי — מעגל רשת T בעל שני מקורות:</strong>
+    <img src="../../assets/images/%D7%A1%D7%95%D7%A4%D7%A8%D7%A4%D7%95%D7%96%D7%99%D7%A6%D7%99%D7%A6%D7%99%D7%94-schematic.png" alt="Superposition Schematic" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+    <p style="margin-top: 10px; color: #52616b;">ערכים: V1 = 5V, V2 = 3V, R1 = 300&Omega;, R2 = 1k&Omega;, RL = 1k&Omega;</p>
+</div>
+
+<!-- SECTION: FALSTAD SIMULATION -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-falstad-superposition">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">חקירת המעגל ב-Falstad - משפט סופרפוזיציה</h4>
+    <p>הסימולציה מציגה את אותו מעגל עבודה לחלק א. השתמשו בה כדי לוודא את כיווני הזרמים ואת השפעת כל מקור מתח לפני המדידה במעבדה.</p>
+    <div style="border: 2px dashed #ccc; padding: 10px; background-color: white; text-align: center; border-radius: 5px;">
+        <iframe width="100%" height="450" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" frameborder="0" allowfullscreen style="border: none;"></iframe>
+        <div style="text-align: center; margin-top: 12px;"><a href="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" target="_blank" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">פתיחת סימולציית Falstad</a></div>
+    </div>
+</div>
+
+<!-- SECTION: BEFORE MEASUREMENT CHECK -->
+<div class="alert-box" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0;" id="section-before-measurement-check">
+    <strong>בדיקת מוכנות לפני הפעלת ספקים:</strong>
+    <ul style="margin: 8px 0 0 0; padding-right: 20px;">
+        <li>ודאו שכל האדמות של הספקים מחוברות לנקודת ייחוס משותפת.</li>
+        <li>בדקו שמד הזרם מחובר בטור לעומס ולא במקביל אליו.</li>
+        <li>לפני איפוס מקור מתח, החליפו אותו בקצר בלבד. אין להשאיר מקור כבוי וצף במעגל.</li>
+        <li>רשמו מראש את כיוון הזרם החיובי כדי שסכום הזרמים האלגברי יהיה ברור.</li>
+    </ul>
 </div>
 
 <!-- SECTION: PROCEDURE -->
-<div class="theory-card" id="section-procedure" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📝 שלבי העבודה ומהלך המדידה:</h3>
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-procedure">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📝 שלבי העבודה ומהלך המדידה:</h4>
     <ol>
-        <li class="mb-2">הרכיבו את רשת הנגדים: \(R_1 = 300\Omega\), \(R_2 = 1k\Omega\), \(R_L = 1k\Omega\).</li>
-        <li class="mb-2">חברו את הספקים: \(V_1 = 5V\), \(V_2 = 3V\) (אדמה משותפת).</li>
-        <li class="mb-2"><strong>מצב 1 (מלא):</strong> מדדו את הזרם דרך העומס (\(I_L\)).</li>
-        <li class="mb-2"><strong>מצב 2 (רק V1):</strong> כבו את \(V_2\), קצרו את הדקיו לאדמה. מדדו \(I'_L\).</li>
-        <li><strong>מצב 3 (רק V2):</strong> כבו את \(V_1\), קצרו את הדקיו לאדמה. מדדו \(I''_L\).</li>
+        <li class="mb-2" style="margin-bottom: 8px;">הרכיבו את רשת הנגדים על גבי המטריצה: \(R_1 = 300\Omega\), \(R_2 = 1\text{k}\Omega\), \(R_L = 1\text{k}\Omega\).</li>
+        <li class="mb-2" style="margin-bottom: 8px;">חברו את ספקי הכוח המכוילים: \(V_1 = 5.0\text{V}\), \(V_2 = 3.0\text{V}\) (אדמה משותפת).</li>
+        <li class="mb-2" style="margin-bottom: 8px;"><strong>מצב 1 (מלא - שני מקורות פעילים):</strong> מדדו את הזרם דרך העומס (\(I_L\)) באמצעות מד הזרם ורשמו אותו בטבלה.</li>
+        <li class="mb-2" style="margin-bottom: 8px;"><strong>מצב 2 (עירור חלקי א' - רק V1 פעיל):</strong> כבו את \(V_2\) והחליפו אותו בקצר לאדמה (השתמשו בחוט גישור). מדדו את הזרם (\(I'_L\)).</li>
+        <li><strong>מצב 3 (עירור חלקי ב' - רק V2 פעיל):</strong> החזירו את \(V_2\), כבו את \(V_1\) והחליפו אותו בקצר לאדמה. מדדו את הזרם (\(I''_L\)).</li>
     </ol>
 </div>
 
+<!-- SECTION: SUPERPOSITION CHECK -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-superposition-check">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">בדיקת איכות מיידית למדידה</h4>
+    <p style="margin: 0 0 8px 0;">לאחר שלוש המדידות, חשבו במקום את השגיאה היחסית כדי לוודא שאין טעות חיווט חמורה:</p>
+    <div dir="ltr" style="text-align: center; font-size: 18px; color: #005696; font-weight: bold; margin: 12px 0;">
+        \(\text{error}[\%] = 100 \cdot \frac{|I_{both}-(I'_{L}+I''_{L})|}{|I_{both}|}\)
+    </div>
+    <p style="margin: 0;">אם השגיאה גדולה מ-10%, בדקו שוב כיוון זרם, חיבורי אדמה, וטווח מד הזרם לפני שממשיכים לחלק ב'.</p>
+</div>
+
 <!-- SECTION: DATA TABLE -->
-<div class="theory-card" id="section-table" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📊 טבלה ריקה לרישום המדידות:</h3>
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-table">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 טבלה ריקה לרישום המדידות:</h4>
     <table class="data-table" style="border-spacing: 0; margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #dae0e5; width: 100%; border-collapse: collapse; margin-top: 15px;" width="100%">
         <thead>
             <tr>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" align="right" bgcolor="#003366">מצב עירור המעגל</th>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" align="right" bgcolor="#003366">נוסחה תיאורטית</th>
-                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" align="right" bgcolor="#003366">זרם נמדד [mA]</th>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">מצב עירור המעגל</th>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">נוסחה תיאורטית</th>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">זרם נמדד [mA]</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מצב מלא: V1 ו-V2 פועלים</td>
-                <td dir="ltr" style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">I<sub>L</sub> = I'<sub>L</sub> + I''<sub>L</sub></td>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">\(I_L = I'_L + I''_L\)</td>
                 <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
             </tr>
             <tr>
                 <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מצב חלקי א': רק V1 פועל</td>
-                <td dir="ltr" style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">I'<sub>L</sub></td>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">\(I'_L\)</td>
                 <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
             </tr>
             <tr>
-                <td style="background-color: white; padding: 10px; border: 1px solid #ddd; border-bottom: none;" bgcolor="white">מצב חלקי ב': רק V2 פועל</td>
-                <td dir="ltr" style="background-color: white; padding: 10px; border: 1px solid #ddd; border-bottom: none;" bgcolor="white">I''<sub>L</sub></td>
-                <td style="background-color: white; padding: 10px; border: 1px solid #ddd; border-bottom: none;" bgcolor="white"></td>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מצב חלקי ב': רק V2 פועל</td>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">\(I''_L\)</td>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
             </tr>
         </tbody>
     </table>
 </div>
 
 <!-- SECTION: FOOTER -->
-<div class="alert-box text-center" style="color: #92400e; margin: 1rem 0; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 10px 15px; border-radius: 3px; font-size: 14px; text-align: center;">
+<div class="alert-box text-center" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0; text-align: center;">
     <strong>💾 סיימתם למדוד?</strong> וודאו שכל הנתונים רשומים ושמורים היטב! אתם תזדקקו להם לשלב עיבוד הנתונים.
 </div>
 
-    </div>
-</div>
 
-        </div>
-    </div>
-</div>
 
-</body>
-</html>
+<div data-units-emphasis="exp2" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
+    <strong style="color:#005696;">דגש יחידות בניסוי 2:</strong>
+    <span> בסופרפוזיציה, תבנין ואופייני I-V יש לשמור על יחידות בכל שלב: \(V\) למתחים, A או mA לזרמים, \(\Omega\) להתנגדויות ו-W להספק. שיפוע אופיין \(I-V\) אינו מספר בלבד: \(R=\Delta V/\Delta I\) מתקבל ב-\(\Omega\).</span>
+</div>

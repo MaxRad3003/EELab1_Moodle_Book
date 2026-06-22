@@ -1,0 +1,250 @@
+<!-- BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 14px; border-radius: 6px;">
+    <a href="Index.html" style="text-decoration: none; color: inherit; font-weight: bold;">← חזרה לאינדקס המכשירים</a>
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- HEADER -->
+<div class="text-center mb-4">
+    <h1 class="display-5 fw-bold text-danger" style="margin-top: 1rem; margin-bottom: 0.5rem; color: #b91c1c !important;">מחולל אותות ספרתי Agilent 33220A</h1>
+    <div class="mx-auto bg-danger" style="height: 3px; width: 80px; border-radius: 10px; background-color: #b91c1c !important;"></div>
+</div>
+<!-- /HEADER -->
+
+<!-- INTRODUCTION -->
+<div class="info-box border-danger" style="border-right-color: #b91c1c !important;">
+    <h3 class="sub-title text-danger" style="margin-top: 0; color: #b91c1c !important;"><i class="fas fa-wave-square"></i> עקרונות פעולה ומחוללי אותות</h3>
+    <p class="lead">
+        מחולל אותות (<strong>Function Generator</strong>) הוא מכשיר עזר אלקטרוני המייצר אותות מתח מחזוריים (כמו סינוס, ריבוע, משולש, פולסים ורעש). תפקידו לדמות אותות כניסה למעגלים נבדקים (כמו רמקולים, מסננים, מגברים ומעגלים דיגיטליים).
+    </p>
+    <p>
+        דגם ה-<strong>Agilent 33220A</strong> הוא מחולל דיגיטלי מתקדם בטכנולוגיית DDS (Direct Digital Synthesis) המאפשר יציבות תדר גבוהה במיוחד (עד \(20\text{ MHz}\)), שליטה מדויקת באמפליטודה, קביעת רמת היסט (DC Offset) ויצירת אותות שרירותיים (Arbitrary Waves) מותאמים אישית.
+    </p>
+    <div class="row my-4 align-items-center">
+        <div class="col-md-7">
+            <p>
+                באיור משמאל מוצג מחולל האותות Agilent 33220A.
+                שימו לב למסך הגרפי הברור המציג את צורת הגל, את התדר ואת המתחים.
+                בחלק הימני נמצאים לחצני הניווט, בורר סיבובי ומקשי היחידות, ובפינה הימנית התחתונה נמצאים הדקי ה-BNC המפיקים את האות.
+            </p>
+        </div>
+        <div class="col-md-5 text-center">
+            <div class="card p-2 bg-light shadow-sm">
+                <img src="Figure/agilent33220a_main.jpg" alt="Agilent 33220A Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
+                <p class="mb-0 mt-1 small text-muted">מחולל האותות הדיגיטלי Agilent 33220A</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /INTRODUCTION -->
+
+<!-- THE DOUBLE VOLTAGE MYSTERY SVG DIAGRAM -->
+<div class="theory-card my-4 border-danger">
+    <h4 class="sub-title text-danger" style="margin-top: 0; color: #b91c1c !important;"><i class="fas fa-exclamation-circle"></i> תעלומת המתח הכפול ואי-התאמת עכבות (Impedance Matching)</h4>
+    <p>
+        הבעיה הנפוצה ביותר של סטודנטים במעבדה היא: <strong>"למה כיוונתי את המחולל ל-\(1\text{ V}_{p-p}\) אבל באוסילוסקופ אני רואה בדיוק \(2\text{ V}_{p-p}\)?"</strong>
+    </p>
+    <p class="small text-muted">
+        למחולל האותות יש התנגדות פנימית (עכבת מוצא) מובנית של <strong>\(50\ \Omega\)</strong>. מעגל התמורה החשמלי הבא מסביר את תופעת חלוקת המתח:
+    </p>
+    
+    <div class="text-center py-2">
+        <svg viewBox="0 0 760 280" width="100%" height="auto" style="background-color: #fafafa; border: 1px solid #fca5a5; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left Side: Signal Generator -->
+            <g transform="translate(10, 10)">
+                <!-- Generator Box -->
+                <rect x="10" y="20" width="280" height="220" rx="8" fill="#fff5f5" stroke="#fca5a5" stroke-width="2"/>
+                <text x="150" y="45" font-family="sans-serif" font-weight="bold" font-size="14" fill="#b91c1c" text-anchor="middle">מחולל אותות</text>
+                <text x="150" y="60" font-family="sans-serif" font-size="10" fill="#7f1d1d" text-anchor="middle">Signal Generator</text>
+                
+                <!-- Ideal Voltage Source -->
+                <circle cx="70" cy="150" r="20" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <!-- Sine wave inside -->
+                <path d="M 60 150 Q 65 140, 70 150 T 80 150" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <text x="70" y="185" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">מקור פנימי (Vg)</text>
+                
+                <!-- Internal Resistance Rs = 50 Ohm -->
+                <rect x="160" y="135" width="50" height="30" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <text x="185" y="125" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">התנגדות פנימית</text>
+                <text x="185" y="153" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0f172a" text-anchor="middle">50 Ω</text>
+                
+                <!-- Internal Wires -->
+                <path d="M 70 130 L 70 115 L 140 115 L 140 150 L 160 150" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <path d="M 210 150 L 290 150" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <path d="M 70 170 L 70 210 L 290 210" fill="none" stroke="#0f172a" stroke-width="2"/>
+                
+                <!-- Terminals -->
+                <circle cx="290" cy="150" r="4" fill="#ef4444"/>
+                <circle cx="290" cy="210" r="4" fill="#000000"/>
+                <text x="280" y="140" font-family="sans-serif" font-size="10" fill="#ef4444" font-weight="bold">יציאה (+)</text>
+                <text x="280" y="205" font-family="sans-serif" font-size="10" fill="#000000" font-weight="bold">אדמה (-)</text>
+            </g>
+            
+            <!-- Connection path: Coaxial Cable -->
+            <path d="M 300 150 L 450 150" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="4,4"/>
+            <path d="M 300 210 L 450 210" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="375" y="135" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle" font-weight="bold">כבל קואקסיאלי (BNC)</text>
+            
+            <!-- Right Side: Load -->
+            <g transform="translate(450, 10)">
+                <!-- Load Box -->
+                <rect x="10" y="20" width="280" height="220" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+                <text x="150" y="45" font-family="sans-serif" font-weight="bold" font-size="14" fill="#0f172a" text-anchor="middle">עומס / אוסילוסקופ</text>
+                <text x="150" y="60" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">Load / Oscilloscope</text>
+                
+                <!-- Load Resistor RL -->
+                <rect x="95" y="140" width="30" height="60" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <path d="M 10 140 L 110 140" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <path d="M 10 200 L 110 200" fill="none" stroke="#0f172a" stroke-width="2"/>
+                
+                <!-- Measurement points -->
+                <circle cx="110" cy="140" r="4" fill="#ef4444"/>
+                <circle cx="110" cy="200" r="4" fill="#000000"/>
+                
+                <!-- Description -->
+                <text x="145" y="150" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0284c7" text-anchor="start">עומס קצה (RL)</text>
+                <text x="145" y="170" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="start">אוסילוסקופ: 1 MΩ</text>
+                <text x="145" y="185" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="start">עומס תואם: 50 Ω</text>
+            </g>
+        </svg>
+    </div>
+    
+    <div class="alert alert-info py-2 px-3 mt-3" style="font-size: 14px;">
+        <strong>מדוע זה קורה?</strong>
+        <ul class="mb-0 mt-1">
+            <li><strong>כאשר המכשיר מוגדר למצב עומס של \(50\ \Omega\):</strong> הוא מניח שאתם מחברים אותו לעומס תואם של \(50\ \Omega\). במצב זה, נוצר מחלק מתח חצי-חצי בין ההתנגדות הפנימית לעומס. לכן, כדי שתקבלו \(1\text{ V}\) על העומס, המכשיר מייצר בפנים \(2\text{ V}\). אם בפועל חיברתם אותו לאוסילוסקופ (שהתנגדותו עצומה, \(1\text{ M}\Omega\)), אין כמעט מפל מתח על ההתנגדות הפנימית, וכל ה-\(2\text{ V}\) מופיעים על האוסילוסקופ!</li>
+            <li><strong>כאשר המכשיר מוגדר למצב עומס של High-Z (נתק / עכבה גבוהה):</strong> המכשיר יודע שאין מחלק מתח משמעותי, ומייצר בדיוק את המתח שביקשתם (ללא הכפלה).</li>
+        </ul>
+    </div>
+</div>
+<!-- /THE DOUBLE VOLTAGE MYSTERY SVG DIAGRAM -->
+
+<!-- KEY FUNCTIONS & SETTINGS -->
+<div class="card border-danger my-4" style="border-color: #ffcdd2 !important;">
+    <div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> ממשק המשתמש ותהליך תפעול בסיסי</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            לוח המקשים של ה-Agilent 33220A נוח וברור. להלן השלבים לקביעת אות עבודה במעבדה:
+        </p>
+        
+        <div class="vstack gap-3">
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #b91c1c; box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1);">1</div>
+                <div class="step-content">
+                    <h4 class="fw-bold text-danger" style="color: #b91c1c !important;">בחירת צורת הגל (Waveform)</h4>
+                    <p class="text-muted">בחרו את צורת הגל הרצויה על ידי לחיצה על אחד ממקשי המעטפת השמאליים: <strong>Sine</strong> (סינוס), <strong>Square</strong> (ריבוע), <strong>Triangle</strong> (משולש), <strong>Pulse</strong> (דופק), או <strong>Noise</strong> (רעש).</p>
+                </div>
+            </div>
+            
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #b91c1c; box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1);">2</div>
+                <div class="step-content">
+                    <h4 class="fw-bold text-danger" style="color: #b91c1c !important;">קביעת תדר האות (Frequency)</h4>
+                    <p class="text-muted">לחצו על מקש ה-Softkey שמתחת למסך התואם לכיתוב <strong>Freq</strong>. השתמשו בלוח המקשים הנומרי כדי להקיש את התדר הרצוי, ובחרו את היחידות המתאימות מתפריט הלחצנים (Hz, kHz, MHz).</p>
+                </div>
+            </div>
+            
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #b91c1c; box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1);">3</div>
+                <div class="step-content">
+                    <h4 class="fw-bold text-danger" style="color: #b91c1c !important;">קביעת אמפליטודה (Amplitude) והיסט (Offset)</h4>
+                    <p class="text-muted">לחצו על לחצן <strong>Ampl</strong> להגדרת המתח משיא לשיא (\(\text{V}_{p-p}\)). לחצו על <strong>Offset</strong> במידה ונדרש להוסיף רמת DC לאות (למשל, כדי להרים את אות הסינוס כולו מעל האפס למתח חיובי בלבד).</p>
+                </div>
+            </div>
+            
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #b91c1c; box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1);">4</div>
+                <div class="step-content">
+                    <h4 class="fw-bold text-danger" style="color: #b91c1c !important;">הגדרת עכבת עומס (Impedance Setting)</h4>
+                    <p class="text-muted">
+                        כדי להימנע משגיאת "המתח הכפול", כוונו את עכבת המכשיר:
+                        <br>לחצו על לחצן <strong>Utility</strong> &gt; בחרו ב-<strong>Output Setup</strong> &gt; בחרו ב-<strong>Load</strong> &gt; שנו את ההגדרה מ-\(50\ \Omega\) ל-<strong>High-Z</strong> (במידה ואתם מודדים עם אוסילוסקופ בלבד).
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #b91c1c; box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1);">5</div>
+                <div class="step-content">
+                    <h4 class="fw-bold text-danger" style="color: #b91c1c !important;">הפעלת המוצא (Output Enable)</h4>
+                    <p class="text-muted"><strong>חשוב מאוד:</strong> כברירת מחדל בטיחותית, מוצא המכשיר מנותק. על מנת להזרים את האות למעגל, עליכם ללחוץ על לחצן <strong>Output</strong>. האור בלחצן יידלק בירוק, ומסמל שהאות זורם כעת מהדק ה-BNC למעגל שלכם.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /KEY FUNCTIONS & SETTINGS -->
+
+<!-- CONNECTIONS (BNC) -->
+<div class="card border-danger my-4" style="border-color: #ffcdd2 !important;">
+    <div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-plug"></i> יציאות המכשיר וחיבורי כבלים</h3>
+    </div>
+    <div class="card-body">
+        <p>בפנל הקדמי של המכשיר קיימים שני חיבורי BNC מעגליים:</p>
+        <ul style="padding-right: 20px;">
+            <li class="mb-2"><strong>Output (ימין למטה):</strong> זוהי היציאה הראשית של מחולל האותות. ממנה נמתח הכבל (BNC-תנינים או BNC-BNC) אל רכיבי המעגל הנבדק.</li>
+            <li class="mb-2"><strong>Sync (שמאל ל-Output):</strong> מוציא אות דיגיטלי ריבועי (TTL) המסונכרן בדיוק רב עם התדר ותחילת המחזור של אות המוצא הראשי. משמש בעיקר לחיבור כערוץ סנכרון חיצוני (External Trigger) באוסילוסקופ בעת ניתוח אותות מורכבים במיוחד או חלשים.</li>
+        </ul>
+    </div>
+</div>
+<!-- /CONNECTIONS (BNC) -->
+
+<!-- PRACTICAL DEMONSTRATION & STEP-BY-STEP GUIDE -->
+<div class="card border-danger my-4" style="border-color: #ffcdd2 !important;">
+    <div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="text-danger fw-bold">הדגמה מעשית: חקירת עקומת התגובה של מסנן מעביר נמוכים (Low-Pass RC Filter)</h4>
+        <p>
+            בניסוי זה נשתמש במחולל האותות <strong>Agilent 33220A</strong> כמקור מתח חילופין סינוסי כדי לבדוק כיצד מסנן RC מנחית תדרים גבוהים. נמדוד את מתח המוצא על פני הקבל באוסילוסקופ.
+        </p>
+
+        <div class="bg-light p-3 rounded border-start border-danger border-4 mb-3">
+            <h5 class="fw-bold text-danger"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי - שלב אחר שלב:</h5>
+            <ol class="mb-0" style="padding-right: 20px;">
+                <li class="mb-2">
+                    <strong>חיבור הציוד:</strong> חברו כבל BNC-BNC מיציאת ה-<strong>Output</strong> של מחולל האותות לכניסת ערוץ 1 (CH1) באוסילוסקופ כדי לוודא את האות לפני חיבורו למעגל.
+                </li>
+                <li class="mb-2">
+                    <strong>הגדרת צורת הגל:</strong> לחצו על לחצן <strong>Sine</strong> בחזית המכשיר לבחירת גל סינוס.
+                </li>
+                <li class="mb-2">
+                    <strong>קביעת התדר:</strong> לחצו על הלחצן שמתחת למסך (Softkey) המקביל ל-<strong>Freq</strong>. הקישו <strong>1</strong> ולאחר מכן לחצו על לחצן היחידות <strong>kHz</strong> במקלדת הנומרית.
+                </li>
+                <li class="mb-2">
+                    <strong>קביעת האמפליטודה:</strong> לחצו על לחצן <strong>Ampl</strong>. הקישו <strong>2</strong> ולאחר מכן לחצו על לחצן היחידות <strong>Vpp</strong> (מתח משיא לשיא).
+                </li>
+                <li class="mb-2">
+                    <strong>מניעת שגיאת המתח הכפול (High-Z):</strong>
+                    לחצו על לחצן <strong>Utility</strong> &gt; בחרו ב-<strong>Output Setup</strong> &gt; בחרו ב-<strong>Load</strong> &gt; שנו את ההגדרה מ-\(50\ \Omega\) ל-<strong>High-Z</strong>. שימו לב שהמתח המוצג במסך תואם כעת למה שתראו באוסילוסקופ.
+                </li>
+                <li class="mb-2">
+                    <strong>הפעלת המוצא:</strong> לחצו על לחצן <strong>Output</strong>. האור הירוק יידלק, ומחולל האותות יתחיל להפיק את הגל.
+                </li>
+                <li class="mb-2">
+                    <strong>בדיקה באוסילוסקופ:</strong> לחצו על לחצן <strong>Measure</strong> באוסילוסקופ והוסיפו מדידת תדר ומתח משיא לשיא. ודאו שהערכים הם בדיוק \(1\text{ kHz}\) ו-\(2\text{ V}_{p-p}\).
+                </li>
+                <li class="mb-2">
+                    <strong>מדידת המסנן:</strong> כעת נתקו את כבל ה-BNC מהאוסילוסקופ וחברו אותו לכניסת מעגל ה-RC (נגד בטור לקבל). חברו את פרוב האוסילוסקופ במקביל לקבל ומדדו את מתח המוצא עבור תדרים של \(100\text{ Hz}\), \(1\text{ kHz}\), \(10\text{ kHz}\). שימו לב כיצד האמפליטודה יורדת ככל שהתדר עולה.
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- DOWNLOAD LINK -->
+<div class="text-left my-4">
+    <a href="http://ecelabs.njit.edu/student_resources/33220_user_guide.pdf" target="_blank" class="btn btn-outline-danger">
+        <i class="fas fa-file-pdf"></i> למדריך למשתמש המלא של Agilent (PDF) ←
+    </a>
+</div>
+<!-- /DOWNLOAD LINK -->
+
+<!-- NAVIGATE BACK TO INDEX -->
+<div class="d-flex justify-content-start mt-4 pt-3 border-top">
+    <a href="Index.html" class="btn btn-primary">← חזרה לאינדקס מכשירי מדידה</a>
+</div>

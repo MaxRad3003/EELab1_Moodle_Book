@@ -1,98 +1,98 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>PreLab Exp02 03 TransferFunction</title>
-</head>
-<body>
+<!-- CHAPTER: HEADER -->
+<div id="ch-tf-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">חלק ג': פונקציית תמסורת ואפקט ההעמסה</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
+</div>
+<!-- /CHAPTER: HEADER -->
 
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!-- 
-    MOODLE SNIPPET - USER CUSTOM DESIGN
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-    
-
-    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-        <!-- CHAPTER: HEADER -->
-<h2 class="section-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.875rem; display: inline-block; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 5px; margin-top: 0;">הכנה לניסוי 2 - חלק ג': פונקציית תמסורת</h2>
-<p class="mb-4" style="margin-bottom: 1rem;">בעמוד זה נלמד כיצד לתאר מעגל כיחס בין אות יציאה לאות כניסה. פונקציית התמסורת מאפשרת לנו להבין כיצד המעגל מגיב לשינוי במקור, בעומס או בתדר.</p>
+<p class="mb-4">בעמוד זה נלמד כיצד לתאר מעגל כיחס בין אות יציאה לאות כניסה, ונבין מדוע חיבור של מכשיר מדידה או עומס כלשהו עלול לשנות ולשבש את תפקוד המעגל (אפקט ההעמסה).</p>
 
 <!-- SECTION: THEORY -->
-<div class="theory-card" id="section-theory" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📖 1. תיאוריה</h3>
-    <strong class="text-primary">מהי פונקציית תמסורת?</strong>
-    <p>פונקציית תמסורת היא היחס בין אות היציאה של המעגל לבין אות הכניסה שלו.</p>
+<div class="theory-card" id="section-theory">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-book-open"></i> 1. רקע תיאורטי: מהי פונקציית תמסורת?</h3>
+    <p>פונקציית תמסורת (Transfer Function, מיוצגת לרוב באות \(H\)) היא מדד מתמטי המתאר את היחס בין גודל המוצא (התגובה) של מערכת לבין גודל המבוא (הערור) שלה. במעגלים חשמליים פשוטים נהוג להגדיר פונקציית תמסורת של מתח:</p>
     
-    <div dir="ltr" style="text-align: center; font-size: 18px; color: var(--primary-color); font-weight: bold; margin: 15px 0;">
-        \(H = \frac{V_{out}}{V_{in}}\)
+    <div class="text-center my-3 py-2 bg-light rounded" style="font-size: 1.25rem; font-family: monospace; direction: ltr;">
+        \[ H = \frac{V_{\text{out}}}{V_{\text{in}}} \]
     </div>
     
-    <p>במעגלים פסיביים עם נגדים בלבד נקבל בדרך כלל הנחתה (\(H < 1\)).</p>
+    <p>במעגלי נגדים פסיביים (ללא מקורות מתח פנימיים או מגברים), אות המוצא תמיד יהיה קטן או שווה לאות המבוא, ולכן פונקציית התמסורת תהיה קטנה מ-1 (\(H \le 1\)), כלומר המעגל מבצע <strong>הנחתה (Attenuation)</strong> בלבד.</p>
 
-    <strong class="text-primary">דוגמה בסיסית: מחלק מתח</strong>
-    <div dir="ltr" style="text-align: center; font-size: 18px; color: var(--primary-color); font-weight: bold; margin: 15px 0;">
-        \(H = \frac{V_{out}}{V_{in}} = \frac{R_2}{R_1 + R_2}\)
+    <strong class="text-primary">דוגמה קלאסית: מחלק מתח לא-עמוס</strong>
+    <p>במעגל מחלק מתח פשוט המורכב משני נגדים \(R_1\) ו-\(R_2\) בטור, כאשר מתח המוצא נמדד על פני \(R_2\), פונקציית התמסורת האידיאלית מחושבת לפי חוק מחלק המתח:</p>
+    <div class="text-center my-3 py-2 bg-light rounded" style="font-size: 1.15rem; font-family: monospace; direction: ltr;">
+        \[ H_{\text{ideal}} = \frac{V_{\text{out}}}{V_{\text{in}}} = \frac{R_2}{R_1 + R_2} \]
     </div>
 </div>
+<!-- /SECTION: THEORY -->
 
-<!-- SECTION: LINK TO THEVENIN -->
-<div class="theory-card" id="section-thevenin-link" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">🔗 2. הקשר למשפט תבנין</h3>
-    <p>ניתן לחשב את פונקציית התמסורת מהמקור השקול אל נגד העומס:</p>
-    <div dir="ltr" style="text-align: center; font-size: 18px; color: var(--primary-color); font-weight: bold; margin: 15px 0;">
-        \(V_L = \frac{V_{TH} \cdot R_L}{R_{TH} + R_L}\)
+<!-- SECTION: LOADING EFFECT -->
+<div class="theory-card mt-4" id="section-loading-effect">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-plug"></i> 2. אפקט ההעמסה (Loading Effect)</h3>
+    <p>במציאות, כאשר אנו מחברים צרכן, נגד עומס (\(R_L\)) או אפילו רב-מודד (DMM) בעל התנגדות פנימית מוגבלת במקביל למוצא של המעגל, אנו משנים את מבנה המעגל.</p>
+    <p>ההתנגדות השקולה של זרוע המוצא הופכת להיות החיבור המקבילי של \(R_2\) ו-\(R_L\):</p>
+    <div class="text-center my-3 py-2 bg-light rounded" style="font-size: 1.15rem; font-family: monospace; direction: ltr;">
+        \[ R_{2\parallel L} = R_2 \parallel R_L = \frac{R_2 \cdot R_L}{R_2 + R_L} \]
+    </div>
+    
+    <p>כעת, פונקציית התמסורת של המעגל הופכת להיות <strong>פונקציית תמסורת עמוסה (Loaded Transfer Function)</strong>:</p>
+    <div class="text-center my-3 py-2 bg-light rounded" style="font-size: 1.15rem; font-family: monospace; direction: ltr;">
+        \[ H_{\text{loaded}} = \frac{R_2 \parallel R_L}{R_1 + (R_2 \parallel R_L)} = \frac{R_2 \cdot R_L}{R_1 R_2 + R_1 R_L + R_2 R_L} \]
+    </div>
+    
+    <div class="info-box border-warning" style="border-right: 5px solid #ff9900;">
+        <strong>💡 תובנה הנדסית חשובה:</strong>
+        <ul class="mb-0" style="padding-right: 20px;">
+            <li class="mb-1">ככל שנגד העומס \(R_L\) <strong>גדול יותר</strong> (\(R_L \to \infty\)), השפעתו קטנה והתמסורת העמוסה שואפת לערכה האידיאלי (\(H_{\text{loaded}} \to H_{\text{ideal}}\)).</li>
+            <li>ככל שנגד העומס \(R_L\) <strong>קטן יותר</strong> (עומס כבד), הוא "מושך" אליו יותר זרם, מוריד את ההתנגדות השקולה של המוצא, וגורם לירידה תלולה במתח המוצא ובפונקציית התמסורת (\(H_{\text{loaded}} \to 0\)). זו הסיבה שמכשירי מדידת מתח מתוכננים להיות בעלי עכבת כניסה גבוהה מאוד (למשל \(10\,\text{M}\Omega\)), כדי לא להעמיס על המעגל הנמדד.</li>
+        </ul>
     </div>
 </div>
+<!-- /SECTION: LOADING EFFECT -->
 
 <!-- SECTION: CALCULATION PRACTICE -->
-<div class="theory-card" id="section-practice" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">🧮 3. תרגול חישובי</h3>
-    <p><strong>משימה:</strong> נתון מחלק מתח שבו \(R_1 = 1k\Omega\), \(R_2 = 2k\Omega\), ומתח הכניסה הוא \(V_{in} = 9V\).</p>
-    <ol>
-        <li class="mb-1">חשבו את פונקציית התמסורת \(H = \frac{V_{out}}{V_{in}}\).</li>
-        <li class="mb-1">חשבו את מתח היציאה \(V_{out}\).</li>
+<div class="theory-card mt-4" id="section-practice">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-pencil-alt"></i> 3. דוגמת חישוב מעשית</h3>
+    <p>נתון מחלק מתח שבו \(R_1 = 1\,\text{k}\Omega\), \(R_2 = 2\,\text{k}\Omega\), ומתח המבוא הוא \(V_{\text{in}} = 9\,\text{V}\).</p>
+    <ol style="padding-right: 20px;">
+        <li class="mb-2"><strong>במצב לא-עמוס:</strong> 
+            \[ H_{\text{ideal}} = \frac{2\,\text{k}\Omega}{1\,\text{k}\Omega + 2\,\text{k}\Omega} = \frac{2}{3} \approx 0.667 \]
+            \[ V_{\text{out}} = V_{\text{in}} \cdot H_{\text{ideal}} = 9 \cdot \frac{2}{3} = 6\,\text{V} \]
+        </li>
+        <li><strong>כאשר מחברים נגד עומס של \(R_L = 2\,\text{k}\Omega\) במקביל ל-\(R_2\):</strong>
+            \[ R_{2\parallel L} = 2\,\text{k}\Omega \parallel 2\,\text{k}\Omega = 1\,\text{k}\Omega \]
+            \[ H_{\text{loaded}} = \frac{1\,\text{k}\Omega}{1\,\text{k}\Omega + 1\,\text{k}\Omega} = 0.5 \]
+            \[ V_{\text{out, loaded}} = 9 \cdot 0.5 = 4.5\,\text{V} \]
+            (המתח ירד מ-\(6\,\text{V}\) ל-\(4.5\,\text{V}\) עקב אפקט ההעמסה!)
+        </li>
     </ol>
-    <div class="alert-box" style="color: #92400e; margin: 1rem 0; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 10px 15px; border-radius: 3px; font-size: 14px;">
-        <strong>בדיקת היגיון:</strong> במעגל נגדים פסיבי מתח היציאה לא אמור להיות גדול ממתח הכניסה.
-    </div>
 </div>
+<!-- /SECTION: CALCULATION PRACTICE -->
 
 <!-- SECTION: MATLAB ANALYSIS -->
-<div class="matlab-box" id="section-matlab" style="text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📊 4. ניתוח MATLAB</h3>
-    <p>במטלה זו נחשב את \(H\) עבור טווח ערכים של \(R_L\) ונשרטט את התוצאה.</p>
+<div class="matlab-box mt-4" id="section-matlab">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-chart-line"></i> 4. עיבוד נתונים ב-MATLAB</h3>
+    <p>במשימה זו ב-MATLAB Grader, תחשבו את פונקציית התמסורת עבור מערך של ערכי נגדי עומס שונים, ותשרטטו גרף המציג את ערך פונקציית התמסורת כפונקציה של התנגדות העומס כדי לראות את ההשפעה באופן גרפי.</p>
     
-    <div dir="ltr" style="background-color: #2b303b; color: #f8f8f2; padding: 15px; border-radius: 6px; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; margin-bottom: 20px; border-left: 4px solid var(--success-color); text-align: left;">
+    <div dir="ltr" class="bg-dark text-light p-3 rounded font-monospace text-start mb-3" style="border-left: 4px solid #28a745;">
         <div style="color: #c678dd; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #4f5b66; padding-bottom: 5px;">/* MATLAB Grader Assignment: Exp02_TransferFunction */</div>
-        <p style="color: #abb2bf;"><strong>Transfer Function of a Loaded Thevenin Circuit</strong><br>
-        Calculate <code>H = R_L ./ (R_th + R_L)</code> for an array of <code>R_L</code>.</p>
+        <p class="mb-0" style="color: #abb2bf;">
+            % Calculate Loaded Transfer Function<br>
+            % Given: R_th, R_L (array)<br>
+            H = R_L ./ (R_th + R_L);<br>
+            plot(R_L, H);
+        </p>
     </div>
 
-    <div class="text-center" style="text-align: center;">
-        <a href="[LINK_TO_MATLAB_TRANSFER_FUNCTION]" target="_blank" class="bg-success" style="display: inline-block; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; background-color: #28a745;">לפתיחת המטלה: Exp02_TransferFunction</a>
+    <div class="alert alert-warning py-2 text-center fw-bold mb-0">
+        לפתיחת המטלה: Exp02_TransferFunction <span class="badge bg-secondary ms-2">הקישור יתעדכן במודל</span>
     </div>
 </div>
+<!-- /SECTION: MATLAB ANALYSIS -->
 
 <!-- SECTION: H5P QUIZ -->
-<div class="h5p-container" id="section-h5p" style="background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px;">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📝 5. בוחן H5P</h3>
-    <div class="h5p-placeholder" style="background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center;">
-        <a href="[LINK_TO_H5P_TRANSFER_FUNCTION]" target="_blank" class="text-primary fw-bold" style="text-decoration: none; font-weight: 700;">פתח בוחן: TransferFunction_Quiz.h5p</a>
-    </div>
+<div class="info-box mt-4" id="section-h5p-quiz">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-tasks"></i> 5. בוחן הכנה לפרק זה</h3>
+    <p class="mb-0">פתרו את השאלות בבוחן ה-H5P הבא כדי לוודא שאתם שולטים במושגי תמסורת והעמסה: <strong>Exp02_PreLab_03_TransferFunction_H5P.h5p</strong></p>
 </div>
-
-    </div>
-</div>
-
-
-
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
+<!-- /SECTION: H5P QUIZ -->

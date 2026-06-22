@@ -1,48 +1,81 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>InLab Exp01 02 PartC</title>
-</head>
-<body>
+<!-- EXP01 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 > עבודה מעשית > חלק ג': חיבור מעגלים על מטריצה</div>
+<!-- /EXP01 BREADCRUMB -->
 
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!-- 
-    MOODLE SNIPPET - INLINE CSS VERSION
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-inline" dir="rtl" style="color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-        <!-- CHAPTER: HEADER -->
-<div id="ch-inlab-c-header" style="text-align: center; margin-bottom: 3rem;">
-    <h2 style="margin-top: 1.5rem; line-height: 1.25; font-size: 2rem; font-weight: bold; color: #28a745; margin-bottom: 1rem;">חלק ג': חיבור מעגלים על מטריצה</h2>
-    <div style="margin-left: auto; margin-right: auto; background-color: #28a745; height: 3px; width: 60px; border-radius: 10px;"></div>
+<!-- CHAPTER: HEADER -->
+<div id="ch-inlab-c-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">חלק ג': חיבור מעגלים על מטריצה (טורי ומקבילי)</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
 </div>
 <!-- /CHAPTER: HEADER -->
 
+<!-- SECTION: GENERAL INSTRUCTIONS -->
+<div class="info-box" style="border-right: 5px solid #3b82f6;">
+    <h4 class="fw-bold text-primary mt-0"><i class="fas fa-info-circle"></i> הנחיות כלליות לבניית מעגלים</h4>
+    <p class="mb-0">
+        בחלק זה תרכיבו מעגלי נגדים על גבי לוח המטריצה. כל המדידות בחלק זה הן מדידות <strong>התנגדות שקולה (\(R_T\))</strong> המתבצעות באמצעות ה-DMM במצב Ohmmeter.
+        <br>
+        <strong class="text-danger">חובה מוחלטת:</strong> ודאו כי ספק הכוח מנותק לחלוטין מהמטריצה בעת מדידת התנגדות! חיבור Ohmmeter למעגל מחושמל ישרוף את המד או יתן קריאה שגויה ומסוכנת.
+    </p>
+</div>
+<!-- /SECTION: GENERAL INSTRUCTIONS -->
+
 <!-- SECTION: SERIES CIRCUIT -->
-<div id="section-series-circuit" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">1. חיבור טורי (Series)</h3>
-    <p>בחרו שלושה נגדים וחברו אותם בטור על המטריצה. מדדו את ההתנגדות השקולה ($R_T$) והשוו לערך המחושב.</p>
+<div class="theory-card mt-4" id="section-series-circuit">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-arrows-alt-h"></i> 1. חיבור טורי (Series Connection)</h3>
+    <p>
+        בחיבור טורי, הנגדים מחוברים בשרשרת בזה אחר זה, כך שיש רק נתיב אחד למעבר הזרם.
+        התנגדות השקולה שווה לסכום ההתנגדויות: \(R_T = R_1 + R_2 + R_3\).
+    </p>
     
-    <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; border: 1px solid #ddd;">
+    <div class="alert alert-success small mb-3">
+        <strong>הוראות ביצוע:</strong>
+        <ol class="mb-0" style="padding-right: 18px;">
+            <li>בחרו את שלושת הנגדים שמדדתם בחלק א' (רשמו את ערכם המדוד כ-\(R_1, R_2, R_3\)).</li>
+            <li>חברו אותם בטור על המטריצה (רגל של נגד אחד פוגשת רגל של נגד שני באותה עמודה).</li>
+            <li>מדדו את ההתנגדות הכוללת \(R_T\) בין הדק הכניסה של \(R_1\) להדק המוצא של \(R_3\).</li>
+            <li><strong>סימולציית קצר:</strong> חברו חוט גישור קצר (Jumper) במקביל להדקים של \(R_3\) ומדדו שוב את \(R_T\).</li>
+            <li><strong>סימולציית נתק:</strong> נתקו לחלוטין רגל אחת של \(R_3\) מהמטריצה (השאירו אותה באוויר) ומדדו שוב את \(R_T\).</li>
+        </ol>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered text-center align-middle">
             <thead>
                 <tr style="background-color: #003366; color: white;">
-                    <th style="padding: 10px; border: 1px solid #ddd;">סעיף</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_1 [\Omega]$</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_2 [\Omega]$</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_3 [\Omega]$</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_T$ נמדד</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_T$ מחושב</th>
+                    <th style="width: 20%;">מצב המעגל</th>
+                    <th style="width: 15%;">\(R_1 [\Omega]\)</th>
+                    <th style="width: 15%;">\(R_2 [\Omega]\)</th>
+                    <th style="width: 15%;">\(R_3 [\Omega]\)</th>
+                    <th style="width: 18%;">\(R_T\) מחושב תיאורטית</th>
+                    <th style="width: 17%;">\(R_T\) נמדד בפועל</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td style="padding: 10px; border: 1px solid #ddd;">מצב רגיל</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd;"><strong>קצר</strong> על $R_3$</td><td style="padding: 10px; border: 1px solid #ddd;">-</td><td style="padding: 10px; border: 1px solid #ddd;">-</td><td style="padding: 10px; border: 1px solid #ddd;">0</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd;"><strong>נתק</strong> ב-$R_3$</td><td style="padding: 10px; border: 1px solid #ddd;">-</td><td style="padding: 10px; border: 1px solid #ddd;">-</td><td style="padding: 10px; border: 1px solid #ddd;">$\infty$</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
+                <tr>
+                    <td><strong>מצב רגיל (תקין)</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><strong>קצר על \(R_3\)</strong></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td class="bg-light">\(0\) (מקוצר)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><strong>נתק ב-\(R_3\)</strong></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td class="bg-light">\(\infty\) (מנותק)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -50,26 +83,60 @@
 <!-- /SECTION: SERIES CIRCUIT -->
 
 <!-- SECTION: PARALLEL CIRCUIT -->
-<div id="section-parallel-circuit" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">2. חיבור מקבילי (Parallel)</h3>
-    <p>חברו את אותם שלושת הנגדים במקביל. מדדו את ההתנגדות השקולה.</p>
+<div class="theory-card mt-4" id="section-parallel-circuit">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-align-justify"></i> 2. חיבור מקבילי (Parallel Connection)</h3>
+    <p>
+        בחיבור מקבילי, כל הנגדים מחוברים בין אותן שתי נקודות צומת, כך שהמתח על פניהם שווה.
+        התנגדות השקולה מחושבת לפי: \(\frac{1}{R_T} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}\).
+    </p>
     
-    <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; border: 1px solid #ddd;">
+    <div class="alert alert-success small mb-3">
+        <strong>הוראות ביצוע:</strong>
+        <ol class="mb-0" style="padding-right: 18px;">
+            <li>חברו את שלושת הנגדים במקביל על המטריצה (כל הרגליים הימניות באותה עמודה, וכל הרגליים השמאליות בעמודה אחרת).</li>
+            <li>מדדו את ההתנגדות השקולה \(R_T\) בין שני הצמתים המשותפים.</li>
+            <li><strong>סימולציית קצר:</strong> חברו חוט גישור במקביל ל-\(R_3\) (בדיוק בין שני הצמתים של המקביל) ומדדו שוב.</li>
+            <li><strong>סימולציית נתק:</strong> הוציאו לחלוטין את הנגד \(R_3\) מהמטריצה ומדדו את ההתנגדות השקולה של \(R_1\) ו-\(R_2\) הנותרים במקביל.</li>
+        </ol>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered text-center align-middle">
             <thead>
                 <tr style="background-color: #003366; color: white;">
-                    <th style="padding: 10px; border: 1px solid #ddd;">סעיף</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_1 [\Omega]$</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_2 [\Omega]$</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_3 [\Omega]$</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_T$ נמדד</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">$R_T$ מחושב</th>
+                    <th style="width: 20%;">מצב המעגל</th>
+                    <th style="width: 15%;">\(R_1 [\Omega]\)</th>
+                    <th style="width: 15%;">\(R_2 [\Omega]\)</th>
+                    <th style="width: 15%;">\(R_3 [\Omega]\)</th>
+                    <th style="width: 18%;">\(R_T\) מחושב תיאורטית</th>
+                    <th style="width: 17%;">\(R_T\) נמדד בפועל</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td style="padding: 10px; border: 1px solid #ddd;">מצב רגיל</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd;"><strong>קצר</strong> על $R_3$</td><td style="padding: 10px; border: 1px solid #ddd;">-</td><td style="padding: 10px; border: 1px solid #ddd;">-</td><td style="padding: 10px; border: 1px solid #ddd;">0</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd;"><strong>נתק</strong> ב-$R_3$</td><td style="padding: 10px; border: 1px solid #ddd;">-</td><td style="padding: 10px; border: 1px solid #ddd;">-</td><td style="padding: 10px; border: 1px solid #ddd;">$\infty$</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
+                <tr>
+                    <td><strong>מצב רגיל (תקין)</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><strong>קצר על \(R_3\)</strong></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td class="bg-light">\(0\) (מקוצר)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><strong>נתק ב-\(R_3\) (הוצאתו)</strong></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td class="bg-light">\(\infty\) (מנותק)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -77,30 +144,14 @@
 <!-- /SECTION: PARALLEL CIRCUIT -->
 
 <!-- SECTION: ANALYSIS -->
-<div id="section-series-parallel-analysis" style="background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 25px; margin: 20px 0;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">שאלות לניתוח</h3>
-    <ol style="padding-right: 20px;">
-        <li>מה קורה להתנגדות השקולה בטור כשמוסיפים נגד נוסף?</li>
-        <li>מה קורה להתנגדות השקולה במקביל כשמוסיפים נגד נוסף?</li>
-        <li>מדוע קצר על אחד הנגדים במקביל גורם להתנגדות השקולה להיות אפס?</li>
+<div class="theory-card mt-4 border-primary" id="section-series-parallel-analysis" style="border-right: 5px solid #3b82f6;">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-question-circle"></i> שאלות ניתוח וחשיבה לחלק ג'</h3>
+    <p class="small text-muted">ענו על שאלות אלו בדו"ח המסכם שלכם על בסיס המדידות שביצעתם:</p>
+    <ol style="padding-right: 20px; margin-bottom: 0;">
+        <li class="mb-2"><strong>השפעת הוספת נגדים:</strong> מה קורה להתנגדות השקולה כאשר מוסיפים נגדים נוספים בטור? ומה קורה כשמוסיפים נגדים נוספים במקביל? הסבירו מדוע.</li>
+        <li class="mb-2"><strong>ניתוח מצב קצר בטור:</strong> כיצד השפיע הקצר על הנגד \(R_3\) במעגל הטורי על ערכה של ההתנגדות השקולה? מדוע?</li>
+        <li class="mb-2"><strong>ניתוח מצב קצר במקביל:</strong> מדוע קצר חשמלי על נגד אחד בחיבור מקבילי גורם להתנגדות השקולה של כל המעגל לצנוח מיידית לאפס? מהי הסכנה בכך כאשר מחברים מקור מתח?</li>
+        <li><strong>ניתוח מצב נתק בטור לעומת מקביל:</strong> הסבירו את ההבדל בהשפעת נתק בנגד \(R_3\) על התנגדות המעגל השקולה בחיבור טורי לעומת חיבור מקבילי.</li>
     </ol>
 </div>
 <!-- /SECTION: ANALYSIS -->
-
-<!-- CHAPTER: FOOTER -->
-<div id="ch-inlab-c-footer" style="margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center;">
-    <p style="font-size: 1.25rem; font-weight: bold; color: #005696; margin: 0;">
-        מזל טוב! סיימתם את הניסוי הראשון שלכם במעבדה. אל תשכחו לנקות את עמדת העבודה.
-    </p>
-</div>
-<!-- /CHAPTER: FOOTER -->
-
-    </div>
-</div>
-
-        </div>
-    </div>
-</div>
-
-</body>
-</html>

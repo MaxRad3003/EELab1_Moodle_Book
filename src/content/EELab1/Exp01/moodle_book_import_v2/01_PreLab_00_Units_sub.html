@@ -1,272 +1,267 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>01 PreLab 00 Units sub</title>
-</head>
-<body>
+<!-- EXP01 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 > הכנה > יחידות מדידה</div>
+<!-- /EXP01 BREADCRUMB -->
 
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>יחידות מדידה ומשמעותן</title>
-</head>
-<body>
-<div style="font-family: Arial, sans-serif; line-height: 1.65; color: #333; direction: rtl; text-align: right; max-width: 980px; margin: 0 auto; padding: 20px;">
+<!-- NAVIGATION: BACK TO INDEX -->
+<div style="margin-bottom: 1.5rem;">
+    <a href="01_PreLab.html" class="btn btn-outline-danger btn-sm" style="padding: 6px 12px; font-size: 14px;">
+        <span>⬅️</span> חזרה לתוכן העניינים
+    </a>
+</div>
+<!-- /NAVIGATION: BACK TO INDEX -->
 
-    <div style="margin-bottom: 20px;">
-        <a href="01_PreLab.html" style="text-decoration: none; color: #005696; font-weight: bold; display: inline-block; background: #f8f9fa; padding: 8px 15px; border-radius: 5px; border: 1px solid #dee2e6;">חזרה לתוכן העניינים</a>
-    </div>
+<!-- CHAPTER: HEADER -->
+<div id="ch-units-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">יחידות מדידה ומשמעותן במעבדה</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
+</div>
+<!-- /CHAPTER: HEADER -->
 
-    <div style="text-align: center; margin-bottom: 28px;">
-        <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.8rem; font-weight: bold; color: #005696; margin: 0 0 12px 0;">יחידות מדידה ומשמעותן</h3>
-        <div style="margin-left: auto; margin-right: auto; background-color: #005696; height: 3px; width: 70px; border-radius: 10px;"></div>
-        <p style="color: #52616b; margin-top: 14px;">לפני שמודדים מתח, זרם או התנגדות, צריך להבין מה היחידה אומרת ואיך בודקים שהתוצאה הגיונית.</p>
-    </div>
+<!-- SECTION: INTRO -->
+<div class="info-box" style="border-right: 5px solid #3b82f6;">
+    <h4 class="fw-bold text-primary mt-0"><i class="fas fa-info-circle"></i> מדוע יחידות המדידה קריטיות?</h4>
+    <p class="mb-0">
+        במדע ובקרה הנדסית, מספר ללא יחידה הוא חסר משמעות. הערך "5" עשוי לייצג מתח של \(5V\), זרם של \(5A\), התנגדות של \(5\Omega\) או זמן של \(5s\). שימוש נכון ביחידות ובתחיליות (מילי, מיקרו, קילו, מגה) מונע שריפת רכיבים ומבטיח כי תוצאות המדידה מובנות ומחושבות כהלכה.
+    </p>
+</div>
+<!-- /SECTION: INTRO -->
 
-    <div style="background-color: #eef6fb; border: 1px solid #b8daff; border-right: 5px solid #005696; padding: 18px; border-radius: 8px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">מהי יחידת מדידה?</h4>
-        <p style="margin-bottom: 0;">יחידת מדידה היא שפה מוסכמת לתיאור גודל פיזיקלי. המספר לבדו אינו מספיק. לדוגמה, הערך 5 יכול להיות \(5V\), \(5A\), \(5\Omega\) או \(5s\). היחידה קובעת את המשמעות הפיזיקלית של המספר.</p>
-    </div>
-
-    <div style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">יחידות SI בסיסיות</h4>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95rem;">
+<!-- SECTION: SI UNITS -->
+<div class="theory-card mt-4">
+    <h4 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-ruler-combined"></i> 1. יחידות SI בסיסיות</h4>
+    <p class="text-muted small">במעבדה אנו מסתמכים על מערכת היחידות הבינלאומית (SI). להלן היחידות הבסיסיות הרלוונטיות למעגלים חשמליים:</p>
+    
+    <div class="table-responsive">
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">גודל פיזיקלי</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">סימון</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">יחידה</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">משמעות</th>
+                    <th>גודל פיזיקלי</th>
+                    <th>סימון הגודל</th>
+                    <th>שם היחידה</th>
+                    <th>סימון היחידה</th>
+                    <th>משמעות הנדסית</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">אורך</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(x,l\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">מטר, m</td><td style="border: 1px solid #d7dde4; padding: 9px;">מרחק או גודל מרחבי.</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">מסה</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(m\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">קילוגרם, kg</td><td style="border: 1px solid #d7dde4; padding: 9px;">כמות חומר והתנגדות לשינוי תנועה.</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">זמן</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(t,T\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">שנייה, s</td><td style="border: 1px solid #d7dde4; padding: 9px;">משך אירוע או זמן מחזור.</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">זרם חשמלי</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(I\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">אמפר, A</td><td style="border: 1px solid #d7dde4; padding: 9px;">קצב זרימת מטען חשמלי.</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">טמפרטורה</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(T\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">קלווין, K</td><td style="border: 1px solid #d7dde4; padding: 9px;">מדד לאנרגיה תרמית.</td></tr>
+                <tr><td>זמן</td><td>\(t, T\)</td><td>שנייה</td><td>\(s\)</td><td>משך אירוע או זמן מחזור של אות מחזורי.</td></tr>
+                <tr><td>זרם חשמלי</td><td>\(I\)</td><td>אמפר</td><td>\(A\)</td><td>קצב זרימת מטען חשמלי במעגל (\(1A = 1 C/s\)).</td></tr>
+                <tr><td>אורך</td><td>\(l, x\)</td><td>מטר</td><td>\(m\)</td><td>מרחק, אורך מוליכים, מרחק פיזי בין לוחות קבל.</td></tr>
+                <tr><td>מסה</td><td>\(m\)</td><td>קילוגרם</td><td>\(kg\)</td><td>כמות חומר והתמד הרכיב החשמלי.</td></tr>
             </tbody>
         </table>
-    </div>
-
-    <div style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">יחידות נגזרות ויחידות חשמליות</h4>
-        <p>יחידה נגזרת בנויה מיחידות בסיסיות. לדוגמה, מהירות נמדדת ב-\(m/s\), כוח בניוטון, והספק בוואט.</p>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95rem;">
-            <thead>
-                <tr>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">גודל</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">יחידה</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">קשר שימושי</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">מטען</td><td style="border: 1px solid #d7dde4; padding: 9px;">קולון, C</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(Q = I \cdot t\), ולכן \(C=A\cdot s\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">מתח</td><td style="border: 1px solid #d7dde4; padding: 9px;">וולט, V</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(V=\frac{J}{C}\), אנרגיה ליחידת מטען.</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">התנגדות</td><td style="border: 1px solid #d7dde4; padding: 9px;">אוהם, \(\Omega\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(\Omega=\frac{V}{A}\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">הספק</td><td style="border: 1px solid #d7dde4; padding: 9px;">ואט, W</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(W=V\cdot A=\frac{J}{s}\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">תדר</td><td style="border: 1px solid #d7dde4; padding: 9px;">הרץ, Hz</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(Hz=\frac{1}{s}\), כלומר מחזורים בשנייה.</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">תחיליות SI נפוצות במעבדה</h4>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95rem;">
-            <thead>
-                <tr>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">תחילית</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">סימון</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">ערך</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">דוגמה</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">nano</td><td style="border: 1px solid #d7dde4; padding: 9px;">n</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(10^{-9}\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(100nF=100\cdot10^{-9}F\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">micro</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(\mu\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(10^{-6}\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(10\mu F=10\cdot10^{-6}F\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">milli</td><td style="border: 1px solid #d7dde4; padding: 9px;">m</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(10^{-3}\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(25mA=0.025A\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">kilo</td><td style="border: 1px solid #d7dde4; padding: 9px;">k</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(10^3\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(2.2k\Omega=2200\Omega\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">mega</td><td style="border: 1px solid #d7dde4; padding: 9px;">M</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(10^6\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(1M\Omega=1,000,000\Omega\)</td></tr>
-            </tbody>
-        </table>
-        <div style="background: #fff8e5; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 14px; margin-top: 14px;">
-            <strong>שימו לב:</strong> \(m\) קטנה היא milli, אבל \(M\) גדולה היא mega. זו טעות נפוצה מאוד.
-        </div>
-    </div>
-
-    <div style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">פעולות מתמטיות עם יחידות</h4>
-        <p>במעבדה לא מחשבים רק מספרים. מחשבים מספרים עם יחידות. היחידות צריכות להתנהג נכון לאורך כל החישוב.</p>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95rem;">
-            <thead>
-                <tr>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">פעולה</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">כלל</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">דוגמה</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">חיבור וחיסור</td><td style="border: 1px solid #d7dde4; padding: 9px;">מותר רק לאותה יחידה.</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(2V+3V=5V\), אבל \(2V+3A\) אינו חוקי.</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">כפל</td><td style="border: 1px solid #d7dde4; padding: 9px;">היחידות מוכפלות.</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(P=V\cdot I\Rightarrow V\cdot A=W\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">חילוק</td><td style="border: 1px solid #d7dde4; padding: 9px;">היחידות מתחלקות.</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(R=\frac{V}{I}\Rightarrow \frac{V}{A}=\Omega\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">חזקה</td><td style="border: 1px solid #d7dde4; padding: 9px;">גם היחידה עולה בחזקה.</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(V^2\) הוא וולט בריבוע, לא וולט רגיל.</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div style="background: #eefaf1; border: 1px solid #b7e4c7; border-right: 5px solid #28a745; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #1f7a3a; margin-top: 0;">איך בודקים שלא טעינו והגענו ליחידה הרצויה?</h4>
-        <ol style="margin-bottom: 0; padding-right: 22px;">
-            <li style="margin-bottom: 8px;">כתבו את הנוסחה.</li>
-            <li style="margin-bottom: 8px;">הציבו מספרים יחד עם יחידות.</li>
-            <li style="margin-bottom: 8px;">פשטו גם את היחידות, לא רק את המספרים.</li>
-            <li>בדקו שהיחידה הסופית מתאימה לגודל שחיפשתם.</li>
-        </ol>
-    </div>
-
-    <div style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">דוגמה: בדיקת יחידות בחוק אוהם</h4>
-        <p>רוצים לחשב זרם:</p>
-        <div style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px; color: #005696; font-size: 1.1rem;">\(I=\frac{V}{R}\)</div>
-        <p>נציב \(V=12V\), \(R=6\Omega\):</p>
-        <div style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px; color: #005696; font-size: 1.1rem;">\(I=\frac{12V}{6\Omega}=2\frac{V}{\Omega}\)</div>
-        <p>מאחר ש-\(\Omega=\frac{V}{A}\), נקבל:</p>
-        <div style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px; color: #005696; font-size: 1.1rem;">\(\frac{V}{\Omega}=\frac{V}{V/A}=A\)</div>
-        <p style="margin-bottom: 0;">קיבלנו אמפר, ולכן היחידה מתאימה לזרם. התוצאה: \(I=2A\).</p>
-    </div>
-
-    <div style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">דוגמאות להמחשת הנושא</h4>
-        <p>בדוגמאות הבאות נחשב גם את המספר וגם את היחידה. זו הדרך הטובה ביותר לגלות טעויות לפני שמגישים תשובה.</p>
-
-        <div style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0;">
-            <h5 style="color: #005696; margin: 0 0 8px 0;">דוגמה 1: חישוב מתח מנגד וזרם</h5>
-            <p>נתון נגד \(R=2.2k\Omega\) וזרם \(I=5mA\). מהו המתח על הנגד?</p>
-            <p>קודם ממירים ליחידות בסיס:</p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(R=2200\Omega,\quad I=0.005A\)</div>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696; margin-top: 8px;">\(V=I\cdot R=0.005A\cdot2200\Omega=11V\)</div>
-            <p style="margin-bottom: 0;"><strong>בדיקת יחידות:</strong> \(A\cdot\Omega=A\cdot\frac{V}{A}=V\). קיבלנו וולט, לכן היחידה נכונה.</p>
-        </div>
-
-        <div style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0;">
-            <h5 style="color: #005696; margin: 0 0 8px 0;">דוגמה 2: חישוב הספק</h5>
-            <p>נתון \(V=12V\) ו-\(I=250mA\). מהו ההספק?</p>
-            <p>ממירים את הזרם:</p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(250mA=0.25A\)</div>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696; margin-top: 8px;">\(P=V\cdot I=12V\cdot0.25A=3W\)</div>
-            <p style="margin-bottom: 0;"><strong>טעות נפוצה:</strong> אם מציבים \(250\) במקום \(0.25\), מקבלים \(3000W\), תוצאה לא הגיונית למעגל מעבדה קטן.</p>
-        </div>
-
-        <div style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0;">
-            <h5 style="color: #005696; margin: 0 0 8px 0;">דוגמה 3: חישוב תדר מזמן מחזור</h5>
-            <p>באוסצילוסקופ נמדד זמן מחזור \(T=2ms\). מהו התדר?</p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(2ms=0.002s\)</div>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696; margin-top: 8px;">\(f=\frac{1}{T}=\frac{1}{0.002s}=500Hz\)</div>
-            <p style="margin-bottom: 0;"><strong>בדיקת יחידות:</strong> \(\frac{1}{s}=Hz\). לכן היחידה מתאימה לתדר.</p>
-        </div>
-
-        <div style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0;">
-            <h5 style="color: #005696; margin: 0 0 8px 0;">דוגמה 4: קיבול ותדר תהודה</h5>
-            <p>בנוסחאות של מעגלי \(RC\) או \(RLC\), אסור להציב \(nF\) כאילו הוא \(F\). לדוגמה:</p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(100nF=100\cdot10^{-9}F=0.0000001F\)</div>
-            <p style="margin-bottom: 0;">אם שוכחים את ההמרה, תדרים וזמני טעינה יכולים לצאת שגויים פי מיליונים.</p>
-        </div>
-
-        <div style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0;">
-            <h5 style="color: #005696; margin: 0 0 8px 0;">דוגמה 5: מחלק מתח - חישוב מתח, זרם והספק עם יחידות</h5>
-            <p>נתון מחלק מתח עם מקור \(V_{in}=12V\), נגד עליון \(R_1=1k\Omega\), ונגד תחתון \(R_2=2k\Omega\). הנגדים מחוברים בטור, ומתח המוצא נמדד על \(R_2\).</p>
-
-            <div style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px; margin: 10px 0; text-align: center;">
-                <div style="display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;">
-                    <span style="background: #005696; color: #ffffff; padding: 8px 12px; border-radius: 6px;">\(12V\)</span>
-                    <span style="color: #52616b;">--</span>
-                    <span style="background: #eef3f7; border: 1px solid #cbd5df; padding: 8px 12px; border-radius: 6px;">\(R_1=1k\Omega\)</span>
-                    <span style="color: #52616b;">--</span>
-                    <span style="background: #eef3f7; border: 1px solid #cbd5df; padding: 8px 12px; border-radius: 6px;">\(R_2=2k\Omega\)</span>
-                    <span style="color: #52616b;">--</span>
-                    <span style="background: #444; color: #ffffff; padding: 8px 12px; border-radius: 6px;">GND</span>
-                </div>
-            </div>
-
-            <p><strong>שלב 1: המרת התנגדויות ליחידות בסיס</strong></p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(R_1=1000\Omega,\quad R_2=2000\Omega\)</div>
-
-            <p><strong>שלב 2: התנגדות שקולה בטור</strong></p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(R_T=R_1+R_2=1000\Omega+2000\Omega=3000\Omega\)</div>
-            <p style="margin-bottom: 8px;"><strong>בדיקת יחידות:</strong> \(\Omega+\Omega=\Omega\), לכן מותר לחבר.</p>
-
-            <p><strong>שלב 3: זרם המעגל</strong></p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(I=\frac{V_{in}}{R_T}=\frac{12V}{3000\Omega}=0.004A=4mA\)</div>
-            <p style="margin-bottom: 8px;"><strong>בדיקת יחידות:</strong> \(\frac{V}{\Omega}=A\). קיבלנו אמפר, לכן היחידה מתאימה לזרם.</p>
-
-            <p><strong>שלב 4: מתח על כל נגד</strong></p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(V_{R1}=I\cdot R_1=0.004A\cdot1000\Omega=4V\)</div>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696; margin-top: 8px;">\(V_{out}=V_{R2}=I\cdot R_2=0.004A\cdot2000\Omega=8V\)</div>
-            <p style="margin-bottom: 8px;"><strong>בדיקת סבירות:</strong> \(V_{R1}+V_{R2}=4V+8V=12V\), וזה שווה למתח המקור.</p>
-
-            <p><strong>שלב 5: בדיקה בעזרת נוסחת מחלק מתח</strong></p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(V_{out}=V_{in}\cdot\frac{R_2}{R_1+R_2}=12V\cdot\frac{2000\Omega}{3000\Omega}=8V\)</div>
-            <p style="margin-bottom: 8px;"><strong>בדיקת יחידות:</strong> \(\frac{\Omega}{\Omega}\) הוא יחס ללא יחידות, ולכן \(V\cdot1=V\).</p>
-
-            <p><strong>שלב 6: הספק על כל נגד</strong></p>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696;">\(P_{R1}=I^2R_1=(0.004A)^2\cdot1000\Omega=0.016W=16mW\)</div>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696; margin-top: 8px;">\(P_{R2}=I^2R_2=(0.004A)^2\cdot2000\Omega=0.032W=32mW\)</div>
-            <div style="direction: ltr; text-align: center; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 10px; color: #005696; margin-top: 8px;">\(P_{total}=V_{in}\cdot I=12V\cdot0.004A=0.048W=48mW\)</div>
-            <p style="margin-bottom: 0;"><strong>בדיקת סבירות:</strong> \(P_{R1}+P_{R2}=16mW+32mW=48mW\), וזה שווה להספק הכולל מהמקור.</p>
-        </div>
-
-        <div style="background: #fff8e5; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 14px; margin-top: 14px;">
-            <strong>כלל אצבע:</strong> אם התוצאה גדולה או קטנה בצורה מוזרה, בדקו קודם תחיליות: \(m\), \(\mu\), \(n\), \(k\), \(M\).
-        </div>
-    </div>
-
-    <div style="background: #fff1f1; border: 1px solid #f5c6cb; border-right: 5px solid #d9534f; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #b02a2e; margin-top: 0;">טעויות נפוצות במעבדה</h4>
-        <ul style="padding-right: 22px; margin-bottom: 0;">
-            <li style="margin-bottom: 8px;">שימוש ב-\(mA\) כאילו הוא \(A\).</li>
-            <li style="margin-bottom: 8px;">שימוש ב-\(k\Omega\) כאילו הוא \(\Omega\).</li>
-            <li style="margin-bottom: 8px;">חישוב תדר עם \(T\) במילישניות בלי להמיר לשניות.</li>
-            <li style="margin-bottom: 8px;">שכחת יחידות בריבוע בנוסחה כמו \(P=\frac{V^2}{R}\).</li>
-            <li>בלבול בין \(m\) milli לבין \(M\) mega.</li>
-        </ul>
-    </div>
-
-    <div style="background: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">בדיקת מוכנות קצרה</h4>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95rem;">
-            <thead>
-                <tr>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">שאלה</th>
-                    <th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;">תשובה</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">המר \(2.2k\Omega\) ל-\(\Omega\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(2200\Omega\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">המר \(25mA\) ל-\(A\)</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(0.025A\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">אם \(T=0.5ms\), מהו \(f\)?</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(T=0.0005s\), ולכן \(f=2000Hz\)</td></tr>
-                <tr><td style="border: 1px solid #d7dde4; padding: 9px;">איזו יחידה צריכה לצאת מ-\(\frac{V}{A}\)?</td><td style="border: 1px solid #d7dde4; padding: 9px;">\(\Omega\)</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div style="display: flex; justify-content: space-between; gap: 12px; margin-top: 25px; padding-top: 20px; border-top: 1px solid #dee2e6; flex-wrap: wrap;">
-        <a href="01_PreLab_00_Safety_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">הקודם: בטיחות ונהלים</a>
-        <a href="01_PreLab_01_ColorCode_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">הבא: נגדים וקוד צבעים</a>
     </div>
 </div>
-</body>
-</html>
+<!-- /SECTION: SI UNITS -->
 
+<!-- SECTION: DERIVED UNITS -->
+<div class="theory-card mt-4">
+    <h4 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-calculator"></i> 2. יחידות נגזרות בעלות שם ייחודי</h4>
+    <p class="text-muted small">יחידות אלו נגזרות מהיחידות הבסיסיות באמצעות קשרים מתמטיים ופיזיקליים:</p>
+    
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>גודל פיזיקלי</th>
+                    <th>יחידה</th>
+                    <th>סימון</th>
+                    <th>קשר מתמטי / יחידות בסיס</th>
+                    <th>הגדרה פיזיקלית</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>מתח חשמלי / פוטנציאל</td><td>וולט</td><td>\(V\)</td><td>\(V = \frac{J}{C} = \frac{W}{A}\)</td><td>הפרש האנרגיה הפוטנציאלית החשמלית למטען בודד.</td></tr>
+                <tr><td>התנגדות חשמלית</td><td>אוהם</td><td>\(\Omega\)</td><td>\(\Omega = \frac{V}{A}\)</td><td>מידת ההתנגדות של הרכיב למעבר זרם דרכו (חוק אוהם).</td></tr>
+                <tr><td>הספק חשמלי</td><td>וואט</td><td>\(W\)</td><td>\(W = V \cdot A = \frac{J}{s}\)</td><td>קצב המרת האנרגיה החשמלית לחום או עבודה בשנייה.</td></tr>
+                <tr><td>קיבול חשמלי</td><td>פאראד</td><td>\(F\)</td><td>\(F = \frac{C}{V} = \frac{A \cdot s}{V}\)</td><td>יכולת אגירת מטען חשמלי ביחס למתח המופעל עליו.</td></tr>
+                <tr><td>השראות עצמית</td><td>הנרי</td><td>\(H\)</td><td>\(H = \frac{V \cdot s}{A}\)</td><td>יכולת אגירת אנרגיה בשדה מגנטי כתוצאה משינוי בזרם.</td></tr>
+                <tr><td>תדר</td><td>הרץ</td><td>\(Hz\)</td><td>\(Hz = \frac{1}{s}\)</td><td>מספר מחזורים מלאים של גל בשנייה אחת.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /SECTION: DERIVED UNITS -->
 
+<!-- SECTION: PREFIXES -->
+<div class="theory-card mt-4">
+    <h4 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-sliders-h"></i> 3. תחיליות SI נפוצות והמרתן במעבדה</h4>
+    <p class="text-muted small">במעבדה אנו נפגשים בערכים קטנים מאוד (כמו זרמים במילי-אמפר או קבלים בפיקו-פאראד) וערכים גדולים מאוד (כמו התנגדויות במגה-אוהם). חובה להכיר את המכפילים הללו:</p>
+    
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>תחילית</th>
+                    <th>סימון</th>
+                    <th>ערך מספרי</th>
+                    <th>סימון מתמטי</th>
+                    <th>דוגמה מעשית מהמעבדה</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>mega</td><td>\(M\)</td><td>\(1,000,000\)</td><td>\(10^6\)</td><td>נגד של \(1M\Omega = 1 \cdot 10^6 \Omega = 1,000,000 \Omega\)</td></tr>
+                <tr><td>kilo</td><td>\(k\)</td><td>\(1,000\)</td><td>\(10^3\)</td><td>נגד של \(2.2k\Omega = 2.2 \cdot 10^3 \Omega = 2200 \Omega\)</td></tr>
+                <tr><td>milli</td><td>\(m\)</td><td>\(0.001\)</td><td>\(10^{-3}\)</td><td>זרם של \(25mA = 25 \cdot 10^{-3} A = 0.025 A\)</td></tr>
+                <tr><td>micro</td><td>\(\mu\)</td><td>\(0.000,001\)</td><td>\(10^{-6}\)</td><td>קבל של \(10\mu F = 10 \cdot 10^{-6} F = 0.000,01 F\)</td></tr>
+                <tr><td>nano</td><td>\(n\)</td><td>\(0.000,000,001\)</td><td>\(10^{-9}\)</td><td>קבל של \(100nF = 100 \cdot 10^{-9} F = 0.000,000,1 F\)</td></tr>
+                <tr><td>pico</td><td>\(p\)</td><td>\(0.000,000,000,001\)</td><td>\(10^{-12}\)</td><td>קבל של \(220pF = 220 \cdot 10^{-12} F\)</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="alert alert-warning mt-3">
+        <i class="fas fa-exclamation-circle"></i> <strong>אזהרה קריטית במיוחד:</strong> בלבול בין \(m\) (קטנה, המייצגת milli) לבין \(M\) (גדולה, המייצגת mega) היא הטעות הנפוצה ביותר במעבדה. שים לב כי היחס ביניהם הוא <strong>מיליארד (\(10^9\))!</strong>
+    </div>
+</div>
+<!-- /SECTION: PREFIXES -->
+
+<!-- SECTION: MATHEMATICAL OPERATIONS -->
+<div class="theory-card mt-4">
+    <h4 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-divide"></i> 4. פעולות מתמטיות עם יחידות והמרה</h4>
+    <p>חישובים הנדסיים מבוצעים תמיד על מספרים יחד עם היחידות שלהם. להלן כללי הזהב:</p>
+    
+    <div class="table-responsive mt-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>פעולה מתמטית</th>
+                    <th>כלל הנדסי</th>
+                    <th>דוגמה מהמעבדה</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>חיבור וחיסור</strong></td>
+                    <td>מותר אך ורק לגדלים בעלי <strong>אותה יחידה בדיוק</strong>.</td>
+                    <td>\(5V + 2V = 7V\) (חוקי), אך \(5V + 2A\) אינו חוקי פיזיקלית!</td>
+                </tr>
+                <tr>
+                    <td><strong>כפל וחילוק</strong></td>
+                    <td>היחידות מוכפלות או מתחלקות בהתאם לפעולה המתמטית.</td>
+                    <td>\(R = \frac{V}{I} \Rightarrow \frac{10V}{2A} = 5\frac{V}{A} = 5\Omega\).</td>
+                </tr>
+                <tr>
+                    <td><strong>חזקות</strong></td>
+                    <td>החזקה מופעלת על הערך המספרי ועל היחידה כאחד.</td>
+                    <td>\(P = I^2R \Rightarrow (2mA)^2 \cdot 1k\Omega = (0.002A)^2 \cdot 1000\Omega = 4 \cdot 10^{-6} A^2 \cdot 1000\Omega = 0.004W = 4mW\).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /SECTION: MATHEMATICAL OPERATIONS -->
+
+<!-- SECTION: ERROR CHECKING GUIDE -->
+<div class="alert alert-success mt-4">
+    <h4 class="alert-heading fw-bold"><i class="fas fa-check-circle"></i> כיצד לוודא תאימות יחידות (Dimensional Analysis)?</h4>
+    <p class="mb-0 small">לפני שאתם מציבים ערכים בנוסחה חשמלית, בצעו את שלושת השלבים הבאים:</p>
+    <ol class="mt-2 mb-0 small" style="padding-right: 20px;">
+        <li><strong>המרה ליחידות בסיס:</strong> המירו את כל התחיליות (\(mA \to A\), \(k\Omega \to \Omega\), \(nF \to F\)) ליחידות היסוד לפני ההצבה.</li>
+        <li><strong>ביצוע החישוב:</strong> פשטו בנפרד את המספרים ובנפרד את היחידות.</li>
+        <li><strong>אימות סבירות:</strong> בדקו אם היחידה שנתקבלה היא אכן היחידה הצפויה (לדוגמה, חישוב זרם חייב להסתיים ב-\(A\)).</li>
+    </ol>
+</div>
+<!-- /SECTION: ERROR CHECKING GUIDE -->
+
+<!-- SECTION: REAL EXAMPLES -->
+<div class="theory-card mt-4">
+    <h4 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-book-open"></i> 5. דוגמאות חישוב מפורטות</h4>
+    
+    <div class="bg-light p-3 border rounded mb-3">
+        <h5 class="fw-bold text-primary mb-2">דוגמה 1: חישוב מתח על נגד</h5>
+        <p class="mb-2">נתון נגד \(R = 2.2k\Omega\) וזרם דרכו \(I = 5mA\). חשבו את מפל המתח על הנגד.</p>
+        <p class="mb-2"><strong>שלב א':</strong> המרה ליחידות בסיס:</p>
+        <div class="text-center font-monospace bg-white p-2 border rounded mb-2" dir="ltr">
+            \(R = 2.2 \cdot 10^3 \Omega = 2200 \Omega\)
+            <br>
+            \(I = 5 \cdot 10^{-3} A = 0.005 A\)
+        </div>
+        <p class="mb-2"><strong>שלב ב':</strong> חישוב מתח לפי חוק אוהם:</p>
+        <div class="text-center font-monospace bg-white p-2 border rounded" dir="ltr">
+            \(V = I \cdot R = 0.005 A \cdot 2200 \Omega = 11 V\)
+        </div>
+        <p class="mt-2 mb-0 small text-muted"><strong>בדיקת יחידות:</strong> \(A \cdot \Omega = A \cdot \frac{V}{A} = V\) (וולט, תקין).</p>
+    </div>
+
+    <div class="bg-light p-3 border rounded mb-3">
+        <h5 class="fw-bold text-primary mb-2">דוגמה 2: חישוב תדר תנודה מזמן מחזור</h5>
+        <p class="mb-2">נמדד זמן מחזור של גל סינוס באוסצילוסקופ: \(T = 2ms\). חשבו את תדר הגל.</p>
+        <p class="mb-2"><strong>שלב א':</strong> המרה ליחידות בסיס:</p>
+        <div class="text-center font-monospace bg-white p-2 border rounded mb-2" dir="ltr">
+            \(T = 2 \cdot 10^{-3} s = 0.002 s\)
+        </div>
+        <p class="mb-2"><strong>שלב ב':</strong> חישוב התדר:</p>
+        <div class="text-center font-monospace bg-white p-2 border rounded" dir="ltr">
+            \(f = \frac{1}{T} = \frac{1}{0.002 s} = 500 Hz\)
+        </div>
+        <p class="mt-2 mb-0 small text-muted"><strong>בדיקת יחידות:</strong> \(\frac{1}{s} = Hz\) (הרץ, תקין).</p>
+    </div>
+    
+    <div class="bg-light p-3 border rounded">
+        <h5 class="fw-bold text-primary mb-2">דוגמה 3: חישוב מתחי מוצא והספקים במעגל מחלק מתח טורי</h5>
+        <p class="mb-2">נתון מעגל מחלק מתח טורי עם מקור מתח \(V_{in} = 12V\) ושני נגדים: \(R_1 = 1k\Omega\), \(R_2 = 2k\Omega\). חשבו את מתח המוצא על פני \(R_2\), את הזרם במעגל ואת הספק המקור.</p>
+        
+        <p class="mb-2"><strong>שלב א': המרה ליחידות יסוד:</strong></p>
+        <div class="text-center font-monospace bg-white p-2 border rounded mb-2" dir="ltr">
+            \(R_1 = 1000 \Omega, \quad R_2 = 2000 \Omega\)
+        </div>
+        
+        <p class="mb-2"><strong>שלב ב': התנגדות שקולה בטור:</strong></p>
+        <div class="text-center font-monospace bg-white p-2 border rounded mb-2" dir="ltr">
+            \(R_T = R_1 + R_2 = 1000\Omega + 2000\Omega = 3000\Omega = 3k\Omega\)
+        </div>
+        
+        <p class="mb-2"><strong>שלב ג': חישוב הזרם במעגל:</strong></p>
+        <div class="text-center font-monospace bg-white p-2 border rounded mb-2" dir="ltr">
+            \(I = \frac{V_{in}}{R_T} = \frac{12V}{3000\Omega} = 0.004 A = 4 mA\)
+        </div>
+        
+        <p class="mb-2"><strong>שלב ד': חישוב מתח המוצא:</strong></p>
+        <div class="text-center font-monospace bg-white p-2 border rounded mb-2" dir="ltr">
+            \(V_{out} = V_{R2} = I \cdot R_2 = 0.004 A \cdot 2000\Omega = 8V\)
+        </div>
+        
+        <p class="mb-2"><strong>שלב ה': חישוב הספק המקור:</strong></p>
+        <div class="text-center font-monospace bg-white p-2 border rounded" dir="ltr">
+            \(P_{source} = V_{in} \cdot I = 12V \cdot 0.004A = 0.048W = 48mW\)
         </div>
     </div>
 </div>
+<!-- /SECTION: REAL EXAMPLES -->
 
-</body>
-</html>
+<!-- SECTION: READINESS QUIZ -->
+<div class="theory-card mt-4">
+    <h4 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-question-circle"></i> 6. בחנו את עצמכם: בדיקת מוכנות קצרה</h4>
+    <div class="table-responsive mt-2">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="bg-light">
+                    <th>שאלה</th>
+                    <th>תשובה והסבר</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>כיצד מייצגים את הערך \(150\mu A\) ביחידות של אמפר?</td>
+                    <td>\(150 \cdot 10^{-6} A = 0.00015 A\) (או \(0.15mA\)).</td>
+                </tr>
+                <tr>
+                    <td>מהי יחידת ההתנגדות השקולה של שני נגדים של \(10k\Omega\) המחוברים במקביל?</td>
+                    <td>\(5k\Omega = 5000\Omega\).</td>
+                </tr>
+                <tr>
+                    <td>מדוע שגיאה יחסית מסומנת באחוזים?</td>
+                    <td>השגיאה היחסית מתארת את היחס בין השגיאה המוחלטת לערך הנומינלי, ונוח להציגה באחוזים (\(\%\)) לקבלת פרופורציה.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /SECTION: READINESS QUIZ -->
+
+<!-- NAVIGATION: BOOK PREV NEXT -->
+<div id="book-nav-units" class="d-flex justify-content-between mt-4 pt-3 border-top">
+    <a href="01_PreLab_00_Safety_sub.html" class="btn btn-secondary">→ הקודם: בטיחות ונהלים</a>
+    <a href="01_PreLab_01_ColorCode_sub.html" class="btn btn-primary">הבא: נגדים וקוד צבעים ←</a>
+</div>
+<!-- /NAVIGATION: BOOK PREV NEXT -->

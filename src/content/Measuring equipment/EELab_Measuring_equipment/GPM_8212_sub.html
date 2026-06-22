@@ -1,0 +1,223 @@
+<!-- BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 14px; border-radius: 6px;">
+    <a href="Index.html" style="text-decoration: none; color: inherit; font-weight: bold;">← חזרה לאינדקס המכשירים</a>
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- HEADER -->
+<div class="text-center mb-4">
+    <h1 class="display-5 fw-bold text-success" style="margin-top: 1rem; margin-bottom: 0.5rem; color: #047857 !important;">מד הספק דיגיטלי GPM-8212</h1>
+    <div class="mx-auto bg-success" style="height: 3px; width: 80px; border-radius: 10px; background-color: #047857 !important;"></div>
+</div>
+<!-- /HEADER -->
+
+<!-- INTRODUCTION -->
+<div class="info-box border-success" style="border-right-color: #047857 !important;">
+    <h3 class="sub-title text-success" style="margin-top: 0; color: #047857 !important;"><i class="fas fa-bolt"></i> מדידת הספק במעגלי זרם חילופין (AC)</h3>
+    <p class="lead">
+        מד ההספק הדיגיטלי <strong>GPM-8212</strong> מבית GW Instek הוא מכשיר מפתח לניתוח מעגלים חד-פאזיים בזרם חילופין. בניגוד למעגלי זרם ישר (\(DC\)) שבהם ההספק הוא פשוט מכפלת המתח בזרם (\(P=V \cdot I\)), במעגלי חילופין קיים הפרש פאזה בין המתח לזרם, ולכן נדרש מכשיר ייעודי המסוגל לבצע אינטגרציה בזמן אמת של המכפלה הרגעית של המתח והזרם.
+    </p>
+    <p>
+        המכשיר מספק מדידה בו-זמנית של ארבעה פרמטרים עיקריים: <strong>מתח יעיל (V)</strong>, <strong>זרם יעיל (A)</strong>, <strong>הספק פעיל (Watt)</strong> ו<strong>גורם הספק (Power Factor - PF)</strong>.
+    </p>
+    <div class="row my-4 align-items-center">
+        <div class="col-md-7">
+            <p>
+                באיור משמאל מוצג מד ההספק הדיגיטלי GPM-8212.
+                המכשיר כולל מספר חלונות תצוגה דיגיטליים המאפשרים לראות את הערכים השונים בו-זמנית (מתח, זרם, הספק וגורם הספק), וכן מקשים לקביעת טווח ידני או אוטומטי.
+            </p>
+        </div>
+        <div class="col-md-5 text-center">
+            <div class="card p-2 bg-light shadow-sm">
+                <img src="Figure/gpm8212_main.png" alt="GPM-8212 Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
+                <p class="mb-0 mt-1 small text-muted">מד ההספק הדיגיטלי GPM-8212</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /INTRODUCTION -->
+
+<!-- THEORETICAL PILLARS of AC POWER -->
+<div class="theory-card my-4 border-success">
+    <h4 class="sub-title text-success" style="margin-top: 0; color: #047857 !important;"><i class="fas fa-university"></i> מושגי יסוד בהספק AC</h4>
+    <p>במעגלי זרם חילופין אנו מבחינים בין שלושה סוגי הספקים:</p>
+    <ul style="padding-right: 20px;">
+        <li class="mb-2"><strong>הספק מדומה (Apparent Power - S):</strong> מבוטא ביחידות של וולט-אמפר (\(\text{VA}\)) ומחושב פשוט כמכפלת המתח היעיל בזרם היעיל: \(S = V_{rms} \cdot I_{rms}\).</li>
+        <li class="mb-2"><strong>הספק פעיל (Active Power - P):</strong> מבוטא ביחידות של ואט (\(\text{W}\)). זהו ההספק הממשי שנצרך על ידי הרכיבים האוהמיים במעגל והופך לחום או עבודה מכנית. זהו ההספק שמד ההספק מציג בחלון הראשי שלו.</li>
+        <li class="mb-2"><strong>גורם הספק (Power Factor - PF):</strong> מספר חסר ממד בין \(0\) ל-\(1\) המייצג את היחס בין ההספק הממשי להספק המדומה: \(\text{PF} = \frac{P}{S} = \cos(\theta)\), כאשר \(\theta\) הוא זווית המופע בין המתח לזרם. ככל שגורם ההספק קרוב יותר ל-\(1\), המעגל יעיל יותר ופחות "מבזבז" זרם על שדות מגנטיים או חשמליים ברכיבים היגביים (סלילים וקבלים).</li>
+    </ul>
+</div>
+<!-- /THEORETICAL PILLARS of AC POWER -->
+
+<!-- WIRING DIAGRAM (SVG) -->
+<div class="theory-card my-4 border-success">
+    <h4 class="sub-title text-success" style="margin-top: 0; color: #047857 !important;"><i class="fas fa-project-diagram"></i> דיאגרמת חיבור של מד ההספק למעגל</h4>
+    <p>
+        כדי למדוד הספק, מד ההספק חייב "להרגיש" הן את המתח שעל העומס והן את הזרם הזורם דרכו. מסיבה זו, חיבור המכשיר משלב ערוץ מתח (במקביל לעומס) וערוץ זרם (בטור לעומס):
+    </p>
+    <p class="small text-muted text-center">תרשים חיווט חשמלי לחיבור מד ההספק GPM-8212 לעומס חד-פאזי:</p>
+    
+    <div class="text-center py-2">
+        <svg viewBox="0 0 760 280" width="100%" height="auto" style="background-color: #fcfcfc; border: 1px solid #c8e6c9; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+            <!-- AC Voltage Source -->
+            <circle cx="80" cy="130" r="25" fill="none" stroke="#0f172a" stroke-width="2"/>
+            <path d="M 65 130 Q 72 115, 80 130 T 95 130" fill="none" stroke="#0f172a" stroke-width="2"/>
+            <text x="80" y="85" font-family="sans-serif" font-weight="bold" font-size="12" fill="#0f172a" text-anchor="middle">מקור זינה AC</text>
+            <text x="80" y="180" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">AC Source</text>
+            
+            <!-- Power Meter (GPM-8212) Front Panel Box -->
+            <rect x="230" y="30" width="280" height="200" rx="8" fill="#fffaf7" stroke="#e07a5f" stroke-width="2"/>
+            <text x="370" y="55" font-family="sans-serif" font-weight="bold" font-size="13" fill="#d04822" text-anchor="middle">מד הספק GPM-8212 (חזית / הדקים)</text>
+            
+            <!-- Terminals inside GPM-8212 -->
+            <!-- SOURCE Terminals (Left side) -->
+            <circle cx="280" cy="100" r="10" fill="#ef4444"/>
+            <text x="280" y="85" font-family="sans-serif" font-size="9" fill="#ef4444" font-weight="bold" text-anchor="middle">L IN</text>
+            
+            <circle cx="280" cy="160" r="10" fill="#000000"/>
+            <text x="280" y="185" font-family="sans-serif" font-size="9" fill="#000000" font-weight="bold" text-anchor="middle">N IN</text>
+            
+            <text x="280" y="135" font-family="sans-serif" font-size="10" fill="#d04822" font-weight="bold" text-anchor="middle">SOURCE</text>
+            
+            <!-- LOAD Terminals (Right side) -->
+            <circle cx="460" cy="100" r="10" fill="#ef4444"/>
+            <text x="460" y="85" font-family="sans-serif" font-size="9" fill="#ef4444" font-weight="bold" text-anchor="middle">L OUT</text>
+            
+            <circle cx="460" cy="160" r="10" fill="#000000"/>
+            <text x="460" y="185" font-family="sans-serif" font-size="9" fill="#000000" font-weight="bold" text-anchor="middle">N OUT</text>
+            
+            <text x="460" y="135" font-family="sans-serif" font-size="10" fill="#d04822" font-weight="bold" text-anchor="middle">LOAD</text>
+
+            <!-- Internal Measurement Paths (faint representation of ammeter and voltmeter) -->
+            <!-- Current measurement path in series with L -->
+            <path d="M 290 100 L 335 100" fill="none" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,2"/>
+            <circle cx="370" cy="100" r="12" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2,2"/>
+            <text x="370" y="103" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle" font-weight="bold">A</text>
+            <path d="M 405 100 L 450 100" fill="none" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,2"/>
+
+            <!-- Voltmeter path in parallel across L-N -->
+            <path d="M 370 112 L 370 120" fill="none" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2,2"/>
+            <circle cx="370" cy="130" r="10" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2,2"/>
+            <text x="370" y="133" font-family="sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle" font-weight="bold">V</text>
+            <path d="M 370 140 L 370 160" fill="none" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2,2"/>
+
+            <!-- Neutral pass-through -->
+            <path d="M 290 160 L 450 160" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="2,2"/>
+
+            <!-- External AC Load -->
+            <rect x="620" y="90" width="50" height="90" fill="none" stroke="#0f172a" stroke-width="2"/>
+            <text x="645" y="135" font-family="sans-serif" font-weight="bold" font-size="12" fill="#0f172a" text-anchor="middle">עומס</text>
+            <text x="645" y="200" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">(AC Load)</text>
+            
+            <!-- External Connections -->
+            <!-- Source to L IN / N IN -->
+            <path d="M 80 105 L 80 100 L 270 100" fill="none" stroke="#ef4444" stroke-width="2"/>
+            <path d="M 80 155 L 80 160 L 270 160" fill="none" stroke="#000000" stroke-width="2"/>
+            
+            <!-- L OUT / N OUT to Load -->
+            <path d="M 470 100 L 620 100" fill="none" stroke="#ef4444" stroke-width="2"/>
+            <path d="M 470 160 L 620 160" fill="none" stroke="#000000" stroke-width="2"/>
+        </svg>
+    </div>
+</div>
+<!-- /WIRING DIAGRAM (SVG) -->
+
+<!-- USER INTERFACE & OPERATION -->
+<div class="card border-success my-4" style="border-color: #a7f3d0 !important;">
+    <div class="card-header bg-success text-white" style="background-color: #047857 !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> ממשק תפעול המכשיר והגדרת טווחים</h3>
+    </div>
+    <div class="card-body">
+        <p>בלוח הקדמי של ה-GPM-8212 קיימות לחצני שליטה בטווחים ותצוגה:</p>
+        <ul style="padding-right: 20px;">
+            <li class="mb-2">
+                <strong>בחירת טווח מתח (Voltage Range):</strong> 
+                שינוי הטווח מתבצע בעזרת מקשים <strong>2 (למעלה)</strong> ו-<strong>7 (למטה)</strong>. לחיצה ארוכה (2 שניות) תעביר את המכשיר למצב <strong>Auto Range</strong> (מומלץ ברוב המקרים כדי שהמכשיר יבחר את הרגישות המיטבית באופן אוטומטי).
+            </li>
+            <li class="mb-2">
+                <strong>בחירת טווח זרם (Current Range):</strong>
+                שינוי הטווח מתבצע בעזרת מקשים <strong>3 (למעלה)</strong> ו-<strong>8 (למטה)</strong>. לחיצה ארוכה תעביר למצב <strong>Auto Range</strong>.
+            </li>
+            <li class="mb-2">
+                <strong>תצוגת גורם הספק (PF Key):</strong>
+                לחצן <strong>4</strong> מעביר את התצוגה התחתונה להצגת ערך ה-<strong>Power Factor</strong> (מספר בין 0 ל-1) במקום תצוגת ההספק המדומה או הזרם.
+            </li>
+            <li class="mb-2">
+                <strong>עקיבה אחר ערכי שיא (Max / Min):</strong>
+                לחצנים <strong>5</strong> ו-<strong>1</strong> מציגים את ערכי המקסימום והמינימום שנמדדו מאז הפעלת המכשיר (שימושי לבחינת זרמי התנעה של מנועים או שנאים).
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /USER INTERFACE & OPERATION -->
+
+<!-- SAFETY WARNINGS -->
+<div class="alert alert-danger p-4 my-4">
+    <h4 class="alert-heading text-danger fw-bold"><i class="fas fa-exclamation-triangle"></i> דגשי בטיחות קריטיים למדידת הספק:</h4>
+    <ul class="mb-0 mt-2" style="padding-right: 20px;">
+        <li class="mb-2"><strong>סכנת מתח גבוה:</strong> מדידת הספק AC מבוצעת לרוב ברשת החשמל הביתית (\(220\text{ V}_{rms}\)) או במתחים הדומים לה. <strong>אסור בהחלט לבצע שינויי חיווט כאשר מקור המתח פעיל!</strong> כבו תמיד את מפסק העמדה הראשי לפני כל שינוי חיבורים.</li>
+        <li class="mb-2"><strong>הגנת זרם מקסימלי:</strong> למכשיר יש מגבלת זרם נקובה (בדרך כלל עד \(5\text{ A}\) או \(10\text{ A}\) בהתאם לתצורת הדגם). הזרמת זרם גבוה מהמותר דרך הדקי הזרם תשרוף את מעגל המדידה הפנימי.</li>
+        <li class="mb-2"><strong>קצר מגעים:</strong> ודאו שכל מוליכי הבננה מחוזקים היטב ואין חוטים חשופים. קצר בין הדקי הזרם להדקי המתח יכול להוביל לפיצוץ בטיחותי ולנזק קשה.</li>
+    </ul>
+</div>
+<!-- /SAFETY WARNINGS -->
+
+
+
+<!-- PRACTICAL DEMONSTRATION & STEP-BY-STEP GUIDE -->
+<div class="card border-success my-4" style="border-color: #a7f3d0 !important;">
+    <div class="card-header bg-success text-white" style="background-color: #047857 !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="text-success fw-bold">הדגמה מעשית: מדידת הספק וגורם הספק (Power Factor) של צרכן השראתי</h4>
+        <p>
+            בניסוי זה נשתמש במד ההספק <strong>GPM-8212</strong> כדי למדוד את צריכת ההספק ואת יעילות הזנת המעגל (גורם ההספק) של שנאי בידוד הפועל ללא עומס. שנאי ללא עומס מהווה רכיב השראתי מובהק.
+        </p>
+
+        <div class="bg-light p-3 rounded border-start border-success border-4 mb-3" style="border-right-color: #047857 !important;">
+            <h5 class="fw-bold text-success"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי וחיווט:</h5>
+            <ol class="mb-0" style="padding-right: 20px;">
+                <li class="mb-2">
+                    <strong>ניתוק מתח מקדים:</strong> ודאו כי מקור הזינה של זרם החילופין (AC Source) כבוי לחלוטין.
+                </li>
+                <li class="mb-2">
+                    <strong>חיווט מקור המתח (SOURCE):</strong> 
+                    חברו את מוליך הפאזה (Live) של מקור ה-AC אל הדק ה-<strong>L IN</strong> של מד ההספק, ואת מוליך האפס (Neutral) אל הדק ה-<strong>N IN</strong> של מד ההספק.
+                </li>
+                <li class="mb-2">
+                    <strong>חיווט העומס (LOAD):</strong> 
+                    חברו את הדק ה-<strong>L OUT</strong> של מד ההספק אל רגל אחת של סליל המבוא בשנאי הנבדק, ואת הדק ה-<strong>N OUT</strong> אל הרגל השנייה של סליל המבוא.
+                </li>
+                <li class="mb-2">
+                    <strong>הפעלת המתח:</strong> הפעילו את מקור המתח וכוונו את מתח החילופין לערך העבודה הרצוי (למשל \(220\text{ V}_{rms}\)).
+                </li>
+                <li class="mb-2">
+                    <strong>רישום פרמטרי הזינה:</strong> קראו ורשמו את הערכים המוצגים בו-זמנית במסכי המדידה:
+                    <br>• מסך המתח (V) יציג את המתח היעיל.
+                    <br>• מסך הזרם (A) יציג את הזרם היעיל.
+                    <br>• מסך ההספק הראשי (W) יציג את ההספק הפעיל של המעגל ביחידות ואט (\(\text{Watt}\)).
+                </li>
+                <li class="mb-2">
+                    <strong>מדידת גורם ההספק (PF):</strong> לחצו על מקש <strong>4 (PF)</strong> בפנל המכשיר. שימו לב שהמסך התחתי ישנה את החיווי ויציג את גורם ההספק (\(\cos\theta\)). רשמו את הערך (במקרה של שנאי ללא עומס, הערך יהיה נמוך מאוד, סביב \(0.15 - 0.25\), מה שמעיד על עומס השראתי המבזבז אנרגיה שדות מגנטיים ללא ביצוע עבודה ממשית).
+                </li>
+                <li class="mb-2">
+                    <strong>כיבוי בטיחותי:</strong> כבו את מקור המתח הראשי של עמדת העבודה לפני פירוק החיבורים במעגל.
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- DOWNLOAD LINK -->
+<div class="text-left my-4">
+    <a href="https://www.gwinstek.com/en-global/products/downloadSeriesDownNew/11630/982" target="_blank" class="btn btn-outline-success">
+        <i class="fas fa-file-pdf"></i> למדריך למשתמש המלא של היצרן (PDF) ←
+    </a>
+</div>
+<!-- /DOWNLOAD LINK -->
+
+<!-- NAVIGATE BACK TO INDEX -->
+<div class="d-flex justify-content-start mt-4 pt-3 border-top">
+    <a href="Index.html" class="btn btn-primary">← חזרה לאינדקס מכשירי מדידה</a>
+</div>

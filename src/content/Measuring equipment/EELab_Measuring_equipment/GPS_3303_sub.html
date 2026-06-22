@@ -1,0 +1,291 @@
+<!-- BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 14px; border-radius: 6px;">
+    <a href="Index.html" style="text-decoration: none; color: inherit; font-weight: bold;">← חזרה לאינדקס המכשירים</a>
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- HEADER -->
+<div class="text-center mb-4">
+    <h1 class="display-5 fw-bold text-success" style="margin-top: 1rem; margin-bottom: 0.5rem; color: #047857 !important;">ספק כוח DC מיוצב GPS-3303</h1>
+    <div class="mx-auto bg-success" style="height: 3px; width: 80px; border-radius: 10px; background-color: #047857 !important;"></div>
+</div>
+<!-- /HEADER -->
+
+<!-- INTRODUCTION -->
+<div class="info-box border-success" style="border-right-color: #047857 !important;">
+    <h3 class="sub-title text-success" style="margin-top: 0; color: #047857 !important;"><i class="fas fa-plug"></i> תפקיד ספק הכוח ומאפייניו</h3>
+    <p class="lead">
+        ספק כוח מיוצב לזרם ישר (<strong>DC Regulated Power Supply</strong>) הוא הלב הפועם של עמדת המעבדה. תפקידו להמיר את מתח רשת החשמל הביתית חילופין (\(220\text{ V}_{AC}\)) למתחי ישר נמוכים ויציבים (\(0-30\text{ V}_{DC}\)) לצורך הזנת המעגלים החשמליים.
+    </p>
+    <p>
+        דגם ה-<strong>GPS-3303</strong> מבית GW Instek הוא ספק ליניארי מיוצב בעל <strong>שלושה ערוצים עצמאיים</strong>. ספק ליניארי מתאפיין ברמת רעש ואדווה (Ripple & Noise) אפסית (\(< 1\text{ mV}_{rms}\)), דבר קריטי למעגלים אנלוגיים רגישים ורכיבים אלקטרוניים מדויקים.
+    </p>
+    <div class="row my-4 align-items-center">
+        <div class="col-md-6">
+            <p>
+                באיור משמאל מוצג ספק הכוח הליניארי השולחני GPS-3303.
+                המכשיר כולל שתי תצוגות לד דיגיטליות נפרדות למתח (בצבע אדום) ולזרם (בצבע ירוק), בוררים סיבוביים לכיוון עדין וגס, ושלושה זוגות הדקי מוצא.
+                בנוסף, מפורטות בקרות הלוח הקדמי לרבות לחצני ה-Tracking המאפשרים לבחור את מצבי העבודה השונים.
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="row g-2">
+                <div class="col-6">
+                    <div class="card p-2 bg-light shadow-sm">
+                        <img src="Figure/gps3303_photo.jpg" alt="GPS-3303 Front Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
+                        <p class="mb-0 mt-1 small text-muted text-center" style="font-size: 10px;">מראה המכשיר בעמדה</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card p-2 bg-light shadow-sm">
+                        <img src="Figure/gps3303_description.png" alt="GPS-3303 Front Description" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
+                        <p class="mb-0 mt-1 small text-muted text-center" style="font-size: 10px;">מיפוי בקרות הלוח הקדמי</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /INTRODUCTION -->
+
+<!-- OPERATING MODES & WIRING -->
+<div class="card border-success my-4" style="border-color: #a7f3d0 !important;">
+    <div class="card-header bg-success text-white" style="background-color: #047857 !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-project-diagram"></i> מצבי עבודה ותצורות חיבור (Tracking Modes)</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            הספק מכיל שני ערוצים ראשיים משתנים (CH1/Master ו-CH2/Slave) המאפשרים שלושה מצבי עבודה הנקבעים על ידי שני לחצני ה-<strong>Tracking</strong> בחזית המכשיר:
+        </p>
+        
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="p-3 bg-light rounded h-100 border-top border-success border-4">
+                    <h5 class="text-success fw-bold" style="color: #047857 !important;">עצמאי (Independent)</h5>
+                    <p class="small text-muted mb-0">
+                        שני הלחצנים <strong>בחוץ</strong>.
+                        <br>כל ערוץ פועל כספק מבודד לחלוטין. ניתן לכוון מתח (\(0-30\text{ V}\)) וזרם (\(0-3\text{ A}\)) שונים לכל אחד מהערוצים ללא השפעה הדדית.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-light rounded h-100 border-top border-success border-4">
+                    <h5 class="text-success fw-bold" style="color: #047857 !important;">טורי (Series Tracking)</h5>
+                    <p class="small text-muted mb-0">
+                        לחצן שמאל <strong>לחוץ פנימה</strong>, ימין <strong>בחוץ</strong>.
+                        <br>הערוצים מחוברים פנימית בטור. השליטה על המתח מתבצעת דרך ערוץ ה-Master בלבד, וערוץ ה-Slave עוקב אחריו בדיוק (כך שמתקבל מתח כפול של עד <strong>\(60\text{ V}\)</strong>).
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-light rounded h-100 border-top border-success border-4">
+                    <h5 class="text-success fw-bold" style="color: #047857 !important;">מקבילי (Parallel Tracking)</h5>
+                    <p class="small text-muted mb-0">
+                        שני הלחצנים <strong>לחוצים פנימה</strong>.
+                        <br>הערוצים מחוברים פנימית במקביל. מתקבל מתח של עד \(30\text{ V}\) אך יכולת אספקת הזרם מוכפלת לעד <strong>\(6\text{ A}\)</strong>. השליטה מלאה דרך ה-Master.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /OPERATING MODES & WIRING -->
+
+<!-- SYMMETRIC DUAL SUPPLY WIRING DIAGRAM (SVG) -->
+<div class="theory-card my-4 border-success">
+    <h4 class="sub-title text-success" style="margin-top: 0; color: #047857 !important;"><i class="fas fa-compress-arrows-alt"></i> אספקת מתח דואלי סימטרי (\(\pm 15\text{ V}\)) למגברי שרת (Op-Amps)</h4>
+    <p>
+        במעגלים אנלוגיים רבים (כמו אלה המבוססים על מגבר שרת LM741), נדרש מתח הזנה סימטרי יחסית לאדמה: מתח חיובי (\(+15\text{ V}\)), מתח שלילי (\(-15\text{ V}\)) ואדמה משותפת (\(0\text{ V}\)).
+    </p>
+    <p class="small text-muted text-center">התרשים הבא מציג כיצד לבצע את החיווט החיצוני במצב עצמאי (Independent) כדי לקבל מתח דואלי סימטרי:</p>
+    
+    <div class="text-center py-2">
+        <svg viewBox="0 0 760 280" width="100%" height="auto" style="background-color: #f8fafc; border: 1px solid #c8e6c9; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Channel 1 (Master) Group -->
+            <g transform="translate(40, 30)">
+                <rect x="0" y="0" width="280" height="150" rx="8" fill="#ffffff" stroke="#047857" stroke-width="2"/>
+                <text x="140" y="25" font-family="sans-serif" font-weight="bold" font-size="14" fill="#047857" text-anchor="middle">ערוץ 1 - Master (לכוון ל-15V)</text>
+                
+                <!-- Displays inside -->
+                <rect x="20" y="40" width="100" height="35" rx="4" fill="#020617"/>
+                <text x="70" y="65" font-family="monospace" font-size="20" fill="#ef4444" text-anchor="middle" font-weight="bold">15.00</text>
+                <text x="105" y="52" font-family="sans-serif" font-size="9" fill="#ef4444">V</text>
+                
+                <!-- Red, Black, Green sockets -->
+                <circle cx="60" cy="110" r="12" fill="#ef4444"/>
+                <text x="60" y="113" font-family="sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">+</text>
+                <text x="60" y="138" font-family="sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="bold">אדום</text>
+                
+                <circle cx="140" cy="110" r="12" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
+                <text x="140" y="113" font-family="sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">-</text>
+                <text x="140" y="138" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle" font-weight="bold">שחור</text>
+                
+                <circle cx="220" cy="110" r="12" fill="#10b981"/>
+                <text x="220" y="113" font-family="sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">GND</text>
+                <text x="220" y="138" font-family="sans-serif" font-size="9" fill="#10b981" text-anchor="middle" font-weight="bold">ירוק</text>
+            </g>
+            
+            <!-- Channel 2 (Slave) Group -->
+            <g transform="translate(440, 30)">
+                <rect x="0" y="0" width="280" height="150" rx="8" fill="#ffffff" stroke="#047857" stroke-width="2"/>
+                <text x="140" y="25" font-family="sans-serif" font-weight="bold" font-size="14" fill="#047857" text-anchor="middle">ערוץ 2 - Slave (לכוון ל-15V)</text>
+                
+                <!-- Displays inside -->
+                <rect x="20" y="40" width="100" height="35" rx="4" fill="#020617"/>
+                <text x="70" y="65" font-family="monospace" font-size="20" fill="#ef4444" text-anchor="middle" font-weight="bold">15.00</text>
+                <text x="105" y="52" font-family="sans-serif" font-size="9" fill="#ef4444">V</text>
+                
+                <!-- Red, Black, Green sockets -->
+                <circle cx="60" cy="110" r="12" fill="#ef4444"/>
+                <text x="60" y="113" font-family="sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">+</text>
+                <text x="60" y="138" font-family="sans-serif" font-size="9" fill="#ef4444" text-anchor="middle" font-weight="bold">אדום</text>
+                
+                <circle cx="140" cy="110" r="12" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
+                <text x="140" y="113" font-family="sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">-</text>
+                <text x="140" y="138" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle" font-weight="bold">שחור</text>
+                
+                <circle cx="220" cy="110" r="12" fill="#10b981"/>
+                <text x="220" y="113" font-family="sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">GND</text>
+                <text x="220" y="138" font-family="sans-serif" font-size="9" fill="#10b981" text-anchor="middle" font-weight="bold">ירוק</text>
+            </g>
+            
+            <!-- External Jumpers / Wires -->
+            <!-- Bridge linking CH1(-) to CH2(+) -->
+            <path d="M 180 140 L 180 220 L 500 220 L 500 140" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+            <text x="340" y="215" font-family="sans-serif" font-size="11" fill="#10b981" font-weight="bold" text-anchor="middle">גשר חיצוני (קצר מוליכים) -> הופך לנקודת ה-0V / אדמה (GND)</text>
+            
+            <!-- Outputs -->
+            <!-- Positive Rail -->
+            <path d="M 100 140 L 100 250 L 30 250" fill="none" stroke="#ef4444" stroke-width="2"/>
+            <circle cx="30" cy="250" r="4" fill="#ef4444"/>
+            <text x="25" y="240" font-family="sans-serif" font-size="12" fill="#ef4444" font-weight="bold" text-anchor="right">+15V (Vcc+)</text>
+            
+            <!-- GND Rail -->
+            <path d="M 340 220 L 340 250" fill="none" stroke="#10b981" stroke-width="2"/>
+            <circle cx="340" cy="250" r="4" fill="#10b981"/>
+            <text x="340" y="265" font-family="sans-serif" font-size="12" fill="#10b981" font-weight="bold" text-anchor="middle">GND (0V Reference)</text>
+            
+            <!-- Negative Rail -->
+            <path d="M 580 140 L 580 250 L 730 250" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            <circle cx="730" cy="250" r="4" fill="#3b82f6"/>
+            <text x="735" y="240" font-family="sans-serif" font-size="12" fill="#3b82f6" font-weight="bold" text-anchor="left">-15V (Vee-)</text>
+        </svg>
+    </div>
+</div>
+<!-- /SYMMETRIC DUAL SUPPLY WIRING DIAGRAM (SVG) -->
+
+<!-- CURRENT LIMITATION GUIDE -->
+<div class="card border-success my-4" style="border-color: #a7f3d0 !important;">
+    <div class="card-header bg-success text-white" style="background-color: #047857 !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-shield-alt"></i> מדריך הגבלת זרם בטיחותית (Current Limit Set)</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            כדי למנוע שריפה של רכיבים במעגל במקרה של טעות חיווט (כמו קצר), חובה להגדיר <strong>הגבלת זרם (Current Limit)</strong> בספק לפני חיבורו למעגל. זהו מנגנון הגנה המגביל את הזרם המקסימלי שהספק יסכים להפיק.
+        </p>
+        
+        <div class="vstack gap-2">
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #047857;">1</div>
+                <div class="step-content">
+                    <h5 class="fw-bold text-success">ניתוק המעגל</h5>
+                    <p>נתקו את ספק הכוח מהמעגל שלכם (אל תבצעו כיוון זרם כאשר הספק מחובר לרשת הרכיבים).</p>
+                </div>
+            </div>
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #047857;">2</div>
+                <div class="step-content">
+                    <h5 class="fw-bold text-success">סגירת בורר הזרם</h5>
+                    <p>סובבו את בורר ה-<strong>CURRENT</strong> של הערוץ הרלוונטי שמאלה עד הסוף (לאפס זרם).</p>
+                </div>
+            </div>
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #047857;">3</div>
+                <div class="step-content">
+                    <h5 class="fw-bold text-success">יצירת קצר בטיחותי</h5>
+                    <p>חברו חוט קצר (ג'אמפר) ישירות בין ההדק האדום (+) להדק השחור (-) של אותו ערוץ.</p>
+                </div>
+            </div>
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #047857;">4</div>
+                <div class="step-content">
+                    <h5 class="fw-bold text-success">הגדרת מגבלת הזרם</h5>
+                    <p>סובבו את בורר ה-CURRENT ימינה בעדינות עד שמסך הזרם (A) יראה את הערך הרצוי (למשל: \(100\text{ mA}\) או \(0.10\text{ A}\)). נורת ה-<strong>CC (Constant Current)</strong> תידלק באדום - זה תקין ומסמל שהספק עבר למצב הגבלת זרם.</p>
+                </div>
+            </div>
+            <div class="step-box rounded shadow-sm">
+                <div class="step-number" style="background-color: #047857;">5</div>
+                <div class="step-content">
+                    <h5 class="fw-bold text-success">ניתוק הקצר וחיבור למעגל</h5>
+                    <p>נתקו את חוט הקצר בין הדקי הספק. נורת ה-CC תכבה, ונורת ה-<strong>CV (Constant Voltage)</strong> תידלק בירוק. כעת הספק בטוח לחיבור למעגל שלכם!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /CURRENT LIMITATION GUIDE -->
+
+<!-- OTHER CHANNELS & SAFETY -->
+<div class="card border-success my-4" style="border-color: #a7f3d0 !important;">
+    <div class="card-header bg-success text-white" style="background-color: #047857 !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-exclamation-circle"></i> מאפיינים נוספים ודגשי בטיחות</h3>
+    </div>
+    <div class="card-body">
+        <ul style="padding-right: 20px;">
+            <li class="mb-2"><strong>ערוץ 3 קבוע (Channel 3 - Fixed):</strong> הספק מצויד בערוץ שלישי קבוע המפיק מתח של <strong>\(5\text{ V}\)</strong> וזרם מקסימלי של <strong>\(3\text{ A}\)</strong>. ערוץ זה מצוין להזנת מעגלים דיגיטליים ורכיבי TTL שאינם דורשים מתח משתנה.</li>
+            <li class="mb-2"><strong>עבודה במתח גבוה:</strong> כאשר מחברים את ערוצים 1 ו-2 בטור ומכוונים את המתח למקסימום (\(60\text{ V}\)), המתח עובר את גבול הבטיחות של מתח נמוך מאוד במעבדה. <strong>יש להימנע מלגעת במוליכים חשופים</strong> בזמן שהספק פועל.</li>
+            <li class="mb-2"><strong>הגנת טמפרטורה:</strong> הספק כולל מאוורר קירור פנימי חכם. אין לחסום את חריצי האוורור בגב המכשיר כדי למנוע כניסה למצב הגנת חום קיצונית המכבה את היציאות.</li>
+        </ul>
+    </div>
+</div>
+<!-- /OTHER CHANNELS & SAFETY -->
+
+<!-- PRACTICAL DEMONSTRATION & STEP-BY-STEP GUIDE -->
+<div class="card border-success my-4" style="border-color: #a7f3d0 !important;">
+    <div class="card-header bg-success text-white" style="background-color: #047857 !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="text-success fw-bold">הדגמה מעשית: הגדרת הגבלת זרם וחיווט ספק כוח דואלי סימטרי (\(\pm 15\text{ V}\))</h4>
+        <p>
+            בניסוי זה נלמד כיצד להגן על רכיבי המעגל על ידי הגבלת הזרם המקסימלי של ספק הכוח <strong>GPS-3303</strong> ל-\(100\text{ mA}\), ונחבר את ערוצי הספק ליצירת מקור מתח דואלי סימטרי הנדרש להזנת מגברי שרת.
+        </p>
+
+        <div class="bg-light p-3 rounded border-start border-success border-4 mb-3" style="border-right-color: #047857 !important;">
+            <h5 class="fw-bold text-success"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי וחיווט:</h5>
+            
+            <h6 class="fw-bold text-success mt-2">חלק א': הגדרת הגבלת זרם בטיחותית ל-\(100\text{ mA}\) (מניעת שריפת רכיבים)</h6>
+            <ol style="padding-right: 20px;">
+                <li>ודאו כי ספק הכוח מנותק לחלוטין מהמעגל שלכם.</li>
+                <li>סובבו את בורר ה-<strong>CURRENT</strong> של ערוץ 1 (CH1) שמאלה עד הסוף (לאפס זרם).</li>
+                <li>חברו חוט קצר (ג'אמפר) ישירות בין הדק הפלוס האדום (+) להדק המינוס השחור (-) של ערוץ 1.</li>
+                <li>הדליקו את ספק הכוח. שימו לב כי נורת ה-<strong>CC (Constant Current)</strong> של ערוץ 1 נדלקת בצבע אדום, המציין שהמכשיר נמצא בהגבלת זרם.</li>
+                <li>סובבו בעדינות ימינה את בורר ה-<strong>CURRENT</strong> עד שמד הזרם הדיגיטלי הירוק מראה בדיוק <strong>0.10 A</strong> (שהם \(100\text{ mA}\)).</li>
+                <li>כבו את ספק הכוח, ונתקו את חוט הקצר. כעת ערוץ 1 מוגבל בבטחה ולא יזרים זרם גבוה מ-\(100\text{ mA}\) גם אם יתרחש קצר במעגל! בצעו הליך זהה עבור ערוץ 2.</li>
+            </ol>
+
+            <h6 class="fw-bold text-success mt-3">חלק ב': חיווט להזנה דואלית סימטרית (\(\pm 15\text{ V}\))</h6>
+            <ol style="padding-right: 20px;">
+                <li>ודאו כי שני לחצני ה-<strong>Tracking</strong> בלוח הקדמי נמצאים במצב מורם (עבודה במצב עצמאי - <strong>Independent</strong>).</li>
+                <li>חברו חוט קצר (ג'אמפר) בין הדק המינוס השחור (-) של ערוץ 1 (Master) אל הדק הפלוס האדום (+) של ערוץ 2 (Slave). נקודת קצר זו תהווה את ה-<strong>GND (0V)</strong> - אדמת הייחוס של המעגל שלכם.</li>
+                <li>הדק הפלוס האדום (+) של ערוץ 1 יהיה מוצא המתח החיובי: <strong>\(+15\text{ V}\)</strong>.</li>
+                <li>הדק המינוס השחור (-) של ערוץ 2 יהיה מוצא המתח השלילי: <strong>\(-15\text{ V}\)</strong>.</li>
+                <li>הדליקו את ספק הכוח. כוונו את מתח ערוץ 1 ל-\(15.0\text{ V}\) ואת ערוץ 2 ל-\(15.0\text{ V}\) באמצעות בוררי ה-VOLTAGE.</li>
+                <li>חברו את שלושת המוליכים (פלוס, אדמה ומינוס) אל לוח המעגל (Breadboard) להזנת מגבר השרת. כבו את הספק מיד בסיום העבודה.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- DOWNLOAD LINK -->
+<div class="text-left my-4">
+    <a href="https://www.gwinstek.com/en-global/products/downloadSeriesDownNew/8071/1210" target="_blank" class="btn btn-outline-success">
+        <i class="fas fa-file-pdf"></i> למדריך למשתמש המלא של היצרן (PDF) ←
+    </a>
+</div>
+<!-- /DOWNLOAD LINK -->
+
+<!-- NAVIGATE BACK TO INDEX -->
+<div class="d-flex justify-content-start mt-4 pt-3 border-top">
+    <a href="Index.html" class="btn btn-primary">← חזרה לאינדקס מכשירי מדידה</a>
+</div>

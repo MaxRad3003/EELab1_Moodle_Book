@@ -1,0 +1,185 @@
+<!-- INDEX BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 14px; border-radius: 6px;">
+    <strong>מכשירי מדידה במעבדה</strong> &gt; אינדקס מדריכים
+</div>
+<!-- /INDEX BREADCRUMB -->
+
+<!-- HEADER SECTION -->
+<div class="text-center mb-5">
+    <h1 class="display-5 fw-bold text-primary" style="margin-top: 1rem; margin-bottom: 0.5rem;">מדריך מכשירי מדידה - מעבדת חשמל ואלקטרוניקה</h1>
+    <div class="mx-auto bg-primary" style="height: 4px; width: 100px; border-radius: 10px; margin-bottom: 1.5rem;"></div>
+    <p class="lead">מאגר מידע מקיף ודידקטי לסטודנטים ולסגל להכרת ציוד המדידה, הכיול והבטיחות במעבדה.</p>
+</div>
+<!-- /HEADER SECTION -->
+
+<!-- STYLIZED LAB BENCH SVG ILLUSTRATION -->
+<div class="text-center mb-5">
+    <svg viewBox="0 0 800 200" width="100%" height="auto" style="background: #0f172a; border-radius: 12px; box-shadow: var(--shadow-md);" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background grid -->
+        <defs>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1e293b" stroke-width="1"/>
+            </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+        
+        <!-- Oscilloscope block -->
+        <rect x="50" y="30" width="220" height="140" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+        <!-- Osc screen -->
+        <rect x="65" y="45" width="120" height="90" rx="4" fill="#022c22" stroke="#0f766e" stroke-width="1.5"/>
+        <path d="M 65 90 L 185 90 M 125 45 L 125 135" stroke="#115e59" stroke-width="0.5" stroke-dasharray="2,2"/>
+        <!-- Sine and Cosine waves on screen -->
+        <path d="M 65 90 Q 95 30, 125 90 T 185 90" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 65 90 Q 95 130, 125 90 T 185 90" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="2,2"/>
+        <!-- Osc Dials -->
+        <circle cx="215" cy="55" r="10" fill="#475569"/>
+        <circle cx="215" cy="85" r="10" fill="#475569"/>
+        <circle cx="215" cy="115" r="7" fill="#475569"/>
+        <circle cx="215" cy="140" r="7" fill="#475569"/>
+        <text x="215" y="35" font-family="sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">OSCILLOSCOPE</text>
+
+        <!-- Digital Multimeter (DMM) block -->
+        <rect x="320" y="30" width="160" height="140" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+        <!-- Orange bumper for DMM -->
+        <rect x="315" y="25" width="170" height="150" rx="10" fill="none" stroke="#ea580c" stroke-width="3" opacity="0.8"/>
+        <!-- DMM Screen -->
+        <rect x="335" y="45" width="130" height="45" rx="4" fill="#020617" stroke="#1e293b"/>
+        <!-- Digital values -->
+        <text x="400" y="78" font-family="monospace" font-size="28" fill="#f97316" text-anchor="middle" font-weight="bold">5.0032</text>
+        <text x="450" y="60" font-family="sans-serif" font-size="10" fill="#f97316" text-anchor="middle">V DC</text>
+        <!-- DMM Selector Dial -->
+        <circle cx="400" cy="125" r="22" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+        <line x1="400" y1="125" x2="400" y2="108" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
+        
+        <!-- Power Supply block -->
+        <rect x="530" y="30" width="220" height="140" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+        <!-- PS Displays -->
+        <rect x="545" y="45" width="70" height="35" rx="4" fill="#020617"/>
+        <text x="580" y="70" font-family="monospace" font-size="18" fill="#ef4444" text-anchor="middle" font-weight="bold">30.0</text>
+        <text x="610" y="58" font-family="sans-serif" font-size="8" fill="#ef4444" text-anchor="middle">V</text>
+        
+        <rect x="665" y="45" width="70" height="35" rx="4" fill="#020617"/>
+        <text x="700" y="70" font-family="monospace" font-size="18" fill="#10b981" text-anchor="middle" font-weight="bold">1.50</text>
+        <text x="730" y="58" font-family="sans-serif" font-size="8" fill="#10b981" text-anchor="middle">A</text>
+        <!-- Dials for Power Supply -->
+        <circle cx="560" cy="115" r="8" fill="#475569"/>
+        <circle cx="600" cy="115" r="8" fill="#475569"/>
+        <circle cx="680" cy="115" r="8" fill="#475569"/>
+        <circle cx="720" cy="115" r="8" fill="#475569"/>
+        <!-- Terminals -->
+        <circle cx="570" cy="150" r="6" fill="#ef4444"/> <!-- Red (+) -->
+        <circle cx="600" cy="150" r="6" fill="#0f172a" stroke="#475569" stroke-width="2"/> <!-- Black (-) -->
+        <circle cx="630" cy="150" r="6" fill="#10b981"/> <!-- Green (GND) -->
+        <text x="640" y="38" font-family="sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">POWER SUPPLY</text>
+    </svg>
+</div>
+<!-- /STYLIZED LAB BENCH SVG ILLUSTRATION -->
+
+<!-- CATEGORIES GRID -->
+<div class="row g-4">
+    <!-- Category: DMM -->
+    <div class="col-md-6">
+        <div class="card h-100 border-primary shadow-sm">
+            <div class="card-header bg-primary text-white py-3">
+                <h4 class="m-0 fs-5"><i class="fas fa-microchip"></i> רב-מודד ספרתי (DMM)</h4>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">רב-מודד דיגיטלי הוא המכשיר הבסיסי והנפוץ ביותר למדידות מתח, זרם, התנגדות וקיבול במעגל החשמלי.</p>
+                <div class="vstack gap-2">
+                    <div class="p-2 bg-light rounded border-start border-primary border-4">
+                        <a href="GDM_8245_sub.html" class="fw-bold text-primary fs-6">GDM-8245</a>
+                        <p class="mb-0 small text-muted">מדריך מפורט למכשיר השולחני הקלאסי - ביצוע מדידות מתח, זרם, רציפות, ובדיקת דיודות.</p>
+                    </div>
+                    <div class="p-2 bg-light rounded border-start border-primary border-4">
+                        <a href="GDM_8341_sub.html" class="fw-bold text-primary fs-6">GDM-8341</a>
+                        <p class="mb-0 small text-muted">מדריך למכשיר המתקדם - תצוגה כפולה (Dual Display), פונקציות מתמטיות, קיזוז יחסי (REL) ותדר.</p>
+                    </div>
+                    <div class="p-2 bg-light rounded border-start border-primary border-4">
+                        <a href="UT33_plus_sub.html" class="fw-bold text-primary fs-6">UNI-T UT33+</a>
+                        <p class="mb-0 small text-muted">מדריך לרב-מודד הכיס הנייד - פירוט הבדלים בין דגמי A+/B+/C+/D+ (קיבול, סוללות, טמפרטורה, וגלאי מתח NCV).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category: Signal Generators -->
+    <div class="col-md-6">
+        <div class="card h-100 border-danger shadow-sm">
+            <div class="card-header bg-danger text-white py-3" style="background-color: #b91c1c !important;">
+                <h4 class="m-0 fs-5"><i class="fas fa-wave-square"></i> מחוללי אותות (Function Generators)</h4>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">מחולל אותות מפיק אותות מתח מחזוריים בעלי צורות גל שונות (סינוס, ריבוע, משולש) לערור ומחקר של מעגלים חשמליים.</p>
+                <div class="vstack gap-2">
+                    <div class="p-2 bg-light rounded border-start border-danger border-4" style="border-right-color: #b91c1c !important;">
+                        <a href="Agilent_33220A_sub.html" class="fw-bold text-danger fs-6" style="color: #b91c1c !important;">Agilent 33220A</a>
+                        <p class="mb-0 small text-muted">מחולל אותות דיגיטלי מיוצב DDS בדיוק גבוה במיוחד, המאפשר שליטה מדויקת בצורת האות ואותות שרירותיים.</p>
+                    </div>
+                    <div class="p-2 bg-light rounded border-start border-danger border-4" style="border-right-color: #b91c1c !important;">
+                        <a href="GFG_8219A_sub.html" class="fw-bold text-danger fs-6" style="color: #b91c1c !important;">GFG-8219A</a>
+                        <p class="mb-0 small text-muted">מחולל אותות אנלוגי משולב עם מונה תדר דיגיטלי - בקרות ידניות מלאות לטווח תדרים, אמפליטודה והיסט (Offset).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category: Power Supply & Power Meter -->
+    <div class="col-md-6">
+        <div class="card h-100 border-success shadow-sm">
+            <div class="card-header bg-success text-white py-3" style="background-color: #047857 !important;">
+                <h4 class="m-0 fs-5"><i class="fas fa-plug"></i> ספקי כוח ומדי הספק</h4>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">ציוד להזנת המעגל במתחי עבודה ישרים ומדידת הספקים במעגלים חד-פאזיים.</p>
+                <div class="vstack gap-2">
+                    <div class="p-2 bg-light rounded border-start border-success border-4" style="border-right-color: #047857 !important;">
+                        <a href="GPS_3303_sub.html" class="fw-bold text-success fs-6" style="color: #047857 !important;">ספק כוח מיוצב GPS-3303</a>
+                        <p class="mb-0 small text-muted">ספק כוח משולש ערוצים עם אפשרות לחיבור טורי (להכפלת מתח) או מקבילי (להכפלת זרם) והגבלת זרם בטיחותית.</p>
+                    </div>
+                    <div class="p-2 bg-light rounded border-start border-success border-4" style="border-right-color: #047857 !important;">
+                        <a href="GPM_8212_sub.html" class="fw-bold text-success fs-6" style="color: #047857 !important;">מד הספק דיגיטלי GPM-8212</a>
+                        <p class="mb-0 small text-muted">מדידת הספק פעיל (Watt), גורם הספק (Power Factor), זרם ומתח במערכות זרם חילופין חד-פאזיות.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category: Oscilloscopes -->
+    <div class="col-md-6">
+        <div class="card h-100 border-warning shadow-sm">
+            <div class="card-header bg-warning text-white py-3" style="background-color: #f59e0b !important;">
+                <h4 class="m-0 fs-5"><i class="fas fa-tv"></i> משקפי תנודות (Oscilloscopes)</h4>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">אוסילוסקופ הוא המכשיר המרכזי לצפייה, מדידה וניתוח של מתחים משתנים בזמן אמת במישור הזמן.</p>
+                <div class="vstack gap-2">
+                    <div class="p-2 bg-light rounded border-start border-warning border-4" style="border-right-color: #f59e0b !important;">
+                        <a href="Oscilloscope_sub.html" class="fw-bold text-warning fs-6" style="color: #f59e0b !important;">מבוא כללי לאוסילוסקופ</a>
+                        <p class="mb-0 small text-muted">מושגי יסוד, כללי בטיחות, בעיית האדמה המשותפת (קצר אדמות) ומדידת זרם עקיפה.</p>
+                    </div>
+                    <div class="p-2 bg-light rounded border-start border-warning border-4" style="border-right-color: #f59e0b !important;">
+                        <a href="GDS_2072A_sub.html" class="fw-bold text-warning fs-6" style="color: #f59e0b !important;">אוסילוסקופ דיגיטלי GDS-2072A</a>
+                        <p class="mb-0 small text-muted">מדריך תפעול מפורט למכשיר הדיגיטלי - ערוצים, בסיס זמן, מערכת טריגר (ייצוב), מדידות אוטומטיות ושמירת צילומי מסך.</p>
+                    </div>
+                    <div class="p-2 bg-light rounded border-start border-warning border-4" style="border-right-color: #f59e0b !important;">
+                        <a href="GOS_620_sub.html" class="fw-bold text-warning fs-6" style="color: #f59e0b !important;">אוסילוסקופ אנלוגי GOS-620</a>
+                        <p class="mb-0 small text-muted">מדריך הפעלה למכשיר האנלוגי הקלאסי - כיול ידני, קביעת קו אפס, בחירת ערוצים ושיטת ספירת משבצות.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /CATEGORIES GRID -->
+
+<!-- SAFETY & PRACTICAL NOTICE -->
+<div class="alert alert-warning mt-5 p-4">
+    <h4 class="alert-heading text-warning"><i class="fas fa-exclamation-triangle"></i> הנחיה בטיחותית ופדגוגית חשובה:</h4>
+    <p class="mb-0">
+        הכרת מכשירי המדידה היא נדבך קריטי להצלחה במעבדה ולמניעת נזקים לציוד. הקפידו תמיד לבצע <strong>בדיקת קצר והגבלת זרם בספק הכוח</strong> לפני חיבורו למעגל, וזכרו כי <strong>לאדמות האוסילוסקופ פוטנציאל משותף</strong> המחובר לאדמת רשת החשמל.
+    </p>
+</div>
+<!-- /SAFETY & PRACTICAL NOTICE -->

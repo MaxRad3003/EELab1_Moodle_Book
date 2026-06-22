@@ -1,117 +1,130 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>01 PreLab 00 LinearAlgebra sub</title>
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #202124; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הכנה לניסוי 2 - מבוא: אלגברה ליניארית ופתרון מטריצות</title>
-    
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-<!-- 
-    MOODLE SNIPPET - USER CUSTOM DESIGN
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-custom" style="unicode-bidi: isolate; text-align: right; font-size: 16px; direction: rtl; color: #333; line-height: 1.6; font-family: Arial, sans-serif; max-width: 980px; margin: 0 auto;" dir="rtl">
-    
-
-    <div class="moodle-content-inner" style="unicode-bidi: isolate; text-align: right; direction: rtl; max-width: 980px; margin: 0 auto;">
-        <!-- EXP02 BREADCRUMB -->
-<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 > הכנה > אלגברה ליניארית</div>
+<!-- EXP02 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 2 > הכנה > אלגברה ליניארית</div>
 <!-- /EXP02 BREADCRUMB -->
 
-        <!-- CHAPTER: HEADER -->
-<h3 class="section-title" style="margin-bottom: 0.75rem; display: inline-block; margin-top: 0; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">הכנה לניסוי 2 - מבוא: אלגברה ליניארית ופתרון מטריצות</h3>
-<p class="mb-4" style="margin-bottom: 1rem;">לפני שנצלול למשפטי רשת מורכבים, נלמד כיצד לרתום את העוצמה של אלגברה ליניארית ותוכנת MATLAB כדי לפתור כל מעגל חשמלי בלחיצת כפתור.</p>
+<!-- CHAPTER: HEADER -->
+<div id="ch-linear-algebra-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">מבוא: אלגברה ליניארית ופתרון מטריצות</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
+</div>
+<!-- /CHAPTER: HEADER -->
+
+<p class="mb-4">לפני שנצלול למשפטי רשת מורכבים, נלמד כיצד לרתום את העוצמה של אלגברה ליניארית ותוכנת MATLAB כדי לפתור מעגלים רב-חוגיים מורכבים בצורה שיטתית ומהירה.</p>
 
 <!-- SECTION: THEORY -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-theory">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📖 1. תיאוריה</h4>
-    <strong class="text-primary" style="color: #005696 !important;">שיטת זרמי חוגים וייצוג מטריציוני:</strong>
-    <p>כאשר אנו מנתחים מעגל מרובה חוגים, אנו מקבלים מערכת של משוואות ליניאריות (משוואה לכל חוג). במקום לפתור אותן ידנית, אנו מייצגים אותן בצורה אלגנטית של מטריצות:</p>
+<div class="theory-card" id="section-theory">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-book-open"></i> 1. רקע תיאורטי: שיטת זרמי חוגים</h3>
+    <p>בניתוח מעגלים מרובי חוגים, שימוש בחוקי קירכהוף ישירות (KVL ו-KCL) עלול להוביל למספר רב של משוואות ומשתנים. <strong>שיטת זרמי חוגים (Loop Analysis)</strong> מפשטת זאת על ידי הגדרת זרם דמיוני לכל חוג סגור במעגל. בצורה זו, מספר הנעלמים שווה בדיוק למספר החוגים הבלתי-תלויים.</p>
     
-    <div style="text-align: center; font-size: 1.4em; font-weight: bold; color: #d9534f; margin: 15px 0; direction: ltr;">
-        [ R ] &middot; [ I ] = [ V ]
+    <strong class="text-primary">הייצוג המטריציוני:</strong>
+    <p>עבור מעגל בעל \(N\) חוגים, אנו בונים מערכת של \(N\) משוואות ליניאריות המיוצגת בצורה מטריציונית הבאה:</p>
+    
+    <div class="text-center my-3 py-2 bg-light rounded" style="font-size: 1.35rem; font-family: monospace; direction: ltr;">
+        \[ [R] \cdot [I] = [V] \]
     </div>
     
-    <ul>
-        <li class="mb-2" style="margin-bottom: 8px;"><strong>[ R ]:</strong> מטריצת ההתנגדויות. האלכסון הראשי חיובי (סכום הנגדים בכל חוג), וערכי שאר התאים שליליים (התנגדויות משותפות).</li>
-        <li class="mb-2" style="margin-bottom: 8px;"><strong>[ I ]:</strong> וקטור עמודה של זרמי החוגים (הנעלמים שלנו).</li>
-        <li><strong>[ V ]:</strong> וקטור מתחי המקורות (סכום עליות המתח בכל חוג).</li>
+    <ul class="mb-0" style="padding-right: 20px;">
+        <li class="mb-2">
+            <strong>\( [R] \) (מטריצת ההתנגדויות - מסדר \(N \times N\)):</strong>
+            <ul>
+                <li>האיברים על האלכסון הראשי (\(R_{ii}\)) מייצגים את <strong>סכום כל הנגדים בחוג \(i\)</strong>. איברים אלו הם תמיד <strong>חיוביים</strong>.</li>
+                <li>האיברים מחוץ לאלכסון (\(R_{ij}\) כאשר \(i \neq j\)) מייצגים את <strong>סכום הנגדים המשותפים</strong> בין חוג \(i\) לחוג \(j\). איברים אלו נרשמים עם סימן <strong>שלילי</strong> (בהנחה שכל זרמי החוגים מוגדרים באותו כיוון, למשל עם כיוון השעון).</li>
+            </ul>
+        </li>
+        <li class="mb-2"><strong>\( [I] \) (וקטור זרמי החוגים - מסדר \(N \times 1\)):</strong> וקטור העמודה של הנעלמים, המכיל את זרמי החוגים \(I_1, I_2, \dots, I_N\).</li>
+        <li><strong>\( [V] \) (וקטור המתחים - מסדר \(N \times 1\)):</strong> וקטור העמודה של מקורות המתח. כל איבר \(V_i\) מייצג את סכום עליות המתח בחוג \(i\). מקור מתח יקבל סימן חיובי אם כיוון זרם החוג יוצא מהדק החיובי שלו, וסימן שלילי אם הוא נכנס להדק החיובי.</li>
     </ul>
 </div>
+<!-- /SECTION: THEORY -->
+
+<!-- SECTION: WORKED EXAMPLE -->
+<div class="theory-card mt-4" id="section-worked-example">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-calculator"></i> 2. דוגמה מעשית לניתוח</h3>
+    <p>נתבונן במעגל בעל שני חוגים (כמו זה המוצג בסימולציה מטה) המורכב משני מקורות מתח \(V_1, V_2\) ושלושה נגדים \(R_1, R_2, R_L\), כאשר \(R_L\) נמצא בענף המשותף.</p>
+    
+    <p>נגדיר שני זרמי חוגים \(I_1\) ו-\(I_2\) עם כיוון השעון. נכתוב את משוואות המתחים (KVL):</p>
+    <ul style="padding-right: 20px;">
+        <li class="mb-2"><strong>חוג 1:</strong> \(R_1 I_1 + R_L (I_1 - I_2) = V_1 \implies (R_1 + R_L) I_1 - R_L I_2 = V_1\)</li>
+        <li class="mb-2"><strong>חוג 2:</strong> \(R_2 I_2 + R_L (I_2 - I_1) = -V_2 \implies -R_L I_1 + (R_2 + R_L) I_2 = -V_2\)</li>
+    </ul>
+    
+    <p>נרשום זאת בצורה מטריציונית:</p>
+    <div class="text-center my-3 py-2 bg-light rounded" style="font-size: 1.15rem; font-family: monospace; direction: ltr;">
+        \[
+        \begin{bmatrix}
+        R_1 + R_L & -R_L \\
+        -R_L & R_2 + R_L
+        \end{bmatrix}
+        \begin{bmatrix}
+        I_1 \\
+        I_2
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        V_1 \\
+        -V_2
+        \end{bmatrix}
+        \]
+    </div>
+    <p class="mb-0">לאחר פתרון המערכת ומציאת \(I_1\) ו-\(I_2\), נוכל לחשב את הזרם הממשי בענף המשותף הזורם מטה דרך \(R_L\): \(I_{RL} = I_1 - I_2\).</p>
+</div>
+<!-- /SECTION: WORKED EXAMPLE -->
 
 <!-- SECTION: ENRICHMENT -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-enrichment">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">💡 2. העשרה</h4>
-    <ul>
-        <li class="mb-1" style="margin-bottom: 4px;"><a href="https://he.wikipedia.org/wiki/%D7%9B%D7%A4%D7%9C_%D7%9E%D7%98%D7%A8%D7%99%D7%A6%D7%95%D7%AA" target="_blank" class="text-secondary" style="color: #005696 !important;">ויקיפדיה: כפל מטריצות</a></li>
-        <li><a href="https://www.mathworks.com/help/matlab/math/systems-of-linear-equations.html" target="_blank" class="text-secondary" style="color: #005696 !important;">MathWorks: פתרון מערכת משוואות ליניאריות ב-MATLAB (אנגלית)</a></li>
+<div class="theory-card mt-4" id="section-enrichment">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-graduation-cap"></i> 3. קישורי העשרה והרחבה</h3>
+    <ul class="mb-0" style="padding-right: 20px;">
+        <li class="mb-2"><a href="https://he.wikipedia.org/wiki/%D7%A9%D7%99%D7%AA%D7%95%D7%A5_%D7%96%D7%A8%D7%95%D7%9E%D7%99_%D7%97%D7%95%D7%92%D7%99%D7%9D" target="_blank" class="text-secondary fw-bold">ויקיפדיה: שיטת זרמי חוגים במעגלים חשמליים</a></li>
+        <li><a href="https://www.mathworks.com/help/matlab/math/systems-of-linear-equations.html" target="_blank" class="text-secondary fw-bold">MathWorks: פתרון מערכות משוואות ליניאריות ב-MATLAB (אנגלית)</a></li>
     </ul>
 </div>
+<!-- /SECTION: ENRICHMENT -->
 
 <!-- SECTION: FALSTAD SIMULATION -->
-<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-falstad">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🖥️ 3. חקירה בסימולטור Falstad</h4>
-    <p><strong>משימה:</strong> לפניכם המעגל המרכזי של ניסוי 2 הכולל 2 חוגים. הפעילו את הסימולציה ובדקו מהו הזרם הזורם בענף המרכזי (דרך RL). אנו נוכיח שהחישוב המטריציוני מגיע לאותה תוצאה בדיוק.</p>
+<div class="theory-card mt-4" id="section-falstad">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-desktop"></i> 4. חקירה אינטראקטיבית בסימולטור Falstad</h3>
+    <p><strong>משימה:</strong> לפניכם המעגל המרכזי של ניסוי 2 הכולל 2 חוגים. הפעילו את הסימולציה ובדקו מהו הזרם הזורם בענף המרכזי (דרך \(R_L\)). אנו נוכיח שהחישוב המטריציוני מגיע לאותה תוצאה בדיוק.</p>
     
-    <div style="border: 2px dashed #ccc; padding: 10px; background-color: white; text-align: center; border-radius: 5px;">
+    <div class="border border-secondary p-2 bg-white text-center rounded">
         <iframe width="100%" height="450" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" frameborder="0" allowfullscreen style="border: none;"></iframe>
     </div>
 </div>
+<!-- /SECTION: FALSTAD SIMULATION -->
 
 <!-- SECTION: MATLAB ANALYSIS -->
-<div class="matlab-box" style="margin-bottom: 25px; text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 24px; border-radius: 8px; margin: 18px 0 25px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);" id="section-matlab">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 4. ניתוח MATLAB</h4>
-    <p>היכנסו למטלה, בנו את מטריצת ההתנגדות R ואת וקטור המתחים V עבור המעגל מהסימולציה, ופתרו עבור הזרמים באמצעות חילוק מטריצות שמאלי ב-MATLAB.</p>
+<div class="matlab-box mt-4" id="section-matlab">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-terminal"></i> 5. פתרון המעגל באמצעות MATLAB</h3>
+    <p>היכנסו למטלה ב-MATLAB Grader. הגדירו את מטריצת ההתנגדויות <code>R</code> ואת וקטור המתחים <code>V</code> לפי ערכי המעגל בסימולציה, ופתרו את מערכת המשוואות בלחיצת כפתור באמצעות אופרטור החילוק השמאלי (Left Division):</p>
     
-    <div dir="ltr" style="background-color: #2b303b; color: #f8f8f2; padding: 15px; border-radius: 6px; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; margin-bottom: 20px; border-left: 4px solid #28a745; text-align: left;">
-        <div style="color: #c678dd; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #4f5b66; padding-bottom: 5px;">/* MATLAB Grader Assignment: Exp02_LinearAlgebra */</div>
-        <p style="color: #abb2bf;"><strong>Circuit Analysis via Matrices</strong><br>
-        Values: V1 = 5V, V2 = 3V, R1 = 300&Omega;, R2 = 1k&Omega;, RL = 1k&Omega;</p>
-        <p style="margin-bottom: 0; color: #abb2bf;"><strong>Your Task:</strong><br>
-        1. Construct R (2x2) and V (2x1).<br>
-        2. Solve for I using <code>I = R \ V</code>.<br>
-        3. Calculate <code>I_RL</code>.</p>
+    <div dir="ltr" class="bg-dark text-light p-3 rounded font-monospace text-start mb-3" style="border-left: 4px solid #28a745;">
+        <span style="color: #888;">% Define components values</span><br>
+        V1 = 5; V2 = 3;<br>
+        R1 = 300; R2 = 1000; RL = 1000;<br><br>
+        <span style="color: #888;">% Construct matrices</span><br>
+        R = [ R1 + RL, -RL ; -RL, R2 + RL ];<br>
+        V = [ V1 ; -V2 ];<br><br>
+        <span style="color: #888;">% Solve for Loop Currents [I1; I2]</span><br>
+        I = R \ V;<br><br>
+        <span style="color: #888;">% Compute current through RL</span><br>
+        I_RL = I(1) - I(2);
     </div>
 
-    <span style="display: inline-block; background-color: #eef2f5; color: #52616b; padding: 10px 18px; border: 1px dashed #aab4bf; border-radius: 6px; font-weight: bold; margin: 4px 0;">לפתיחת המטלה: Exp02_LinearAlgebra <span style="display: inline-block; color: #856404; background-color: #fff3cd; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 8px;">קישור יעודכן במודל</span></span>
+    <div class="alert alert-warning py-2 text-center fw-bold">
+        לפתיחת המטלה: Exp02_LinearAlgebra <span class="badge bg-secondary ms-2">הקישור המעודכן יופיע במודל</span>
+    </div>
 </div>
+<!-- /SECTION: MATLAB ANALYSIS -->
 
-<div class="question-bank-container" style="background-color: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #005696; padding: 18px; border-radius: 8px; margin-top: 20px;" id="section-h5p-quiz">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">בוחן H5P לפרק זה</h4>
-    <p style="margin: 0;">הועלתה חבילת H5P עם 6 שאלות לפרק: <strong>Exp02_PreLab_00_LinearAlgebra_H5P.h5p</strong></p>
+<!-- SECTION: H5P QUIZ -->
+<div class="info-box mt-4" id="section-h5p-quiz">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-tasks"></i> 6. בוחן הכנה לפרק זה</h3>
+    <p class="mb-0">לאחר שלמדתם את עקרונות הכתיבה המטריציונית, ענו על השאלות בבוחן ה-H5P הבא כדי לוודא הבנה: <strong>Exp02_PreLab_00_LinearAlgebra_H5P.h5p</strong></p>
 </div>
+<!-- /SECTION: H5P QUIZ -->
+
 <!-- EXP02 NAVIGATION -->
-<div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="01_PreLab.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a><a href="01_PreLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים הכנה</a><a href="01_PreLab_01_Superposition_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: סופרפוזיציה</a></div>
+<div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;">
+    <a href="01_PreLab.html" class="btn btn-secondary" style="margin: 4px;">הקודם: תוכן עניינים</a>
+    <a href="01_PreLab_01_Superposition_sub.html" class="btn btn-primary" style="margin: 4px;">הבא: סופרפוזיציה ←</a>
+</div>
 <!-- /EXP02 NAVIGATION -->
-    </div>
-</div>
-
-
-
-
-</body>
-</html>
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
-
-</body>
-</html>

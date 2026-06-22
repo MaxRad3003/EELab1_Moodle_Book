@@ -700,7 +700,7 @@
     </answer>
   </question>
   <question type="category">
-    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 06: תוכנית עבודה</text></category>
+    <category><text>$course$/top/EELab1/Exp03/PreLab/ניסוי 3 - PreLab 06: תוכנית עבודה, פונקציית תמסורת ואלגברה ליניארית</text></category>
   </question>
   <question type="multichoice">
     <name><text>Exp03 06_work_plan Q1</text></name>
@@ -731,7 +731,7 @@
   </question>
   <question type="multichoice">
     <name><text>Exp03 06_work_plan Q2</text></name>
-    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה חשוב לרשום לצד כל מדידה?</div>]]></text></questiontext>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה מייצגת פונקציית התמסורת \(H(j\omega)\)?</div>]]></text></questiontext>
     <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -740,8 +740,89 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">יחידות, תחום מדידה, תדר וצורת גל כאשר רלוונטי.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
+      <text><![CDATA[<div dir="rtl">היחס הפאזורי בין מתח המוצא למתח הכניסה.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. היא כוללת גם יחס משרעות וגם הפרש מופע.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק ההתנגדות של הנגד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">התנגדות היא רכיב אחד בלבד במעגל.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">רק תדר המקור ללא תלות במעגל.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">התדר הוא המשתנה שבו בוחנים את תגובת המעגל.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">המתח שיא-לשיא של האוסצילוסקופ.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו גודל מדידה, לא פונקציית תמסורת.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 06_work_plan Q3</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">בכתיבה ליניארית של מעגל בתחום הפאזורים, מה משמעות הצורה \(A x=b\)?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">\(A\) מכילה עכבות, \(x\) הוא וקטור הנעלמים, ו-\(b\) מייצג מקורות.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זו הדרך האלגברית לנסח את משוואות קירכהוף.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(A\) היא תמיד תדר בלבד.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">המטריצה מכילה את מקדמי המערכת, בדרך כלל עכבות או מוליכויות.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(x\) הוא תמיד זמן המחזור.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">הנעלמים הם לרוב זרמים או מתחים פאזוריים.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(b\) חייב להיות אפס בכל מעגל.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">מקורות מתח או זרם מופיעים באגף הימני.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 06_work_plan Q4</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהי פונקציית התמסורת של מתח הקבל במעגל RC טורי?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">\(H_C(j\omega)=1/(1+j\omega RC)\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זו תמסורת מסנן מעביר נמוכים עבור מתח הקבל.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(H_C(j\omega)=1+j\omega RC\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו ההופכי של התמסורת הנכונה.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(H_C(j\omega)=R/C\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">ביטוי זה אינו חסר יחידות ואינו תלוי בתדר.</div>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<div dir="rtl">\(H_C(j\omega)=V_{pp}\)</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">תמסורת היא יחס בין מוצא לכניסה.</div>]]></text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>Exp03 06_work_plan Q5</text></name>
+    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה חשוב לרשום לצד כל מדידה כדי לחשב תמסורת ניסיונית?</div>]]></text></questiontext>
+    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<div dir="rtl">יחידות, תדר, \(V_{in}\), \(V_{out}\), והפרש זמן או מופע.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. כך ניתן לחשב גם גודל תמסורת וגם מופע.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">רק מספר ללא יחידה.</div>]]></text>
@@ -754,87 +835,6 @@
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">רק צבע החוטים.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">לא מספיק.</div>]]></text></feedback>
-    </answer>
-  </question>
-  <question type="multichoice">
-    <name><text>Exp03 06_work_plan Q3</text></name>
-    <questiontext format="html"><text><![CDATA[<div dir="rtl">למה משנים פרמטר אחד בכל פעם?</div>]]></text></questiontext>
-    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">כדי להבין מה גרם לשינוי בתוצאה.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זו שיטת עבודה ניסויית מסודרת.</div>]]></text></feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">כדי להאריך את הניסוי ללא צורך.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">המטרה היא בידוד גורמים.</div>]]></text></feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">כי אסור לשנות תדר.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">מותר לפי ההנחיות.</div>]]></text></feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">כי כל הפרמטרים שווים תמיד.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">לא נכון.</div>]]></text></feedback>
-    </answer>
-  </question>
-  <question type="multichoice">
-    <name><text>Exp03 06_work_plan Q4</text></name>
-    <questiontext format="html"><text><![CDATA[<div dir="rtl">מה עושים כאשר התצוגה באוסצילוסקופ אינה יציבה?</div>]]></text></questiontext>
-    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">בודקים trigger, time/div, volts/div וחיבורי גשש.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">מניחים שהמעגל תקין בלי לבדוק.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">יש לאבחן.</div>]]></text></feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">מנתקים את האדמה בלבד.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">זה עלול להחמיר את הבעיה.</div>]]></text></feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">מחליפים מיד את כל הרכיבים.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">קודם מאבחנים.</div>]]></text></feedback>
-    </answer>
-  </question>
-  <question type="multichoice">
-    <name><text>Exp03 06_work_plan Q5</text></name>
-    <questiontext format="html"><text><![CDATA[<div dir="rtl">מהו כלל בטיחות מרכזי בעבודה עם שקע/מתח רשת?</div>]]></text></questiontext>
-    <generalfeedback format="html"><text><![CDATA[<div dir="rtl">שאלת PreLab לניסוי 3.</div>]]></text></generalfeedback>
-    <defaultgrade>1.0000000</defaultgrade>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <single>true</single>
-    <shuffleanswers>true</shuffleanswers>
-    <answernumbering>abc</answernumbering>
-    <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">לא מחברים ישירות ללא ציוד מתאים ואישור מדריך.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. מתח רשת מסוכן.</div>]]></text></feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">מותר לגעת במוליכים אם המדידה קצרה.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">אסור.</div>]]></text></feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">אין צורך בבידוד.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">בידוד חיוני.</div>]]></text></feedback>
-    </answer>
-    <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">מתח RMS אינו מסוכן.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">230V RMS מסוכן מאוד.</div>]]></text></feedback>
     </answer>
   </question>
   <question type="category">

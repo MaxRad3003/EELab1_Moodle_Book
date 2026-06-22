@@ -1,0 +1,232 @@
+<!-- BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 14px; border-radius: 6px;">
+    <a href="Index.html" style="text-decoration: none; color: inherit; font-weight: bold;">← חזרה לאינדקס המכשירים</a>
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- HEADER -->
+<div class="text-center mb-4">
+    <h1 class="display-5 fw-bold text-danger" style="margin-top: 1rem; margin-bottom: 0.5rem; color: #b91c1c !important;">מחולל אותות אנלוגי GFG-8219A</h1>
+    <div class="mx-auto bg-danger" style="height: 3px; width: 80px; border-radius: 10px; background-color: #b91c1c !important;"></div>
+</div>
+<!-- /HEADER -->
+
+<!-- INTRODUCTION -->
+<div class="info-box border-danger" style="border-right-color: #b91c1c !important;">
+    <h3 class="sub-title text-danger" style="margin-top: 0; color: #b91c1c !important;"><i class="fas fa-wave-square"></i> עקרון הפעולה האנלוגי</h3>
+    <p class="lead">
+        מכשיר ה-<strong>GFG-8219A</strong> מבית GW Instek הוא מחולל אותות אנלוגי קלאסי. בניגוד למחוללים דיגיטליים המחשבים את ערכי הגל באמצעות מעבד, מכשיר זה מבוסס על רכיבים אנלוגיים (כמו קבלים, מטעני זרם ומשווים) כדי ליצור גלי משולש, סינוס וריבוע.
+    </p>
+    <p>
+        למכשיר זה יש לוח בקרה ידני לחלוטין המבוסס על לחצנים פיזיים ובוררים סיבוביים (פוטנציומטרים). המכשיר משלב גם <strong>מונה תדר ספרתי (Counter)</strong> מובנה, היכול להציג את תדר הגל המופק או למדוד תדר של אות חיצוני המחובר אליו.
+    </p>
+    <div class="row my-4 align-items-center">
+        <div class="col-md-6">
+            <p>
+                באיור משמאל מוצגים הלוח הקדמי והלוח האחורי של מכשיר ה-GFG-8219A.
+                בחזית המכשיר (למעלה) ניתן לראות את כפתורי בחירת טווחי התדרים (Range), הבורר הסיבובי הראשי, וחוגות ההיסט (Offset) ועוצמת האות (Amplitude).
+                מאחור (למטה) ממוקמים פתחי הזנת המתח ומאוורר הקירור.
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="row g-2">
+                <div class="col-6">
+                    <div class="card p-2 bg-light shadow-sm">
+                        <img src="Figure/gfg8219a_front.png" alt="GFG-8219A Front Panel" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
+                        <p class="mb-0 mt-1 small text-muted text-center" style="font-size: 10px;">מבט חזיתי</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card p-2 bg-light shadow-sm">
+                        <img src="Figure/gfg8219a_rear.png" alt="GFG-8219A Rear Panel" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
+                        <p class="mb-0 mt-1 small text-muted text-center" style="font-size: 10px;">מבט אחורי</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /INTRODUCTION -->
+
+<!-- ANALOG WAVE CONTROL SVG DIAGRAM -->
+<div class="theory-card my-4 border-danger">
+    <h4 class="sub-title text-danger" style="margin-top: 0; color: #b91c1c !important;"><i class="fas fa-cogs"></i> שליטה ידנית בפרמטרים של האות האנלוגי</h4>
+    <p class="small text-muted text-center">התרשים הבא מציג כיצד שינוי בוררי הלוח הקדמי (נמשכים) משפיע על האות הנוצר במכשיר:</p>
+    
+    <div class="text-center py-2">
+        <svg viewBox="0 0 800 240" width="100%" height="auto" style="background-color: #fafafa; border: 1px solid #fecaca; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grid lines -->
+            <path d="M 50 120 L 750 120 M 270 20 L 270 220 M 520 20 L 520 220" stroke="#e2e8f0" stroke-width="1.5"/>
+            
+            <!-- Panel 1: DC Offset -->
+            <g transform="translate(10, 10)">
+                <text x="125" y="25" font-family="sans-serif" font-weight="bold" font-size="12" fill="#0f172a" text-anchor="middle">בורר DC Offset (משוך החוצה)</text>
+                
+                <!-- Zero level indicator -->
+                <line x1="20" y1="110" x2="230" y2="110" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+                <text x="25" y="105" font-family="sans-serif" font-size="8" fill="#94a3b8">ייחוס 0V</text>
+                
+                <!-- Wave shifted upwards -->
+                <path d="M 40 70 Q 75 10, 110 70 T 180 70" fill="none" stroke="#ef4444" stroke-width="2"/>
+                <line x1="40" y1="70" x2="200" y2="70" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,2"/>
+                <!-- Offset vector -->
+                <path d="M 110 110 L 110 75" fill="none" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow)"/>
+                <text x="120" y="95" font-family="sans-serif" font-size="10" fill="#3b82f6" font-weight="bold">DC Offset (+)</text>
+            </g>
+            
+            <!-- Panel 2: Duty Cycle -->
+            <g transform="translate(265, 10)">
+                <text x="125" y="25" font-family="sans-serif" font-weight="bold" font-size="12" fill="#0f172a" text-anchor="middle">בורר Duty Cycle (משוך החוצה)</text>
+                
+                <!-- Asymmetric square wave (Pulse) -->
+                <path d="M 30 110 L 30 50 L 80 50 L 80 170 L 210 170 L 210 110" fill="none" stroke="#ef4444" stroke-width="2"/>
+                <!-- Labels showing duty cycle -->
+                <line x1="30" y1="40" x2="80" y2="40" stroke="#10b981" stroke-width="1.5"/>
+                <line x1="80" y1="180" x2="210" y2="180" stroke="#64748b" stroke-width="1.5"/>
+                <text x="55" y="32" font-family="sans-serif" font-size="9" fill="#10b981" text-anchor="middle" font-weight="bold">מחזור עבודה (25%)</text>
+                <text x="145" y="195" font-family="sans-serif" font-size="9" fill="#64748b" text-anchor="middle">זמן כבוי (75%)</text>
+            </g>
+            
+            <!-- Panel 3: Amplitude & Attenuation -->
+            <g transform="translate(520, 10)">
+                <text x="125" y="25" font-family="sans-serif" font-weight="bold" font-size="12" fill="#0f172a" text-anchor="middle">הנחתה פי 10 (לחיצת -20dB)</text>
+                
+                <!-- Original wave -->
+                <path d="M 20 110 Q 55 30, 90 110 T 160 110" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <text x="90" y="50" font-family="sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">אות מקורי (Vpp)</text>
+                
+                <!-- Attenuated wave -->
+                <path d="M 20 110 Q 55 102, 90 110 T 160 110" fill="none" stroke="#ef4444" stroke-width="2"/>
+                <text x="110" y="102" font-family="sans-serif" font-size="9" fill="#ef4444" font-weight="bold">מונחת פי 10 (0.1 Vpp)</text>
+            </g>
+            
+            <!-- Marker definition -->
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
+</div>
+<!-- /ANALOG WAVE CONTROL SVG DIAGRAM -->
+
+<!-- CONTROLS & MANUAL EXPLANATION -->
+<div class="card border-danger my-4" style="border-color: #ffcdd2 !important;">
+    <div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> מקשים ובוררים מיוחדים בלוח הקדמי</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            בעבודה עם ה-GFG-8219A, חשוב להבין שחלק מהבוררים הסיבוביים כוללים <strong>מנגנון מכני של משיכה ודחיפה (Push-Pull)</strong> המשמש להפעלה של מצבי עבודה מתקדמים:
+        </p>
+        
+        <div class="vstack gap-3">
+            <div class="p-3 bg-light rounded border-start border-danger border-4" style="border-right-color: #b91c1c !important;">
+                <h5 class="text-danger fw-bold" style="color: #b91c1c !important;">1. בורר התדרים הראשי ו-Range Buttons</h5>
+                <p class="small text-muted mb-0">
+                    קביעת התדר נעשית בשני שלבים:
+                    <br><strong>א. בחירה גסה (Coarse):</strong> לחיצה על אחד מלחצני ה-<strong>Range</strong> (מ-\(1\text{ Hz}\) ועד \(1\text{ MHz}\)) לקביעת סדר הגודל של התדר.
+                    <br><strong>ב. כיוון עדין (Fine):</strong> סיבוב החוגה הסיבובית הראשית (החוגה הגדולה משמאל) המכפילה את ערך הטווח שנבחר (מ-\(0.2\) ועד \(2.0\)). התדר המדויק יופיע במסך הדיגיטלי (Display).
+                </p>
+            </div>
+            
+            <div class="p-3 bg-light rounded border-start border-danger border-4" style="border-right-color: #b91c1c !important;">
+                <h5 class="text-danger fw-bold" style="color: #b91c1c !important;">2. בורר DC Offset (נמשך - Pull to Activate)</h5>
+                <p class="small text-muted mb-0">
+                    כאשר הבורר <strong>לחוץ פנימה (Push)</strong>, המכשיר מפיק אות סימטרי סביב האפס (\(0\text{ V DC}\)). 
+                    כאשר <strong>מושכים את הבורר החוצה (Pull)</strong>, מופעל מעגל ה-DC Offset, וסיבוב הבורר מאפשר להוסיף רמת היסט מתח ישר בטווח של בין \(+10\text{ V}\) ל-\(-10\text{ V}\).
+                </p>
+            </div>
+            
+            <div class="p-3 bg-light rounded border-start border-danger border-4" style="border-right-color: #b91c1c !important;">
+                <h5 class="text-danger fw-bold" style="color: #b91c1c !important;">3. בורר Duty Cycle (נמשך - Pull to Activate)</h5>
+                <p class="small text-muted mb-0">
+                    כאשר הבורר <strong>לחוץ פנימה (Push)</strong>, אות המוצא סימטרי לחלוטין (למשל, גל ריבועי עם \(50\%\) זמן גבוה ו-\(50\%\) זמן נמוך).
+                    כאשר <strong>מושכים את הבורר החוצה (Pull)</strong>, ניתן לשנות את מחזור העבודה (Symmetry) בין \(20\%\) ל-\(80\%\) ליצירת פולסים דיגיטליים צרים או גל שן-מסור (משולש לא סימטרי).
+                </p>
+            </div>
+
+            <div class="p-3 bg-light rounded border-start border-danger border-4" style="border-right-color: #b91c1c !important;">
+                <h5 class="text-danger fw-bold" style="color: #b91c1c !important;">4. לחצן -20dB (מנחת עוצמה)</h5>
+                <p class="small text-muted mb-0">
+                    במידה ונדרש להפיק מתחים קטנים מאוד (למשל, מילי-וולטים בודדים), סיבוב בורר ה-Amplitude שמאלה לא יספיק ויהיה לא רגיש. 
+                    לחיצה על מקש ה-<strong>-20dB</strong> מפעילה מנחת פנימי המקטין את עוצמת האות ב-20 דציבלים (שזה <strong>בדיוק פי 10 פחות במתח</strong>).
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /CONTROLS & MANUAL EXPLANATION -->
+
+<!-- OUTPUT TERMINALS -->
+<div class="card border-danger my-4" style="border-color: #ffcdd2 !important;">
+    <div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-plug"></i> יציאות וכניסות BNC</h3>
+    </div>
+    <div class="card-body">
+        <ul style="padding-right: 20px;">
+            <li class="mb-2"><strong>OUTPUT (50 &Omega;):</strong> היציאה הראשית של האות. חברו לכאן כבל BNC למעגל.</li>
+            <li class="mb-2"><strong>TTL/CMOS Output:</strong> יציאה מקבילה המפיקה גל ריבועי בלבד בעוצמה לוגית (0 עד 5 וולט) המשמשת למעגלים ספרתיים. בורר ה-Amplitude לא משפיע עליה.</li>
+            <li class="mb-2"><strong>COUNTER IN:</strong> כניסה למדידת תדר חיצונית. אם תעבירו את לחצן ה-Counter Mode למצב Ext, המסך יציג את התדר של האות המחובר לכניסה זו.</li>
+        </ul>
+    </div>
+</div>
+<!-- /OUTPUT TERMINALS -->
+
+<!-- PEDAGOGICAL WARNING -->
+<div class="alert alert-warning p-4 my-4">
+    <h4 class="alert-heading text-warning fw-bold"><i class="fas fa-exclamation-triangle"></i> דגשים פדגוגיים לעבודה במעבדה:</h4>
+    <ul class="mb-0 mt-2" style="padding-right: 20px;">
+        <li class="mb-1"><strong>כיול בוררים:</strong> בעת מדידה רגילה של גל סינוס/ריבוע סטנדרטי, ודאו כי בוררי ה-<strong>DC Offset</strong> וה-<strong>Duty Cycle</strong> לחוצים פנימה כדי למנוע הסטת מתח או עיוותי צורה לא רצויים.</li>
+        <li class="mb-1"><strong>העמסה:</strong> בדומה למחולל הדיגיטלי, עכבת המוצא של המכשיר היא \(50\ \Omega\). המכשיר אנלוגי ואינו מציג את רמת המתח ישירות על גביו - יש לקבוע ולמדוד את המתח בפועל באמצעות אוסילוסקופ בלבד!</li>
+    </ul>
+</div>
+<!-- /PEDAGOGICAL WARNING -->
+
+<!-- PRACTICAL DEMONSTRATION & STEP-BY-STEP GUIDE -->
+<div class="card border-danger my-4" style="border-color: #ffcdd2 !important;">
+    <div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="text-danger fw-bold">הדגמה מעשית: כיוון תדר, מחזור עבודה (Duty Cycle) והיסט DC במחולל אנלוגי</h4>
+        <p>
+            בניסוי זה נשתמש במחולל האנלוגי <strong>GFG-8219A</strong> כדי להפיק אות ריבועי לא סימטרי (Duty Cycle של 30%) בתדר של \(500\text{ Hz}\) המורם כולו מעל האפס באמצעות היסט DC חיובי.
+        </p>
+
+        <div class="bg-light p-3 rounded border-start border-danger border-4 mb-3" style="border-right-color: #b91c1c !important;">
+            <h5 class="fw-bold text-danger"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי - שלב אחר שלב:</h5>
+            <ol class="mb-0" style="padding-right: 20px;">
+                <li class="mb-2">
+                    <strong>חיבור האות:</strong> חברו כבל BNC מיציאת ה-<strong>OUTPUT (50 \(\Omega\))</strong> הראשית של המחולל לערוץ 1 (CH1) של האוסילוסקופ.
+                </li>
+                <li class="mb-2">
+                    <strong>בחירת סוג הגל והטווח:</strong> לחצו על לחצן צורת הגל הריבועי (סמל של מדרגה ריבועית) ולחצו על לחצן הטווח <strong>1k</strong> (Range).
+                </li>
+                <li class="mb-2">
+                    <strong>כיוון התדר:</strong> סובבו את בורר התדר הראשי (החוגה הגדולה משמאל) באיטיות ימינה או שמאלה עד שהמונה הדיגיטלי (Display) מראה ערך של בדיוק <strong>500 Hz</strong>.
+                </li>
+                <li class="mb-2">
+                    <strong>כיוון האמפליטודה:</strong> לחצו על לחצן <strong>Autoset</strong> באוסילוסקופ. סובבו את בורר ה-<strong>AMPLITUDE</strong> של המחולל עד לקבלת אות בגובה של \(4\text{ V}_{p-p}\) על מסך האוסילוסקופ.
+                </li>
+                <li class="mb-2">
+                    <strong>כיוון מחזור העבודה (Duty Cycle / Symmetry):</strong>
+                    משכו את בורר ה-<strong>DUTY CYCLE</strong> החוצה (Pull). סובבו את החוגה עד שרוחב הדופק הריבועי החיובי יתכווץ ויהווה בדיוק 30% מזמן המחזור הכללי (ראו באוסילוסקופ כיצד הגל הופך ללא סימטרי).
+                </li>
+                <li class="mb-2">
+                    <strong>הוספת היסט מתח ישר (DC Offset):</strong>
+                    משכו את בורר ה-<strong>DC OFFSET</strong> החוצה (Pull). סובבו את הבורר ימינה והתבוננו במסך האוסילוסקופ: שימו לב כיצד הגל כולו "עולה" למעלה. כוונו את ה-Offset כך שהערך הנמוך של הגל יימצא בדיוק על קו ה-0V (כך שהגל יהיה כולו חיובי, בין 0V ל-4V).
+                </li>
+                <li class="mb-2">
+                    <strong>סיום והחזרה למצב רגיל:</strong> בסיום המדידה, דחפו את שני הבוררים (DC Offset ו-Duty Cycle) בחזרה פנימה (Push) לקראת המדידה הבאה.
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- NAVIGATE BACK TO INDEX -->
+<div class="d-flex justify-content-start mt-4 pt-3 border-top">
+    <a href="Index.html" class="btn btn-primary">← חזרה לאינדקס מכשירי מדידה</a>
+</div>

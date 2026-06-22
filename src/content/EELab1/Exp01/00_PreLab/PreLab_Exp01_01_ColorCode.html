@@ -1,113 +1,225 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>PreLab Exp01 01 ColorCode</title>
-</head>
-<body>
+<!-- EXP01 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 > הכנה > נגדים וקוד צבעים</div>
+<!-- /EXP01 BREADCRUMB -->
 
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!-- 
-    MOODLE SNIPPET - INLINE CSS VERSION
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-inline" dir="rtl" style="color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-        <!-- CHAPTER: HEADER -->
-<div id="ch-color-code-header" style="text-align: center; margin-bottom: 3rem;">
-    <h2 style="margin-top: 1.5rem; line-height: 1.25; font-size: 2rem; font-weight: bold; color: #005696; margin-bottom: 1rem;">נגדים וצופן צבעים</h2>
-    <div style="margin-left: auto; margin-right: auto; background-color: #005696; height: 3px; width: 60px; border-radius: 10px;"></div>
+<!-- CHAPTER: HEADER -->
+<div id="ch-color-code-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">נגדים וצופן צבעים</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
 </div>
 <!-- /CHAPTER: HEADER -->
 
 <!-- SECTION: INTRODUCTION TO RESISTORS -->
-<div id="section-intro-resistors" style="background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 25px; margin: 20px 0;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">מהו נגד?</h3>
-    <p>הנגד הוא רכיב חשמלי פסיבי המתנגד למעבר זרם דרכו. ההתנגדות נמדדת ביחידות של <strong>אוהם ($\Omega$)</strong>. מכיוון שהנגדים קטנים מכדי להדפיס עליהם מספרים קריאים, משתמשים בשיטת טבעות הצבעים.</p>
+<div class="info-box" id="section-intro-resistors" style="border-right: 5px solid #3b82f6;">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;">מהו נגד?</h3>
+    <p class="mb-0">
+        הנגד הוא רכיב חשמלי פסיבי המתנגד למעבר זרם חשמלי דרכו וממיר אנרגיה חשמלית לחום. ההתנגדות נמדדת ביחידות של <strong>אוהם (\(\Omega\))</strong>. מכיוון שנגדים הם רכיבים פיזיים קטנים מאוד, הדפסת מספרים עליהם עלולה להיות קשה לקריאה או להישחק עם הזמן. לכן, נקבע תקן בינלאומי לסימון ערך ההתנגדות באמצעות <strong>טבעות צבע</strong> היקפיות.
+    </p>
 </div>
 <!-- /SECTION: INTRODUCTION TO RESISTORS -->
 
+<!-- SECTION: 4 VS 5 BANDS -->
+<div class="theory-card mt-4">
+    <h4 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-microchip"></i> 1. סוגי נגדים: 4 טבעות לעומת 5 טבעות</h4>
+    <p>במעבדה תיתקלו בשני סוגי נגדים נפוצים:</p>
+    <div class="row g-3 mt-1">
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-light"><strong class="text-primary">נגד בעל 4 טבעות (Carbon Film)</strong></div>
+                <div class="card-body">
+                    <p class="small text-muted">זהו הנגד הנפוץ והפשוט ביותר. בדרך כלל בעל גוף בצבע בז'/חום בהיר.</p>
+                    <ul class="small" style="padding-right: 20px; margin-bottom: 0;">
+                        <li><strong>טבעת 1:</strong> ספרה ראשונה.</li>
+                        <li><strong>טבעת 2:</strong> ספרה שנייה.</li>
+                        <li><strong>טבעת 3:</strong> מכפיל (\(10^n\)).</li>
+                        <li><strong>טבעת 4:</strong> טולרנס (בדרך כלל זהב - \(\pm 5\%\)).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-light"><strong class="text-primary">נגד בעל 5 טבעות (Metal Film - דיוק גבוה)</strong></div>
+                <div class="card-body">
+                    <p class="small text-muted">נגד מדויק יותר. בדרך כלל בעל גוף בצבע כחול/תכלת.</p>
+                    <ul class="small" style="padding-right: 20px; margin-bottom: 0;">
+                        <li><strong>טבעת 1:</strong> ספרה ראשונה.</li>
+                        <li><strong>טבעת 2:</strong> ספרה שנייה.</li>
+                        <li><strong>טבעת 3:</strong> ספרה שלישית.</li>
+                        <li><strong>טבעת 4:</strong> מכפיל (\(10^n\)).</li>
+                        <li><strong>טבעת 5:</strong> טולרנס (בדרך כלל חום - \(\pm 1\%\)).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="alert alert-info mt-3 small mb-0">
+        <i class="fas fa-question-circle"></i> <strong>איך יודעים מאיזה צד לקרוא?</strong>
+        טבעת הטולרנס (האחרונה) היא בדרך כלל מרוחקת יותר משאר הטבעות, או שהיא עבה יותר. נגדים של 4 טבעות מסתיימים כמעט תמיד בזהב או כסף. קוראים תמיד מהקצה הנגדי לטבעת הטולרנס (משמאל לימין).
+    </div>
+</div>
+<!-- /SECTION: 4 VS 5 BANDS -->
+
 <!-- SECTION: COLOR TABLE -->
-<div id="section-color-table" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">טבלת צופן הצבעים</h3>
-    <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; border: 1px solid #ddd;">
+<div class="theory-card mt-4" id="section-color-table">
+    <h3 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-palette"></i> 2. טבלת צופן הצבעים הבינלאומית</h3>
+    <div class="table-responsive mt-2">
+        <table class="table table-bordered text-center align-middle">
             <thead>
                 <tr style="background-color: #003366; color: white;">
-                    <th style="padding: 10px; border: 1px solid #ddd;">צבע</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">ספרה 1 & 2</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">מכפיל (טבעת 3)</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">דיוק (טבעת 4)</th>
+                    <th style="width: 20%;">צבע הטבעת</th>
+                    <th>ספרה (טבעות 1, 2, 3)</th>
+                    <th>מכפיל (טבעת 3 בנגד 4-טב' / טבעת 4 בנגד 5-טב')</th>
+                    <th>דיוק/טולרנס (טבעת 4 בנגד 4-טב' / טבעת 5 בנגד 5-טב')</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #000; color: white; text-align: center;">שחור</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">0</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 1$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #8B4513; color: white; text-align: center;">חום</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">1</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 10^1$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\pm 1\%$</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #f00; color: white; text-align: center;">אדום</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">2</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 10^2$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\pm 2\%$</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #ff8c00; color: white; text-align: center;">כתום</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">3</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 10^3$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #ff0; color: black; text-align: center;">צהוב</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">4</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 10^4$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #008000; color: white; text-align: center;">ירוק</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">5</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 10^5$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\pm 0.5\%$</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #00f; color: white; text-align: center;">כחול</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">6</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 10^6$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #ee82ee; color: black; text-align: center;">סגול</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">7</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 10^7$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #808080; color: white; text-align: center;">אפור</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">8</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #fff; color: black; text-align: center;">לבן</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">9</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #ffd700; color: black; text-align: center;">זהב</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 0.1$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\pm 5\%$</td></tr>
-                <tr><td style="padding: 10px; border: 1px solid #ddd; background-color: #c0c0c0; color: black; text-align: center;">כסף</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">-</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\times 0.01$</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$\pm 10\%$</td></tr>
+                <tr>
+                    <td style="background-color: #000000; color: #ffffff; font-weight: bold; text-shadow: 0px 0px 3px #000;">שחור</td>
+                    <td>0</td>
+                    <td>\(10^0 = 1\)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #8B4513; color: #ffffff; font-weight: bold;">חום</td>
+                    <td>1</td>
+                    <td>\(10^1 = 10\)</td>
+                    <td>\(\pm 1\%\) (נפוץ ב-5 פסים)</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #ff3b30; color: #ffffff; font-weight: bold;">אדום</td>
+                    <td>2</td>
+                    <td>\(10^2 = 100\)</td>
+                    <td>\(\pm 2\%\)</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #ff9500; color: #ffffff; font-weight: bold;">כתום</td>
+                    <td>3</td>
+                    <td>\(10^3 = 1k\)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #ffcc00; color: #000000; font-weight: bold;">צהוב</td>
+                    <td>4</td>
+                    <td>\(10^4 = 10k\)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #4cd964; color: #000000; font-weight: bold;">ירוק</td>
+                    <td>5</td>
+                    <td>\(10^5 = 100k\)</td>
+                    <td>\(\pm 0.5\%\)</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #007aff; color: #ffffff; font-weight: bold;">כחול</td>
+                    <td>6</td>
+                    <td>\(10^6 = 1M\)</td>
+                    <td>\(\pm 0.25\%\)</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #5856d6; color: #ffffff; font-weight: bold;">סגול</td>
+                    <td>7</td>
+                    <td>\(10^7 = 10M\)</td>
+                    <td>\(\pm 0.1\%\)</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #8e8e93; color: #ffffff; font-weight: bold;">אפור</td>
+                    <td>8</td>
+                    <td>\(10^8 = 100M\)</td>
+                    <td>\(\pm 0.05\%\)</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #ffffff; color: #000000; font-weight: bold; border: 1px solid #dee2e6;">לבן</td>
+                    <td>9</td>
+                    <td>\(10^9 = 1G\)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #ffd700; color: #000000; font-weight: bold;">זהב</td>
+                    <td>-</td>
+                    <td>\(\times 0.1 = 10^{-1}\)</td>
+                    <td>\(\pm 5\%\) (נפוץ ב-4 פסים)</td>
+                </tr>
+                <tr>
+                    <td style="background-color: #c0c0c0; color: #000000; font-weight: bold;">כסף</td>
+                    <td>-</td>
+                    <td>\(\times 0.01 = 10^{-2}\)</td>
+                    <td>\(\pm 10\%\)</td>
+                </tr>
             </tbody>
         </table>
     </div>
 </div>
 <!-- /SECTION: COLOR TABLE -->
 
-<!-- SECTION: CALCULATION EXAMPLE -->
-<div id="section-example" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">איך מחשבים? דוגמה מעשית</h3>
-    <p>נניח שיש לנו נגד עם הטבעות הבאות (משמאל לימין):</p>
-    <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem;">
-        <span style="background-color: #8B4513; color: white; padding: 10px 20px; border-radius: 4px; font-weight: bold;">חום</span>
-        <span style="background-color: #008000; color: white; padding: 10px 20px; border-radius: 4px; font-weight: bold;">ירוק</span>
-        <span style="background-color: #f00; color: white; padding: 10px 20px; border-radius: 4px; font-weight: bold;">אדום</span>
-        <span style="background-color: #ffd700; color: black; padding: 10px 20px; border-radius: 4px; font-weight: bold;">זהב</span>
+<!-- SECTION: CALCULATION EXAMPLES -->
+<div class="theory-card mt-4" id="section-examples">
+    <h3 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-glasses"></i> 3. דוגמאות חישוב מעשיות</h3>
+    
+    <div class="bg-light p-3 border rounded mb-3">
+        <h5 class="fw-bold text-primary mb-2">דוגמה א': נגד בעל 4 טבעות</h5>
+        <p class="mb-2">נתון נגד עם הצבעים הבאים (משמאל לימין): <strong>חום, ירוק, אדום, זהב</strong>.</p>
+        <ol style="padding-right: 20px;">
+            <li>טבעת 1 (חום): ספרה <strong>1</strong></li>
+            <li>טבעת 2 (ירוק): ספרה <strong>5</strong></li>
+            <li>טבעת 3 (אדום): מכפיל <strong>\(10^2 = 100\)</strong></li>
+            <li>טבעת 4 (זהב): טולרנס <strong>\(\pm 5\%\)</strong></li>
+        </ol>
+        <div class="alert alert-success text-center mb-0" style="font-size: 1.1rem; padding: 10px;">
+            הערך הנקוב: \(15 \cdot 100 = 1500\Omega = 1.5k\Omega\) בסטייה של \(\pm 5\%\).
+        </div>
     </div>
-    <ol style="padding-right: 20px;">
-        <li>ספרה ראשונה (חום): <strong>1</strong></li>
-        <li>ספרה שנייה (ירוק): <strong>5</strong></li>
-        <li>מכפיל (אדום): <strong>$10^2$ (או 100)</strong></li>
-        <li>דיוק (זהב): <strong>$\pm 5\%$</strong></li>
-    </ol>
-    <div style="background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; padding: 0.75rem 1.25rem; border-radius: 0.25rem; text-align: center;">
-        התוצאה: $15 \times 100 = 1500\Omega$ (או $1.5k\Omega$) עם סטייה של $5\%$.
-    </div>
-</div>
-<!-- /SECTION: CALCULATION EXAMPLE -->
 
-<!-- SECTION: TOLERANCE -->
-<div id="section-tolerance" style="background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 25px; margin: 20px 0;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">מהו טולרנס (Tolerance)?</h3>
-    <p>הטולרנס הוא אחוז הסטייה המותר מהערך הנקוב. במדידה אמיתית, נדיר לקבל בדיוק את הערך התיאורטי. </p>
-    <p style="margin-bottom: 0;"><strong>נוסחת השגיאה היחסית:</strong></p>
-    <p style="text-align: center; font-size: 1.2rem;">
-        $\gamma_R = \frac{|R_{measured} - R_{nominal}|}{R_{nominal}} \times 100\%$
-    </p>
-</div>
-<!-- /SECTION: TOLERANCE -->
-
-<!-- CHAPTER: FOOTER -->
-<div id="ch-color-code-footer" style="margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center;">
-    <p style="font-size: 1.25rem; font-weight: bold; color: #6c757d; margin: 0;">
-        עכשיו כשאתם יודעים לקרוא צבעים, בואו נלמד להשתמש במכשירי המדידה!
-    </p>
-</div>
-<!-- /CHAPTER: FOOTER -->
-
-    </div>
-</div>
-
+    <div class="bg-light p-3 border rounded">
+        <h5 class="fw-bold text-primary mb-2">דוגמה ב': נגד בעל 5 טבעות</h5>
+        <p class="mb-2">נתון נגד עם הצבעים הבאים (משמאל לימין): <strong>כתום, כתום, שחור, חום, חום</strong>.</p>
+        <ol style="padding-right: 20px;">
+            <li>טבעת 1 (כתום): ספרה <strong>3</strong></li>
+            <li>טבעת 2 (כתום): ספרה <strong>3</strong></li>
+            <li>טבעת 3 (שחור): ספרה <strong>0</strong></li>
+            <li>טבעת 4 (חום): מכפיל <strong>\(10^1 = 10\)</strong></li>
+            <li>טבעת 5 (חום): טולרנס <strong>\(\pm 1\%\)</strong></li>
+        </ol>
+        <div class="alert alert-success text-center mb-0" style="font-size: 1.1rem; padding: 10px;">
+            הערך הנקוב: \(330 \cdot 10 = 3300\Omega = 3.3k\Omega\) בסטייה של \(\pm 1\%\).
         </div>
     </div>
 </div>
+<!-- /SECTION: CALCULATION EXAMPLES -->
 
-</body>
-</html>
+<!-- SECTION: TOLERANCE & ERRORS -->
+<div class="theory-card mt-4" id="section-tolerance">
+    <h3 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-percent"></i> 4. טולרנס וחישוב שגיאות יחסיות</h3>
+    <p>
+        במציאות, עקב אילוצי ייצור, ההתנגדות הנמדדת של נגד לעולם לא תהיה שווה בדיוק לערך התיאורטי שלו.
+        טבעת הטולרנס מגדירה את <strong>טווח השגיאה המותר</strong> שבו הנגד נחשב תקין.
+    </p>
+    
+    <h5 class="fw-bold text-primary mt-3">כיצד לחשב את טווח הערכים המותר?</h5>
+    <p>עבור נגד בעל ערך נקוב (נומינלי) \(R_{nominal}\) וטולרנס של \(Tol\%\):</p>
+    <div class="text-center font-monospace bg-light p-3 border rounded mb-3" dir="ltr">
+        \(R_{min} = R_{nominal} \cdot \left(1 - \frac{Tol}{100}\right)\)
+        <br class="mb-2">
+        \(R_{max} = R_{nominal} \cdot \left(1 + \frac{Tol}{100}\right)\)
+    </div>
+    <p><strong>דוגמה:</strong> עבור נגד של \(1k\Omega \pm 5\%\) (טולרנס זהב):</p>
+    <div class="text-center font-monospace bg-light p-2 border rounded mb-3" dir="ltr">
+        \(R_{min} = 1000 \cdot (1 - 0.05) = 950\Omega\)
+        <br>
+        \(R_{max} = 1000 \cdot (1 + 0.05) = 1050\Omega\)
+    </div>
+    <p class="mb-3">כלומר, הנגד נחשב תקין אם ערכו הנמדד נמצא בטווח שבין \(950\Omega\) ל-\(1050\Omega\).</p>
+
+    <h5 class="fw-bold text-primary">נוסחת השגיאה היחסית (\(\gamma_R\)) במדידה:</h5>
+    <p>כדי לבדוק בכמה אחוזים סוטה הערך הנמדד מהערך הנומינלי במעבדה, נשתמש בנוסחה:</p>
+    <div class="text-center font-monospace bg-light p-3 border rounded" dir="ltr" style="font-size: 1.2rem; color: #b91c1c;">
+        \(\gamma_R = \frac{|R_{measured} - R_{nominal}|}{R_{nominal}} \cdot 100\%\)
+    </div>
+</div>
+<!-- /SECTION: TOLERANCE & ERRORS -->
+
+<div data-units-emphasis="exp1" class="alert alert-info mt-4">
+    <strong class="text-primary">דגש יחידות בניסוי 1:</strong>
+    <span> בטבלאות המדידה הקפידו לרשום את יחידות המידה בצורה מפורשת: התנגדות באוהם (\(\Omega\)) או קילו-אוהם (\(k\Omega\)), מתח בוולט (\(V\)) וזרם באמפר (\(A\)) או מילי-אמפר (\(mA\)). בעת הצבה בנוסחת השגיאה היחסית, ודאו ששני הערכים (הנמדד והנומינלי) רשומים באותו סדר גודל (למשל שניהם באוהם).</span>
+</div>

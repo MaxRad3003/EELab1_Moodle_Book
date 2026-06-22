@@ -1,117 +1,133 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>PreLab Exp02 01 Superposition</title>
-</head>
-<body>
+<!-- CHAPTER: HEADER -->
+<div id="ch-superposition-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">חלק א': משפט סופרפוזיציה ומאזן הספקים</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
+</div>
+<!-- /CHAPTER: HEADER -->
 
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!-- 
-    MOODLE SNIPPET - USER CUSTOM DESIGN
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-    
-
-    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-        <!-- CHAPTER: HEADER -->
-<h2 class="section-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.875rem; display: inline-block; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 5px; margin-top: 0;">הכנה לניסוי 2 - חלק א': משפט סופרפוזיציה ומאזן הספקים</h2>
-<p class="mb-4" style="margin-bottom: 1rem;">בעמוד זה נלמד כיצד לנתח מעגל מרובה מקורות על ידי פירוקו למספר מעגלים פשוטים יותר.</p>
+<p class="mb-4">בעמוד זה נלמד כיצד לנתח מעגל מרובה מקורות על ידי פירוקו למספר מעגלים פשוטים יותר המכילים מקור יחיד בלבד.</p>
 
 <!-- SECTION: THEORY -->
-<div class="theory-card" id="section-theory" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📖 1. תיאוריה</h3>
-    <strong class="text-primary">משפט ההרכבה (Superposition):</strong>
-    <p>התגובה הכוללת (זרם או מפל מתח) על רכיב במעגל ליניארי מרובה מקורות, שווה לסכום האלגברי של התגובות מכל מקור בנפרד, כאשר שאר המקורות הבלתי-תלויים מאופסים (מקור מתח מוחלף בקצר, ומקור זרם מוחלף בנתק).</p>
+<div class="theory-card" id="section-theory">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-book-open"></i> 1. רקע תיאורטי: משפט ההרכבה (Superposition)</h3>
+    <p>במעגלים ליניאריים בעלי מספר מקורות בלתי-תלויים (מקורות מתח וזרם), הזרם או המתח על פני כל רכיב במעגל שווה ל-<strong>סכום האלגברי של התגובות שיוצר כל מקור בנפרד</strong> כאשר שאר המקורות מאופסים.</p>
     
-    <strong class="text-primary">מאזן הספקים:</strong>
-    <p>סך כל ההספק המיוצר על ידי המקורות חייב להיות שווה לסך כל ההספק הנצרך על ידי הנגדים והרכיבים במעגל (עקרון שימור האנרגיה).</p>
+    <strong class="text-primary">תהליך איפוס מקורות (Deactivation):</strong>
+    <p>כדי לבודד את השפעתו של מקור בודד, אנו מאפסים את שאר המקורות במעגל:</p>
+    <ul style="padding-right: 20px;">
+        <li class="mb-2"><strong>מקור מתח בלתי-תלוי:</strong> איפוס מתח פירושו קביעת מתח של \(0\,\text{V}\) בין הדקיו, דבר השקול פיזיקלית ל-<strong>קצר (Short Circuit)</strong> - מוליך אידיאלי בעל התנגדות אפס.</li>
+        <li class="mb-2"><strong>מקור זרם בלתי-תלוי:</strong> איפוס זרם פירושו קביעת זרם של \(0\,\text{A}\) דרכו, דבר השקול פיזיקלית ל-<strong>נתק (Open Circuit)</strong> - מרווח פתוח בעל התנגדות אינסופית.</li>
+    </ul>
+
+    <strong class="text-primary">ניסוח מתמטי:</strong>
+    <p>עבור מעגל בעל שני מקורות מתח \(V_1\) ו-\(V_2\), הזרם הממשי הזורם דרך נגד העומס \(R_L\) יחושב כך:</p>
+    <div class="text-center my-3 py-2 bg-light rounded" style="font-size: 1.15rem; font-family: monospace; direction: ltr;">
+        \[ I_{RL} = I'_{RL} + I''_{RL} \]
+    </div>
+    <ul class="mb-0" style="padding-right: 20px;">
+        <li class="mb-1">\(I'_{RL}\) הוא הזרם דרך \(R_L\) כאשר המקור \(V_1\) פעיל והמקור \(V_2\) מוחלף בקצר.</li>
+        <li>\(I''_{RL}\) הוא הזרם דרך \(R_L\) כאשר המקור \(V_2\) פעיל והמקור \(V_1\) מוחלף בקצר.</li>
+    </ul>
 </div>
+<!-- /SECTION: THEORY -->
+
+<!-- SECTION: POWER WARNING -->
+<div class="danger-box mt-4" id="section-power-warning">
+    <h4 class="fw-bold text-danger mt-0"><i class="fas fa-exclamation-triangle"></i> אזהרה הנדסית קריטית: סופרפוזיציה של הספקים</h4>
+    <p class="mb-2">אחת הטעויות הנפוצות ביותר של סטודנטים היא ניסיון לחשב את ההספק הכולל על רכיב באמצעות סכימת ההספקים החלקיים:</p>
+    <div class="text-center my-2 py-1 bg-white border border-danger text-danger rounded fw-bold" style="font-size: 1.15rem; font-family: monospace; direction: ltr;">
+        \[ P_{RL} \neq P'_{RL} + P''_{RL} \quad \text{(שגוי!)} \]
+    </div>
+    <p class="mb-0"><strong>מדוע?</strong> חוק סופרפוזיציה חל על <strong>מערכות ליניאריות בלבד</strong>. ההספק הוא פונקציה ריבועית (לא-ליניארית) של הזרם או המתח: \(P = I^2 R\). 
+    <br>
+    ההספק האמיתי הוא: \(P_{RL} = (I'_{RL} + I''_{RL})^2 R_L = (I'_{RL})^2 R_L + (I''_{RL})^2 R_L + 2 I'_{RL} I''_{RL} R_L\). 
+    איבר המכפלה המעורב מונע מאיתנו לסכום את ההספקים ישירות. יש לחשב תחילה את הזרם או המתח הכולל, ורק אז לחשב את ההספק.</p>
+</div>
+<!-- /SECTION: POWER WARNING -->
+
+<!-- SECTION: POWER BALANCE -->
+<div class="theory-card mt-4" id="section-power-balance">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-balance-scale"></i> 2. מאזן הספקים (Conservation of Energy)</h3>
+    <p>לפי חוק שימור האנרגיה, במעגל חשמלי סגור במצב מתמיד, סך כל ההספק המיוצר על ידי המקורות (supplied) חייב להיות שווה לסך כל ההספק הנצרך על ידי הנגדים במעגל (consumed):</p>
+    <div class="text-center my-3 py-2 bg-light rounded" style="font-size: 1.15rem; font-family: monospace; direction: ltr;">
+        \[ \sum P_{\text{supplied}} = \sum P_{\text{consumed}} \]
+    </div>
+    <p class="mb-0">מקור מספק אנרגיה כאשר הזרם יוצא מההדק החיובי שלו (\(P = V \cdot I > 0\)). אם זרם נכנס להדק החיובי של מקור מתח, מקור זה "נטען" או צורך אנרגיה (הספק שלילי).</p>
+</div>
+<!-- /SECTION: POWER BALANCE -->
 
 <!-- SECTION: ENRICHMENT -->
-<div class="theory-card" id="section-enrichment" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">💡 2. העשרה</h3>
-    <ul>
-        <li class="mb-1"><a href="https://he.wikipedia.org/wiki/%D7%9E%D7%A9%D7%A4%D7%98_%D7%9ה%D7%A1%D7%95%D7%A4%D7%A8%D7%A4%D7%95%D7%96%D7%99%D7%A6%D7%99%D7%94" target="_blank" class="text-secondary">ויקיפדיה: משפט הסופרפוזיציה</a></li>
-        <li><a href="https://www.khanacademy.org/science/electrical-engineering/ee-circuit-analysis-topic" target="_blank" class="text-secondary">Khan Academy: Superposition Video</a></li>
+<div class="theory-card mt-4" id="section-enrichment">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-graduation-cap"></i> 3. קישורי העשרה והרחבה</h3>
+    <ul class="mb-0" style="padding-right: 20px;">
+        <li class="mb-2"><a href="https://he.wikipedia.org/wiki/%D7%9E%D7%A9%D7%A4%D7%92_%D7%94%D7%A1%D7%95%D7%A4%D7%A8%D7%A4%D7%95%D7%96%D7%99%D7%A6%D7%99%D7%94" target="_blank" class="text-secondary fw-bold">ויקיפדיה: משפט הסופרפוזיציה</a></li>
+        <li><a href="https://www.khanacademy.org/science/electrical-engineering/ee-circuit-analysis-topic" target="_blank" class="text-secondary fw-bold">Khan Academy: Superposition Video (אנגלית)</a></li>
     </ul>
 </div>
+<!-- /SECTION: ENRICHMENT -->
 
 <!-- SECTION: FALSTAD SIMULATION -->
-<div class="theory-card" id="section-falstad" style="border: 1px solid #dae0e5; background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">🖥️ 3. חקירה בסימולטור Falstad</h3>
-    <p><strong>משימה:</strong> הפעילו את הסימולציה ושימו לב לזרימת האלקטרונים. רשמו את הזרם דרך הענף המרכזי. כעת, עמדו על מקור המתח V2, לחצו על הלחצן הימני ובחרו לאפס אותו. מהו הזרם כעת?</p>
+<div class="theory-card mt-4" id="section-falstad">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-desktop"></i> 4. חקירה אינטראקטיבית בסימולטור Falstad</h3>
+    <p><strong>משימה:</strong> הפעילו את הסימולציה הבאה וצפו בזרימת הזרמים במעגל. רשמו את הזרם הזורם דרך הנגד המרכזי במצב שבו שני המקורות פעילים. 
+    <br>
+    לאחר מכן, קצרו את ערוץ המתח הימני (החלפתו בקצר) ורשמו את הזרם המשתנה. חזרו על הפעולה עם הערוץ השמאלי, ואמתו שסכום שני הזרמים המדודים שווה לזרם הכולל.</p>
     
-    <div style="border: 2px dashed #ccc; padding: 10px; background-color: white; text-align: center; border-radius: 5px;">
-        <iframe width="100%" height="450" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7|593a54ca9a25b0ccaa94bf0e54ce60aa27c46eb4" frameborder="0" allowfullscreen style="border: none;"></iframe>
+    <div class="border border-secondary p-2 bg-white text-center rounded mb-3">
+        <iframe width="100%" height="450" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" frameborder="0" allowfullscreen style="border: none;"></iframe>
+    </div>
+    <div class="text-center">
+        <a href="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" target="_blank" class="btn btn-outline-primary">🔗 פתיחת סימולציית Falstad בחלון מלא</a>
     </div>
 </div>
+<!-- /SECTION: FALSTAD SIMULATION -->
 
 <!-- SECTION: TINKERCAD MANDATORY TASK -->
-<div class="theory-card" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 2px solid #d9534f;" id="section-tinkercad">
-    <div style="background-color: #fdf2f2; padding: 10px 20px; border-bottom: 2px solid var(--danger-color); font-weight: bold; color: #c9302c; font-size: 18px;">
-        ⚡ 4. חובה: מימוש המעגל מאפס (Tinkercad)
+<div class="theory-card border border-danger" id="section-tinkercad" style="border-right: 5px solid #d9534f;">
+    <h3 class="fw-bold text-danger mt-0" style="font-size: 1.25rem;"><i class="fas fa-tools"></i> 5. משימת חובה: בנייה וחקירה ב-Tinkercad</h3>
+    <p>כדרישת קדם לכניסה למעבדה המעשית, עליכם לבנות את המעגל החשמלי הליניארי בסימולטור Tinkercad ולחווט אותו בצורה מסודרת ומקצועית.</p>
+    
+    <div class="info-box border-warning mb-3" style="border-right-color: #ff9900;">
+        <strong>🧹 כלל ברזל לחיווט תקין במעבדה:</strong> שמרו על צבעים תקניים לחוטים! 
+        <br>
+        השתמשו בחוט <strong>אדום</strong> לפלוס של ספק הכוח, חוט <strong>שחור</strong> למינוס (אדמה), וצבעים שונים (כמו כחול, ירוק או צהוב) לחיבורים פנימיים במטריצה. חיווט מסודר מונע שגיאות ומקל על מציאת תקלות.
     </div>
-    <div style="padding: 20px;">
-        <p class="text-danger fw-bold" style="font-weight: 700; color: #d9534f;">שימו לב: מימוש וחיווט המעגל בסביבת Tinkercad הינם דרישת חובה!</p>
-        <p>עליכם לתרגם שרטוט סכמטי למעגל פיזי על גבי מטריצה (Breadboard).</p>
-        
-        <div class="alert-box mb-4" style="color: #92400e; margin: 1rem 0; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 10px 15px; border-radius: 3px; font-size: 14px; margin-bottom: 1rem;">
-            <strong>🧹 דגש על סדר בחיווט:</strong> המעגלים שלכם חייבים להיות מסודרים! השתמשו בצבעי חיווט תקניים: אדום (+), שחור (-).
-        </div>
-        
-        <div style="border: 2px dashed var(--danger-color); padding: 10px; background-color: white; text-align: center; border-radius: 5px; margin-bottom: 15px;">
-            <iframe width="100%" height="450" src="https://www.tinkercad.com/embed/bufO9LL9AFE?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border: none;"></iframe>
-        </div>
+    
+    <div class="border border-danger p-2 bg-white text-center rounded mb-3">
+        <iframe width="100%" height="450" src="https://www.tinkercad.com/embed/bufO9LL9AFE?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border: none;"></iframe>
+    </div>
 
-        <div class="text-center" style="text-align: center;">
-            <a href="https://www.tinkercad.com/classrooms/iKBJOYVg08t/activities/hgCDbz0f4ml" target="_blank" class="bg-danger" style="display: inline-block; padding: 14px 30px; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 6px rgba(217, 83, 79, 0.4); background-color: #d9534f;">
-                🛠️ כניסה לביצוע משימת החיווט ב-Tinkercad
-            </a>
-        </div>
+    <div class="text-center">
+        <a href="https://www.tinkercad.com/classrooms/iKBJOYVg08t/activities/hgCDbz0f4ml" target="_blank" class="btn btn-danger btn-lg px-4" style="border-radius: 50px;">
+            🛠️ כניסה לביצוע משימת החיווט ב-Tinkercad
+        </a>
     </div>
 </div>
+<!-- /SECTION: TINKERCAD MANDATORY TASK -->
 
 <!-- SECTION: MATLAB ANALYSIS -->
-<div class="matlab-box" id="section-matlab" style="text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📊 5. ניתוח MATLAB</h3>
-    <p>במשימה זו ב-MATLAB Grader תשתמשו בתוצאות המדידה מהסימולציה כדי להוכיח מתמטית את המשפטים התיאורטיים:</p>
-    <ul>
-        <li><strong>ניתוח אלגברה ליניארית:</strong> פתרון זרמי חוגים.</li>
-        <li><strong>מאזן הספקים:</strong> אימות עקרון שימור האנרגיה.</li>
-        <li><strong>אימות סופרפוזיציה:</strong> השוואת זרמים חלקיים לזרם הכולל.</li>
-    </ul>
+<div class="matlab-box mt-4" id="section-matlab">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-chart-line"></i> 6. עיבוד נתונים ב-MATLAB</h3>
+    <p>במשימה זו ב-MATLAB Grader, תזינו את מדידות המתחים והזרמים שאספתם בסימולציה, ותבצעו השוואה בין המעגל הכולל לבין המעגלים החלקיים כדי לאמת את חוקי הסופרפוזיציה ומאזן ההספקים.</p>
 
-    <div dir="ltr" style="background-color: #2b303b; color: #f8f8f2; padding: 15px; border-radius: 6px; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; margin-bottom: 20px; border-left: 4px solid var(--success-color); text-align: left;">
+    <div dir="ltr" class="bg-dark text-light p-3 rounded font-monospace text-start mb-3" style="border-left: 4px solid #28a745;">
         <div style="color: #c678dd; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #4f5b66; padding-bottom: 5px;">/* MATLAB Grader Assignment: Exp02_Superposition */</div>
-        <p style="color: #abb2bf;"><strong>Verifying Superposition Theorem and Power Balance</strong></p>
-        <p style="color: #abb2bf;">Part A: Linear Algebra (I = R \ V)<br>
-        Part B: Power Balance (P_supplied = P_consumed)<br>
-        Part C: Superposition Verification</p>
+        <p class="mb-0" style="color: #abb2bf;">
+            Part A: Verify Linear Algebra loop solution<br>
+            Part B: Compute Total Consumed and Supplied Powers<br>
+            Part C: Compare measured I_both against (I_V1 + I_V2)
+        </p>
     </div>
 
-    <div class="text-center" style="text-align: center;">
-        <a href="[LINK_TO_MATLAB_SUPERPOSITION]" target="_blank" class="bg-success" style="display: inline-block; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; background-color: #28a745;">לפתיחת המטלה: Exp02_Superposition</a>
+    <div class="alert alert-warning py-2 text-center fw-bold mb-0">
+        לפתיחת המטלה: Exp02_Superposition <span class="badge bg-secondary ms-2">הקישור יתעדכן במודל</span>
     </div>
 </div>
+<!-- /SECTION: MATLAB ANALYSIS -->
 
 <!-- SECTION: H5P QUIZ -->
-<div class="h5p-container" id="section-h5p" style="background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px;">
-    <h3 class="sub-title" style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin-top: 0;">📝 6. בוחן H5P</h3>
-    <div class="h5p-placeholder" style="background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center;">
-        <a href="[LINK_TO_H5P_SUPERPOSITION]" target="_blank" class="text-primary fw-bold" style="text-decoration: none; font-weight: 700;">פתח בוחן: Superposition_Quiz.h5p</a>
-    </div>
+<div class="info-box mt-4" id="section-h5p-quiz">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-tasks"></i> 7. בוחן הכנה לפרק זה</h3>
+    <p class="mb-0">השיבו על שאלות הבוחן ה-H5P הבא כדי לבדוק את הבנתכם במשפט סופרפוזיציה: <strong>Exp02_PreLab_01_Superposition_H5P.h5p</strong></p>
 </div>
-
-    </div>
-</div>
-
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
+<!-- /SECTION: H5P QUIZ -->

@@ -11,7 +11,7 @@ Upload each H5P package as a separate H5P activity and link it from the matching
 - `Exp03_PreLab_03_RMS_H5P.h5p` - ניסוי 3 - PreLab 03: RMS והספק
 - `Exp03_PreLab_04_Conversions_H5P.h5p` - ניסוי 3 - PreLab 04: המרות יחידות
 - `Exp03_PreLab_05_DMM_H5P.h5p` - ניסוי 3 - PreLab 05: רב-מודד ו-True RMS
-- `Exp03_PreLab_06_WorkPlan_H5P.h5p` - ניסוי 3 - PreLab 06: תוכנית עבודה
+- `Exp03_PreLab_06_WorkPlan_H5P.h5p` - ניסוי 3 - PreLab 06: תוכנית עבודה, פונקציית תמסורת ואלגברה ליניארית
 - `Exp03_PreLab_07_Simulation_H5P.h5p` - ניסוי 3 - PreLab 07: סימולציה
 - `Exp03_PreLab_08_Mistakes_H5P.h5p` - ניסוי 3 - PreLab 08: טעויות נפוצות ומוכנות
 - `Exp03_PreLab_09_Readiness_H5P.h5p` - ניסוי 3 - PreLab 09: בדיקת מוכנות

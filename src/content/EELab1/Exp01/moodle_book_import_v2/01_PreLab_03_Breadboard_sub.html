@@ -1,139 +1,159 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>01 PreLab 03 Breadboard sub</title>
-</head>
-<body>
+<!-- EXP01 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 > הכנה > המטריצה</div>
+<!-- /EXP01 BREADCRUMB -->
 
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>המטריצה (Breadboard)</title>
-</head>
-<body>
-<div class="moodle-page-container">
-<!-- 
-    MOODLE SNIPPET - INLINE CSS VERSION
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-inline" dir="rtl" style="color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-        <!-- NAVIGATION: BACK TO INDEX -->
-        <div style="margin-bottom: 2rem;">
-            <a href="01_PreLab.html" style="text-decoration: none; color: #005696; font-weight: bold; display: inline-flex; align-items: center; gap: 5px; background: #f8f9fa; padding: 8px 15px; border-radius: 5px; border: 1px solid #dee2e6;">
-                <span>⬅️</span> חזרה לתוכן העניינים
-            </a>
-        </div>
-        <!-- /NAVIGATION: BACK TO INDEX -->
+<!-- NAVIGATION: BACK TO INDEX -->
+<div style="margin-bottom: 1.5rem;">
+    <a href="01_PreLab.html" class="btn btn-outline-danger btn-sm" style="padding: 6px 12px; font-size: 14px;">
+        <span>⬅️</span> חזרה לתוכן העניינים
+    </a>
+</div>
+<!-- /NAVIGATION: BACK TO INDEX -->
 
-        <!-- CHAPTER: HEADER -->
-<div id="ch-breadboard-header" style="text-align: center; margin-bottom: 3rem;">
-    <h2 style="margin-top: 1.5rem; line-height: 1.25; font-size: 2rem; font-weight: bold; color: #ffc107; margin-bottom: 1rem; color: #212529;">המטריצה (Breadboard)</h2>
-    <div style="margin-left: auto; margin-right: auto; background-color: #ffc107; height: 3px; width: 60px; border-radius: 10px;"></div>
+<!-- CHAPTER: HEADER -->
+<div id="ch-breadboard-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">המטריצה (Breadboard / לוח לחם)</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
 </div>
 <!-- /CHAPTER: HEADER -->
 
 <!-- SECTION: INTRODUCTION TO BREADBOARD -->
-<div id="section-intro-breadboard" style="background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 25px; margin: 20px 0;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">מהי מטריצה?</h3>
-    <p>המטריצה היא לוח המאפשר לנו לבנות מעגלים חשמליים במהירות ובקלות ללא צורך בהלחמות. מתחת לחורי המטריצה נמצאים פסי מתכת שמקצרים קבוצות של חורים יחד, ובכך יוצרים "צמתים" במעגל.</p>
+<div class="info-box" id="section-intro-breadboard" style="border-right: 5px solid #3b82f6;">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;">מהי מטריצה?</h3>
+    <p class="mb-0">
+        המטריצה היא לוח חיבורים המאפשר לבנות מעגלים חשמליים במהירות, ללא צורך בהלחמות או ברגים. מתחת לחורים הנראים לעין על גבי הלוח, נמצאים פסי מתכת קפיציים שמקצרים קבוצות חורים מסוימות יחדיו. פסי מתכת אלו יוצרים את ה<strong>צמתים (Nodes)</strong> של המעגל החשמלי.
+    </p>
 </div>
 <!-- /SECTION: INTRODUCTION TO BREADBOARD -->
 
 <!-- SECTION: STRUCTURE -->
-<div id="section-breadboard-structure" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">מבנה המטריצה</h3>
-    <p>המטריצה מחולקת לשני סוגי פסים עיקריים:</p>
+<div class="theory-card mt-4" id="section-breadboard-structure">
+    <h3 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-sitemap"></i> 1. מבנה חשמלי פנימי</h3>
+    <p>לוח המטריצה מחולק לשני אזורים חשובים בעלי אופי חיבורים שונה:</p>
     
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-        <div style="flex: 1; min-width: 250px; padding: 1rem; border: 1px solid #dee2e6; border-radius: 0.25rem; background-color: #f8f9fa;">
-            <h5 style="color: #d9534f; margin-top: 0;">פסי כוח (Bus Strips)</h5>
-            <p style="font-size: 0.875rem; margin-bottom: 0;">הפסים הארוכים בקצוות (מסומנים בדרך כלל ב-+ ו--). כל החורים לאורך הפס <strong>מקוצרים אופקית</strong>. הם משמשים להזנת מתח לכל המעגל.</p>
+    <div class="row g-3 mt-1">
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-danger">
+                <div class="card-header bg-light"><strong class="text-danger">פסי הכוח וההזנה (Bus Strips)</strong></div>
+                <div class="card-body">
+                    <p class="small">ממוקמים בקצוות העליונים והתחתונים של הלוח ומסומנים בפסים כחולים (-) ואדומים (+).</p>
+                    <ul class="small mb-0" style="padding-right: 15px;">
+                        <li><strong>חיבור פנימי:</strong> כל החורים לאורך השורה מקושרים ביניהם <strong>אופקית</strong>.</li>
+                        <li><strong>שימוש:</strong> נועדו להפצת מתח הזינוי ונקודת הייחוס (GND) לכל המעגל בנוחות.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div style="flex: 1; min-width: 250px; padding: 1rem; border: 1px solid #dee2e6; border-radius: 0.25rem; background-color: #f8f9fa;">
-            <h5 style="color: #005696; margin-top: 0;">פסי רכיבים (Terminal Strips)</h5>
-            <p style="font-size: 0.875rem; margin-bottom: 0;">הפסים במרכז הלוח. החורים מקובצים בטורים של 5. כל 5 חורים בטור <strong>מקוצרים אנכית</strong>. בין החלק העליון לתחתון יש נתק (השקע במרכז).</p>
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-primary">
+                <div class="card-header bg-light"><strong class="text-primary">פסי רכיבים וצמתים (Terminal Strips)</strong></div>
+                <div class="card-body">
+                    <p class="small">ממוקמים במרכז הלוח ומחולקים לשני חצאים על ידי תעלה מפרידה (שקע).</p>
+                    <ul class="small mb-0" style="padding-right: 15px;">
+                        <li><strong>חיבור פנימי:</strong> החורים מסודרים בטורים של 5 חורים (המסומנים באותיות A-E ו-F-J). כל 5 חורים בטור מקושרים ביניהם <strong>אנכית</strong>.</li>
+                        <li><strong>שימוש:</strong> בניית המעגל וחיבור הרגליים של הרכיבים אלו לאלו.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div style="background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; padding: 0.75rem 1.25rem; border-radius: 0.25rem; margin-top: 1rem;">
-        <strong>טיפ:</strong> השקע במרכז המטריצה נועד בדיוק לרוחב של רכיבי IC (ג'וקים), כך שכל רגל שלהם תקבל צומת נפרד.
+    <!-- Dividing Groove -->
+    <div class="alert alert-info mt-3 small mb-0">
+        <i class="fas fa-info-circle"></i> <strong>התעלה המרכזית (Dividing Groove):</strong>
+        מפרידה חשמלית בין חלקו העליון של הלוח לחלקו התחתון. היא נועדה לאפשר חיבור רכיבי IC (ג'וקים) כך שכל רגל תתחבר לטור (צומת) נפרד מבלי לקצר בין הרגליים הנגדיות.
     </div>
 </div>
 <!-- /SECTION: STRUCTURE -->
 
+<!-- SECTION: VISUALIZATION Diagram -->
+<div class="theory-card mt-4" id="section-viz">
+    <h4 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-project-diagram"></i> 2. סכמת הקצרים הפנימית של המטריצה</h4>
+    <p class="small text-muted">הקווים הצבעוניים מייצגים את החיבורים החשמליים הסמויים מתחת לפלסטיק:</p>
+    
+    <div class="text-center bg-light border p-4 rounded font-monospace" dir="ltr" style="line-height: 1.4; overflow-x: auto; white-space: pre; font-size: 13px;">
+[+] <span style="color: #d9534f;">o---o---o---o---o---o---o---o---o---o---o---o</span>  (שורת מתח חיובי - קצר אופקי רציף)
+[-] <span style="color: #007aff;">o---o---o---o---o---o---o---o---o---o---o---o</span>  (שורת אדמה/מינוס - קצר אופקי רציף)
+
+     a  b  c  d  e      f  g  h  i  j
+ 1   <span style="color: #28a745;">o  o  o  o  o</span>      <span style="color: #ff9900;">o  o  o  o  o</span>   (טורים קצרים אנכית)
+ 2   <span style="color: #28a745;">|  |  |  |  |</span>      <span style="color: #ff9900;">|  |  |  |  |</span>   (כל עמודה של 5 חורים היא צומת אחד)
+ 3   <span style="color: #28a745;">|  |  |  |  |</span>      <span style="color: #ff9900;">|  |  |  |  |</span>   
+ 4   <span style="color: #28a745;">|  |  |  |  |</span>      <span style="color: #ff9900;">|  |  |  |  |</span>   
+ 5   <span style="color: #28a745;">o  o  o  o  o</span>      <span style="color: #ff9900;">o  o  o  o  o</span>
+     =============      =============   <span style="color: #b91c1c; font-weight: bold;">&lt;-- תעלה מרכזית מפרידה (נתק חשמלי)</span>
+ 6   <span style="color: #6f42c1;">o  o  o  o  o</span>      <span style="color: #06b6d4;">o  o  o  o  o</span>
+ 7   <span style="color: #6f42c1;">|  |  |  |  |</span>      <span style="color: #06b6d4;">|  |  |  |  |</span>
+ 8   <span style="color: #6f42c1;">|  |  |  |  |</span>      <span style="color: #06b6d4;">|  |  |  |  |</span>
+ 9   <span style="color: #6f42c1;">|  |  |  |  |</span>      <span style="color: #06b6d4;">|  |  |  |  |</span>
+10   <span style="color: #6f42c1;">o  o  o  o  o</span>      <span style="color: #06b6d4;">o  o  o  o  o</span>
+
+[+] <span style="color: #d9534f;">o---o---o---o---o---o---o---o---o---o---o---o</span>  (שורת מתח חיובי - קצר אופקי רציף)
+[-] <span style="color: #007aff;">o---o---o---o---o---o---o---o---o---o---o---o</span>  (שורת אדמה/מינוס - קצר אופקי רציף)
+    </div>
+</div>
+<!-- /SECTION: VISUALIZATION Diagram -->
+
+<!-- SECTION: COMMON MISTAKES -->
+<div class="theory-card mt-4" id="section-mistakes">
+    <h3 class="sub-title text-danger mt-0" style="font-weight: 700;"><i class="fas fa-times-circle"></i> 3. טעויות נפוצות בחיבורי מטריצה</h3>
+    <p class="small text-muted">הימנעו מהשגיאות הבאות שימנעו מהמעגל לפעול או יגרמו לקצר חשמלי:</p>
+    
+    <div class="row g-3">
+        <!-- Mistake 1 -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-danger">
+                <div class="card-body">
+                    <h5 class="card-title text-danger fw-bold"><i class="fas fa-unlink"></i> קצר עצמי של רכיב</h5>
+                    <p class="small mb-0">הכנסת שתי הרגליים של נגד או דיודה <strong>לאותה שורה בדיוק (למשל שניהם בטור 3-A ו-3-C)</strong>. זרם תמיד בוחר בנתיב הקל ביותר, ולכן הוא יעבור דרך פס המתכת ויעקוף את הרכיב לחלוטין (הרכיב מקוצר).</p>
+                </div>
+            </div>
+        </div>
+        <!-- Mistake 2 -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-danger">
+                <div class="card-body">
+                    <h5 class="card-title text-danger fw-bold"><i class="fas fa-question-circle"></i> רכיב "צף" (Floating)</h5>
+                    <p class="small mb-0">חיבור רגל של רכיב לטור ריק שאינו מחובר לכלום. המעגל נשאר פתוח ולא יזרום בו זרם.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Mistake 3 -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-danger">
+                <div class="card-body">
+                    <h5 class="card-title text-danger fw-bold"><i class="fas fa-long-arrow-alt-h"></i> ציפייה לקשר מעבר לתעלה</h5>
+                    <p class="small mb-0">הנחה כי החורים בטור 5 בחלקו העליון (A-E) מחוברים לחורים בטור 5 בחלקו התחתון (F-J). <strong>יש נתק מוחלט ביניהם!</strong> כדי לקשר ביניהם חובה להשתמש בחוט גישור (Jumper wire).</p>
+                </div>
+            </div>
+        </div>
+        <!-- Mistake 4 -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-danger">
+                <div class="card-body">
+                    <h5 class="card-title text-danger fw-bold"><i class="fas fa-arrows-alt-v"></i> חוסר קישור בין פסי הזנה</h5>
+                    <p class="small mb-0">חיבור ספק הכוח רק לפסי ההזנה בצד אחד, וציפייה שפסי ההזנה בצד השני יהיו מתוחים. <strong>חובה לגשר ביניהם באופן ידני</strong> (אדום לאדום, כחול לכחול) אם רוצים להשתמש בשני צידי הלוח.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /SECTION: COMMON MISTAKES -->
+
 <!-- SECTION: BEST PRACTICES -->
-<div id="section-best-practices" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">כללי עבודה נכונה</h3>
+<div class="theory-card mt-4" id="section-best-practices">
+    <h3 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-thumbs-up"></i> 4. כללי עבודה הנדסיים מומלצים</h3>
     <ul style="padding-right: 20px;">
-        <li><strong>צבעים:</strong> השתמשו בחוטים אדומים למתח חיובי (+) ובחוטים שחורים לאדמה (GND/-).</li>
-        <li><strong>סדר:</strong> אל תחצו חוטים מעל רכיבים. שמרו על חיווט נמוך וצמוד ללוח.</li>
-        <li><strong>בטיחות:</strong> וודאו שרכיבים לא נוגעים זה בזה במקומות שלא התכוונתם (קצר לא רצוי).</li>
+        <li class="mb-2"><strong>צבעי חוטים:</strong> הקפידו להשתמש בחוטים <strong>אדומים</strong> להזנת מתח חיובי (+), חוטים <strong>שחורים</strong> או כחולים לאדמה (GND/-), וצבעים אחרים (צהוב, ירוק, כתום) לאותות ומוליכים במעגל.</li>
+        <li class="mb-2"><strong>חיווט נמוך:</strong> אל תמתחו חוטים באוויר כמו קורי עכביש. חתכו וקצצו חוטים כך שיהיו קרובים וצמודים ללוח. הדבר מקל על איתור תקלות ומונע ניתוק חוטים בטעות.</li>
+        <li><strong>הכנה ללא מתח:</strong> תמיד בנו את המעגל, חברו את חוטי הגישור והכינו את המדידות <strong>כאשר ספק הכוח כבוי לחלוטין!</strong> הפעילו מתח רק לאחר בדיקה סופית.</li>
     </ul>
 </div>
 <!-- /SECTION: BEST PRACTICES -->
 
-<!-- SECTION: VISUALIZATION -->
-<div id="section-viz" style="background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 25px; margin: 20px 0;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">איך רואים את הקצרים?</h3>
-    <div style="text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-        <p style="margin-bottom: 0;">דמיינו את פסי המתכת מתחת ללוח:</p>
-        <p style="font-weight: bold; margin-bottom: 0.5rem;">--- אופקי למעלה (פס כוח) ---</p>
-        <p style="font-weight: bold; margin-bottom: 0.5rem;">| | | | (פסי רכיבים קצרים) | | | |</p>
-        <p style="font-weight: bold; margin-bottom: 0;">--- אופקי למטה (פס כוח) ---</p>
-        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ccc;">
-            <p style="margin-bottom: 10px; font-weight: bold; color: #005696;">🔍 רוצים לראות את המבנה הפנימי בצורה אינטראקטיבית?</p>
-            <p style="margin-bottom: 15px; font-size: 0.9rem;">צפו בסימולציה הבאה כדי להבין טוב יותר איך המטריצה בנויה מבפנים והיכן נמצאים הקצרים:</p>
-            
-            <!-- TINKERCAD EMBED -->
-            <div style="margin-bottom: 15px; display: flex; justify-content: center;">
-                <iframe width="450" height="280" src="https://www.tinkercad.com/embed/3Ehb7iogzWc?editbtn=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></iframe>
-            </div>
-
-            <a href="https://www.tinkercad.com/things/3Ehb7iogzWc-basic-" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">
-                🔗 פתיחה במסך מלא (Tinkercad)
-            </a>
-        </div>
-    </div>
-</div>
-<!-- /SECTION: VISUALIZATION -->
-
-<!-- CHAPTER: FOOTER -->
-<div id="ch-breadboard-footer" style="margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center;">
-    <p style="font-size: 1.25rem; font-weight: bold; color: #212529; margin: 0;">
-        עכשיו כשאתם מכירים את המטריצה, אתם מוכנים להתחיל בבנייה המעשית!
-    </p>
-</div>
-<!-- /CHAPTER: FOOTER -->
-
 <!-- NAVIGATION: BOOK PREV NEXT -->
-<div id="book-nav-breadboard" style="display: flex; justify-content: space-between; gap: 12px; margin-top: 25px; padding-top: 20px; border-top: 1px solid #dee2e6; flex-wrap: wrap;">
-    <a href="01_PreLab_02_Equipment_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">→ הקודם: מכשירי מדידה</a>
-    <a href="01_PreLab_04_Tinkercad_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">הבא: התנסות וירטואלית ←</a>
+<div id="book-nav-breadboard" class="d-flex justify-content-between mt-4 pt-3 border-top">
+    <a href="01_PreLab_02_Equipment_sub.html" class="btn btn-secondary">→ הקודם: מכשירי מדידה</a>
+    <a href="01_PreLab_04_Tinkercad_sub.html" class="btn btn-primary">הבא: התנסות וירטואלית (Tinkercad) ←</a>
 </div>
 <!-- /NAVIGATION: BOOK PREV NEXT -->
-
-    </div>
-</div>
-
-
-</div>
-</body>
-</html>
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
-
-</body>
-</html>

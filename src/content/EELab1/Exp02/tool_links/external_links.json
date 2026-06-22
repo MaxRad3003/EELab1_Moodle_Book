@@ -194,6 +194,16 @@
       "location": "02_InLab_02_PartC_IV_sub.html",
       "status": "ready",
       "notes": "Falstad simulation for InLab Part C I-V characteristics"
+    },
+    {
+      "id": "equipment_book",
+      "platform": "Moodle Book",
+      "title": "מדריך ציוד: רב-מודד וספק כוח",
+      "linkText": "פתיחת מדריך הציוד במודל",
+      "url": "https://moodle.sce.ac.il/mod/book/view.php?id=1212809",
+      "location": "Global equipment links",
+      "status": "ready",
+      "notes": "קישור גלובלי למונחים"
     }
   ]
 }

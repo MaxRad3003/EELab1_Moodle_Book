@@ -1,88 +1,86 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>02 InLab 01 PartB sub</title>
-</head>
-<body>
+<!-- EXP01 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 > עבודה מעשית > חלק ב': תפעול ספק הכוח</div>
+<!-- /EXP01 BREADCRUMB -->
 
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>חלק ב': תפעול ספק הכוח (DC Power Supply)</title>
-</head>
-<body>
-<div class="moodle-page-container">
-<!-- 
-    MOODLE SNIPPET - INLINE CSS VERSION
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-inline" dir="rtl" style="color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-        <!-- NAVIGATION: BACK TO INDEX -->
-        <div style="margin-bottom: 2rem;">
-            <a href="02_InLab.html" style="text-decoration: none; color: #005696; font-weight: bold; display: inline-flex; align-items: center; gap: 5px; background: #f8f9fa; padding: 8px 15px; border-radius: 5px; border: 1px solid #dee2e6;">
-                <span>⬅️</span> חזרה לתוכן העניינים
-            </a>
-        </div>
-        <!-- /NAVIGATION: BACK TO INDEX -->
+<!-- NAVIGATION: BACK TO INDEX -->
+<div style="margin-bottom: 1.5rem;">
+    <a href="02_InLab.html" class="btn btn-outline-danger btn-sm" style="padding: 6px 12px; font-size: 14px;">
+        <span>⬅️</span> חזרה לתוכן העניינים
+    </a>
+</div>
+<!-- /NAVIGATION: BACK TO INDEX -->
 
-        <!-- CHAPTER: HEADER -->
-<div id="ch-inlab-b-header" style="text-align: center; margin-bottom: 3rem;">
-    <h2 style="margin-top: 1.5rem; line-height: 1.25; font-size: 2rem; font-weight: bold; color: #d9534f; margin-bottom: 1rem;">חלק ב': תפעול <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1212809" style="color: inherit; text-decoration: underline;">ספק הכוח</a> (<a href="https://moodle.sce.ac.il/mod/book/view.php?id=1212809" style="color: inherit; text-decoration: underline;">DC Power Supply</a>)</h2>
-    <div style="margin-left: auto; margin-right: auto; background-color: #d9534f; height: 3px; width: 60px; border-radius: 10px;"></div>
+<!-- CHAPTER: HEADER -->
+<div id="ch-inlab-b-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">חלק ב': תפעול ספק הכוח (DC Power Supply)</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
 </div>
 <!-- /CHAPTER: HEADER -->
 
 <!-- SECTION: FIXED OUTPUT -->
-<div id="section-fixed-output" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">1. יציאה קבועה (Fixed 5V)</h3>
-    <p>חברו את ה<a href="https://moodle.sce.ac.il/mod/book/view.php?id=1212809" style="color: #005696; text-decoration: underline;">רב-מודד</a> ליציאה הקבועה של הספק.</p>
+<div class="theory-card" id="section-fixed-output">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-plug"></i> 1. יציאה קבועה (Fixed 5V)</h3>
+    <p>חברו את הרב-מודד (DMM) במצב מד מתח (DC Voltmeter) ישירות להדקים של היציאה הקבועה בספק הכוח:</p>
     <ul style="padding-right: 20px;">
-        <li>מתח מדוד: _________ \([V]\)</li>
-        <li>האם שינוי בוררי ה-MASTER/SLAVE משפיע על יציאה זו? _________</li>
+        <li class="mb-2">מתח קבוע מדוד: _________ \([V]\)</li>
+        <li>שנו את בוררי ה-MASTER וה-SLAVE (מתח וזרם). האם יש השפעה כלשהי על ערך המתח ביציאה הקבועה? _________ (הסבירו מדוע).</li>
     </ul>
 </div>
 <!-- /SECTION: FIXED OUTPUT -->
 
 <!-- SECTION: MODES -->
-<div id="section-supply-modes" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">2. אופני פעולה: עצמאי, טורי ומקבילי</h3>
-    <p>בצעו את ההגדרות הבאות בספק ומדדו את הערכים בהדקים הקיצוניים:</p>
-    <p style="font-size: 0.875rem; color: #6c757d;">הגדרות בסיס: \(V_{master} = 10V, I_{master} = 0.5A, V_{slave} = 5V, I_{slave} = 1A\)</p>
+<div class="theory-card mt-4" id="section-supply-modes">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-bezier-curve"></i> 2. אופני פעולה: עצמאי (INDEP), טורי (SERIES) ומקבילי (PARALLEL)</h3>
+    <p>
+        בצעו את ההגדרות הבאות בספק הכוח ומדדו את ערכי המתח והזרם בהדקים בהתאם לטבלה.
+        <br>
+        <strong>הגדרות בסיס במכשיר:</strong>
+        כוונו את ערוץ ה-Master ל-\(V_{master} = 10V\) עם מגבלת זרם \(I_{master} = 0.5A\).
+        כוונו את ערוץ ה-Slave ל-\(V_{slave} = 5V\) עם מגבלת זרם \(I_{slave} = 1A\).
+    </p>
 
-    <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; border: 1px solid #ddd;">
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered text-center align-middle">
             <thead>
                 <tr style="background-color: #003366; color: white;">
-                    <th style="padding: 10px; border: 1px solid #ddd;">אופן פעולה</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">מתח מדוד \([V]\)</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">זרם מדוד \([A]\)</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">הסבר קצר</th>
+                    <th style="width: 25%;">אופן פעולה (Mode)</th>
+                    <th style="width: 20%;">מתח מוצא מדוד \([V]\)</th>
+                    <th style="width: 20%;">מגבלת זרם מדודה \([A]\)</th>
+                    <th>הסבר תיאורטי קצר למדידה שנתקבלו</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>INDEP</strong> (עצמאי)</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;"></td>
-                    <td style="padding: 10px; border: 1px solid #ddd;"></td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">כל יציאה נמדדת בנפרד.</td>
+                    <td><strong>INDEP</strong> (עצמאי)</td>
+                    <td>
+                        ערוץ Master: _______ \([V]\)
+                        <br>
+                        ערוץ Slave: _______ \([V]\)
+                    </td>
+                    <td>
+                        ערוץ Master: _______ \([A]\)
+                        <br>
+                        ערוץ Slave: _______ \([A]\)
+                    </td>
+                    <td class="text-right small">שני מקורות מתח נפרדים. כל ערוץ מפעיל צרכן שונה ללא תלות חשמלית ביניהם.</td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>SERIES</strong> (טורי)</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;"></td>
-                    <td style="padding: 10px; border: 1px solid #ddd;"></td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">המתחים אמורים להתחבר (\(V_{total} = V_1 + V_2\)).</td>
+                    <td><strong>SERIES</strong> (טורי)</td>
+                    <td>
+                        בין הדק פלוס Master
+                        <br>
+                        לדק מינוס Slave:
+                        <br>
+                        _______ \([V]\)
+                    </td>
+                    <td>_______ \([A]\)</td>
+                    <td class="text-right small">המתחים של שני המקורות מחוברים בטור, ולכן מתח המוצא השקול שווה לסכומם: \(V_{total} = V_{master} + V_{slave}\). הזרם מוגבל ע"י הערוץ בעל המגבלה הנמוכה.</td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>PARALLEL</strong> (מקבילי)</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;"></td>
-                    <td style="padding: 10px; border: 1px solid #ddd;"></td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">הזרמים אמורים להתחבר (\(I_{total} = I_1 + I_2\)).</td>
+                    <td><strong>PARALLEL</strong> (מקבילי)</td>
+                    <td>_______ \([V]\)</td>
+                    <td>_______ \([A]\)</td>
+                    <td class="text-right small">הערוצים מחוברים במקביל. מתח המוצא נקבע ע"י ערוץ ה-Master. זרם המוצא המקסימלי שווה לסכום זרמי שני הערוצים: \(I_{total} = I_{master} + I_{slave}\).</td>
                 </tr>
             </tbody>
         </table>
@@ -91,48 +89,22 @@
 <!-- /SECTION: MODES -->
 
 <!-- SECTION: CURRENT LIMIT -->
-<div id="section-current-limit" style="background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 25px; margin: 20px 0;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">בדיקת הגבלת זרם</h3>
-    <p>בצעו בדיקת הגבלת זרם רק לפי הנחיית המדריך ובעזרת עומס מתאים. בדקו כיצד הספק עובר למצב <strong>CC (Constant Current)</strong> כאשר הזרם מגיע למגבלה שקבעתם.</p>
+<div class="theory-card mt-4 border-danger" id="section-current-limit" style="border-right: 5px solid #ef4444;">
+    <h3 class="fw-bold text-danger mt-0" style="font-size: 1.25rem;"><i class="fas fa-shield-alt"></i> 3. בדיקת הגבלת זרם במעגל</h3>
+    <p>
+        בצעו את בדיקת הגבלת הזרם (מצב CC - Constant Current) לפי הנחיות המדריך בלבד.
+        חברו נגד עומס של \(10\Omega\) בעל הספק גבוה (נגד הספק) ליציאת ה-Master.
+    </p>
+    <ul class="mb-0" style="padding-right: 20px;">
+        <li class="mb-2">הגדירו מגבלת זרם של \(0.3A\) ומתח של \(5V\). הפעילו את המוצא. מהו הזרם והמתח המדודים?</li>
+        <li class="mb-2">כעת העלו את המתח ל-\(10V\). מה קרה לנוריות בספק (האם נורית ה-CV התחלפה ב-CC)? מהם ערכי המתח והזרם המדודים כעת? הסבירו את תופעה זו בעזרת חוק אוהם!</li>
+    </ul>
 </div>
 <!-- /SECTION: CURRENT LIMIT -->
 
-<!-- CHAPTER: FOOTER -->
-<div id="ch-inlab-b-footer" style="margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center;">
-    <p style="font-size: 1.25rem; font-weight: bold; color: #6c757d; margin: 0;">
-        הבנתם איך הספק עובד? מצוין. עכשיו בואו נבנה מעגלים ראשונים על המטריצה!
-    </p>
-</div>
-<!-- /CHAPTER: FOOTER -->
-
-<div data-units-emphasis="exp1" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
-<strong style="color:#005696;">דגש יחידות בניסוי 1:</strong>
-<span> בטבלאות מדידה רשמו התנגדות ב-\(\Omega\) או \(k\Omega\), מתח ב-V וזרם ב-A או mA. כאשר מחשבים לפי חוק אוהם, המירו קודם ל-\(\Omega\) ול-A, ואז בדקו ש-\(V/A=\Omega\) או \(A\cdot\Omega=V\).</span>
-</div>
 <!-- NAVIGATION: BOOK PREV NEXT -->
-<div id="book-nav-inlab-b" style="display: flex; justify-content: space-between; gap: 12px; margin-top: 25px; padding-top: 20px; border-top: 1px solid #dee2e6; flex-wrap: wrap;">
-    <a href="02_InLab_00_PartA_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">→ הקודם: חלק א'</a>
-    <a href="02_InLab_02_PartC_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">הבא: חלק ג' ←</a>
+<div id="book-nav-inlab-b" class="d-flex justify-content-between mt-4 pt-3 border-top">
+    <a href="02_InLab_00_PartA_sub.html" class="btn btn-secondary">→ הקודם: חלק א'</a>
+    <a href="02_InLab_02_PartC_sub.html" class="btn btn-primary">הבא: חלק ג' ←</a>
 </div>
 <!-- /NAVIGATION: BOOK PREV NEXT -->
-
-    </div>
-</div>
-
-
-</div>
-</body>
-</html>
-
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
-
-</body>
-</html>

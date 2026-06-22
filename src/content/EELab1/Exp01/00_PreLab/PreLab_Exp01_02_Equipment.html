@@ -1,97 +1,112 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>PreLab Exp01 02 Equipment</title>
-</head>
-<body>
+<!-- EXP01 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 > הכנה > מכשירי מדידה</div>
+<!-- /EXP01 BREADCRUMB -->
 
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!-- 
-    MOODLE SNIPPET - INLINE CSS VERSION
-    GENERATED AUTOMATICALLY - DO NOT EDIT MANUALLY
--->
-<div class="moodle-snippet-inline" dir="rtl" style="color: #333; line-height: 1.6; font-family: 'David', Arial, sans-serif;">
-    <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-        <!-- CHAPTER: HEADER -->
-<div id="ch-equipment-header" style="text-align: center; margin-bottom: 3rem;">
-    <h2 style="margin-top: 1.5rem; line-height: 1.25; font-size: 2rem; font-weight: bold; color: #28a745; margin-bottom: 1rem;">הכרת מכשירי המדידה</h2>
-    <div style="margin-left: auto; margin-right: auto; background-color: #28a745; height: 3px; width: 60px; border-radius: 10px;"></div>
+<!-- CHAPTER: HEADER -->
+<div id="ch-equipment-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">הכרת מכשירי המדידה והספקים</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
 </div>
 <!-- /CHAPTER: HEADER -->
 
-<!-- SECTION: INTRODUCTION TO EQUIPMENT -->
-<div id="section-intro-equipment" style="background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 25px; margin: 20px 0;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">ה"עיניים" וה"לב" של המעבדה</h3>
-    <p>בניסוי זה נשתמש בשני המכשירים המרכזיים ביותר בכל עמדת עבודה: ה-<strong>DMM</strong> שמאפשר לנו לראות מה קורה במעגל, ו<strong>ספק הכוח</strong> שנותן למעגל את האנרגיה לפעול.</p>
+<!-- SECTION: INTRODUCTION -->
+<div class="info-box" style="border-right: 5px solid #3b82f6;">
+    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;">ה"עיניים" וה"לב" של המעבדה</h3>
+    <p class="mb-0">
+        בכל ניסוי במעבדת חשמל נעשה שימוש בשני סוגי מכשירים בסיסיים: <strong>ספק כוח (DC Power Supply)</strong> המספק למעגל את האנרגיה החשמלית הדרושה להפעלתו, ו<strong>רב-מודד דיגיטלי (DMM)</strong> המאפשר לנו למדוד ולאבחן את המתרחש במעגל (מתחים, זרמים והתנגדויות).
+    </p>
 </div>
-<!-- /SECTION: INTRODUCTION TO EQUIPMENT -->
+<!-- /SECTION: INTRODUCTION -->
 
 <!-- SECTION: DMM -->
-<div id="section-dmm" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">1. רב-מודד דיגיטלי (DMM)</h3>
-    <p>מכשיר רב-תכליתי המודד מספר פרמטרים:</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem; text-align: center;">
-        <div style="flex: 1; min-width: 150px; padding: 1rem; border: 1px solid #dee2e6; border-radius: 0.25rem; background-color: #f8f9fa;">
-            <h5 style="color: #005696; margin-top: 0;">מתח (V)</h5>
-            <p style="font-size: 0.875rem; margin-bottom: 0;">מדידה ב<strong>מקביל</strong> לרכיב.</p>
+<div class="theory-card mt-4" id="section-dmm">
+    <h3 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-wave-square"></i> 1. רב-מודד דיגיטלי (DMM - Digital Multimeter)</h3>
+    <p>הרב-מודד הוא המכשיר המרכזי למדידת פרמטרים חשמליים במעגל. יש להקפיד על חיבורו הנכון כדי לקבל מדידה מדויקת ולמנוע נזק למכשיר:</p>
+    
+    <div class="row g-3">
+        <!-- Voltmeter -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-primary">
+                <div class="card-body">
+                    <h5 class="card-title text-primary fw-bold">🔌 מדידת מתח (V)</h5>
+                    <p class="small mb-2">מדידת מפל המתח על פני רכיב.</p>
+                    <ul class="small mb-0" style="padding-right: 15px;">
+                        <li>מחובר ב<strong>מקביל</strong> לרכיב הנמדד.</li>
+                        <li><strong>התנגדות פנימית:</strong> גבוהה מאוד (כמעט אינסופית) כדי לא למשוך זרם מהמעגל.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div style="flex: 1; min-width: 150px; padding: 1rem; border: 1px solid #dee2e6; border-radius: 0.25rem; background-color: #f8f9fa;">
-            <h5 style="color: #d9534f; margin-top: 0;">זרם (A)</h5>
-            <p style="font-size: 0.875rem; margin-bottom: 0;">מדידה ב<strong>טור</strong> לרכיב (מחייב פתיחת המעגל).</p>
+        <!-- Ammeter -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-danger">
+                <div class="card-body">
+                    <h5 class="card-title text-danger fw-bold">⚡ מדידת זרם (A / mA)</h5>
+                    <p class="small mb-2">מדידת הזרם הזורם דרך ענף.</p>
+                    <ul class="small mb-0" style="padding-right: 15px;">
+                        <li>מחובר ב<strong>טור</strong> (מחייב פתיחה פיזית של המעגל והזרמת הזרם דרך המכשיר).</li>
+                        <li><strong>התנגדות פנימית:</strong> שואפת לאפס.</li>
+                        <li class="text-danger fw-bold">שימו לב: חיבור מד זרם במקביל למקור מתח יגרום לקצר מיידי וישרוף את נתיך (פיוז) המכשיר!</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div style="flex: 1; min-width: 150px; padding: 1rem; border: 1px solid #dee2e6; border-radius: 0.25rem; background-color: #f8f9fa;">
-            <h5 style="color: #28a745; margin-top: 0;">התנגדות ($\Omega$)</h5>
-            <p style="font-size: 0.875rem; margin-bottom: 0;">מדידה <strong>ללא מתח</strong> במעגל.</p>
+        <!-- Ohmmeter -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success fw-bold">🎨 מדידת התנגדות (\(\Omega\))</h5>
+                    <p class="small mb-2">מדידת ערך התנגדות של נגד.</p>
+                    <ul class="small mb-0" style="padding-right: 15px;">
+                        <li>מבוצעת <strong>מחוץ למעגל</strong> כאשר הרכיב מנותק לחלוטין וללא כל מקור מתח פעיל.</li>
+                        <li>המכשיר מזרים זרם קטן פנימי משלו לצורך חישוב ההתנגדות.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <div style="background-color: #fff3cd; color: #856404; border-color: #ffeeba; padding: 0.75rem 1.25rem; border-radius: 0.25rem; margin-top: 1rem;">
-        <strong>חשוב:</strong> תמיד ודאו שהבורר נמצא על הפונקציה הנכונה (DC/AC) ושהכבלים מחוברים לכניסות המתאימות (COM, V/$\Omega$, mA/A).
+
+    <div class="alert alert-warning mt-3 mb-0">
+        <i class="fas fa-exclamation-triangle"></i> <strong>כלל זהב:</strong> לפני חיבור ה-DMM, ודאו תמיד שהכבלים מחוברים לחורים המתאימים (כבל שחור תמיד ב-<strong>COM</strong>, כבל אדום ב-<strong>V/\(\Omega\)</strong> למתח/התנגדות או ב-<strong>mA / A</strong> לזרם) ושהבורר הראשי מכוון לפונקציה הרצויה (DC למתח וזרם ישר).
     </div>
 </div>
 <!-- /SECTION: DMM -->
 
 <!-- SECTION: POWER SUPPLY -->
-<div id="section-power-supply" style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">2. ספק כוח (DC Power Supply)</h3>
-    <p>ספק הכוח במעבדה הוא ספק כפול הכולל שתי יציאות משתנות (MASTER ו-SLAVE) ויציאה אחת קבועה של $5V$.</p>
+<div class="theory-card mt-4" id="section-power-supply">
+    <h3 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-car-battery"></i> 2. ספק כוח כפול (DC Power Supply)</h3>
+    <p>ספק הכוח בעמדה כולל שלוש יציאות נפרדות: יציאה קבועה של \(5V/3A\) ושתי יציאות משתנות (MASTER ו-SLAVE) המספקות מתח של \(0-30V\) וזרם של \(0-3A\).</p>
     
-    <h5 style="color: #005696; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px;">אופני פעולה (Modes):</h5>
+    <h5 class="fw-bold text-primary mt-3">אופני פעולה עיקריים (Modes):</h5>
     <ul style="padding-right: 20px;">
-        <li><strong>INDEP (עצמאי):</strong> כל יציאה פועלת בנפרד (שני מקורות בלתי תלויים).</li>
-        <li><strong>SERIES (טורי):</strong> שתי היציאות מחוברות בטור בתוך המכשיר. מאפשר לקבל מתח כפול (עד $60V$).</li>
-        <li><strong>PARALLEL (מקבילי):</strong> שתי היציאות מחוברות במקביל. מאפשר לקבל זרם כפול (עד $6A$).</li>
+        <li class="mb-2"><strong>עצמאי (INDEP):</strong> שתי היציאות המשתנות פועלות כשני מקורות מתח נפרדים לחלוטין ובלתי תלויים.</li>
+        <li class="mb-2"><strong>טורי (SERIES):</strong> שתי היציאות מחוברות בטור בתוך המכשיר. חיבור הצרכן מתבצע בין הדק הפלוס של ה-Master להדק המינוס של ה-Slave. מאפשר לקבל מתח כפול (עד \(60V\)).</li>
+        <li><strong>מקבילי (PARALLEL):</strong> שתי היציאות מחוברות במקביל בתוך המכשיר. מאפשר לקבל זרם כפול (עד \(6A\)).</li>
     </ul>
 
-    <div style="border-right: 4px solid #d9534f; margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px;">
-        <strong>הגבלת זרם (Current Limit):</strong> תכונה קריטית המונעת שריפת רכיבים על ידי קביעת הזרם המקסימלי שהספק יוציא.
+    <!-- Step-by-step Current Limit -->
+    <div class="alert alert-danger mt-3 mb-0">
+        <h5 class="fw-bold mb-2 text-danger"><i class="fas fa-shield-alt"></i> מדריך שלב-אחר-שלב: קביעת הגבלת זרם (Current Limit)</h5>
+        <p class="small">מניעת שריפת רכיבים על ידי קביעת גבול הזרם המקסימלי שהספק יוציא גם במקרה של קצר:</p>
+        <ol class="small" style="padding-right: 18px; margin-bottom: 0;">
+            <li class="mb-1">כבו את מוצא הספק על ידי לחיצה על כפתור <strong>Output OFF</strong> (כך שלא יישפך זרם למעגל).</li>
+            <li class="mb-1">סובבו את בורר הזרם (Current knob) שמאלה <strong>עד הסוף (למינימום)</strong>.</li>
+            <li class="mb-1">סובבו מעט את בורר המתח (Voltage knob) ימינה (למתח נמוך של כ-\(1V - 2V\) למניעת ניצוץ).</li>
+            <li class="mb-1">בצעו <strong>קצר פיזי ישיר</strong> בין הדק הפלוס (+) להדק המינוס (-) של ערוץ ה-Master באמצעות כבל בננה קצר.</li>
+            <li class="mb-1">הפעילו את מוצא הספק (<strong>Output ON</strong>). נורית ה-<strong>CC (Constant Current)</strong> תידלק בצבע אדום, המציין שהספק מגביל זרם.</li>
+            <li class="mb-1">סובבו בעדינות את בורר הזרם (Current) ימינה עד שעל גבי הצג מופיע הזרם המקסימלי הרצוי (לדוגמה, \(0.5A\)).</li>
+            <li class="mb-1">כבו את המוצא (<strong>Output OFF</strong>) ונתקו בבטחה את כבל הקצר.</li>
+            <li class="mb-0"><strong>ברכותינו!</strong> כעת מגבלת הזרם מוגדרת. סובבו את בורר המתח לערך הרצוי לניסוי (למשל \(10V\)), והפעילו מחדש.</li>
+        </ol>
     </div>
 </div>
 <!-- /SECTION: POWER SUPPLY -->
 
 <!-- SECTION: LCR METER -->
-<div id="section-lcr" style="background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 25px; margin: 20px 0;">
-    <h3 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">3. מד השראות/קיבול (LCR Meter)</h3>
-    <p style="margin-bottom: 0;">מכשיר ייעודי למדידת ערכי קבלים ($C$) וסלילים ($L$). בניסוי זה נשתמש בו כדי לאמת את ערכי הקבלים שלנו מול הקוד המודפס עליהם.</p>
-</div>
-<!-- /SECTION: LCR METER -->
-
-<!-- CHAPTER: FOOTER -->
-<div id="ch-equipment-footer" style="margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center;">
-    <p style="font-size: 1.25rem; font-weight: bold; color: #6c757d; margin: 0;">
-        הכרתם את המכשירים? נשאר רק ללמוד איך לחבר הכל ביחד על המטריצה!
+<div class="theory-card mt-4" id="section-lcr">
+    <h3 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-tasks"></i> 3. מד השראות/קיבול (LCR Meter)</h3>
+    <p class="mb-0">
+        זהו מכשיר מדידה מיוחד המודד השראות של סלילים (\(L\)), קיבול של קבלים (\(C\)), והתנגדות (\(R\)) באמצעות זרם חילופין (AC) בתדרים משתנים. בניסוי זה נשתמש במד קיבול כדי למדוד את הערך הממשי של קבלים שברשותנו ולהשוותם לקוד הרשום עליהם.
     </p>
 </div>
-<!-- /CHAPTER: FOOTER -->
-
-    </div>
-</div>
-
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
+<!-- /SECTION: LCR METER -->

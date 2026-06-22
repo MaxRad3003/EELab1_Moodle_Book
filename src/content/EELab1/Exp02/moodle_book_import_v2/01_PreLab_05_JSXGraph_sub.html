@@ -1,34 +1,25 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>01 PreLab 05 JSXGraph sub</title>
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-
-<div dir="rtl" style="text-align: right; direction: rtl;">
-    <div class="moodle-snippet-custom" dir="rtl" style="direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px; color: #202124; line-height: 1.6; font-family: Arial, sans-serif;">
-        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
-            <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הכנה לניסוי 2 - המחשות אינטראקטיביות JSXGraph</title>
-    <!-- COPY MANUAL PART 01 START: REQUIRED JSXGraph CSS CDN. להעתקה ידנית: חובה -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
-    <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
-    <!-- COPY MANUAL PART 01 END -->
-    <!-- COPY MANUAL PART 02 START: OPTIONAL CSS BACKUP. העיצוב הקריטי נעול גם ב-inline CSS -->
-    
-    <!-- COPY MANUAL PART 02 END -->
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333; direction: rtl;">
-<!-- COPY MANUAL PART 03 START: REQUIRED HTML CONTENT WITH INLINE LOCKED DESIGN. להעתקה ידנית: חובה -->
-<!-- CHAPTER: EXP02 PRELAB JSXGRAPH -->
 <!-- PART 03.00: PAGE WRAPPER AND INTRO -->
 <div class="moodle-snippet-custom" style="unicode-bidi: isolate; text-align: right; font-size: 16px; direction: rtl; color: #333; line-height: 1.6; font-family: Arial, sans-serif; max-width: 980px; margin: 0 auto;" dir="rtl">
+    <!-- REQUIRED JSXGRAPH CDN FOR IFRAME/PREVIEW -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+
     <div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 &gt; הכנה &gt; המחשות JSXGraph</div>
+
+    <!-- MOODLE IFRAME HELPER BOX (Hides automatically if JavaScript runs) -->
+    <div id="moodle-iframe-helper" style="background-color: #fff9e6; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 18px; margin: 16px 0; direction: rtl; text-align: right; display: block;">
+        <strong style="color: #b7791f; font-size: 1.1em; display: block; margin-bottom: 8px;">📢 שגיאת טעינת סימולציה (Moodle HTML Sanitizer)</strong>
+        <p style="margin: 0 0 12px 0;">מערכת ה-Moodle חסמה את הרצת הסקריפטים של JSXGraph בעמוד זה.</p>
+        <p style="margin: 0 0 12px 0; font-weight: bold;">כדי להציג את הגרפים האינטראקטיביים יש להטמיע את הדף כ-iframe חיצוני במודל:</p>
+        <ol style="margin: 0 0 12px 0; padding-right: 20px; line-height: 1.5;">
+            <li>עברו למצב עריכת קוד HTML בעמוד המודל.</li>
+            <li>החליפו את תוכן הדף בקוד ה-iframe הבא:</li>
+        </ol>
+        <pre dir="ltr" style="background: #2b303b; color: #abb2bf; padding: 12px; border-radius: 6px; font-family: monospace; overflow: auto; text-align: left; margin: 8px 0; font-size: 14px;">&lt;iframe src="https://maxrad3003.github.io/EELab1_Moodle_Book/dist/previews/EELab1/Exp02/moodle_book_import_v2/01_PreLab_05_JSXGraph_sub.html" width="100%" height="900" style="border:none; overflow:hidden;"&gt;&lt;/iframe&gt;</pre>
+        <div style="margin-top: 14px;">
+            <a href="https://maxrad3003.github.io/EELab1_Moodle_Book/dist/previews/EELab1/Exp02/moodle_book_import_v2/01_PreLab_05_JSXGraph_sub.html" target="_blank" style="display: inline-block; background-color: #005696; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: bold;">🔗 פתיחת הסימולציה בחלון חדש</a>
+        </div>
+    </div>
 
     <h3 class="section-title" style="margin-bottom: 0.75rem; margin-top: 0; display: inline-block; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">הכנה לניסוי 2 - המחשות אינטראקטיביות ב-JSXGraph</h3>
     <p>עמוד זה מחבר בין החישוב האנליטי, הגרף והיחידות. הזיזו את המחוונים ובדקו כיצד שינוי מקור מתח, התנגדות פנימית או עומס משנה את נקודת העבודה ואת ההספק.</p>
@@ -110,7 +101,6 @@
     <div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="01_PreLab_04_NonLinear_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a><a href="01_PreLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים הכנה</a><a href="01_PreLab_05_WorkPlan_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: תוכנית עבודה</a></div>
     <!-- DO NOT COPY MANUALLY END -->
 </div>
-<!-- COPY MANUAL PART 03 END -->
 
 <!-- COPY MANUAL PART 04 START: REQUIRED JSXGraph JAVASCRIPT LOGIC. להעתקה ידנית: חובה, אחרי PART 03 -->
 <script>
@@ -120,6 +110,12 @@
     function num(id) { return parseFloat(byId(id).value); }
     function setText(id, value) { byId(id).textContent = value; }
     function ma(a) { return a * 1000; }
+
+    // Hide the iframe helper warning if JS loads and runs successfully
+    const helper = document.getElementById('moodle-iframe-helper');
+    if (helper) {
+        helper.style.display = 'none';
+    }
 
     if (!window.JXG || !JXG.JSXGraph) {
         setText('ivReadout', 'JSXGraph לא נטען. בדקו האם Moodle חסם script/CDN.');
@@ -189,27 +185,3 @@
     updatePower();
 }());
 </script>
-<div class="question-bank-container" style="background-color: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #005696; padding: 18px; border-radius: 8px; margin-top: 20px;" id="section-h5p-quiz">
-    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">בוחן H5P לפרק זה</h4>
-    <p style="margin: 0;">הועלתה חבילת H5P עם 6 שאלות לפרק: <strong>Exp02_PreLab_05_JSXGraph_H5P.h5p</strong></p>
-</div>
-<!-- COPY MANUAL PART 04 END -->
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
-
-</body>
-</html>

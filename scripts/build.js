@@ -45,7 +45,11 @@ function ensureDir(dir) {
 function build() {
     console.log('🚀 Starting build with Juice (Inline CSS)...');
 
-    let contentFiles = getFiles(SRC_DIR);
+    let contentFiles = getFiles(SRC_DIR).filter(file => {
+        const relativePath = path.relative(SRC_DIR, file);
+        const folder = relativePath.split(path.sep)[0];
+        return folder === 'EELab1' || folder === 'Measuring equipment';
+    });
     if (buildFilter) {
         contentFiles = contentFiles.filter(file => path.relative(SRC_DIR, file).includes(buildFilter));
         console.log(`🔎 Build filter active: ${buildFilter} (${contentFiles.length} files)`);

@@ -23,7 +23,7 @@
 <!-- CHAPTER: HEADER -->
 <div class="mb-5" style="box-sizing: border-box; margin-bottom: 2rem;">
     <h4 class="section-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 0; display: inline-block; color: #005696; font-size: 1.7rem; line-height: 1.35; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px;">הכנה לניסוי 3 - חלק ג': המעגל ותוכנית עבודה</h4>
-    <p class="mt-4" style="box-sizing: border-box; margin-bottom: 0.9rem; margin: 0 0 12px; font-size: 1.125rem; color: #52616b; margin-top: 1rem;">ניתוח מעגל RC טורי, חישוב הפרשי מופע, והכנת סימולציית Tinkercad.</p>
+    <p class="mt-4" style="box-sizing: border-box; margin-bottom: 0.9rem; margin: 0 0 12px; font-size: 1.125rem; color: #52616b; margin-top: 1rem;">ניתוח מעגל RC טורי, פונקציית תמסורת מתוך אלגברה ליניארית, חישוב הפרשי מופע, והכנת סימולציית Tinkercad.</p>
 </div>
 
 <!-- SECTION: RC CIRCUIT ANALYSIS -->
@@ -65,10 +65,73 @@
     </div>
 </div>
 
+<!-- SECTION: TRANSFER FUNCTION FROM LINEAR ALGEBRA -->
+<div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);" id="section-transfer-function-linear-algebra">
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">🧮 3. פונקציית תמסורת מתוך אלגברה ליניארית</h4>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">במדידות AC לא מספיק לדעת רק את גודל המתח. צריך לדעת גם כיצד המעגל משנה את <strong style="box-sizing: border-box;">המשרעת</strong> ואת <strong style="box-sizing: border-box;">המופע</strong> של האות. לכן מגדירים פונקציית תמסורת:</p>
+    <div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0;">
+        <strong style="box-sizing: border-box; color: #005696; display: block; margin-bottom: 0.5rem;">הגדרה:</strong>
+        <p style="box-sizing: border-box; margin: 0;">\[
+        H(j\omega)=\frac{V_{out}}{V_{in}}
+        \]</p>
+        <p style="box-sizing: border-box; margin: 8px 0 0;">בניסוי זה נבחר בדרך כלל \(V_{out}=V_C\), כלומר מתח המוצא הוא המתח על הקבל.</p>
+    </div>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">אפשר להגיע לפונקציית התמסורת דרך משוואות קירכהוף, אבל בניסויים מתקדמים יותר נוח לכתוב את המעגל כמערכת ליניארית. עבור מעגל RC טורי בתחום הפאזורים:</p>
+    <div dir="ltr" style="box-sizing: border-box; background: #f8fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; text-align: left; direction: ltr;">
+        \[
+        \begin{bmatrix}
+        R + \frac{1}{j\omega C}
+        \end{bmatrix}
+        \begin{bmatrix}
+        I
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        V_{in}
+        \end{bmatrix}
+        \]
+    </div>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">זוהי מערכת מהצורה \(A x=b\): הנעלם הוא הפאזור \(I\), המטריצה \(A\) מכילה את העכבות, והאגף הימני \(b\) הוא מקור המתח. לאחר פתרון המערכת:</p>
+    <div dir="ltr" style="box-sizing: border-box; background: #f8fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; text-align: left; direction: ltr;">
+        \[
+        I=\frac{V_{in}}{R+\frac{1}{j\omega C}},
+        \qquad
+        V_C=I\cdot\frac{1}{j\omega C}
+        \]
+    </div>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">לכן מתקבלת פונקציית התמסורת של מתח הקבל:</p>
+    <div class="info-box" style="box-sizing: border-box; background: #f0fdf4; border: 1px solid #bbf7d0; border-right: 5px solid #22c55e; border-radius: 8px; padding: 16px; margin: 18px 0;">
+        <p style="box-sizing: border-box; margin: 0;">\[
+        H_C(j\omega)=\frac{V_C}{V_{in}}=
+        \frac{\frac{1}{j\omega C}}{R+\frac{1}{j\omega C}}=
+        \frac{1}{1+j\omega RC}
+        \]</p>
+    </div>
+    <table class="data-table" style="box-sizing: border-box; border-spacing: 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e2e8f0; width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem;" width="100%">
+        <tbody style="box-sizing: border-box;">
+            <tr style="box-sizing: border-box;">
+                <th style="box-sizing: border-box; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right">גודל התמסורת</th>
+                <td style="box-sizing: border-box; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(|H_C(j\omega)|=\frac{1}{\sqrt{1+(\omega RC)^2}}\)</td>
+            </tr>
+            <tr style="box-sizing: border-box;">
+                <th style="box-sizing: border-box; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right">מופע התמסורת</th>
+                <td style="box-sizing: border-box; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(\angle H_C(j\omega)=-\arctan(\omega RC)\)</td>
+            </tr>
+            <tr style="box-sizing: border-box;">
+                <th style="box-sizing: border-box; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right">תדר חיתוך</th>
+                <td style="box-sizing: border-box; border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(f_c=\frac{1}{2\pi RC}\). עבור \(R=1\text{ k}\Omega\), \(C=100\text{ nF}\): \(f_c\approx 1.59\text{ kHz}\).</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="alert-box mt-4" style="box-sizing: border-box; background-color: #fffbeb; font-size: 15px; color: #92400e; background: #fff8e5; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 16px; margin: 18px 0; margin-top: 1rem;">
+        <strong style="box-sizing: border-box;">חיבור למדידה:</strong> אם מודדים באוסצילוסקופ את \(V_{in}\) ואת \(V_C\), אפשר לחשב ניסיונית \(H_C\) בכל תדר: יחס המשרעות נותן את \(|H_C|\), והפרש הזמן \(\Delta t\) נותן את המופע לפי \(\varphi=360^\circ\cdot \Delta t/T\).
+    </div>
+</div>
+
 <!-- SECTION: TINKERCAD MANDATORY TASK -->
 <div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-top: 4px solid #d9534f;" id="section-tinkercad-rc">
     <div style="box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
-        <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px; margin: 0; color: #d9534f;">🛠️ 3. חובה: מימוש ב-Tinkercad Circuits</h4>
+        <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px; margin: 0; color: #d9534f;">🛠️ 4. חובה: מימוש ב-Tinkercad Circuits</h4>
         <span style="box-sizing: border-box; background: #fef2f2; color: #d9534f; padding: 4px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; border: 1px solid #fee2e2;">משימת חובה</span>
     </div>
 
@@ -97,14 +160,15 @@
 
 <!-- SECTION: MATLAB ANALYSIS -->
 <div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white;" id="section-matlab-rc">
-    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px; color: #00a4e4;">📊 MATLAB Grader: RC Analysis</h4>
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px; color: #00a4e4;">📊 5. MATLAB Grader: RC Analysis</h4>
     <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px; color: #94a3b8;">השלימו את המטלה המקוונת לאימות החישובים שלכם:</p>
     
     <div dir="ltr" style="box-sizing: border-box; background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 0.9rem; border-left: 4px solid #28a745;">
         <span style="box-sizing: border-box; color: #64748b;">% Task Checklist:</span><br style="box-sizing: border-box;">
         1. Input R = 1e3, C = 100e-9.<br style="box-sizing: border-box;">
         2. Calculate XC and Z for test frequencies.<br style="box-sizing: border-box;">
-        3. Determine phase angle in degrees.
+        3. Solve the linear system A*x = b in phasor form.<br style="box-sizing: border-box;">
+        4. Calculate Hc = Vc / Vin, magnitude, and phase.
     </div>
 </div>
 
@@ -113,6 +177,7 @@
 <span style="box-sizing: border-box;"> באוסצילוסקופ רשמו תמיד האם המתח הוא \(V_p\), \(V_{pp}\) או \(V_{RMS}\). זמן מחזור יש להמיר לשניות לפני חישוב \(f=1/T\). מופע נרשם במעלות, ותדר ב-Hz או kHz באופן עקבי.</span>
 </div>
 <div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="01_PreLab_04_DMM_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="01_PreLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="01_PreLab_06_Simulation_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div></div>
+
 
 
 

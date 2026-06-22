@@ -1,7 +1,8 @@
 $ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $PSScriptRoot
-$bookSource = Join-Path $root 'src/content/EELab1/Exp03/moodle_book_import_v2'
+$bookSource = Join-Path $root 'dist/moodle_ready/EELab1/Exp03/moodle_book_import_v2'
+$bookZipDist = Join-Path $root 'dist/moodle_ready/EELab1/Exp03/Exp03_Moodle_Book_Import.zip'
 $bookZipSrc = Join-Path $root 'src/content/EELab1/Exp03/Exp03_Moodle_Book_Import.zip'
 $releaseRoot = Join-Path $root 'dist/release/Exp03_Moodle_Distribution'
 $releaseH5p = Join-Path $releaseRoot 'H5P_Quiz'
@@ -65,8 +66,11 @@ if (-not (Test-Path -LiteralPath $questionBank)) {
     throw "Missing Moodle Question Bank XML: $questionBank"
 }
 
-New-Item -ItemType Directory -Force -Path (Split-Path -Parent $bookZipSrc), $releaseRoot, $releaseH5p | Out-Null
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent $bookZipDist), (Split-Path -Parent $bookZipSrc), $releaseRoot, $releaseH5p | Out-Null
 
+if (Test-Path -LiteralPath $bookZipDist) {
+    Remove-Item -LiteralPath $bookZipDist -Force
+}
 if (Test-Path -LiteralPath $bookZipSrc) {
     Remove-Item -LiteralPath $bookZipSrc -Force
 }
@@ -75,8 +79,9 @@ if (Test-Path -LiteralPath $releaseZip) {
 }
 
 $bookPaths = $bookFiles | ForEach-Object { Join-Path $bookSource $_ }
-Compress-Archive -Path $bookPaths -DestinationPath $bookZipSrc -Force
-Copy-Item -LiteralPath $bookZipSrc -Destination (Join-Path $releaseRoot 'Exp03_Moodle_Book_Import.zip') -Force
+Compress-Archive -Path $bookPaths -DestinationPath $bookZipDist -Force
+Copy-Item -LiteralPath $bookZipDist -Destination $bookZipSrc -Force
+Copy-Item -LiteralPath $bookZipDist -Destination (Join-Path $releaseRoot 'Exp03_Moodle_Book_Import.zip') -Force
 
 foreach ($file in $h5pFiles) {
     Copy-Item -LiteralPath (Join-Path $h5pSource $file) -Destination (Join-Path $releaseH5p $file) -Force
@@ -118,6 +123,7 @@ Set-Content -LiteralPath (Join-Path $releaseRoot 'README_UPLOAD_TO_MOODLE.md') -
 
 Compress-Archive -Path (Join-Path $releaseRoot '*') -DestinationPath $releaseZip -Force
 
-Write-Host "Created Moodle Book ZIP: $bookZipSrc"
+Write-Host "Created Moodle Book ZIP: $bookZipDist"
+Write-Host "Updated source ZIP: $bookZipSrc"
 Write-Host "Created release folder: $releaseRoot"
 Write-Host "Created release ZIP: $releaseZip"
