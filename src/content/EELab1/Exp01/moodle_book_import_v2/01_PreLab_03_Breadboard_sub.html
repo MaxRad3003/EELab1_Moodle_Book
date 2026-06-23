@@ -33,11 +33,15 @@
     
     <div class="row g-3 mt-1">
         <div class="col-md-6">
-            <div class="card h-100 shadow-sm border-danger">
-                <div class="card-header bg-light"><strong class="text-danger">פסי הכוח וההזנה (Bus Strips)</strong></div>
-                <div class="card-body">
+            <!-- CARD CONTAINER -->
+<div class="card h-100 shadow-sm border-danger">
+                <!-- CARD CONTAINER -->
+<div class="card-header bg-light"><strong class="text-danger">פסי הכוח וההזנה (Bus Strips)</strong></div>
+                <!-- CARD CONTAINER -->
+<div class="card-body">
                     <p class="small">ממוקמים בקצוות העליונים והתחתונים של הלוח ומסומנים בפסים כחולים (-) ואדומים (+).</p>
-                    <ul class="small mb-0" style="padding-right: 15px;">
+                    <!-- BULLET LIST / KEY POINTS -->
+<ul class="small mb-0" style="padding-right: 15px;">
                         <li><strong>חיבור פנימי:</strong> כל החורים לאורך השורה מקושרים ביניהם <strong>אופקית</strong>.</li>
                         <li><strong>שימוש:</strong> נועדו להפצת מתח הזינוי ונקודת הייחוס (GND) לכל המעגל בנוחות.</li>
                     </ul>
@@ -45,11 +49,15 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card h-100 shadow-sm border-primary">
-                <div class="card-header bg-light"><strong class="text-primary">פסי רכיבים וצמתים (Terminal Strips)</strong></div>
-                <div class="card-body">
+            <!-- CARD CONTAINER -->
+<div class="card h-100 shadow-sm border-primary">
+                <!-- CARD CONTAINER -->
+<div class="card-header bg-light"><strong class="text-primary">פסי רכיבים וצמתים (Terminal Strips)</strong></div>
+                <!-- CARD CONTAINER -->
+<div class="card-body">
                     <p class="small">ממוקמים במרכז הלוח ומחולקים לשני חצאים על ידי תעלה מפרידה (שקע).</p>
-                    <ul class="small mb-0" style="padding-right: 15px;">
+                    <!-- BULLET LIST / KEY POINTS -->
+<ul class="small mb-0" style="padding-right: 15px;">
                         <li><strong>חיבור פנימי:</strong> החורים מסודרים בטורים של 5 חורים (המסומנים באותיות A-E ו-F-J). כל 5 חורים בטור מקושרים ביניהם <strong>אנכית</strong>.</li>
                         <li><strong>שימוש:</strong> בניית המעגל וחיבור הרגליים של הרכיבים אלו לאלו.</li>
                     </ul>
@@ -103,7 +111,8 @@
         <!-- Mistake 1 -->
         <div class="col-md-6">
             <div class="card h-100 shadow-sm border-danger">
-                <div class="card-body">
+                <!-- CARD CONTAINER -->
+<div class="card-body">
                     <h5 class="card-title text-danger fw-bold"><i class="fas fa-unlink"></i> קצר עצמי של רכיב</h5>
                     <p class="small mb-0">הכנסת שתי הרגליים של נגד או דיודה <strong>לאותה שורה בדיוק (למשל שניהם בטור 3-A ו-3-C)</strong>. זרם תמיד בוחר בנתיב הקל ביותר, ולכן הוא יעבור דרך פס המתכת ויעקוף את הרכיב לחלוטין (הרכיב מקוצר).</p>
                 </div>
@@ -112,7 +121,8 @@
         <!-- Mistake 2 -->
         <div class="col-md-6">
             <div class="card h-100 shadow-sm border-danger">
-                <div class="card-body">
+                <!-- CARD CONTAINER -->
+<div class="card-body">
                     <h5 class="card-title text-danger fw-bold"><i class="fas fa-question-circle"></i> רכיב "צף" (Floating)</h5>
                     <p class="small mb-0">חיבור רגל של רכיב לטור ריק שאינו מחובר לכלום. המעגל נשאר פתוח ולא יזרום בו זרם.</p>
                 </div>
@@ -121,7 +131,8 @@
         <!-- Mistake 3 -->
         <div class="col-md-6">
             <div class="card h-100 shadow-sm border-danger">
-                <div class="card-body">
+                <!-- CARD CONTAINER -->
+<div class="card-body">
                     <h5 class="card-title text-danger fw-bold"><i class="fas fa-long-arrow-alt-h"></i> ציפייה לקשר מעבר לתעלה</h5>
                     <p class="small mb-0">הנחה כי החורים בטור 5 בחלקו העליון (A-E) מחוברים לחורים בטור 5 בחלקו התחתון (F-J). <strong>יש נתק מוחלט ביניהם!</strong> כדי לקשר ביניהם חובה להשתמש בחוט גישור (Jumper wire).</p>
                 </div>
@@ -130,7 +141,8 @@
         <!-- Mistake 4 -->
         <div class="col-md-6">
             <div class="card h-100 shadow-sm border-danger">
-                <div class="card-body">
+                <!-- CARD CONTAINER -->
+<div class="card-body">
                     <h5 class="card-title text-danger fw-bold"><i class="fas fa-arrows-alt-v"></i> חוסר קישור בין פסי הזנה</h5>
                     <p class="small mb-0">חיבור ספק הכוח רק לפסי ההזנה בצד אחד, וציפייה שפסי ההזנה בצד השני יהיו מתוחים. <strong>חובה לגשר ביניהם באופן ידני</strong> (אדום לאדום, כחול לכחול) אם רוצים להשתמש בשני צידי הלוח.</p>
                 </div>
@@ -143,7 +155,8 @@
 <!-- SECTION: BEST PRACTICES -->
 <div class="theory-card mt-4" id="section-best-practices">
     <h3 class="sub-title text-primary mt-0" style="font-weight: 700;"><i class="fas fa-thumbs-up"></i> 4. כללי עבודה הנדסיים מומלצים</h3>
-    <ul style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="padding-right: 20px;">
         <li class="mb-2"><strong>צבעי חוטים:</strong> הקפידו להשתמש בחוטים <strong>אדומים</strong> להזנת מתח חיובי (+), חוטים <strong>שחורים</strong> או כחולים לאדמה (GND/-), וצבעים אחרים (צהוב, ירוק, כתום) לאותות ומוליכים במעגל.</li>
         <li class="mb-2"><strong>חיווט נמוך:</strong> אל תמתחו חוטים באוויר כמו קורי עכביש. חתכו וקצצו חוטים כך שיהיו קרובים וצמודים ללוח. הדבר מקל על איתור תקלות ומונע ניתוק חוטים בטעות.</li>
         <li><strong>הכנה ללא מתח:</strong> תמיד בנו את המעגל, חברו את חוטי הגישור והכינו את המדידות <strong>כאשר ספק הכוח כבוי לחלוטין!</strong> הפעילו מתח רק לאחר בדיקה סופית.</li>

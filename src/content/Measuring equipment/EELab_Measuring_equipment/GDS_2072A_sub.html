@@ -30,19 +30,22 @@
         <div class="col-md-7 text-center">
             <div class="row g-2">
                 <div class="col-4">
-                    <div class="card p-2 bg-light shadow-sm">
+                    <!-- CARD CONTAINER -->
+<div class="card p-2 bg-light shadow-sm">
                         <img src="Figure/gds2072a_front.jpg" alt="GDS-2072A Front Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
                         <p class="mb-0 mt-1 small text-muted text-center" style="font-size: 9px;">מבט חזיתי</p>
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card p-2 bg-light shadow-sm">
+                    <!-- CARD CONTAINER -->
+<div class="card p-2 bg-light shadow-sm">
                         <img src="Figure/gds2072a_rear.jpg" alt="GDS-2072A Rear Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
                         <p class="mb-0 mt-1 small text-muted text-center" style="font-size: 9px;">מבט אחורי</p>
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card p-2 bg-light shadow-sm">
+                    <!-- CARD CONTAINER -->
+<div class="card p-2 bg-light shadow-sm">
                         <img src="Figure/gds2072a_panel_diagram.png" alt="GDS-2072A Panel Diagram" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
                         <p class="mb-0 mt-1 small text-muted text-center" style="font-size: 9px;">תרשים בקרות</p>
                     </div>
@@ -59,7 +62,8 @@
     <p>
         החיבור בין האוסילוסקופ למעגל מתבצע באמצעות <strong>פרוב (Probe)</strong> המצויד לרוב במפסק בורר <strong>x1 / x10</strong>:
     </p>
-    <ul>
+    <!-- BULLET LIST / KEY POINTS -->
+<ul>
         <li><strong>מצב x1:</strong> האות מועבר כמו שהוא (ללא הנחתה). מיועד לאותות קטנים ובתדרים נמוכים.</li>
         <li><strong>מצב x10:</strong> הפרוב כולל נגד פנימי של \(9\text{ M}\Omega\), היוצר מחלק מתח עם התנגדות כניסת האוסילוסקופ (\(1\text{ M}\Omega\)). האות מונחת פי 10! מצב זה מגדיל את התנגדות המדידה הכוללת ל-\(10\text{ M}\Omega\) ומקטין משמעותית את העמסת המעגל (מומלץ ברוב המדידות).</li>
     </ul>
@@ -68,7 +72,8 @@
     </p>
     
     <div class="text-center py-2">
-        <svg viewBox="0 0 760 220" width="100%" height="auto" style="background-color: #fafafa; border: 1px solid #bae6fd; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+        <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 760 220" width="100%" height="auto" style="background-color: #fafafa; border: 1px solid #bae6fd; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
             <!-- Probe compensation states -->
             <!-- Under-compensated -->
             <g transform="translate(40, 40)">
@@ -102,7 +107,8 @@
     <div class="card-header bg-primary text-white">
         <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> אזורי השליטה והבקרות בלוח הקדמי</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <p>לוח הבקרה של המכשיר מחולק למספר אזורים פונקציונליים:</p>
         
         <div class="vstack gap-3">
@@ -152,11 +158,13 @@
     <div class="card-header bg-primary text-white">
         <h3 class="m-0 fs-5"><i class="fas fa-save"></i> כיצד לשמור צילומי מסך (Screenshots) לדוח המעבדה</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <p>
             כתיבת דוחות מעבדה דורשת שילוב של גרפים וצילומי מסך אמיתיים של האותות שנמדדו בניסוי. ה-GDS-2072A מאפשר שמירה קלה:
         </p>
-        <ol style="padding-right: 20px;">
+        <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
             <li class="mb-1">חברו התקן דיסק-און-קי (USB formatted to FAT32) לשקע ה-USB בחזית המכשיר (בפינה השמאלית התחתונה).</li>
             <li>המתינו 2-3 שניות עד שיופיע סמל USB קטן בפינת המסך, המציין שההתקן מזוהה.</li>
             <li>לחצו על לחצן <strong>Save</strong> (או לחצן ה-Utility &gt; File Utilities &gt; Save Image).</li>
@@ -171,7 +179,8 @@
     <div class="card-header bg-primary text-white">
         <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <h4 class="text-primary fw-bold">הדגמה מעשית: כיול פרובי מדידה (Probe Compensation) וביצוע מדידות אוטומטיות</h4>
         <p>
             בניסוי זה נלמד כיצד לבצע כיול קבלים לפרוב האוסילוסקופ <strong>GDS-2072A</strong> על מנת למנוע עיוותים במדידות בתדרים גבוהים, ונפעיל את מנגנון המדידה האוטומטי של המכשיר.
@@ -181,7 +190,8 @@
             <h5 class="fw-bold text-primary"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי - שלב אחר שלב:</h5>
             
             <h6 class="fw-bold text-primary mt-2">חלק א': כיול הפרוב הפיזי (Probe Compensation)</h6>
-            <ol style="padding-right: 20px;">
+            <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
                 <li>חברו את פרוב האוסילוסקופ לכניסת ערוץ 1 (<strong>CH1</strong>).</li>
                 <li>ודאו שמפסק הבורר הפיזי בגוף הפרוב מכוון למצב <strong>x10</strong>.</li>
                 <li>חברו את קצה הפרוב (הראש) להדק המוצא <strong>CAL</strong> (הנמצא בפינה הימנית התחתונה מתחת למסך), ואת תנין האדמה השחור להדק ה-Ground שלידו. הדק ה-CAL מוציא גל ריבועי מיוצב של \(2\text{ V}_{p-p}\) בתדר \(1\text{ kHz}\).</li>
@@ -193,7 +203,8 @@
             </ol>
 
             <h6 class="fw-bold text-primary mt-3">חלק ב': הגדרת המכשיר ומדידות אוטומטיות (Measure)</h6>
-            <ol style="padding-right: 20px;">
+            <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
                 <li>לחצו על לחצן <strong>CH1</strong> כדי לפתוח את תפריט הערוץ במסך. ודאו שהגדרת ה-<strong>Probe</strong> במסך מוגדרת ל-<strong>10X</strong> (בהתאמה למפסק הפיזי של הפרוב).</li>
                 <li>לחצו על מקש <strong>Measure</strong> בפנל העליון של האוסילוסקופ.</li>
                 <li>לחצו על מקשי התפריט הצידיים שמתחת למסך כדי לבחור ב-<strong>Add Measurement</strong>.</li>

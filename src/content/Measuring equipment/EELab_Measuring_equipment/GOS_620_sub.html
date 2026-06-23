@@ -29,7 +29,8 @@
             </p>
         </div>
         <div class="col-md-5 text-center">
-            <div class="card p-2 bg-light shadow-sm">
+            <!-- CARD CONTAINER -->
+<div class="card p-2 bg-light shadow-sm">
                 <img src="Figure/gos620_front.jpg" alt="GOS-620 Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
                 <p class="mb-0 mt-1 small text-muted">האוסילוסקופ האנלוגי GOS-620 בעמדה</p>
             </div>
@@ -46,7 +47,8 @@
     </p>
     
     <div class="text-center py-2">
-        <svg viewBox="0 0 760 340" width="100%" height="auto" style="background-color: #0f172a; border-radius: 12px; box-shadow: var(--shadow-lg);" xmlns="http://www.w3.org/2000/svg">
+        <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 760 340" width="100%" height="auto" style="background-color: #0f172a; border-radius: 12px; box-shadow: var(--shadow-lg);" xmlns="http://www.w3.org/2000/svg">
             <!-- Grid lines inside oscilloscope screen -->
             <defs>
                 <pattern id="scope-grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -95,18 +97,22 @@
 
 <!-- CALIBRATION & STEP-BY-STEP -->
 <div class="card border-warning my-4" style="border-color: #ffe0b2 !important;">
-    <div class="card-header bg-warning text-white" style="background-color: #00796b !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-warning text-white" style="background-color: #00796b !important;">
         <h3 class="m-0 fs-5"><i class="fas fa-tasks"></i> מדריך צעד אחר צעד למדידה תקינה</h3>
     </div>
-    <div class="card-body">
-        <div class="alert alert-danger py-2 px-3">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
+        <!-- SAFETY & WARNING BLOCK -->
+<div class="alert alert-danger py-2 px-3">
             <strong>לפני המדידה - כיול כפתור ה-CAL:</strong>
             <br>במרכז בורר ה-VOLTS/DIV ובורר ה-TIME/DIV הפיזיים ישנה חוגה פנימית אדומה וקטנה (Variable). אם חוגה זו מסובבת שמאלה, הכיול של המכשיר מבוטל, וכל קריאה שלכם תהיה שגויה. 
             <br><strong>ודאו תמיד כי שתי החוגות הפנימיות מסובבות ימינה עד הסוף לנקודת ה-CAL (קליק מכני).</strong>
         </div>
         
         <h5 class="fw-bold text-success mt-4">1. תהליך מדידת מתח משיא לשיא (\(V_{p-p}\)):</h5>
-        <ol style="padding-right: 20px;">
+        <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
             <li class="mb-1">העבירו את בורר הצימוד של הערוץ (למשל CH1) למצב <strong>GND</strong>.</li>
             <li class="mb-1">השתמשו בחוגת ה-<strong>POSITION</strong> האנכית כדי להזיז את הקו הישר ולקבע אותו בדיוק על השנת האופקית המרכזית (זהו ייחוס ה-\(0\text{ V}\) שלכם).</li>
             <li class="mb-1">העבירו את בורר הצימוד למצב <strong>DC</strong> (או AC אם תרצו לסנן רמת DC קיימת).</li>
@@ -118,7 +124,8 @@
         </ol>
         
         <h5 class="fw-bold text-success mt-4">2. תהליך מדידת זמן מחזור (\(T\)) ותדר (\(f\)):</h5>
-        <ol style="padding-right: 20px;">
+        <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
             <li class="mb-1">ספרו את מספר המשבצות האופקיות עבור מחזור אחד שלם של הגל (למשל, מנקודת עלייה אחת דרך האפס ועד לנקודת העלייה הבאה).</li>
             <li class="mb-1">הכפילו את מספר המשבצות בערך המצוין בבורר ה-<strong>TIME/DIV</strong>.
             <br><em>דוגמה:</em> אם ספרתם \(6\) משבצות ובורר ה-TIME/DIV עומד על \(2\text{ ms/Div}\):
@@ -134,10 +141,12 @@
 
 <!-- OTHER SPECIAL CONTROLS -->
 <div class="card border-warning my-4" style="border-color: #ffe0b2 !important;">
-    <div class="card-header bg-warning text-white" style="background-color: #00796b !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-warning text-white" style="background-color: #00796b !important;">
         <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> בקרות ייחודיות נוספות</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <ul style="padding-right: 20px;">
             <li class="mb-2"><strong>X10 MAG (מתיחה אופקית פי 10):</strong> משיכת בורר ה-POSITION האופקי כלפי חוץ מפעילה מותח אופקי המגדיל את הסריקה פי 10. שימושי לבחינת זמני עלייה קצרים במיוחד של דפקים. <strong>שים לב:</strong> במצב זה יש לחלק את ערך ה-TIME/DIV ב-10 כדי לקבל את בסיס הזמן האמיתי.</li>
             <li class="mb-2"><strong>VERT MODE (בחירת ערוצי תצוגה):</strong> הבורר מאפשר לבחור בין CH1, CH2, DUAL (הצגת שני הערוצים) או ADD (חיבור מתמטי אנלוגי של האותות).</li>
@@ -149,10 +158,12 @@
 
 <!-- PRACTICAL DEMONSTRATION & STEP-BY-STEP GUIDE -->
 <div class="card border-warning my-4" style="border-color: #ffe0b2 !important;">
-    <div class="card-header bg-warning text-white" style="background-color: #00796b !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-warning text-white" style="background-color: #00796b !important;">
         <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <h4 class="text-warning fw-bold">הדגמה מעשית: מדידה ידנית של מתח ותדר בשיטת ספירת משבצות (Division Counting)</h4>
         <p>
             בניסוי זה נשתמש באוסילוסקופ האנלוגי <strong>GOS-620</strong> כדי למדוד באופן ידני את מתח השיא לשיא ואת תדר העבודה של אות סינוסי, ללא שימוש במנגנונים דיגיטליים.
@@ -160,7 +171,8 @@
 
         <div class="bg-light p-3 rounded border-start border-warning border-4 mb-3">
             <h5 class="fw-bold text-warning" style="color: #00796b !important;"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי ומדידה ידנית:</h5>
-            <ol class="mb-0" style="padding-right: 20px;">
+            <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol class="mb-0" style="padding-right: 20px;">
                 <li class="mb-2">
                     <strong>בדיקת כיול (CAL Check):</strong> ודאו ששתי החוגות האדומות הפנימיות הקטנות במרכז בוררי ה-<strong>VOLTS/DIV</strong> וה-<strong>TIME/DIV</strong> מסובבות ימינה עד הסוף לנקודת הכיול **CAL** (עד שמרגישים קליק מכני). אי-ביצוע שלב זה יגרום לשגיאה של עשרות אחוזים במדידה!
                 </li>

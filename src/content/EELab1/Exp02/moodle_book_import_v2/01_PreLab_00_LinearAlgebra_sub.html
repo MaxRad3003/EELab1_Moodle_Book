@@ -23,10 +23,12 @@
         \[ [R] \cdot [I] = [V] \]
     </div>
     
-    <ul class="mb-0" style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul class="mb-0" style="padding-right: 20px;">
         <li class="mb-2">
             <strong>\( [R] \) (מטריצת ההתנגדויות - מסדר \(N \times N\)):</strong>
-            <ul>
+            <!-- BULLET LIST / KEY POINTS -->
+<ul>
                 <li>האיברים על האלכסון הראשי (\(R_{ii}\)) מייצגים את <strong>סכום כל הנגדים בחוג \(i\)</strong>. איברים אלו הם תמיד <strong>חיוביים</strong>.</li>
                 <li>האיברים מחוץ לאלכסון (\(R_{ij}\) כאשר \(i \neq j\)) מייצגים את <strong>סכום הנגדים המשותפים</strong> בין חוג \(i\) לחוג \(j\). איברים אלו נרשמים עם סימן <strong>שלילי</strong> (בהנחה שכל זרמי החוגים מוגדרים באותו כיוון, למשל עם כיוון השעון).</li>
             </ul>
@@ -43,7 +45,8 @@
     <p>נתבונן במעגל בעל שני חוגים (כמו זה המוצג בסימולציה מטה) המורכב משני מקורות מתח \(V_1, V_2\) ושלושה נגדים \(R_1, R_2, R_L\), כאשר \(R_L\) נמצא בענף המשותף.</p>
     
     <p>נגדיר שני זרמי חוגים \(I_1\) ו-\(I_2\) עם כיוון השעון. נכתוב את משוואות המתחים (KVL):</p>
-    <ul style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="padding-right: 20px;">
         <li class="mb-2"><strong>חוג 1:</strong> \(R_1 I_1 + R_L (I_1 - I_2) = V_1 \implies (R_1 + R_L) I_1 - R_L I_2 = V_1\)</li>
         <li class="mb-2"><strong>חוג 2:</strong> \(R_2 I_2 + R_L (I_2 - I_1) = -V_2 \implies -R_L I_1 + (R_2 + R_L) I_2 = -V_2\)</li>
     </ul>
@@ -73,7 +76,8 @@
 <!-- SECTION: ENRICHMENT -->
 <div class="theory-card mt-4" id="section-enrichment">
     <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-graduation-cap"></i> 3. קישורי העשרה והרחבה</h3>
-    <ul class="mb-0" style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul class="mb-0" style="padding-right: 20px;">
         <li class="mb-2"><a href="https://he.wikipedia.org/wiki/%D7%A9%D7%99%D7%AA%D7%95%D7%A5_%D7%96%D7%A8%D7%95%D7%9E%D7%99_%D7%97%D7%95%D7%92%D7%99%D7%9D" target="_blank" class="text-secondary fw-bold">ויקיפדיה: שיטת זרמי חוגים במעגלים חשמליים</a></li>
         <li><a href="https://www.mathworks.com/help/matlab/math/systems-of-linear-equations.html" target="_blank" class="text-secondary fw-bold">MathWorks: פתרון מערכות משוואות ליניאריות ב-MATLAB (אנגלית)</a></li>
     </ul>
@@ -109,7 +113,8 @@
         I_RL = I(1) - I(2);
     </div>
 
-    <div class="alert alert-warning py-2 text-center fw-bold">
+    <!-- WARNING / ATTENTION BLOCK -->
+<div class="alert alert-warning py-2 text-center fw-bold">
         לפתיחת המטלה: Exp02_LinearAlgebra <span class="badge bg-secondary ms-2">הקישור המעודכן יופיע במודל</span>
     </div>
 </div>

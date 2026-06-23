@@ -20,7 +20,8 @@
     <p>
         הבנת אופן החיבור של רב-המודד למעגל היא תנאי הכרחי למדידה נכונה ולשמירה על תקינות המכשיר:
     </p>
-    <ul>
+    <!-- BULLET LIST / KEY POINTS -->
+<ul>
         <li><strong>מדידת מתח:</strong> מתבצעת תמיד <strong>במקביל</strong> לרכיב הנמדד. לרב-המודד במצב זה יש התנגדות פנימית עצומה (בסביבות \(10\text{ M}\Omega\)), כדי לא להעמיס על המעגל ולא לשנות את זרמי המעגל.</li>
         <li><strong>מדידת זרם:</strong> מתבצעת תמיד <strong>בטור</strong> (כחלק מהענף שבו זורם הזרם). במצב זה, יש לפתוח/לנתק את המעגל ולחבר את המכשיר כך שהזרם יעבור דרכו. לרב-המודד במצב זה יש התנגדות פנימית אפסית (שואפת לאפס), ולכן חיבורו במקביל למקור מתח יגרום ל<strong>קצר מיידי וישרוף את פיוז ההגנה של המכשיר!</strong></li>
         <li><strong>מדידת התנגדות:</strong> מתבצעת תמיד <strong>מחוץ למעגל</strong> (כאשר הרכיב מנותק לחלוטין מכל מקור מתח). המכשיר מזרים זרם קטן ידוע דרך הרכיב ומודד את מפל המתח עליו כדי לחשב את ההתנגדות לפי חוק אוהם.</li>
@@ -34,7 +35,8 @@
     <p class="small text-muted text-center">התרשים הבא מציג את ההבדל המהותי בין חיבור DMM למדידת מתח (במקביל) לעומת מדידת זרם (בטור):</p>
     
     <div class="text-center py-2">
-        <svg viewBox="0 0 800 360" width="100%" height="auto" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+        <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 800 360" width="100%" height="auto" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
             <!-- Left Side: Voltage Measurement -->
             <g transform="translate(10, 10)">
                 <!-- Boundary box -->
@@ -116,7 +118,8 @@
     <div class="card-header bg-primary text-white">
         <h3 class="m-0 fs-5"><i class="fas fa-tools"></i> הכרת לוח המכשיר וחיבוריו</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <p>
             ה-<strong>GDM-8245</strong> הוא רב-מודד דיגיטלי שולחני מדויק ונוח לשימוש. בלוח הקדמי שלו נמצאים מסך תצוגה בעל 4.5 ספרות (עד ערך מרבי של 19999), מקשי בחירת פונקציית מדידה וארבעה הדקי חיבור (שקעי בננה).
         </p>
@@ -130,7 +133,8 @@
                 </p>
             </div>
             <div class="col-md-5 text-center">
-                <div class="card p-2 bg-light shadow-sm">
+                <!-- CARD CONTAINER -->
+<div class="card p-2 bg-light shadow-sm">
                     <img src="Figure/gdm8245_main.jpg" alt="GDM-8245 Front Panel Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
                     <p class="mb-0 mt-1 small text-muted">הלוח הקדמי של מכשיר GDM-8245 בעמדה</p>
                 </div>
@@ -139,7 +143,8 @@
         
         <h4 class="text-primary mt-4">מיפוי חיבורים (Terminals) והדקים</h4>
         <div class="table-responsive">
-            <table class="table table-striped table-bordered text-right">
+            <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="table table-striped table-bordered text-right">
                 <thead class="bg-primary text-white">
                     <tr>
                         <th style="width: 25%;">שם ההדק במכשיר</th>
@@ -185,7 +190,8 @@
     <div class="card-header bg-primary text-white">
         <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> מקשי פונקציות מדידה וטווחים (Ranges)</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <p>
             הבחירה בין סוגי המדידות נעשית באמצעות לחיצה על מקשי הבקרה בחזית המכשיר. עבור רוב המדידות קיימת אפשרות לשינוי טווח ידני או אוטומטי (Autorange).
         </p>
@@ -235,7 +241,8 @@
 <!-- COMMON PITFALLS & TIPS -->
 <div class="alert alert-danger p-4 my-4">
     <h4 class="alert-heading text-danger fw-bold"><i class="fas fa-bug"></i> טעויות נפוצות והנחיות עבודה בטוחה:</h4>
-    <ul class="mb-0 mt-2" style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul class="mb-0 mt-2" style="padding-right: 20px;">
         <li class="mb-2">
             <strong>שריפת נתיך הזרם (mA Fuse):</strong> הטעות השכיחה ביותר במעבדה היא חיבור פרובי המכשיר במקביל לרכיב כאשר פרוב המכשיר נמצא בשקע ה-mA ומצב המכשיר הוא מדידת זרם. התנגדות המכשיר שואפת לאפס, מה שיוצר קצר מוחלט. 
             <br><span class="text-dark fw-bold">הפתרון:</span> לפני כל חיבור למעגל, עצור וודא: מתח במקביל, זרם בטור!
@@ -256,7 +263,8 @@
     <div class="card-header bg-primary text-white">
         <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <h4 class="text-primary fw-bold">הדגמה מעשית: אימות חוק אוהם במעגל DC פשוט</h4>
         <p>
             בניסוי זה נשתמש ברב-המודד <strong>GDM-8245</strong> כדי לאמת את הקשר הליניארי בין מתח, זרם והתנגדות (\(V = I \cdot R\)) עבור נגד של \(1\text{ k}\Omega\).
@@ -266,7 +274,8 @@
             <h5 class="fw-bold text-primary"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי למדידות:</h5>
             
             <h6 class="fw-bold text-primary mt-2">שלב א': מדידת ערך ההתנגדות המדויק (R)</h6>
-            <ol style="padding-right: 20px;">
+            <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
                 <li>ודאו כי הנגד מנותק לחלוטין מכל מקור מתח או מעגל.</li>
                 <li>לחצו על מקש <strong>\(\Omega\)</strong> בפנל הקדמי של הרב-מודד.</li>
                 <li>חברו את הכבל האדום לשקע <strong>V / \(\Omega\)</strong> ואת הכבל השחור לשקע <strong>COM</strong>.</li>
@@ -274,7 +283,8 @@
             </ol>
 
             <h6 class="fw-bold text-primary mt-3">שלב ב': מדידת מתח במקביל (V)</h6>
-            <ol style="padding-right: 20px;">
+            <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
                 <li>חברו את הנגד למקור מתח DC וכוונו את הספק ל-\(5\text{ V}\).</li>
                 <li>לחצו על מקש <strong>DCV</strong> ברב-מודד.</li>
                 <li>ודאו כי הפרוב האדום בשקע <strong>V / \(\Omega\)</strong> והשחור ב-<strong>COM</strong>.</li>
@@ -282,7 +292,8 @@
             </ol>
 
             <h6 class="fw-bold text-primary mt-3">שלב ג': מדידת זרם בטור (I) - זהירות!</h6>
-            <ol style="padding-right: 20px;">
+            <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
                 <li><strong>כבו את ספק הכוח.</strong></li>
                 <li>לחצו על מקש <strong>DCA</strong> ברב-מודד.</li>
                 <li><strong>העבירו</strong> את הפרוב האדום משקע המתח אל שקע ה-<strong>mA / 0.5A</strong> (השחור נשאר ב-<strong>COM</strong>).</li>

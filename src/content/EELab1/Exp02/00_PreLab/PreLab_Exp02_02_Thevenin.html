@@ -13,13 +13,15 @@
     <p>משפט תבנין קובע כי ניתן להחליף כל רשת של מקורות מתח/זרם ונגדים בעלת שני הדקי מוצא \(A\) ו-\(B\) במעגל שקול פשוט הכולל <strong>מקור מתח יחיד (\(V_{TH}\)) המחובר בטור לנגד יחיד (\(R_{TH}\))</strong>.</p>
     
     <strong class="text-primary">שני הפרמטרים המגדירים את שקול תבנין:</strong>
-    <ul style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="padding-right: 20px;">
         <li class="mb-2"><strong>מתח תבנין (\(V_{TH}\)):</strong> זהו מתח הריקם (Open Circuit Voltage, \(V_{OC}\)) הנמדד בין הדקי המוצא \(A\) ו-\(B\) כאשר נגד העומס מנותק לחלוטין.</li>
         <li class="mb-2"><strong>התנגדות תבנין (\(R_{TH}\)):</strong> זוהי ההתנגדות השקולה של הרשת כפי שהיא נראית מההדקים \(A\) ו-\(B\) כאשר כל המקורות הבלתי-תלויים מאופסים.</li>
     </ul>
 
     <strong class="text-primary">שלוש שיטות למציאת התנגדות תבנין (\(R_{TH}\)):</strong>
-    <ol style="padding-right: 20px;">
+    <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
         <li class="mb-2"><strong>שיטת חישוב ישירה (איפוס מקורות):</strong> מאפסים את כל המקורות (מקורות מתח מוחלפים בקצר, מקורות זרם בנתק) ומחשבים את ההתנגדות השקולה בין ההדקים \(A\) ו-\(B\) בשיטות טור/מקביל.</li>
         <li class="mb-2"><strong>שיטת מתח ריקם וזרם קצר (מדידה מעשית):</strong> מודדים את מתח הריקם \(V_{OC}\) (כאשר העומס מנותק), ומודדים את זרם הקצר \(I_{SC}\) (על ידי חיבור מד-זרם ישירות בין ההדקים \(A\) ו-\(B\)). התנגדות תבנין היא היחס ביניהם:
             <div class="text-center my-2 py-1 bg-light rounded" style="font-size: 1.1rem; font-family: monospace; direction: ltr;">
@@ -56,7 +58,8 @@
         \[ \eta = \frac{P_L}{P_{\text{total}}} = \frac{I_L^2 R_L}{I_L^2 (R_{TH} + R_L)} = \frac{R_L}{R_{TH} + R_L} \cdot 100\% \]
     </div>
     
-    <div class="info-box border-success" style="border-right: 5px solid #28a745;">
+    <!-- INFO BOX SECTION -->
+<div class="info-box border-success" style="border-right: 5px solid #28a745;">
         <strong>💡 פרדוקס הנצילות מול הספק:</strong> 
         במצב שבו מועבר הספק מקסימלי לעומס (\(R_L = R_{TH}\)), הנצילות היא <strong>בדיוק \(50\%\)</strong>! 
         חצי מההספק מנוצל בעומס, והחצי השני מתבזבז כחום על גבי ההתנגדות הפנימית \(R_{TH}\). 
@@ -68,7 +71,8 @@
 <!-- SECTION: ENRICHMENT -->
 <div class="theory-card mt-4" id="section-enrichment">
     <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-graduation-cap"></i> 3. קישורי העשרה והרחבה</h3>
-    <ul class="mb-0" style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul class="mb-0" style="padding-right: 20px;">
         <li class="mb-2"><a href="https://he.wikipedia.org/wiki/%D7%9E%D7%A9%D7%A4%D7%98_%D7%AA%D7%91%D7%A0%D7%99%D7%9F" target="_blank" class="text-secondary fw-bold">ויקיפדיה: משפט תבנין ומעגל שקול</a></li>
         <li><a href="https://www.allaboutcircuits.com/textbook/direct-current/chpt-10/thevenins-theorem/" target="_blank" class="text-secondary fw-bold">All About Circuits: Thevenin's Theorem Tutorial (אנגלית)</a></li>
     </ul>
@@ -94,7 +98,8 @@
     <h3 class="fw-bold text-danger mt-0" style="font-size: 1.25rem;"><i class="fas fa-tools"></i> 5. משימת חובה: בניית מעגל תבנין ב-Tinkercad</h3>
     <p>בנו את רשת הנגדים ומקור המתח ב-Tinkercad. בצעו מדידת מתח ריקם (Open Circuit) ומדידת זרם קצר (Short Circuit) כדי למצוא את שקול תבנין באופן מדויק.</p>
     
-    <div class="info-box border-warning mb-3" style="border-right-color: #ff9900;">
+    <!-- INFO BOX SECTION -->
+<div class="info-box border-warning mb-3" style="border-right-color: #ff9900;">
         <strong>🧹 דגש על סדר בחיווט:</strong> שמרו על חיווט נקי ומאורגן. הקפידו על שימוש בצבעים: אדום לקטבים חיוביים, שחור לאדמה וקטבים שליליים.
     </div>
     
@@ -124,7 +129,8 @@
         </p>
     </div>
 
-    <div class="alert alert-warning py-2 text-center fw-bold mb-0">
+    <!-- WARNING / ATTENTION BLOCK -->
+<div class="alert alert-warning py-2 text-center fw-bold mb-0">
         לפתיחת המטלה: Exp02_Thevenin <span class="badge bg-secondary ms-2">הקישור יתעדכן במודל</span>
     </div>
 </div>

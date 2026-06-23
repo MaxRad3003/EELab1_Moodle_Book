@@ -31,9 +31,11 @@
     <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">📖 1. ניתוח תיאורטי של מעגל RC טורי</h4>
     <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">בניסוי נבנה מעגל RC טורי המורכב מנגד \(R = 1 \text{ k}\Omega\) וקבל \(C = 100 \text{ nF}\) תחת הזנת סינוס:</p>
     
-    <div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0; border-right: 4px solid #00a4e4;">
+    <!-- INFO BOX SECTION -->
+<div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0; border-right: 4px solid #00a4e4;">
         <strong style="box-sizing: border-box; color: #00a4e4; display: block; margin-bottom: 0.5rem;">נוסחאות מפתח:</strong>
-        <ul style="box-sizing: border-box; margin: 0; padding-right: 1.5rem; font-size: 0.95rem;">
+        <!-- BULLET LIST / KEY POINTS -->
+<ul style="box-sizing: border-box; margin: 0; padding-right: 1.5rem; font-size: 0.95rem;">
             <li class="mb-2" style="box-sizing: border-box; margin-bottom: 0.5rem;"><strong style="box-sizing: border-box;">היגב הקבל:</strong> \(X_C = \frac{1}{2\pi f C}\)</li>
             <li class="mb-2" style="box-sizing: border-box; margin-bottom: 0.5rem;"><strong style="box-sizing: border-box;">עכבה כוללת:</strong> \(|Z| = \sqrt{R^2 + X_C^2}\)</li>
             <li style="box-sizing: border-box;"><strong style="box-sizing: border-box;">זווית מופע הזרם (\(\theta_I\)):</strong> \(\arctan\left(\frac{X_C}{R}\right)\) (הזרם מקדים את המתח)</li>
@@ -44,7 +46,8 @@
 <!-- SECTION: FREQUENCY CALCULATIONS -->
 <div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);" id="section-calculations">
     <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">📐 2. חישוב הפרשי מופע בתדרי הניסוי</h4>
-    <table class="data-table" style="box-sizing: border-box; border-spacing: 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e2e8f0; width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem;" width="100%">
+    <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="data-table" style="box-sizing: border-box; border-spacing: 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e2e8f0; width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem;" width="100%">
         <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" ead align="right" bgcolor="#f1f5f9">
             </th><tr style="box-sizing: border-box;">
                 <th style="box-sizing: border-box; background-color: #f1f5f9; font-weight: 600; border-bottom: 2px solid #e2e8f0; word-break: normal; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right" bgcolor="#f1f5f9">תדר האות (\(f\))</th>
@@ -69,7 +72,8 @@
 <div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);" id="section-transfer-function-linear-algebra">
     <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">🧮 3. פונקציית תמסורת מתוך אלגברה ליניארית</h4>
     <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">במדידות AC לא מספיק לדעת רק את גודל המתח. צריך לדעת גם כיצד המעגל משנה את <strong style="box-sizing: border-box;">המשרעת</strong> ואת <strong style="box-sizing: border-box;">המופע</strong> של האות. לכן מגדירים פונקציית תמסורת:</p>
-    <div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0;">
+    <!-- INFO BOX SECTION -->
+<div class="info-box" style="box-sizing: border-box; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 18px 0;">
         <strong style="box-sizing: border-box; color: #005696; display: block; margin-bottom: 0.5rem;">הגדרה:</strong>
         <p style="box-sizing: border-box; margin: 0;">\[
         H(j\omega)=\frac{V_{out}}{V_{in}}
@@ -100,14 +104,16 @@
         \]
     </div>
     <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">לכן מתקבלת פונקציית התמסורת של מתח הקבל:</p>
-    <div class="info-box" style="box-sizing: border-box; background: #f0fdf4; border: 1px solid #bbf7d0; border-right: 5px solid #22c55e; border-radius: 8px; padding: 16px; margin: 18px 0;">
+    <!-- INFO BOX SECTION -->
+<div class="info-box" style="box-sizing: border-box; background: #f0fdf4; border: 1px solid #bbf7d0; border-right: 5px solid #22c55e; border-radius: 8px; padding: 16px; margin: 18px 0;">
         <p style="box-sizing: border-box; margin: 0;">\[
         H_C(j\omega)=\frac{V_C}{V_{in}}=
         \frac{\frac{1}{j\omega C}}{R+\frac{1}{j\omega C}}=
         \frac{1}{1+j\omega RC}
         \]</p>
     </div>
-    <table class="data-table" style="box-sizing: border-box; border-spacing: 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e2e8f0; width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem;" width="100%">
+    <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="data-table" style="box-sizing: border-box; border-spacing: 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e2e8f0; width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem;" width="100%">
         <tbody style="box-sizing: border-box;">
             <tr style="box-sizing: border-box;">
                 <th style="box-sizing: border-box; background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 10px; text-align: right;" align="right">גודל התמסורת</th>
@@ -184,7 +190,8 @@
 
 <!-- EXP03 PRELAB H5P QUIZ NOTICE: 06_work_plan -->
 <section class="card shadow-sm mb-4 border-start border-success border-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.75rem; margin: 1rem 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <h3 class="card-title text-success h5" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #047857;">שאלון H5P לפרק זה</h3>
         <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.75rem;">לאחר קריאת הפרק, יש לענות על שאלון H5P בן 5 שאלות. השאלון מיועד לבדיקה עצמית ולהכנה לבדיקת PreLab הסופית.</p>
         <p class="card-text mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;"><strong style="box-sizing: border-box;">קובץ להעלאה ל-Moodle:</strong> <code style="box-sizing: border-box;">H5P_Quiz/Exp03_PreLab_06_WorkPlan_H5P.h5p</code></p>

@@ -31,13 +31,15 @@
         <div class="col-md-6 text-center">
             <div class="row g-2">
                 <div class="col-6">
-                    <div class="card p-2 bg-light shadow-sm">
+                    <!-- CARD CONTAINER -->
+<div class="card p-2 bg-light shadow-sm">
                         <img src="Figure/gfg8219a_front.png" alt="GFG-8219A Front Panel" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
                         <p class="mb-0 mt-1 small text-muted text-center" style="font-size: 10px;">מבט חזיתי</p>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="card p-2 bg-light shadow-sm">
+                    <!-- CARD CONTAINER -->
+<div class="card p-2 bg-light shadow-sm">
                         <img src="Figure/gfg8219a_rear.png" alt="GFG-8219A Rear Panel" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
                         <p class="mb-0 mt-1 small text-muted text-center" style="font-size: 10px;">מבט אחורי</p>
                     </div>
@@ -54,7 +56,8 @@
     <p class="small text-muted text-center">התרשים הבא מציג כיצד שינוי בוררי הלוח הקדמי (נמשכים) משפיע על האות הנוצר במכשיר:</p>
     
     <div class="text-center py-2">
-        <svg viewBox="0 0 800 240" width="100%" height="auto" style="background-color: #fafafa; border: 1px solid #fecaca; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+        <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 800 240" width="100%" height="auto" style="background-color: #fafafa; border: 1px solid #fecaca; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
             <!-- Grid lines -->
             <path d="M 50 120 L 750 120 M 270 20 L 270 220 M 520 20 L 520 220" stroke="#e2e8f0" stroke-width="1.5"/>
             
@@ -113,10 +116,12 @@
 
 <!-- CONTROLS & MANUAL EXPLANATION -->
 <div class="card border-danger my-4" style="border-color: #ffcdd2 !important;">
-    <div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
         <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> מקשים ובוררים מיוחדים בלוח הקדמי</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <p>
             בעבודה עם ה-GFG-8219A, חשוב להבין שחלק מהבוררים הסיבוביים כוללים <strong>מנגנון מכני של משיכה ודחיפה (Push-Pull)</strong> המשמש להפעלה של מצבי עבודה מתקדמים:
         </p>
@@ -161,10 +166,12 @@
 
 <!-- OUTPUT TERMINALS -->
 <div class="card border-danger my-4" style="border-color: #ffcdd2 !important;">
-    <div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
         <h3 class="m-0 fs-5"><i class="fas fa-plug"></i> יציאות וכניסות BNC</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <ul style="padding-right: 20px;">
             <li class="mb-2"><strong>OUTPUT (50 &Omega;):</strong> היציאה הראשית של האות. חברו לכאן כבל BNC למעגל.</li>
             <li class="mb-2"><strong>TTL/CMOS Output:</strong> יציאה מקבילה המפיקה גל ריבועי בלבד בעוצמה לוגית (0 עד 5 וולט) המשמשת למעגלים ספרתיים. בורר ה-Amplitude לא משפיע עליה.</li>
@@ -177,7 +184,8 @@
 <!-- PEDAGOGICAL WARNING -->
 <div class="alert alert-warning p-4 my-4">
     <h4 class="alert-heading text-warning fw-bold"><i class="fas fa-exclamation-triangle"></i> דגשים פדגוגיים לעבודה במעבדה:</h4>
-    <ul class="mb-0 mt-2" style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul class="mb-0 mt-2" style="padding-right: 20px;">
         <li class="mb-1"><strong>כיול בוררים:</strong> בעת מדידה רגילה של גל סינוס/ריבוע סטנדרטי, ודאו כי בוררי ה-<strong>DC Offset</strong> וה-<strong>Duty Cycle</strong> לחוצים פנימה כדי למנוע הסטת מתח או עיוותי צורה לא רצויים.</li>
         <li class="mb-1"><strong>העמסה:</strong> בדומה למחולל הדיגיטלי, עכבת המוצא של המכשיר היא \(50\ \Omega\). המכשיר אנלוגי ואינו מציג את רמת המתח ישירות על גביו - יש לקבוע ולמדוד את המתח בפועל באמצעות אוסילוסקופ בלבד!</li>
     </ul>
@@ -186,10 +194,12 @@
 
 <!-- PRACTICAL DEMONSTRATION & STEP-BY-STEP GUIDE -->
 <div class="card border-danger my-4" style="border-color: #ffcdd2 !important;">
-    <div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-danger text-white" style="background-color: #b91c1c !important;">
         <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <h4 class="text-danger fw-bold">הדגמה מעשית: כיוון תדר, מחזור עבודה (Duty Cycle) והיסט DC במחולל אנלוגי</h4>
         <p>
             בניסוי זה נשתמש במחולל האנלוגי <strong>GFG-8219A</strong> כדי להפיק אות ריבועי לא סימטרי (Duty Cycle של 30%) בתדר של \(500\text{ Hz}\) המורם כולו מעל האפס באמצעות היסט DC חיובי.
@@ -197,7 +207,8 @@
 
         <div class="bg-light p-3 rounded border-start border-danger border-4 mb-3" style="border-right-color: #b91c1c !important;">
             <h5 class="fw-bold text-danger"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי - שלב אחר שלב:</h5>
-            <ol class="mb-0" style="padding-right: 20px;">
+            <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol class="mb-0" style="padding-right: 20px;">
                 <li class="mb-2">
                     <strong>חיבור האות:</strong> חברו כבל BNC מיציאת ה-<strong>OUTPUT (50 \(\Omega\))</strong> הראשית של המחולל לערוץ 1 (CH1) של האוסילוסקופ.
                 </li>

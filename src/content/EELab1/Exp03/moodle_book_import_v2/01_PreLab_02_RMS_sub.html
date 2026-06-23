@@ -20,11 +20,13 @@
 <main id="prelab-rms-concept" class="container-fluid" style="box-sizing: border-box; width: 100%; margin-right: auto; margin-left: auto; max-width: 980px;">
 
 <header class="card shadow-sm mb-4 border-top border-primary border-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; border-color: #0ea5e9; border-width: 4px; border-top-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <div class="badge bg-light text-dark border mb-3" style="box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-height: 1.8rem; padding: 0.35rem 0.6rem; border-radius: 0.375rem; font-weight: 700; line-height: 1.2; white-space: nowrap; margin-bottom: 1rem; color: #0f172a; background-color: #f8fafc; border: 1px solid #e2e8f0;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
         <h2 class="card-title text-primary border-bottom pb-2 mb-3" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 1rem; padding-bottom: 0.5rem; color: #075985; border-bottom: 1px solid #e2e8f0;">מושג RMS - הערך האפקטיבי של מתח חילופין</h2>
         <p class="card-text lead text-muted" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 1.08rem; line-height: 1.75; color: #64748b;">העמוד מחבר בין הגדרה מתמטית, מדידת אוסצילוסקופ והשוואת חימום בין מקור AC למקור DC שקול.</p>
-        <div class="alert alert-info mt-3 mb-0 shadow-sm border-start border-info border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #ecfeff; margin-top: 1rem; margin-bottom: 0; border-color: #06b6d4; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+        <!-- INFO / BREADCRUMB BLOCK -->
+<div class="alert alert-info mt-3 mb-0 shadow-sm border-start border-info border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #ecfeff; margin-top: 1rem; margin-bottom: 0; border-color: #06b6d4; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
             <strong style="box-sizing: border-box;">רעיון מרכזי:</strong> RMS הוא ערך המתח הישר (DC) השקול מבחינת חימום או הספק על נגד. כלומר, אם מתח AC ומתח DC מפתחים אותו הספק על אותו נגד, ערך ה-RMS של מתח ה-AC שווה למתח ה-DC הזה.
         </div>
     </div>
@@ -52,7 +54,8 @@
 </section>
 
 <section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">למה בכלל צריך RMS?</h3>
         <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem;">באות חילופין המתח משתנה כל הזמן, ולעיתים גם מחליף סימן. לכן אי אפשר להסתפק בערך רגעי אחד או בממוצע פשוט של המתח. בגל סינוס סימטרי, לדוגמה, הממוצע לאורך מחזור שלם הוא אפס, אבל האות בהחלט מסוגל לחמם נגד ולפתח הספק.</p>
         <p class="card-text mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;">RMS פותר את הבעיה על ידי חישוב שמבוסס על ריבוע המתח, ולכן גם חלקים חיוביים וגם חלקים שליליים תורמים להספק.</p>
@@ -60,14 +63,16 @@
 </section>
 
 <section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">הגדרה מתמטית</h3>
         <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem;">עבור אות מתח מחזורי \(v(t)\) בעל זמן מחזור \(T\), הערך האפקטיבי מוגדר כך:</p>
         <blockquote class="blockquote text-center bg-light p-3 rounded border" style="box-sizing: border-box; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-align: center;">
             <p class="mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;">\(V_{RMS}=\sqrt{\frac{1}{T}\int_0^T v^2(t)\,dt}\)</p>
         </blockquote>
         <p class="card-text mt-3 fw-bold text-dark" style="box-sizing: border-box; margin-bottom: 0.9rem; margin-top: 1rem; color: #0f172a; font-weight: 700;">פירוש השם Root Mean Square:</p>
-        <ul class="text-muted" style="box-sizing: border-box; color: #64748b;">
+        <!-- BULLET LIST / KEY POINTS -->
+<ul class="text-muted" style="box-sizing: border-box; color: #64748b;">
             <li style="box-sizing: border-box;"><strong style="box-sizing: border-box;">Square:</strong> מעלים את המתח בריבוע, כדי לקבל תרומה חיובית להספק.</li>
             <li style="box-sizing: border-box;"><strong style="box-sizing: border-box;">Mean:</strong> מחשבים ממוצע לאורך מחזור שלם.</li>
             <li style="box-sizing: border-box;"><strong style="box-sizing: border-box;">Root:</strong> מוציאים שורש כדי לחזור ליחידות של וולט.</li>
@@ -76,7 +81,8 @@
 </section>
 
 <section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">איך מחשבים RMS בפועל?</h3>
         <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem;">כדי להבין את הנוסחה, כדאי לחשוב על החישוב כסדרה של פעולות פשוטות על הגל. המטרה אינה למצוא את המתח הממוצע, אלא למצוא את המתח הישר שהיה גורם לאותו חימום באותו נגד.</p>
 
@@ -107,14 +113,16 @@
             </div>
         </div>
 
-        <div class="alert alert-warning mt-3 mb-0 shadow-sm border-start border-warning border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #fffbeb; margin-top: 1rem; margin-bottom: 0; border-color: #f59e0b; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+        <!-- WARNING / ATTENTION BLOCK -->
+<div class="alert alert-warning mt-3 mb-0 shadow-sm border-start border-warning border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #fffbeb; margin-top: 1rem; margin-bottom: 0; border-color: #f59e0b; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
             <strong style="box-sizing: border-box;">דוגמה מהירה:</strong> אם באוסצילוסקופ נמדד גל סינוס עם \(V_p=10V\), אז \(V_{RMS}=10/\sqrt{2}=7.07V\). לכן נגד שמחובר לגל הזה יתחמם כמו נגד שמחובר למקור DC של כ-\(7.07V\).
         </div>
     </div>
 </section>
 
 <section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">גל סינוס: הקשר בין שיא, שיא-לשיא ו-RMS</h3>
         <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem;">עבור גל סינוס סימטרי ללא DC Offset:</p>
         <blockquote class="blockquote text-center bg-light p-3 rounded border" style="box-sizing: border-box; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-align: center;">
@@ -122,12 +130,14 @@
         </blockquote>
         <div class="row g-3 mt-2" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; margin-top: 0.5rem;">
             <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
-                <div class="alert alert-success mb-0 shadow-sm border-start border-success border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #ecfdf5; margin-bottom: 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                <!-- SUCCESS / FOOTER NOTICE -->
+<div class="alert alert-success mb-0 shadow-sm border-start border-success border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #ecfdf5; margin-bottom: 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
                     <strong style="box-sizing: border-box;">אם נתון \(V_p\):</strong><br style="box-sizing: border-box;">\(V_{RMS}=0.707\cdot V_p\)
                 </div>
             </div>
             <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
-                <div class="alert alert-success mb-0 shadow-sm border-start border-success border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #ecfdf5; margin-bottom: 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                <!-- SUCCESS / FOOTER NOTICE -->
+<div class="alert alert-success mb-0 shadow-sm border-start border-success border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #ecfdf5; margin-bottom: 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
                     <strong style="box-sizing: border-box;">אם נתון \(V_{pp}\):</strong><br style="box-sizing: border-box;">\(V_{RMS}=0.3535\cdot V_{pp}\)
                 </div>
             </div>
@@ -137,7 +147,8 @@
 
 <!-- המחשה 1 -->
 <section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <h3 class="card-title text-primary h4 mb-4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; color: #075985; margin-bottom: 1rem;">המחשה אינטראקטיבית 1: צורת גל וערך RMS</h3>
         
         <div class="row g-3 mb-4 align-items-end" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; align-items: flex-end; margin-bottom: 1rem;">
@@ -178,19 +189,23 @@
 
 <!-- המחשה 2 -->
 <section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <h3 class="card-title text-primary h4 mb-4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; color: #075985; margin-bottom: 1rem;">המחשה אינטראקטיבית 2: AC מול DC שקול</h3>
         
         <div class="row g-4" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem;">
             <!-- עמודת AC -->
             <div class="col-lg-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
-                <div class="card h-100 shadow-sm border-0 bg-light" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; height: 100%; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
-                    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+                <!-- CARD CONTAINER -->
+<div class="card h-100 shadow-sm border-0 bg-light" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; height: 100%; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
                         <h5 class="card-title text-primary border-bottom pb-2 mb-3" style="box-sizing: border-box; margin-top: 0; margin-bottom: 1rem; padding-bottom: 0.5rem; color: #075985; border-bottom: 1px solid #e2e8f0;">מעגל AC</h5>
                         
                         <div class="p-3 border rounded bg-white shadow-sm mb-3" style="box-sizing: border-box; padding: 1rem; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
                             <strong class="text-dark small d-block mb-2" style="box-sizing: border-box; display: block; font-size: 0.875rem; color: #0f172a; margin-bottom: 0.5rem;">סכמת מעגל AC וכיוון זרם רגעי</strong>
-                            <svg viewBox="0 0 520 190" role="img" aria-label="סכמת מעגל AC עם מקור סינוס, נגד וחץ זרם מתחלף" style="box-sizing: border-box; display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; direction: ltr;">
+                            <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 520 190" role="img" aria-label="סכמת מעגל AC עם מקור סינוס, נגד וחץ זרם מתחלף" style="box-sizing: border-box; display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; direction: ltr;">
                                 <defs>
                                     <marker id="acArrowRight" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z" fill="#0ea5e9"></path></marker>
                                     <marker id="acArrowLeft" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z" fill="#f97316"></path></marker>
@@ -209,8 +224,10 @@
                             </svg>
                         </div>
 
-                        <div class="card bg-white border-warning mb-3 shadow-sm" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; margin-bottom: 1rem; background-color: #ffffff; border-color: #f59e0b; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
-                            <div class="card-body p-3" style="box-sizing: border-box; padding: 1rem;">
+                        <!-- CARD CONTAINER -->
+<div class="card bg-white border-warning mb-3 shadow-sm" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; margin-bottom: 1rem; background-color: #ffffff; border-color: #f59e0b; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                            <!-- CARD CONTAINER -->
+<div class="card-body p-3" style="box-sizing: border-box; padding: 1rem;">
                                 <strong class="text-dark small" style="box-sizing: border-box; font-size: 0.875rem; color: #0f172a;">דימוי חימום בנגד לפי \(P_{avg}\)</strong>
                                 <div class="progress mt-1" style="box-sizing: border-box; width: 100%; overflow: hidden; background: #e5e7eb; border-radius: 9999px; height: 14px;">
                                     <div id="acHeatFill" class="progress-bar bg-warning" role="progressbar" style="box-sizing: border-box; height: 100%; border-radius: inherit; transition: width 0.2s ease; width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -254,13 +271,16 @@
 
             <!-- עמודת DC -->
             <div class="col-lg-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
-                <div class="card h-100 shadow-sm border-0 bg-light" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; height: 100%; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
-                    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+                <!-- CARD CONTAINER -->
+<div class="card h-100 shadow-sm border-0 bg-light" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; height: 100%; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
                         <h5 class="card-title text-primary border-bottom pb-2 mb-3" style="box-sizing: border-box; margin-top: 0; margin-bottom: 1rem; padding-bottom: 0.5rem; color: #075985; border-bottom: 1px solid #e2e8f0;">מעגל DC להשוואה</h5>
                         
                         <div class="p-3 border rounded bg-white shadow-sm mb-3" style="box-sizing: border-box; padding: 1rem; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
                             <strong class="text-dark small d-block mb-2" style="box-sizing: border-box; display: block; font-size: 0.875rem; color: #0f172a; margin-bottom: 0.5rem;">סכמת מעגל DC וכיוון זרם קבוע</strong>
-                            <svg viewBox="0 0 520 190" role="img" aria-label="סכמת מעגל DC עם מקור ישר, נגד וחץ זרם קבוע" style="box-sizing: border-box; display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; direction: ltr;">
+                            <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 520 190" role="img" aria-label="סכמת מעגל DC עם מקור ישר, נגד וחץ זרם קבוע" style="box-sizing: border-box; display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; direction: ltr;">
                                 <defs>
                                     <marker id="dcArrowRight" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z" fill="#8e44ad"></path></marker>
                                 </defs>
@@ -279,8 +299,10 @@
                             </svg>
                         </div>
 
-                        <div class="card bg-white border-warning mb-3 shadow-sm" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; margin-bottom: 1rem; background-color: #ffffff; border-color: #f59e0b; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
-                            <div class="card-body p-3" style="box-sizing: border-box; padding: 1rem;">
+                        <!-- CARD CONTAINER -->
+<div class="card bg-white border-warning mb-3 shadow-sm" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; margin-bottom: 1rem; background-color: #ffffff; border-color: #f59e0b; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                            <!-- CARD CONTAINER -->
+<div class="card-body p-3" style="box-sizing: border-box; padding: 1rem;">
                                 <strong class="text-dark small" style="box-sizing: border-box; font-size: 0.875rem; color: #0f172a;">דימוי חימום בנגד לפי \(P_{DC}\)</strong>
                                 <div class="progress mt-1" style="box-sizing: border-box; width: 100%; overflow: hidden; background: #e5e7eb; border-radius: 9999px; height: 14px;">
                                     <div id="dcHeatFill" class="progress-bar bg-warning" role="progressbar" style="box-sizing: border-box; height: 100%; border-radius: inherit; transition: width 0.2s ease; width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -318,11 +340,14 @@
             </div>
         </div>
 
-        <div class="card mt-4 shadow-sm" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-top: 1rem;">
-            <div class="card-header bg-white" style="box-sizing: border-box; padding: 0.9rem 1.25rem; border-bottom: 1px solid #e2e8f0; background: #f8fafc; border-radius: 0.75rem 0.75rem 0 0; background-color: #ffffff;">
+        <!-- CARD CONTAINER -->
+<div class="card mt-4 shadow-sm" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-top: 1rem;">
+            <!-- CARD CONTAINER -->
+<div class="card-header bg-white" style="box-sizing: border-box; padding: 0.9rem 1.25rem; border-bottom: 1px solid #e2e8f0; background: #f8fafc; border-radius: 0.75rem 0.75rem 0 0; background-color: #ffffff;">
                 <h6 class="mb-0 fw-bold text-dark" style="box-sizing: border-box; margin-bottom: 0; color: #0f172a; font-weight: 700;">השוואת עבודה מצטברת: AC מול DC</h6>
             </div>
-            <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+            <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
                 <div class="border rounded overflow-hidden" style="box-sizing: border-box; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden;">
                     <div id="comparisonEnergyBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 340px; border: 0; background: #ffffff;"></div>
                 </div>
@@ -330,8 +355,10 @@
             </div>
         </div>
 
-        <div class="card mt-4 shadow-sm border-0 bg-light" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-top: 1rem;">
-            <div class="card-body rounded" style="box-sizing: border-box; padding: 1.25rem; border-radius: 0.5rem;">
+        <!-- CARD CONTAINER -->
+<div class="card mt-4 shadow-sm border-0 bg-light" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-top: 1rem;">
+            <!-- CARD CONTAINER -->
+<div class="card-body rounded" style="box-sizing: border-box; padding: 1.25rem; border-radius: 0.5rem;">
                 <div class="row g-3 align-items-end" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; align-items: flex-end;">
                     <div class="col-md-6 col-xl-3" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; margin-bottom: 0.75rem; flex: 1 1 12rem; width: auto;">
                         <label for="seriesVp" class="form-label fw-bold small" style="box-sizing: border-box; font-size: 0.875rem; display: block; margin-bottom: 0.4rem; color: #0f172a; font-weight: 700;">מתח שיא של המקור \(V_p\)</label>
@@ -381,7 +408,8 @@
         </div>
 
         <div class="table-responsive mt-4" style="box-sizing: border-box; width: 100%; overflow-x: auto; margin-top: 1rem;">
-            <table class="table table-bordered table-striped text-center align-middle shadow-sm" style="box-sizing: border-box; width: 100%; border-collapse: separate; border-spacing: 0; margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); text-align: center;" width="100%" align="center">
+            <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="table table-bordered table-striped text-center align-middle shadow-sm" style="box-sizing: border-box; width: 100%; border-collapse: separate; border-spacing: 0; margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); text-align: center;" width="100%" align="center">
                 <thead class="bg-dark text-white" style="box-sizing: border-box; background-color: #0f172a; color: #ffffff;" bgcolor="#0f172a">
                     <tr style="box-sizing: border-box;">
                         <th class="text-end" style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; color: #0f172a; background: #f1f5f9; font-weight: 800;" valign="middle">גודל להשוואה</th>
@@ -417,9 +445,11 @@
 </section>
 
 <section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">סיכום קצר</h3>
-        <ul style="box-sizing: border-box;">
+        <!-- BULLET LIST / KEY POINTS -->
+<ul style="box-sizing: border-box;">
             <li class="mb-2" style="box-sizing: border-box; margin-bottom: 0.5rem;">בחישובי הספק ב-AC משתמשים ב-\(V_{RMS}\), לא ב-\(V_p\) ולא ב-\(V_{pp}\).</li>
             <li class="mb-2" style="box-sizing: border-box; margin-bottom: 0.5rem;">מקור DC שקול מחמם את אותו נגד באותה מידה כאשר \(V_{DC}=V_{RMS}\).</li>
             <li style="box-sizing: border-box;">ברב-מודד במצב AC הקריאה היא בדרך כלל RMS, אך חשוב לדעת אם המכשיר הוא True RMS ומה תחום התדרים שבו הוא מדויק.</li>
@@ -435,7 +465,8 @@
 
 <!-- EXP03 PRELAB H5P QUIZ NOTICE: 03_rms -->
 <section class="card shadow-sm mb-4 border-start border-success border-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.75rem; margin: 1rem 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
-    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
         <h3 class="card-title text-success h5" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #047857;">שאלון H5P לפרק זה</h3>
         <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.75rem;">לאחר קריאת הפרק, יש לענות על שאלון H5P בן 5 שאלות. השאלון מיועד לבדיקה עצמית ולהכנה לבדיקת PreLab הסופית.</p>
         <p class="card-text mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;"><strong style="box-sizing: border-box;">קובץ להעלאה ל-Moodle:</strong> <code style="box-sizing: border-box;">H5P_Quiz/Exp03_PreLab_03_RMS_H5P.h5p</code></p>

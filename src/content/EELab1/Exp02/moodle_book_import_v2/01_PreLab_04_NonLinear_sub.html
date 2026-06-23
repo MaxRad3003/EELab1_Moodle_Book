@@ -16,7 +16,8 @@
     <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-microchip"></i> 1. רכיבים לא-ליניאריים תלויי טמפרטורה</h3>
     <p>כאשר זרם זורם דרך רכיב חשמלי, הוא מפתח עליו הספק המתפזר כחום (חוק ג'ול, \(P = I^2 R\)). חום זה מעלה את הטמפרטורה הפנימית של הרכיב, ומשנה את התנגדותו החשמלית. בניסוי זה נחקור שני רכיבים בעלי התנהגות הפוכה:</p>
     
-    <ul style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="padding-right: 20px;">
         <li class="mb-3">
             <strong>נורת להט (Incandescent Lamp) - רכיב מסוג PTC:</strong>
             <br>
@@ -38,7 +39,8 @@
     <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-chart-line"></i> 2. התנגדות סטטית לעומת התנגדות דינמית</h3>
     <p>מכיוון שהאופיין \(I-V\) של רכיבים אלו אינו קו ישר, לא ניתן להגדיר להם התנגדות יחידה. אנו מבחינים בין שני סוגי התנגדויות בנקודת העבודה \(Q\):</p>
     
-    <ul style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="padding-right: 20px;">
         <li class="mb-3">
             <strong>התנגדות סטטית (\(R_{\text{static}}\)):</strong>
             זוהי ההתנגדות הכוללת של הרכיב בנקודת עבודה ספציפית \(Q(V_Q, I_Q)\), ומחושבת ישירות לפי חוק אוהם:
@@ -64,7 +66,8 @@
     <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-crosshairs"></i> 3. נקודת עבודה (Q-Point) וקו עומס</h3>
     <p>כאשר מחברים רכיב לא-ליניארי למעגל המיוצג על ידי שקול תבנין (\(V_{TH}, R_{TH}\)), המתח והזרם בפועל נקבעים על פי <strong>נקודת העבודה (Quiescent Point, Q)</strong>.</p>
     <p>בשיטה הגרפית, אנו מוצאים את נקודה זו על ידי שרטוט שני קווים על אותה מערכת צירים:</p>
-    <ol style="padding-right: 20px;">
+    <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
         <li class="mb-2"><strong>אופיין הרכיב:</strong> עקומה המייצגת את התנהגות הרכיב הלא-ליניארי.</li>
         <li class="mb-2"><strong>קו העומס (Load Line):</strong> קו ישר המייצג את משוואת המקור השקול:
             <div class="text-center my-2 py-1 bg-light rounded" style="font-size: 1.1rem; font-family: monospace; direction: ltr;">
@@ -73,7 +76,8 @@
             הקו נמתח בין נקודת מתח הריקם על ציר המתח (\(V = V_{TH}\)) לבין נקודת זרם הקצר על ציר הזרם (\(I = V_{TH}/R_{TH}\)).
         </li>
     </ol>
-    <div class="info-box border-primary text-center">
+    <!-- INFO BOX SECTION -->
+<div class="info-box border-primary text-center">
         <strong>נקודת החיתוך בין קו העומס לאופיין הרכיב היא נקודת העבודה (Q-Point)!</strong>
         <br>
         בנקודה זו מתקיימים בו-זמנית חוקי המעגל וחוקי הרכיב.
@@ -86,7 +90,8 @@
     <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-terminal"></i> 4. חקירה מתמטית ב-MATLAB</h3>
     <p>הזינו את תוצאות המדידות עבור אופיין הטרמיסטור ב-MATLAB Grader, ציירו את קו העומס ומצאו את נקודת העבודה \(Q\) בצורה מתמטית.</p>
     
-    <div class="alert alert-warning py-2 text-center fw-bold mb-0">
+    <!-- WARNING / ATTENTION BLOCK -->
+<div class="alert alert-warning py-2 text-center fw-bold mb-0">
         לפתיחת המטלה: Exp02_NonLinear_QPoint <span class="badge bg-secondary ms-2">הקישור יתעדכן במודל</span>
     </div>
 </div>
@@ -98,7 +103,8 @@
     <p>מה קורה כאשר נגד העומס במחלק המתח מוחלף בנורת להט? מכיוון שהתנגדות הנורה משתנה בהתאם למתח הנופל עליה, <strong>פונקציית התמסורת \(H\) כבר אינה קבועה</strong>, והיחס בין מתח המוצא למתח המבוא הופך ללא-ליניארי!</p>
     <p class="mb-3">הוכיחו זאת במטלת הבונוס ב-MATLAB Grader על ידי שרטוט פונקציית התמסורת המשתנה של הנורה כפונקציה של מתח המבוא.</p>
     
-    <div class="alert alert-warning py-2 text-center fw-bold mb-0" style="border-color: #d6bbf7;">
+    <!-- WARNING / ATTENTION BLOCK -->
+<div class="alert alert-warning py-2 text-center fw-bold mb-0" style="border-color: #d6bbf7;">
         לפתיחת מטלת הבונוס: Exp02_NonLinear_TransferFunction <span class="badge bg-secondary ms-2" style="background-color: #6a1b9a;">הקישור יתעדכן במודל</span>
     </div>
 </div>

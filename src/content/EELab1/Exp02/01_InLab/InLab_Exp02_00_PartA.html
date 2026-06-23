@@ -6,7 +6,8 @@
 <div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-equipment-guide-parta">
     <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🔌 חיבור וכיול ציוד המדידה:</h4>
     <p style="margin-top: 0; margin-bottom: 0.9rem;">לפני בניית המעגל וביצוע המדידות, עברו על הנחיות השימוש במכשירים (לפרטים נוספים ראו את <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1212809" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">מדריך ציוד המדידה במודל</a>):</p>
-    <ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
         <li style="margin-bottom: 8px;"><strong>ספקי כוח (DC Power Supply):</strong> נשתמש בשני ערוצים עצמאיים של ספק הכוח <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1212809" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">GW Instek GPS-3303</a> במצב עצמאי (Independent). כוונו את מתח ערוץ 1 ל-\(V_1 = 5.0\text{V}\) ואת ערוץ 2 ל-\(V_2 = 3.0\text{V}\). חברו את הדקי ה-COM (השחורים) של שני הערוצים זה לזה על המטריצה ליצירת אדמה משותפת (GND).</li>
         <li style="margin-bottom: 8px;"><strong>הגבלת זרם בטיחותית:</strong> לפני הפעלת היציאות (Output ON), כוונו את הגבלת הזרם (Current Limit) בשני הערוצים לערך של כ-\(100\text{mA}\) כדי להגן על הנגדים והמכשור מפני קצרים.</li>
         <li style="margin-bottom: 8px;"><strong>מד זרם דיגיטלי (DMM):</strong> נשתמש ברב-מודד דיגיטלי מדגם <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1212809" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">GDM-8245 / GDM-8341</a> למדידת זרם העומס \(I_L\). חברו את הכבל השחור ליציאת COM ואת הכבל האדום ליציאת mA, וכוונו את הבורר למצב <strong>DC mA</strong>.</li>
@@ -35,7 +36,8 @@
 <!-- SECTION: BEFORE MEASUREMENT CHECK -->
 <div class="alert-box" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0;" id="section-before-measurement-check">
     <strong>בדיקת מוכנות לפני הפעלת ספקים:</strong>
-    <ul style="margin: 8px 0 0 0; padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="margin: 8px 0 0 0; padding-right: 20px;">
         <li>ודאו שכל האדמות של הספקים מחוברות לנקודת ייחוס משותפת.</li>
         <li>בדקו שמד הזרם מחובר בטור לעומס ולא במקביל אליו.</li>
         <li>לפני איפוס מקור מתח, החליפו אותו בקצר בלבד. אין להשאיר מקור כבוי וצף במעגל.</li>
@@ -46,7 +48,8 @@
 <!-- SECTION: PROCEDURE -->
 <div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-procedure">
     <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📝 שלבי העבודה ומהלך המדידה:</h4>
-    <ol>
+    <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol>
         <li class="mb-2" style="margin-bottom: 8px;">הרכיבו את רשת הנגדים על גבי המטריצה: \(R_1 = 300\Omega\), \(R_2 = 1\text{k}\Omega\), \(R_L = 1\text{k}\Omega\).</li>
         <li class="mb-2" style="margin-bottom: 8px;">חברו את ספקי הכוח המכוילים: \(V_1 = 5.0\text{V}\), \(V_2 = 3.0\text{V}\) (אדמה משותפת).</li>
         <li class="mb-2" style="margin-bottom: 8px;"><strong>מצב 1 (מלא - שני מקורות פעילים):</strong> מדדו את הזרם דרך העומס (\(I_L\)) באמצעות מד הזרם ורשמו אותו בטבלה.</li>
@@ -68,7 +71,8 @@
 <!-- SECTION: DATA TABLE -->
 <div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-table">
     <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 טבלה ריקה לרישום המדידות:</h4>
-    <table class="data-table" style="border-spacing: 0; margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #dae0e5; width: 100%; border-collapse: collapse; margin-top: 15px;" width="100%">
+    <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="data-table" style="border-spacing: 0; margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #dae0e5; width: 100%; border-collapse: collapse; margin-top: 15px;" width="100%">
         <thead>
             <tr>
                 <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">מצב עירור המעגל</th>

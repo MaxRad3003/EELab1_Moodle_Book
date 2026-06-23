@@ -28,7 +28,8 @@
             </p>
         </div>
         <div class="col-md-5 text-center">
-            <div class="card p-2 bg-light shadow-sm">
+            <!-- CARD CONTAINER -->
+<div class="card p-2 bg-light shadow-sm">
                 <img src="Figure/gpm8212_main.png" alt="GPM-8212 Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
                 <p class="mb-0 mt-1 small text-muted">מד ההספק הדיגיטלי GPM-8212</p>
             </div>
@@ -41,7 +42,8 @@
 <div class="theory-card my-4 border-success">
     <h4 class="sub-title text-success" style="margin-top: 0; color: #047857 !important;"><i class="fas fa-university"></i> מושגי יסוד בהספק AC</h4>
     <p>במעגלי זרם חילופין אנו מבחינים בין שלושה סוגי הספקים:</p>
-    <ul style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="padding-right: 20px;">
         <li class="mb-2"><strong>הספק מדומה (Apparent Power - S):</strong> מבוטא ביחידות של וולט-אמפר (\(\text{VA}\)) ומחושב פשוט כמכפלת המתח היעיל בזרם היעיל: \(S = V_{rms} \cdot I_{rms}\).</li>
         <li class="mb-2"><strong>הספק פעיל (Active Power - P):</strong> מבוטא ביחידות של ואט (\(\text{W}\)). זהו ההספק הממשי שנצרך על ידי הרכיבים האוהמיים במעגל והופך לחום או עבודה מכנית. זהו ההספק שמד ההספק מציג בחלון הראשי שלו.</li>
         <li class="mb-2"><strong>גורם הספק (Power Factor - PF):</strong> מספר חסר ממד בין \(0\) ל-\(1\) המייצג את היחס בין ההספק הממשי להספק המדומה: \(\text{PF} = \frac{P}{S} = \cos(\theta)\), כאשר \(\theta\) הוא זווית המופע בין המתח לזרם. ככל שגורם ההספק קרוב יותר ל-\(1\), המעגל יעיל יותר ופחות "מבזבז" זרם על שדות מגנטיים או חשמליים ברכיבים היגביים (סלילים וקבלים).</li>
@@ -58,7 +60,8 @@
     <p class="small text-muted text-center">תרשים חיווט חשמלי לחיבור מד ההספק GPM-8212 לעומס חד-פאזי:</p>
     
     <div class="text-center py-2">
-        <svg viewBox="0 0 760 280" width="100%" height="auto" style="background-color: #fcfcfc; border: 1px solid #c8e6c9; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+        <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 760 280" width="100%" height="auto" style="background-color: #fcfcfc; border: 1px solid #c8e6c9; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
             <!-- AC Voltage Source -->
             <circle cx="80" cy="130" r="25" fill="none" stroke="#0f172a" stroke-width="2"/>
             <path d="M 65 130 Q 72 115, 80 130 T 95 130" fill="none" stroke="#0f172a" stroke-width="2"/>
@@ -124,12 +127,15 @@
 
 <!-- USER INTERFACE & OPERATION -->
 <div class="card border-success my-4" style="border-color: #a7f3d0 !important;">
-    <div class="card-header bg-success text-white" style="background-color: #047857 !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-success text-white" style="background-color: #047857 !important;">
         <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> ממשק תפעול המכשיר והגדרת טווחים</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <p>בלוח הקדמי של ה-GPM-8212 קיימות לחצני שליטה בטווחים ותצוגה:</p>
-        <ul style="padding-right: 20px;">
+        <!-- BULLET LIST / KEY POINTS -->
+<ul style="padding-right: 20px;">
             <li class="mb-2">
                 <strong>בחירת טווח מתח (Voltage Range):</strong> 
                 שינוי הטווח מתבצע בעזרת מקשים <strong>2 (למעלה)</strong> ו-<strong>7 (למטה)</strong>. לחיצה ארוכה (2 שניות) תעביר את המכשיר למצב <strong>Auto Range</strong> (מומלץ ברוב המקרים כדי שהמכשיר יבחר את הרגישות המיטבית באופן אוטומטי).
@@ -154,7 +160,8 @@
 <!-- SAFETY WARNINGS -->
 <div class="alert alert-danger p-4 my-4">
     <h4 class="alert-heading text-danger fw-bold"><i class="fas fa-exclamation-triangle"></i> דגשי בטיחות קריטיים למדידת הספק:</h4>
-    <ul class="mb-0 mt-2" style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul class="mb-0 mt-2" style="padding-right: 20px;">
         <li class="mb-2"><strong>סכנת מתח גבוה:</strong> מדידת הספק AC מבוצעת לרוב ברשת החשמל הביתית (\(220\text{ V}_{rms}\)) או במתחים הדומים לה. <strong>אסור בהחלט לבצע שינויי חיווט כאשר מקור המתח פעיל!</strong> כבו תמיד את מפסק העמדה הראשי לפני כל שינוי חיבורים.</li>
         <li class="mb-2"><strong>הגנת זרם מקסימלי:</strong> למכשיר יש מגבלת זרם נקובה (בדרך כלל עד \(5\text{ A}\) או \(10\text{ A}\) בהתאם לתצורת הדגם). הזרמת זרם גבוה מהמותר דרך הדקי הזרם תשרוף את מעגל המדידה הפנימי.</li>
         <li class="mb-2"><strong>קצר מגעים:</strong> ודאו שכל מוליכי הבננה מחוזקים היטב ואין חוטים חשופים. קצר בין הדקי הזרם להדקי המתח יכול להוביל לפיצוץ בטיחותי ולנזק קשה.</li>
@@ -166,10 +173,12 @@
 
 <!-- PRACTICAL DEMONSTRATION & STEP-BY-STEP GUIDE -->
 <div class="card border-success my-4" style="border-color: #a7f3d0 !important;">
-    <div class="card-header bg-success text-white" style="background-color: #047857 !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-success text-white" style="background-color: #047857 !important;">
         <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
     </div>
-    <div class="card-body">
+    <!-- CARD CONTAINER -->
+<div class="card-body">
         <h4 class="text-success fw-bold">הדגמה מעשית: מדידת הספק וגורם הספק (Power Factor) של צרכן השראתי</h4>
         <p>
             בניסוי זה נשתמש במד ההספק <strong>GPM-8212</strong> כדי למדוד את צריכת ההספק ואת יעילות הזנת המעגל (גורם ההספק) של שנאי בידוד הפועל ללא עומס. שנאי ללא עומס מהווה רכיב השראתי מובהק.
@@ -177,7 +186,8 @@
 
         <div class="bg-light p-3 rounded border-start border-success border-4 mb-3" style="border-right-color: #047857 !important;">
             <h5 class="fw-bold text-success"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי וחיווט:</h5>
-            <ol class="mb-0" style="padding-right: 20px;">
+            <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol class="mb-0" style="padding-right: 20px;">
                 <li class="mb-2">
                     <strong>ניתוק מתח מקדים:</strong> ודאו כי מקור הזינה של זרם החילופין (AC Source) כבוי לחלוטין.
                 </li>

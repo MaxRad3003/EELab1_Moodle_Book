@@ -27,10 +27,12 @@
         <!-- Voltmeter -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm border-primary">
-                <div class="card-body">
+                <!-- CARD CONTAINER -->
+<div class="card-body">
                     <h5 class="card-title text-primary fw-bold">🔌 מדידת מתח (V)</h5>
                     <p class="small mb-2">מדידת מפל המתח על פני רכיב.</p>
-                    <ul class="small mb-0" style="padding-right: 15px;">
+                    <!-- BULLET LIST / KEY POINTS -->
+<ul class="small mb-0" style="padding-right: 15px;">
                         <li>מחובר ב<strong>מקביל</strong> לרכיב הנמדד.</li>
                         <li><strong>התנגדות פנימית:</strong> גבוהה מאוד (כמעט אינסופית) כדי לא למשוך זרם מהמעגל.</li>
                     </ul>
@@ -40,10 +42,12 @@
         <!-- Ammeter -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm border-danger">
-                <div class="card-body">
+                <!-- CARD CONTAINER -->
+<div class="card-body">
                     <h5 class="card-title text-danger fw-bold">⚡ מדידת זרם (A / mA)</h5>
                     <p class="small mb-2">מדידת הזרם הזורם דרך ענף.</p>
-                    <ul class="small mb-0" style="padding-right: 15px;">
+                    <!-- BULLET LIST / KEY POINTS -->
+<ul class="small mb-0" style="padding-right: 15px;">
                         <li>מחובר ב<strong>טור</strong> (מחייב פתיחה פיזית של המעגל והזרמת הזרם דרך המכשיר).</li>
                         <li><strong>התנגדות פנימית:</strong> שואפת לאפס.</li>
                         <li class="text-danger fw-bold">שימו לב: חיבור מד זרם במקביל למקור מתח יגרום לקצר מיידי וישרוף את נתיך (פיוז) המכשיר!</li>
@@ -54,10 +58,12 @@
         <!-- Ohmmeter -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm border-success">
-                <div class="card-body">
+                <!-- CARD CONTAINER -->
+<div class="card-body">
                     <h5 class="card-title text-success fw-bold">🎨 מדידת התנגדות (\(\Omega\))</h5>
                     <p class="small mb-2">מדידת ערך התנגדות של נגד.</p>
-                    <ul class="small mb-0" style="padding-right: 15px;">
+                    <!-- BULLET LIST / KEY POINTS -->
+<ul class="small mb-0" style="padding-right: 15px;">
                         <li>מבוצעת <strong>מחוץ למעגל</strong> כאשר הרכיב מנותק לחלוטין וללא כל מקור מתח פעיל.</li>
                         <li>המכשיר מזרים זרם קטן פנימי משלו לצורך חישוב ההתנגדות.</li>
                     </ul>
@@ -66,7 +72,8 @@
         </div>
     </div>
 
-    <div class="alert alert-warning mt-3 mb-0">
+    <!-- WARNING / ATTENTION BLOCK -->
+<div class="alert alert-warning mt-3 mb-0">
         <i class="fas fa-exclamation-triangle"></i> <strong>כלל זהב:</strong> לפני חיבור ה-DMM, ודאו תמיד שהכבלים מחוברים לחורים המתאימים (כבל שחור תמיד ב-<strong>COM</strong>, כבל אדום ב-<strong>V/\(\Omega\)</strong> למתח/התנגדות או ב-<strong>mA / A</strong> לזרם) ושהבורר הראשי מכוון לפונקציה הרצויה (DC למתח וזרם ישר).
     </div>
 </div>
@@ -78,7 +85,8 @@
     <p>ספק הכוח בעמדה כולל שלוש יציאות נפרדות: יציאה קבועה של \(5V/3A\) ושתי יציאות משתנות (MASTER ו-SLAVE) המספקות מתח של \(0-30V\) וזרם של \(0-3A\).</p>
     
     <h5 class="fw-bold text-primary mt-3">אופני פעולה עיקריים (Modes):</h5>
-    <ul style="padding-right: 20px;">
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="padding-right: 20px;">
         <li class="mb-2"><strong>עצמאי (INDEP):</strong> שתי היציאות המשתנות פועלות כשני מקורות מתח נפרדים לחלוטין ובלתי תלויים.</li>
         <li class="mb-2"><strong>טורי (SERIES):</strong> שתי היציאות מחוברות בטור בתוך המכשיר. חיבור הצרכן מתבצע בין הדק הפלוס של ה-Master להדק המינוס של ה-Slave. מאפשר לקבל מתח כפול (עד \(60V\)).</li>
         <li><strong>מקבילי (PARALLEL):</strong> שתי היציאות מחוברות במקביל בתוך המכשיר. מאפשר לקבל זרם כפול (עד \(6A\)).</li>
@@ -88,7 +96,8 @@
     <div class="alert alert-danger mt-3 mb-0">
         <h5 class="fw-bold mb-2 text-danger"><i class="fas fa-shield-alt"></i> מדריך שלב-אחר-שלב: קביעת הגבלת זרם (Current Limit)</h5>
         <p class="small">מניעת שריפת רכיבים על ידי קביעת גבול הזרם המקסימלי שהספק יוציא גם במקרה של קצר:</p>
-        <ol class="small" style="padding-right: 18px; margin-bottom: 0;">
+        <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol class="small" style="padding-right: 18px; margin-bottom: 0;">
             <li class="mb-1">כבו את מוצא הספק על ידי לחיצה על כפתור <strong>Output OFF</strong> (כך שלא יישפך זרם למעגל).</li>
             <li class="mb-1">סובבו את בורר הזרם (Current knob) שמאלה <strong>עד הסוף (למינימום)</strong>.</li>
             <li class="mb-1">סובבו מעט את בורר המתח (Voltage knob) ימינה (למתח נמוך של כ-\(1V - 2V\) למניעת ניצוץ).</li>
