@@ -101,18 +101,14 @@ function build() {
         
         let finalInlineHtml = inlineHtml;
         if (fileName === '01_PreLab_02_RMS_sub.html') {
-            console.log(`♻️ Replacing interactive panels with iframes for Moodle snippet: ${fileName}`);
+            console.log(`♻️ Replacing first interactive panel with iframe for Moodle snippet: ${fileName}`);
             
             // 1. Replace first interactive panel with iframe
             const match1 = /<!-- המחשה 1 -->[\s\S]*?(?=<!-- המחשה 2 -->)/gi;
             finalInlineHtml = finalInlineHtml.replace(match1, `<!-- המחשה 1 -->\n<iframe src="https://maxrad3003.github.io/EELab1_Moodle_Book/dist/previews/EELab1/Exp03/moodle_book_import_v2/interactive/exp03_rms_waveform.html" width="100%" height="600" style="border:none; overflow:hidden;"></iframe>\n\n`);
 
-            // 2. Replace second interactive panel with iframe
-            const match2 = /<!-- המחשה 2 -->[\s\S]*?(?=<!-- EXP03 PRELAB H5P QUIZ NOTICE: 03_rms -->)/gi;
-            finalInlineHtml = finalInlineHtml.replace(match2, `<!-- המחשה 2 -->\n<iframe src="https://maxrad3003.github.io/EELab1_Moodle_Book/dist/previews/EELab1/Exp03/moodle_book_import_v2/interactive/exp03_ac_dc_comparison.html" width="100%" height="3400" style="border:none; overflow:hidden;"></iframe>\n\n`);
-
-            // 3. Remove the now unused jsxgraph script block from Moodle snippet
-            finalInlineHtml = finalInlineHtml.replace(/<jsxgraph[^>]*>[\s\S]*?<\/jsxgraph>/gi, '');
+            // 2. Remove only the first IIFE (for המחשה 1) from the jsxgraph script block, keeping the second IIFE (for המחשה 2) intact
+            finalInlineHtml = finalInlineHtml.replace(/\(function\s*\(\)\s*\{\s*const\s+rmsVpInput[\s\S]*?\}\)\(\);/gi, '');
         }
 
         const moodleDistPath = path.join(DIST_DIR, 'moodle_ready', folderName, fileName);
