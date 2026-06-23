@@ -20,8 +20,14 @@ def update_links(old_id, new_id):
                     with open(file_path, 'r', encoding='utf-8') as f:
                         content = f.read()
                     
-                    if old_id in content:
-                        new_content = content.replace(old_id, new_id)
+                    has_old_id = old_id in content
+                    has_old_chap = "chapterid=142" in content
+                    if has_old_id or has_old_chap:
+                        new_content = content
+                        if has_old_id:
+                            new_content = new_content.replace(old_id, new_id)
+                        if has_old_chap:
+                            new_content = new_content.replace("chapterid=142", "chapterid=1869")
                         with open(file_path, 'w', encoding='utf-8') as f:
                             f.write(new_content)
                         print(f"Updated: {os.path.relpath(file_path, src_dir)}")
