@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-<head>
+    <head>
     <meta charset="UTF-8">
     <title>exp03 rms comparison complex</title>
 </head>
@@ -17,6 +17,27 @@
             <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; font-size: 1.05rem; margin: 0 0 10px; padding-bottom: 8px; border-bottom: 2px solid #00a4e4; color: #005696;">מעגל AC</h4>
             <div class="heat-sim" style="box-sizing: border-box; background: #fff8e9; border: 1px solid #ffd793; border-radius: 8px; padding: 11px; margin: 10px 0; text-align: right;">
                 <strong style="box-sizing: border-box; display: block; color: #714100; font-size: .92rem; margin-bottom: 7px;">דימוי חימום בנגד לפי \(P_{avg}\)</strong>
+                <div class="p-3 border rounded bg-white shadow-sm mb-3" style="box-sizing: border-box; padding: 1rem; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+                            <strong class="text-dark small d-block mb-2" style="box-sizing: border-box; display: block; font-size: 0.875rem; color: #0f172a; margin-bottom: 0.5rem;">סכמת מעגל AC וכיוון זרם רגעי</strong>
+                            <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 520 190" role="img" aria-label="סכמת מעגל AC עם מקור סינוס, נגד וחץ זרם מתחלף" style="box-sizing: border-box; display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; direction: ltr;">
+                                <defs>
+                                    <marker id="acArrowRight" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z" fill="#0ea5e9"></path></marker>
+                                    <marker id="acArrowLeft" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z" fill="#f97316"></path></marker>
+                                </defs>
+                                <rect x="8" y="8" width="504" height="174" rx="12" fill="#f8fafc" stroke="#e2e8f0"></rect>
+                                <path d="M105 65 L105 45 L445 45 L445 75 M445 115 L445 145 L105 145 L105 125" fill="none" stroke="#334155" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="105" cy="95" r="30" fill="#ffffff" stroke="#0369a1" stroke-width="4"></circle>
+                                <path id="acSourceWavePath" d="M82 95 C90 78, 99 78, 107 95 S124 112, 132 95" fill="none" stroke="#0369a1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M445 75 L425 82 L465 90 L425 98 L465 106 L445 115" fill="none" stroke="#b45309" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M170 45 L285 45" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round" marker-end="url(#acArrowRight)"></path>
+                                <path d="M300 145 L180 145" fill="none" stroke="#f97316" stroke-width="4" stroke-linecap="round" marker-end="url(#acArrowLeft)"></path>
+                                <text id="acSourceWaveLabel" x="105" y="35" text-anchor="middle" font-size="17" font-weight="700" fill="#075985">v(t)</text>
+                                <text x="476" y="100" text-anchor="middle" font-size="17" font-weight="700" fill="#92400e">R</text>
+                                <text x="218" y="35" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">i(t) מתחלף</text>
+                                <text x="260" y="168" text-anchor="middle" font-size="14" fill="#475569">ב-AC כיוון הזרם משתנה עם סימן המתח</text>
+                            </svg>
+                        </div>
                 <div class="heat-track" style="box-sizing: border-box; height: 14px; background: #fff; border: 1px solid #b66a00; border-radius: 999px; overflow: hidden; direction: ltr;"><div class="heat-fill" id="acHeatFill" style="box-sizing: border-box; height: 100%; width: 0; background: #b66a00; transition: width .2s ease;"></div></div>
                 <span class="heat-value" id="acHeatValue" style="box-sizing: border-box; direction: ltr; display: inline-block; color: #714100; font-weight: 700; margin-top: 6px;">12.5 mW</span>
             </div>
