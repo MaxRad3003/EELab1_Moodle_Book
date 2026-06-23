@@ -99,9 +99,26 @@ function build() {
         // Final safety check: Moodle strips <style> tags, so we MUST remove them
         inlineHtml = inlineHtml.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '');
         
+        let finalInlineHtml = inlineHtml;
+        if (fileName === '01_PreLab_02_RMS_sub.html') {
+            const normalizedFolderName = folderName.replace(/\\/g, '/');
+            const iframeUrl = `https://maxrad3003.github.io/EELab1_Moodle_Book/dist/previews/${normalizedFolderName}/${fileName}`;
+            console.log(`♻️ Replacing moodle_ready content with iframe for Experiment 3: ${fileName}`);
+            finalInlineHtml = `<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מושג RMS - הערך האפקטיבי</title>
+</head>
+<body>
+    <iframe src="${iframeUrl}" width="100%" height="3800" style="border:none; overflow:hidden;"></iframe>
+</body>
+</html>`;
+        }
+
         const moodleDistPath = path.join(DIST_DIR, 'moodle_ready', folderName, fileName);
         ensureDir(path.dirname(moodleDistPath));
-        fs.writeFileSync(moodleDistPath, inlineHtml);
+        fs.writeFileSync(moodleDistPath, finalInlineHtml);
         console.log(`✅ Generated Inline CSS Snippet: ${moodleDistPath}`);
 
         // 2. Generate Standalone Preview with MathJax support.
