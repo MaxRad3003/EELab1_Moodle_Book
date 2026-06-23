@@ -123,9 +123,14 @@ function build() {
 
         // 2. Generate Standalone Preview with MathJax support.
         // Keep the Moodle output clean, but make local preview comfortable for editing LaTeX.
-        const previewHtml = previewTemplate
+        let previewHtml = previewTemplate
             .replace('{{TITLE}}', title)
             .replace('{{CONTENT}}', content);
+
+        // Convert <jsxgraph> tags to <script> for standard browser previews to render correctly
+        previewHtml = previewHtml
+            .replace(/<jsxgraph[^>]*>/gi, '<script type="text/javascript">')
+            .replace(/<\/jsxgraph>/gi, '</script>');
 
         const previewDistPath = path.join(DIST_DIR, 'previews', folderName, fileName);
         ensureDir(path.dirname(previewDistPath));
