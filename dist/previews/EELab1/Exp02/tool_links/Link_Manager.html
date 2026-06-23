@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Manager</title>
+</head>
+<body>
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
+        <div class="moodle-content-inner" style="direction: rtl; unicode-bidi: isolate; text-align: right;">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Exp02 External Link Manager</title>
+</head>
+<body style="margin: 0; background-color: #f4f6f9; color: #263238; font-family: Arial, 'David', sans-serif; line-height: 1.6;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 24px;">
+        <div style="background-color: #ffffff; border: 1px solid #d8dee6; border-radius: 8px; padding: 24px; margin-bottom: 18px;">
+            <h1 style="font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 8px 0; color: #005696; font-size: 28px;">מנהל קישורים חיצוניים - Exp02</h1>
+            <p style="margin: 0; color: #52616b;">כלי מקומי לעדכון קישורי Moodle, Tinkercad, Falstad, MATLAB Grader ופעילויות נוספות. שמרו את הקובץ המעודכן בשם <strong>external_links.json</strong> בתיקיית <strong>tool_links</strong>. אפשר גם להפיק היפר-קישור HTML מוכן להדבקה בפרק Moodle Book.</p>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px;">
+            <label style="display: inline-block; background-color: #005696; color: white; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+                טעינת JSON
+                <input id="fileInput" type="file" accept="application/json,.json" style="display: none;">
+            </label>
+            <button id="downloadJson" type="button" style="background-color: #28a745; color: white; border: 0; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">שמירת JSON</button>
+            <button id="addLink" type="button" style="background-color: #17a2b8; color: white; border: 0; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">הוספת קישור</button>
+            <button id="makeMarkdown" type="button" style="background-color: #6c757d; color: white; border: 0; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">יצירת Markdown</button>
+        </div>
+
+        <div id="summary" style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px;"></div>
+        <div id="linksGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px;"></div>
+
+        <div style="background-color: #ffffff; border: 1px solid #d8dee6; border-radius: 8px; padding: 18px; margin-top: 18px;">
+            <h2 style="font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; margin-top: 0; color: #005696; font-size: 20px;">פלט לתחזוקה</h2>
+            <textarea id="output" style="width: 100%; min-height: 220px; box-sizing: border-box; direction: ltr; font-family: Consolas, monospace; border: 1px solid #cfd6df; border-radius: 6px; padding: 12px;"></textarea>
+        </div>
+    </div>
+
+    <script>
+        const defaultData = {
+  "experiment": "Exp02",
+  "updated": "2026-06-08",
+  "links": [
+    {
+      "id": "matlab_linear_algebra",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 Linear Algebra",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_LinearAlgebra",
+      "url": "",
+      "location": "01_PreLab_00_LinearAlgebra_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_LINEAR_ALGEBRA]"
+    },
+    {
+      "id": "matlab_superposition",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 Superposition",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_Superposition",
+      "url": "",
+      "location": "01_PreLab_01_Superposition_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_SUPERPOSITION]"
+    },
+    {
+      "id": "matlab_thevenin",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 Thevenin",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_Thevenin",
+      "url": "",
+      "location": "01_PreLab_02_Thevenin_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_THEVENIN]"
+    },
+    {
+      "id": "matlab_transfer_function",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 Transfer Function",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_TransferFunction",
+      "url": "",
+      "location": "01_PreLab_03_TransferFunction_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_TRANSFER_FUNCTION]"
+    },
+    {
+      "id": "matlab_nonlinear_qpoint",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 NonLinear QPoint",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_NonLinear_QPoint",
+      "url": "",
+      "location": "01_PreLab_04_NonLinear_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_NONLINEAR_QPOINT]"
+    },
+    {
+      "id": "matlab_nonlinear_transfer_bonus",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 NonLinear Transfer Function Bonus",
+      "linkText": "פתיחת מטלת הבונוס",
+      "url": "",
+      "location": "01_PreLab_04_NonLinear_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_NONLINEAR_TRANSFER]"
+    },
+    {
+      "id": "tinkercad_superposition",
+      "platform": "Tinkercad Circuits Class",
+      "title": "Exp02 Superposition Tinkercad",
+      "linkText": "כניסה לביצוע משימת החיווט ב-Tinkercad",
+      "url": "https://www.tinkercad.com/classrooms/iKBJOYVg08t/activities/hgCDbz0f4ml",
+      "embedUrl": "https://www.tinkercad.com/embed/bufO9LL9AFE?editbtn=1",
+      "location": "01_PreLab_01_Superposition_sub.html",
+      "status": "ready",
+      "notes": "Existing source link and embed"
+    },
+    {
+      "id": "tinkercad_thevenin",
+      "platform": "Tinkercad Circuits Class",
+      "title": "Exp02 Thevenin Tinkercad",
+      "linkText": "כניסה לביצוע משימת החיווט ב-Tinkercad",
+      "url": "https://www.tinkercad.com/joinclass/49BG9NTLU",
+      "embedUrl": "https://www.tinkercad.com/embed/kyvHVtjSz74?editbtn=1",
+      "location": "01_PreLab_02_Thevenin_sub.html",
+      "status": "ready",
+      "notes": "Existing source link and embed"
+    },
+    {
+      "id": "tinkercad_workplan",
+      "platform": "Tinkercad Circuits Class",
+      "title": "Exp02 WorkPlan Tinkercad",
+      "linkText": "פתיחת המעגל ב-Tinkercad",
+      "url": "",
+      "location": "01_PreLab_05_WorkPlan_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_TINKERCAD_EXP02]"
+    },
+    {
+      "id": "moodle_question_xml_full",
+      "platform": "Moodle Question XML",
+      "title": "Exp02 Full PreLab Quizzes XML",
+      "linkText": "קובץ שאלות XML מלא",
+      "url": "00_PreLab/Moodle Quix _XML/Exp02_Full_PreLab_Quizzes.xml",
+      "location": "01_PreLab.html",
+      "status": "ready",
+      "notes": "Local XML question bank"
+    },
+    {
+      "id": "moodle_question_xml_bonus",
+      "platform": "Moodle Question XML",
+      "title": "Exp02 Bonus Quizzes XML",
+      "linkText": "קובץ שאלות בונוס XML",
+      "url": "00_PreLab/Moodle Quix _XML/Exp02_Bounus_Quizzes.xml",
+      "location": "01_PreLab_04_NonLinear_sub.html",
+      "status": "ready",
+      "notes": "Local XML question bank"
+    },
+    {
+      "id": "reference_phet",
+      "platform": "Reference",
+      "title": "PhET",
+      "linkText": "PhET",
+      "url": "https://phet.colorado.edu",
+      "location": "04_References.html",
+      "status": "ready",
+      "notes": "Online reference"
+    },
+    {
+      "id": "reference_matlab_grader",
+      "platform": "Reference",
+      "title": "MATLAB Grader",
+      "linkText": "MATLAB Grader",
+      "url": "https://grader.mathworks.com",
+      "location": "04_References.html",
+      "status": "ready",
+      "notes": "Online reference"
+    },
+    {
+      "id": "reference_falstad",
+      "platform": "Reference",
+      "title": "Falstad Simulator",
+      "linkText": "Falstad Simulator",
+      "url": "https://www.falstad.com/circuit/",
+      "location": "04_References.html",
+      "status": "ready",
+      "notes": "Online reference"
+    },
+    {
+      "id": "falstad_superposition",
+      "platform": "Falstad",
+      "title": "Exp02 Superposition Falstad",
+      "linkText": "פתיחת סימולציית Falstad",
+      "url": "https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA",
+      "location": "01_PreLab_01_Superposition_sub.html",
+      "status": "ready",
+      "notes": "Falstad link for PreLab_01_Superposition"
+    },
+    {
+      "id": "falstad_thevenin",
+      "platform": "Falstad",
+      "title": "Exp02 Thevenin Falstad",
+      "linkText": "פתיחת סימולציית Falstad",
+      "url": "https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoAD0RUALNihI67KFRYsrN1PAQiochC2G4kJAPS6+sDSUCbINnZ0VE62VOYuFOyoAO6u7goAhkbS8oF6BsaIjEQx8WZQJWXRiW6onpQECPnBKWEUkeWxsbUiLQZt4da2w3YWPbA4zUED7Qj2jqNVE+nTBcCDxaXdy+W9a61zu9GV2wv7-RtHZw7d55N1l5sRcbej9FQXM8AA5nPvb0izDMX3WAGUQAB7UQqOZmRw0Rb2KKfB4iGbBSFQFQAOwoqAwokQ7BBDyMSHMBGSUCJCA0qHCADUAPqMtAACwQGP0BlEUFydSgGHIkgOPOCfIFjAJIrwVKoAW5wH8kO+-gh0JU3w1MLmlKgLEswKsZlJqyVWNxUyFtJJtXJhGw1Np9LmLIAShyuQVxcBJdbhXluRL+cUZTh8E6FWLgiq1TqteCobrwowWBUuqaEQ59hbsXj5gTbWbEA7CKiXdofTy-aHBYHRf1ff6ENKhbLI+xo02DHH1urk4ngpkACYAK2x1pUYCnBfdKgwYAwaEyOJAsIAFJD2QoMABKRQFlBQBRDQgEtCIT2cy6jicqfHYmeCq0IRmQgA2K5+KkPiDUNCKOEgFCpeb5ere46ToWT6zleC5Liua6btuu4HieR5ARQ56gVeAAyazKuAEC6EAA",
+      "location": "02_InLab_01_PartB_Thevenin_sub.html",
+      "status": "ready",
+      "notes": "Falstad link for InLab Part B Thevenin"
+    },
+    {
+      "id": "falstad_thevenin_prelab",
+      "platform": "Falstad",
+      "title": "Exp02 PreLab Thevenin Falstad",
+      "linkText": "פתיחת סימולציית Falstad - תבנין",
+      "url": "https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoAD0RUALNihI67KFRYsrN1PAQiochC2G4kJAPS6+sDSUCbINnZ0VE62VOYuFOyoAO6u7goAhkbS8oF6BsaIjEQx8WZQJWXRiW6onpQECPnBKWEUkeWxsbUiLQZt4da2w3YWPbA4zUED7Qj2jqNVE+nTBcCDxaXdy+W9a61zu9GV2wv7-RtHZw7d55N1l5sRcbej9FQXM8AA5nPvb0izDMX3WAGUQAB7UQqOZmRw0Rb2KKfB4iGbBSFQFQAOwoqAwokQ7BBDyMSHMBGSUCJCA0qHCADUAPqMtAACwQGP0BlEUFydSgGHIkgOPOCfIFjAJIrwVKoAW5wH8kO+-gh0JU3w1MLmlKgLEswKsZlJqyVWNxUyFtJJtXJhGw1Np9LmLIAShyuQVxcBJdbhXluRL+cUZTh8E6FWLgiq1TqteCobrwowWBUuqaEQ59hbsXj5gTbWbEA7CKiXdofTy-aHBYHRf1ff6ENKhbLI+xo02DHH1urk4ngpkACYAK2x1pUYCnBfdKgwYAwaEyOJAsIAFJD2QoMABKRQFlBQBRDQgEtCIT2cy6jicqfHYmeCq0IRmQgA2K5+KkPiDUNCKOEgFCpeb5ere46ToWT6zleC5Liua6btuu4HieR5ARQ56gVeAAyazKuAEC6EAA",
+      "location": "01_PreLab_02_Thevenin_sub.html",
+      "status": "ready",
+      "notes": "Falstad link for PreLab_02_Thevenin. URL trimmed before PreLab_01_Superposition."
+    },
+    {
+      "id": "tinkercad_iv_scan",
+      "platform": "Tinkercad Circuits Class",
+      "title": "Exp02 I-V Scan Tinkercad",
+      "linkText": "פתיחת פעילות Tinkercad",
+      "url": "https://www.tinkercad.com/things/jOOeB1hD53n",
+      "embedUrl": "https://www.tinkercad.com/embed/jOOeB1hD53n?editbtn=1",
+      "location": "02_InLab_02_PartC_IV_sub.html",
+      "status": "ready",
+      "notes": "Tinkercad embed for InLab Part C I-V characteristics"
+    },
+    {
+      "id": "falstad_iv_scan",
+        const defaultData = {
+  "experiment": "Exp02",
+  "updated": "2026-06-08",
+  "links": [
+    {
+      "id": "matlab_linear_algebra",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 Linear Algebra",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_LinearAlgebra",
+      "url": "",
+      "location": "01_PreLab_00_LinearAlgebra_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_LINEAR_ALGEBRA]"
+    },
+    {
+      "id": "matlab_superposition",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 Superposition",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_Superposition",
+      "url": "",
+      "location": "01_PreLab_01_Superposition_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_SUPERPOSITION]"
+    },
+    {
+      "id": "matlab_thevenin",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 Thevenin",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_Thevenin",
+      "url": "",
+      "location": "01_PreLab_02_Thevenin_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_THEVENIN]"
+    },
+    {
+      "id": "matlab_transfer_function",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 Transfer Function",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_TransferFunction",
+      "url": "",
+      "location": "01_PreLab_03_TransferFunction_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_TRANSFER_FUNCTION]"
+    },
+    {
+      "id": "matlab_nonlinear_qpoint",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 NonLinear QPoint",
+      "linkText": "פתיחת מטלת MATLAB: Exp02_NonLinear_QPoint",
+      "url": "",
+      "location": "01_PreLab_04_NonLinear_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_NONLINEAR_QPOINT]"
+    },
+    {
+      "id": "matlab_nonlinear_transfer_bonus",
+      "platform": "MATLAB Grader",
+      "title": "Exp02 NonLinear Transfer Function Bonus",
+      "linkText": "פתיחת מטלת הבונוס",
+      "url": "",
+      "location": "01_PreLab_04_NonLinear_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_MATLAB_NONLINEAR_TRANSFER]"
+    },
+    {
+      "id": "tinkercad_superposition",
+      "platform": "Tinkercad Circuits Class",
+      "title": "Exp02 Superposition Tinkercad",
+      "linkText": "כניסה לביצוע משימת החיווט ב-Tinkercad",
+      "url": "https://www.tinkercad.com/classrooms/iKBJOYVg08t/activities/hgCDbz0f4ml",
+      "embedUrl": "https://www.tinkercad.com/embed/bufO9LL9AFE?editbtn=1",
+      "location": "01_PreLab_01_Superposition_sub.html",
+      "status": "ready",
+      "notes": "Existing source link and embed"
+    },
+    {
+      "id": "tinkercad_thevenin",
+      "platform": "Tinkercad Circuits Class",
+      "title": "Exp02 Thevenin Tinkercad",
+      "linkText": "כניסה לביצוע משימת החיווט ב-Tinkercad",
+      "url": "https://www.tinkercad.com/joinclass/49BG9NTLU",
+      "embedUrl": "https://www.tinkercad.com/embed/kyvHVtjSz74?editbtn=1",
+      "location": "01_PreLab_02_Thevenin_sub.html",
+      "status": "ready",
+      "notes": "Existing source link and embed"
+    },
+    {
+      "id": "tinkercad_workplan",
+      "platform": "Tinkercad Circuits Class",
+      "title": "Exp02 WorkPlan Tinkercad",
+      "linkText": "פתיחת המעגל ב-Tinkercad",
+      "url": "",
+      "location": "01_PreLab_05_WorkPlan_sub.html",
+      "status": "missing",
+      "notes": "Placeholder in source: [LINK_TO_TINKERCAD_EXP02]"
+    },
+    {
+      "id": "moodle_question_xml_full",
+      "platform": "Moodle Question XML",
+      "title": "Exp02 Full PreLab Quizzes XML",
+      "linkText": "קובץ שאלות XML מלא",
+      "url": "00_PreLab/Moodle Quix _XML/Exp02_Full_PreLab_Quizzes.xml",
+      "location": "01_PreLab.html",
+      "status": "ready",
+      "notes": "Local XML question bank"
+    },
+    {
+      "id": "moodle_question_xml_bonus",
+      "platform": "Moodle Question XML",
+      "title": "Exp02 Bonus Quizzes XML",
+      "linkText": "קובץ שאלות בונוס XML",
+      "url": "00_PreLab/Moodle Quix _XML/Exp02_Bounus_Quizzes.xml",
+      "location": "01_PreLab_04_NonLinear_sub.html",
+      "status": "ready",
+      "notes": "Local XML question bank"
+    },
+    {
+      "id": "reference_phet",
+      "platform": "Reference",
+      "title": "PhET",
+      "linkText": "PhET",
+      "url": "https://phet.colorado.edu",
+      "location": "04_References.html",
+      "status": "ready",
+      "notes": "Online reference"
+    },
+    {
+      "id": "reference_matlab_grader",
+      "platform": "Reference",
+      "title": "MATLAB Grader",
+      "linkText": "MATLAB Grader",
+      "url": "https://grader.mathworks.com",
+      "location": "04_References.html",
+      "status": "ready",
+      "notes": "Online reference"
+    },
+    {
+      "id": "reference_falstad",
+      "platform": "Reference",
+      "title": "Falstad Simulator",
+      "linkText": "Falstad Simulator",
+      "url": "https://www.falstad.com/circuit/",
+      "location": "04_References.html",
+      "status": "ready",
+      "notes": "Online reference"
+    },
+    {
+      "id": "falstad_superposition",
+      "platform": "Falstad",
+      "title": "Exp02 Superposition Falstad",
+      "linkText": "פתיחת סימולציית Falstad",
+      "url": "https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA",
+      "location": "01_PreLab_01_Superposition_sub.html",
+      "status": "ready",
+      "notes": "Falstad link for PreLab_01_Superposition"
+    },
+    {
+      "id": "falstad_thevenin",
+      "platform": "Falstad",
+      "title": "Exp02 Thevenin Falstad",
+      "linkText": "פתיחת סימולציית Falstad",
+      "url": "https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoAD0RUALNihI67KFRYsrN1PAQiochC2G4kJAPS6+sDSUCbINnZ0VE62VOYuFOyoAO6u7goAhkbS8oF6BsaIjEQx8WZQJWXRiW6onpQECPnBKWEUkeWxsbUiLQZt4da2w3YWPbA4zUED7Qj2jqNVE+nTBcCDxaXdy+W9a61zu9GV2wv7-RtHZw7d55N1l5sRcbej9FQXM8AA5nPvb0izDMX3WAGUQAB7UQqOZmRw0Rb2KKfB4iGbBSFQFQAOwoqAwokQ7BBDyMSHMBGSUCJCA0qHCADUAPqMtAACwQGP0BlEUFydSgGHIkgOPOCfIFjAJIrwVKoAW5wH8kO+-gh0JU3w1MLmlKgLEswKsZlJqyVWNxUyFtJJtXJhGw1Np9LmLIAShyuQVxcBJdbhXluRL+cUZTh8E6FWLgiq1TqteCobrwowWBUuqaEQ59hbsXj5gTbWbEA7CKiXdofTy-aHBYHRf1ff6ENKhbLI+xo02DHH1urk4ngpkACYAK2x1pUYCnBfdKgwYAwaEyOJAsIAFJD2QoMABKRQFlBQBRDQgEtCIT2cy6jicqfHYmeCq0IRmQgA2K5+KkPiDUNCKOEgFCpeb5ere46ToWT6zleC5Liua6btuu4HieR5ARQ56gVeAAyazKuAEC6EAA",
+      "location": "02_InLab_01_PartB_Thevenin_sub.html",
+      "status": "ready",
+      "notes": "Falstad link for InLab Part B Thevenin"
+    },
+    {
+      "id": "falstad_thevenin_prelab",
+      "platform": "Falstad",
+      "title": "Exp02 PreLab Thevenin Falstad",
+      "linkText": "פתיחת סימולציית Falstad - תבנין",
+      "url": "https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoAD0RUALNihI67KFRYsrN1PAQiochC2G4kJAPS6+sDSUCbINnZ0VE62VOYuFOyoAO6u7goAhkbS8oF6BsaIjEQx8WZQJWXRiW6onpQECPnBKWEUkeWxsbUiLQZt4da2w3YWPbA4zUED7Qj2jqNVE+nTBcCDxaXdy+W9a61zu9GV2wv7-RtHZw7d55N1l5sRcbej9FQXM8AA5nPvb0izDMX3WAGUQAB7UQqOZmRw0Rb2KKfB4iGbBSFQFQAOwoqAwokQ7BBDyMSHMBGSUCJCA0qHCADUAPqMtAACwQGP0BlEUFydSgGHIkgOPOCfIFjAJIrwVKoAW5wH8kO+-gh0JU3w1MLmlKgLEswKsZlJqyVWNxUyFtJJtXJhGw1Np9LmLIAShyuQVxcBJdbhXluRL+cUZTh8E6FWLgiq1TqteCobrwowWBUuqaEQ59hbsXj5gTbWbEA7CKiXdofTy-aHBYHRf1ff6ENKhbLI+xo02DHH1urk4ngpkACYAK2x1pUYCnBfdKgwYAwaEyOJAsIAFJD2QoMABKRQFlBQBRDQgEtCIT2cy6jicqfHYmeCq0IRmQgA2K5+KkPiDUNCKOEgFCpeb5ere46ToWT6zleC5Liua6btuu4HieR5ARQ56gVeAAyazKuAEC6EAA",
+      "location": "01_PreLab_02_Thevenin_sub.html",
+      "status": "ready",
+      "notes": "Falstad link for PreLab_02_Thevenin. URL trimmed before PreLab_01_Superposition."
+    },
+    {
+      "id": "tinkercad_iv_scan",
+      "platform": "Tinkercad Circuits Class",
+      "title": "Exp02 I-V Scan Tinkercad",
+      "linkText": "פתיחת פעילות Tinkercad",
+      "url": "https://www.tinkercad.com/things/jOOeB1hD53n",
+      "embedUrl": "https://www.tinkercad.com/embed/jOOeB1hD53n?editbtn=1",
+      "location": "02_InLab_02_PartC_IV_sub.html",
+      "status": "ready",
+      "notes": "Tinkercad embed for InLab Part C I-V characteristics"
+    },
+    {
+      "id": "falstad_iv_scan",
+      "platform": "Falstad",
+      "title": "Exp02 I-V Scan Falstad",
+      "linkText": "פתיחת סימולציית Falstad",
+      "url": "https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBpUAB6JmAFiiMiVK9kv0qqeMnaoA7i5FQFAQ2PS8gD0uvrA0KaS7NhQVETsUPExjIxusDiocgjslLiMnAghegYAggoKKmgqEYjmBLFUluacCVSNzmaKKhlQGOQIIkVhEO4mtfVtlhaxdE7pAwhaddgANJMA3BZrjZv2a7PAQSOhBiNjCM2tjYnRsfEdC0st2+brSS9v0Wvxh8fF4aNIkkrKk7FMWOYHiItO8UuxPqtGBDduYVkjzL93CcAedpuiwVYbFDFlt0Si0TZMdjfAATABWUG6C0ZYB6KgAdogAGoAewANmhfABzFSKTnMhSRZioDBobn8wUiwrU+mMiioFSs5kcxAAJRUGDAst87JAKigAAoeQALBQYACUYvVPkilAIMrlCH1huNptFRUO4AguiAA",
+      "location": "02_InLab_02_PartC_IV_sub.html",
+      "status": "ready",
+      "notes": "Falstad simulation for InLab Part C I-V characteristics"
+    },
+    {
+      "id": "equipment_book",
+      "platform": "Moodle Book",
+      "title": "מדריך ציוד: רב-מודד וספק כוח",
+      "linkText": "פתיחת מדריך הציוד במודל",
+      "url": "https://moodle.sce.ac.il/mod/book/view.php?id=1215505",
+      "location": "Global equipment links",
+      "status": "ready",
+      "notes": "קישור גלובלי למונחים"
+    }
+  ]
+};
+
+        let data = JSON.parse(JSON.stringify(defaultData));
+        const grid = document.getElementById("linksGrid");
+        const summary = document.getElementById("summary");
+        const output = document.getElementById("output");
+
+        function cleanStatus(item) {
+            if (item.url && item.url.trim()) return "ready";
+            return "missing";
+        }
+
+        function render() {
+            data.updated = new Date().toISOString().slice(0, 10);
+            data.links.forEach(item => item.status = cleanStatus(item));
+            const ready = data.links.filter(item => item.status === "ready").length;
+            const missing = data.links.length - ready;
+            summary.innerHTML = `
+                <div style="background-color: #ffffff; border: 1px solid #d8dee6; border-radius: 8px; padding: 12px 16px;"><strong>סה"כ:</strong> ${data.links.length}</div>
+                <div style="background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; border-radius: 8px; padding: 12px 16px;"><strong>מוכנים:</strong> ${ready}</div>
+                <div style="background-color: #fff3cd; border: 1px solid #ffeeba; color: #856404; border-radius: 8px; padding: 12px 16px;"><strong>חסרים:</strong> ${missing}</div>
+            `;
+            grid.innerHTML = "";
+            data.links.forEach((item, index) => {
+                const statusColor = item.status === "ready" ? "#28a745" : "#ff9900";
+                const card = document.createElement("div");
+                card.style.cssText = "background-color:#fff;border:1px solid #d8dee6;border-radius:8px;padding:16px;";
+                card.innerHTML = `
+                    <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px;">
+                        <strong style="color:#005696;">${escapeHtml(item.platform)}</strong>
+                        <span style="background-color:${statusColor};color:white;border-radius:20px;padding:3px 10px;font-size:12px;">${item.status === "ready" ? "מוכן" : "חסר"}</span>
+                    </div>
+                    <label style="display:block;margin-bottom:8px;">מזהה
+                        <input data-field="id" data-index="${index}" value="${escapeAttr(item.id)}" style="width:100%;box-sizing:border-box;border:1px solid #cfd6df;border-radius:5px;padding:8px;">
+                    </label>
+                    <label style="display:block;margin-bottom:8px;">כותרת
+                        <input data-field="title" data-index="${index}" value="${escapeAttr(item.title)}" style="width:100%;box-sizing:border-box;border:1px solid #cfd6df;border-radius:5px;padding:8px;">
+                    </label>
+                    <label style="display:block;margin-bottom:8px;">טקסט ההיפר-קישור
+                        <input data-field="linkText" data-index="${index}" value="${escapeAttr(item.linkText || item.title)}" style="width:100%;box-sizing:border-box;border:1px solid #cfd6df;border-radius:5px;padding:8px;">
+                    </label>
+                    <label style="display:block;margin-bottom:8px;">פלטפורמה
+                        <input data-field="platform" data-index="${index}" value="${escapeAttr(item.platform)}" style="width:100%;box-sizing:border-box;border:1px solid #cfd6df;border-radius:5px;padding:8px;">
+                    </label>
+                    <label style="display:block;margin-bottom:8px;">URL
+                        <input data-field="url" data-index="${index}" value="${escapeAttr(item.url)}" placeholder="https://..." style="direction:ltr;width:100%;box-sizing:border-box;border:1px solid #cfd6df;border-radius:5px;padding:8px;">
+                    </label>
+                    <label style="display:block;margin-bottom:8px;">מיקום בספר
+                        <input data-field="location" data-index="${index}" value="${escapeAttr(item.location)}" style="direction:ltr;width:100%;box-sizing:border-box;border:1px solid #cfd6df;border-radius:5px;padding:8px;">
+                    </label>
+                    <label style="display:block;margin-bottom:12px;">הערות
+                        <textarea data-field="notes" data-index="${index}" style="width:100%;min-height:62px;box-sizing:border-box;border:1px solid #cfd6df;border-radius:5px;padding:8px;">${escapeHtml(item.notes)}</textarea>
+                    </label>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <button type="button" data-action="copyText" data-index="${index}" style="background-color:#005696;color:white;border:0;border-radius:5px;padding:8px 12px;cursor:pointer;">העתקת היפר-קישור</button>
+                        <button type="button" data-action="copyButton" data-index="${index}" style="background-color:#28a745;color:white;border:0;border-radius:5px;padding:8px 12px;cursor:pointer;">העתקת כפתור</button>
+                        <button type="button" data-action="delete" data-index="${index}" style="background-color:#d9534f;color:white;border:0;border-radius:5px;padding:8px 12px;cursor:pointer;">מחיקה</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            bindInputs();
+        }
+
+        function bindInputs() {
+            document.querySelectorAll("[data-field]").forEach(el => {
+                el.addEventListener("input", () => {
+                    const index = Number(el.getAttribute("data-index"));
+                    const field = el.getAttribute("data-field");
+                    data.links[index][field] = el.value;
+                    data.links[index].status = cleanStatus(data.links[index]);
+                });
+            });
+            document.querySelectorAll("[data-action='delete']").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const index = Number(btn.getAttribute("data-index"));
+                    data.links.splice(index, 1);
+                    render();
+                });
+            });
+            document.querySelectorAll("[data-action='copyText']").forEach(btn => {
+                btn.addEventListener("click", async () => {
+                    const item = data.links[Number(btn.getAttribute("data-index"))];
+                    const html = item.url ? `<a href="${escapeAttr(item.url)}" target="_blank" style="color: #005696; text-decoration: underline;">${escapeHtml(item.linkText || item.title)}</a>` : `${item.title} - קישור חסר`;
+                    output.value = html;
+                    try { await navigator.clipboard.writeText(html); } catch (e) {}
+                });
+            });
+            document.querySelectorAll("[data-action='copyButton']").forEach(btn => {
+                btn.addEventListener("click", async () => {
+                    const item = data.links[Number(btn.getAttribute("data-index"))];
+                    const html = item.url ? `<a href="${escapeAttr(item.url)}" target="_blank" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">${escapeHtml(item.linkText || item.title)}</a>` : `${item.title} - קישור חסר`;
+                    output.value = html;
+                    try { await navigator.clipboard.writeText(html); } catch (e) {}
+                });
+            });
+        }
+
+        function markdown() {
+            data.links.forEach(item => item.status = cleanStatus(item));
+            const lines = [
+                "# External Links - " + data.experiment,
+                "",
+                "Updated: " + new Date().toISOString().slice(0, 10),
+                "",
+                "| Platform | Title | URL | Location | Status | Notes |",
+                "| :--- | :--- | :--- | :--- | :--- | :--- |"
+            ];
+            data.links.forEach(item => {
+                lines.push(`| ${item.platform} | ${item.title} | \`${item.url || "TBD_IN_MOODLE"}\` | \`${item.location}\` | ${item.status} | ${item.notes || ""} |`);
+            });
+            output.value = lines.join("\n");
+        }
+
+        document.getElementById("fileInput").addEventListener("change", event => {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    data = JSON.parse(reader.result);
+                    if (!Array.isArray(data.links)) throw new Error("Missing links array");
+                    render();
+                } catch (error) {
+                    alert("לא ניתן לקרוא את קובץ ה-JSON");
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        document.getElementById("downloadJson").addEventListener("click", () => {
+            data.updated = new Date().toISOString().slice(0, 10);
+            data.links.forEach(item => item.status = cleanStatus(item));
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "external_links.json";
+            a.click();
+            URL.revokeObjectURL(a.href);
+        });
+
+        document.getElementById("addLink").addEventListener("click", () => {
+            data.links.push({ id: "new_link", platform: "Moodle", title: "קישור חדש", linkText: "פתיחת הפעילות", url: "", location: "", status: "missing", notes: "" });
+            render();
+        });
+
+        document.getElementById("makeMarkdown").addEventListener("click", markdown);
+
+        function escapeHtml(value) {
+            return String(value || "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[ch]));
+        }
+
+        function escapeAttr(value) {
+            return escapeHtml(value).replace(/`/g, "&#096;");
+        }
+
+        render();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

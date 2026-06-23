@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 PreLab 05 JSXGraph sub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!-- PART 03.00: PAGE WRAPPER AND INTRO -->
+<div class="moodle-snippet-custom" style="unicode-bidi: isolate; text-align: right; font-size: 16px; direction: rtl; color: #333; line-height: 1.6; font-family: Arial, sans-serif; max-width: 980px; margin: 0 auto;" dir="rtl">
+    <!-- REQUIRED JSXGRAPH CDN FOR IFRAME/PREVIEW -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+
+    <div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 &gt; הכנה &gt; המחשות JSXGraph</div>
+
+    <!-- MOODLE IFRAME HELPER BOX (Hides automatically if JavaScript runs) -->
+    <div id="moodle-iframe-helper" style="background-color: #fff9e6; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 18px; margin: 16px 0; direction: rtl; text-align: right; display: block;">
+        <strong style="color: #b7791f; font-size: 1.1em; display: block; margin-bottom: 8px;">📢 שגיאת טעינת סימולציה (Moodle HTML Sanitizer)</strong>
+        <p style="margin: 0 0 12px 0;">מערכת ה-Moodle חסמה את הרצת הסקריפטים של JSXGraph בעמוד זה.</p>
+        <p style="margin: 0 0 12px 0; font-weight: bold;">כדי להציג את הגרפים האינטראקטיביים יש להטמיע את הדף כ-iframe חיצוני במודל:</p>
+        <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="margin: 0 0 12px 0; padding-right: 20px; line-height: 1.5;">
+            <li>עברו למצב עריכת קוד HTML בעמוד המודל.</li>
+            <li>החליפו את תוכן הדף בקוד ה-iframe הבא:</li>
+        </ol>
+        <pre dir="ltr" style="background: #2b303b; color: #abb2bf; padding: 12px; border-radius: 6px; font-family: monospace; overflow: auto; text-align: left; margin: 8px 0; font-size: 14px;">&lt;iframe src="https://maxrad3003.github.io/EELab1_Moodle_Book/dist/previews/EELab1/Exp02/moodle_book_import_v2/01_PreLab_05_JSXGraph_sub.html" width="100%" height="900" style="border:none; overflow:hidden;"&gt;&lt;/iframe&gt;</pre>
+        <div style="margin-top: 14px;">
+            <a href="https://maxrad3003.github.io/EELab1_Moodle_Book/dist/previews/EELab1/Exp02/moodle_book_import_v2/01_PreLab_05_JSXGraph_sub.html" target="_blank" style="display: inline-block; background-color: #005696; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: bold;">🔗 פתיחת הסימולציה בחלון חדש</a>
+        </div>
+    </div>
+
+    <h3 class="section-title" style="margin-bottom: 0.75rem; margin-top: 0; display: inline-block; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">הכנה לניסוי 2 - המחשות אינטראקטיביות ב-JSXGraph</h3>
+    <p>עמוד זה מחבר בין החישוב האנליטי, הגרף והיחידות. הזיזו את המחוונים ובדקו כיצד שינוי מקור מתח, התנגדות פנימית או עומס משנה את נקודת העבודה ואת ההספק.</p>
+
+    <div class="warn" style="background: #fff9e6; border: 1px solid #f3d48b; border-right: 5px solid #ff9900; border-radius: 8px; padding: 14px; margin: 16px 0;">
+        <strong style="color:#8a5a00;">בדיקת Moodle:</strong>
+        אם הגרפים אינם מופיעים לאחר העלאה ל-Moodle Book, ייתכן שהמערכת מסננת תגיות <span dir="ltr">script</span> או חוסמת CDN. במקרה כזה נשאיר את העמוד כקישור HTML חיצוני או נטען את קבצי JSXGraph מקומית.
+    </div>
+
+    <div class="info" style="background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 14px; margin: 16px 0;">
+        <strong style="color:#005696;">דגש יחידות:</strong>
+        בגרפים כאן ציר המתח הוא V, ציר הזרם הוא mA, ציר ההספק הוא mW או W לפי הכותרת. שטח כתום הוא הספק העומס, ושטח אדום הוא ההספק שנופל על שקול המקור. לפני הצבה בנוסחאות ממירים תמיד ליחידות בסיס: A, V, \(\Omega\). לדוגמה: \(P=VI\) דורש זרם ב-A ולא ב-mA.
+    </div>
+
+    <!-- PART 03.01: I-V LOAD LINE HTML -->
+    <div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+        <h4 class="sub-title" style="margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin: 0 0 12px 0; font-size: 1.18rem; font-weight: bold; line-height: 1.35;">1. קו עומס ונקודת עבודה באופיין I-V</h4>
+        <p>הקו הכחול מייצג את קו העומס של מקור תבנין: \(I=(V_{TH}-V)/R_{TH}\). הקו הירוק מייצג רכיב אוהמי. נקודת החיתוך היא נקודת העבודה. המלבן הכתום מציג את הספק העומס: רוחב \(V_Q\), גובה \(I_Q\), ולכן \(P_L=V_Q\cdot I_Q\). המלבן האדום מציג את ההספק שנופל על שקול המקור/ההתנגדות הפנימית: רוחב \(V_{TH}-V_Q\), גובה \(I_Q\), ולכן \(P_{RTH}=(V_{TH}-V_Q)\cdot I_Q\).</p>
+                <div style="border: 2px solid #005696; border-radius: 8px; padding: 12px; margin: 14px 0; background-color: #f7fafc; box-shadow: 0 1px 4px rgba(0,0,0,0.08);">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center; margin-bottom: 8px;">
+                <strong style="color: #005696; font-size: 1rem;">מסגרת המחשה: קו עומס, נקודת עבודה והספקים</strong>
+                <span style="font-size: 0.9rem; color: #52616b;">כתום: \(P_L\) | אדום: \(P_{RTH}\) | נקודה Q: נקודת העבודה</span>
+            </div>
+            <div id="jxg-iv" class="jxgbox" aria-label="גרף אינטראקטיבי של קו עומס ונקודת עבודה" style="width: 100%; height: 360px; border: 1px solid #9fb7ca; border-radius: 6px; background: #ffffff; margin: 0;"></div>
+        </div>
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 12px; margin: 12px 0;">
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;" for="vthRange">\(V_{TH}\) [V]: <span id="vthVal">8.0</span></label><input id="vthRange" type="range" style="width: 100%;" min="2" max="12" step="0.1" value="8"></div>
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;" for="rthRange">\(R_{TH}\) [\(\Omega\)]: <span id="rthVal">1000</span></label><input id="rthRange" type="range" style="width: 100%;" min="200" max="3000" step="50" value="1000"></div>
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;" for="rlinRange">\(R_{load}\) [\(\Omega\)]: <span id="rlinVal">1500</span></label><input id="rlinRange" type="range" style="width: 100%;" min="200" max="5000" step="50" value="1500"></div>
+        </div>
+        <div id="ivReadout" class="readout" style="direction: ltr; text-align: left; background: #202124; color: #e8eaed; border-radius: 8px; padding: 12px; font-family: Consolas,monospace; overflow: auto;">ממתין לטעינת JSXGraph...</div>
+        <p class="small" style="color: #52616b; font-size: 0.92rem; margin: 10px 0 0 0;">בדיקה מהירה: אם \(V=4V\) ו-\(I=2mA\), אז \(R=V/I=4/0.002=2000\Omega\). לעומת זאת, שטח ההספק על הגרף הוא \(4V\cdot2mA=8mW\). אי אפשר להציב 2 במקום 0.002 אם מחשבים ב-W.</p>
+    </div>
+
+    <!-- PART 03.02: MAXIMUM POWER HTML -->
+    <div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+        <h4 class="sub-title" style="margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin: 0 0 12px 0; font-size: 1.18rem; font-weight: bold; line-height: 1.35;">2. העברת הספק מקסימלי לעומס</h4>
+        <p>הגרף הכחול מציג את הספק העומס \(P_L=\frac{V_{TH}^2 R_L}{(R_{TH}+R_L)^2}\). המקסימום מתקבל כאשר \(R_L=R_{TH}\). הגרף הירוק מציג נצילות \(\eta=\frac{P_L}{P_{total}}=\frac{R_L}{R_{TH}+R_L}\cdot100\%\). שימו לב: בהספק מקסימלי הנצילות היא רק \(50\%\), כי חצי מההספק נופל על \(R_{TH}\).</p>
+                <div style="border: 2px solid #005696; border-radius: 8px; padding: 12px; margin: 14px 0; background-color: #f7fafc; box-shadow: 0 1px 4px rgba(0,0,0,0.08);">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center; margin-bottom: 8px;">
+                <strong style="color: #005696; font-size: 1rem;">מסגרת המחשה: הספק מקסימלי ונצילות</strong>
+                <span style="font-size: 0.9rem; color: #52616b;">כחול: \(P_L\) | ירוק: \(\eta\) | קו מקווקו: \(R_L=R_{TH}\)</span>
+            </div>
+            <div id="jxg-power" class="jxgbox" aria-label="גרף אינטראקטיבי של הספק העומס כפונקציה של התנגדות העומס" style="width: 100%; height: 360px; border: 1px solid #9fb7ca; border-radius: 6px; background: #ffffff; margin: 0;"></div>
+        </div>
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 12px; margin: 12px 0;">
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;" for="vthPowerRange">\(V_{TH}\) [V]: <span id="vthPowerVal">8.0</span></label><input id="vthPowerRange" type="range" style="width: 100%;" min="2" max="12" step="0.1" value="8"></div>
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;" for="rthPowerRange">\(R_{TH}\) [\(\Omega\)]: <span id="rthPowerVal">1000</span></label><input id="rthPowerRange" type="range" style="width: 100%;" min="200" max="3000" step="50" value="1000"></div>
+            <div class="control" style="background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 12px;"><label style="display: block; font-weight: bold; color: #005696; margin-bottom: 6px;" for="rlPowerRange">\(R_L\) [\(\Omega\)]: <span id="rlPowerVal">1000</span></label><input id="rlPowerRange" type="range" style="width: 100%;" min="100" max="5000" step="50" value="1000"></div>
+        </div>
+        <div id="powerReadout" class="readout" style="direction: ltr; text-align: left; background: #202124; color: #e8eaed; border-radius: 8px; padding: 12px; font-family: Consolas,monospace; overflow: auto;">ממתין לטעינת JSXGraph...</div>
+        <div class="info" style="background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 14px; margin: 12px 0 16px 0;">
+            <strong style="color:#005696;">פירוש פיזיקלי:</strong> כאשר \(R_L\) קטן מאוד, הזרם גדול אבל רוב המתח נופל על \(R_{TH}\). כאשר \(R_L\) גדול מאוד, הנצילות גבוהה אבל הזרם קטן ולכן ההספק לעומס קטן. נקודת \(R_L=R_{TH}\) היא פשרה שמביאה להספק עומס מקסימלי, לא לנצילות מקסימלית.
+        </div>
+    </div>
+
+    <!-- PART 03.03: REPORT CHECKLIST HTML -->
+    <div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">
+        <h4 class="sub-title" style="margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; margin: 0 0 12px 0; font-size: 1.18rem; font-weight: bold; line-height: 1.35;">3. מה לכתוב בדוח</h4>
+        <!-- DATA TABLE / COMPARISON TABLE -->
+<table style="width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.94rem;" width="100%">
+            <thead><tr><th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 9px; text-align: right;" align="right">בדיקה</th><th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 9px; text-align: right;" align="right">מה רושמים</th><th style="background: #005696; color: #ffffff; border: 1px solid #cbd5df; padding: 9px; text-align: right;" align="right">יחידה נכונה</th></tr></thead>
+            <tbody>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">נקודת עבודה</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">מתח וזרם בנקודת החיתוך</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">V, mA או A</td></tr>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">שיפוע אופיין</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(R=\Delta V/\Delta I\)</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(\Omega\)</td></tr>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">הספק עומס</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(P_L=V_L I_L\)</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">W, או mW אחרי המרה</td></tr>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">הספק מקסימלי</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">מתקבל כאשר \(R_L=R_{TH}\)</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">בנקודה זו \(\eta=50\%\)</td></tr>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">נצילות</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(\eta=\frac{P_L}{P_{total}}\cdot100\%\)</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">אחוזים, חסר יחידות</td></tr>
+                <tr><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">תבנין</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(R_{TH}=V_{OC}/I_{SC}\)</td><td style="border: 1px solid #d7dde4; padding: 9px; vertical-align: top;" valign="top">\(\Omega\)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PART 03.04: NOSCRIPT FALLBACK -->
+    <noscript>
+        <div class="warn" style="background: #fff9e6; border: 1px solid #f3d48b; border-right: 5px solid #ff9900; border-radius: 8px; padding: 14px; margin: 16px 0;"><strong>JavaScript כבוי:</strong> הגרפים האינטראקטיביים דורשים JavaScript. ניתן עדיין להשתמש בנוסחאות ובטבלת היחידות בעמוד.</div>
+    </noscript>
+
+    <!-- DO NOT COPY MANUALLY START: Moodle Book file navigation. לא להעתיק ידנית כי קישורים יחסיים נשברים בעורך Moodle -->
+    <div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="01_PreLab_04_NonLinear_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a><a href="01_PreLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים הכנה</a><a href="01_PreLab_05_WorkPlan_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: תוכנית עבודה</a></div>
+    <!-- DO NOT COPY MANUALLY END -->
+</div>
+
+<!-- COPY MANUAL PART 04 START: REQUIRED JSXGraph JAVASCRIPT LOGIC. להעתקה ידנית: חובה, אחרי PART 03 -->
+<script>
+(function () {
+    // PART 04.00: Utility helpers
+    function byId(id) { return document.getElementById(id); }
+    function num(id) { return parseFloat(byId(id).value); }
+    function setText(id, value) { byId(id).textContent = value; }
+    function ma(a) { return a * 1000; }
+
+    // Hide the iframe helper warning if JS loads and runs successfully
+    const helper = document.getElementById('moodle-iframe-helper');
+    if (helper) {
+        helper.style.display = 'none';
+    }
+
+    if (!window.JXG || !JXG.JSXGraph) {
+        setText('ivReadout', 'JSXGraph לא נטען. בדקו האם Moodle חסם script/CDN.');
+        setText('powerReadout', 'JSXGraph לא נטען. בדקו האם Moodle חסם script/CDN.');
+        return;
+    }
+
+    // PART 04.01: I-V load line board
+    var ivBoard = JXG.JSXGraph.initBoard('jxg-iv', { boundingbox: [-0.5, 35, 12.5, -5], axis: true, showCopyright: false, showNavigation: false });
+    ivBoard.create('text', [10.2, -2.5, 'V [V]'], { fixed: true, fontSize: 13 });
+    ivBoard.create('text', [-0.35, 31, 'I [mA]'], { fixed: true, fontSize: 13 });
+    ivBoard.create('functiongraph', [function (x) { return ma(Math.max(0, (num('vthRange') - x) / num('rthRange'))); }, 0, 12], { strokeColor: '#005696', strokeWidth: 3, name: 'קו עומס' });
+    ivBoard.create('functiongraph', [function (x) { return ma(x / num('rlinRange')); }, 0, 12], { strokeColor: '#28a745', strokeWidth: 3, name: 'רכיב אוהמי' });
+    var areaP0 = ivBoard.create('point', [0, 0], { visible: false, fixed: true });
+    var areaP1 = ivBoard.create('point', [function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return vth * r / (rth + r); }, 0], { visible: false, fixed: true });
+    var areaP2 = ivBoard.create('point', [function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return vth * r / (rth + r); }, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return ma(vth / (rth + r)); }], { visible: false, fixed: true });
+    var areaP3 = ivBoard.create('point', [0, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return ma(vth / (rth + r)); }], { visible: false, fixed: true });
+    ivBoard.create('polygon', [areaP0, areaP1, areaP2, areaP3], { borders: { strokeColor: '#ff9900', strokeWidth: 2, dash: 2 }, fillColor: '#ff9900', fillOpacity: 0.22, highlight: false });
+    var srcP0 = ivBoard.create('point', [function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return vth * r / (rth + r); }, 0], { visible: false, fixed: true });
+    var srcP1 = ivBoard.create('point', [function () { return num('vthRange'); }, 0], { visible: false, fixed: true });
+    var srcP2 = ivBoard.create('point', [function () { return num('vthRange'); }, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return ma(vth / (rth + r)); }], { visible: false, fixed: true });
+    var srcP3 = ivBoard.create('point', [function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return vth * r / (rth + r); }, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return ma(vth / (rth + r)); }], { visible: false, fixed: true });
+    ivBoard.create('polygon', [srcP0, srcP1, srcP2, srcP3], { borders: { strokeColor: '#d9534f', strokeWidth: 2, dash: 2 }, fillColor: '#d9534f', fillOpacity: 0.18, highlight: false });
+    ivBoard.create('segment', [srcP1, srcP2], { strokeColor: '#d9534f', strokeWidth: 2, dash: 2, fixed: true });
+    ivBoard.create('text', [function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); var vq = vth * r / (rth + r); return vq + Math.max(0.35, (vth - vq) / 2); }, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return Math.max(3, ma(vth / (rth + r)) / 2 + 2); }, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); var vq = vth * r / (rth + r), iq = vth / (rth + r); return 'P_RTH=' + (1000 * (vth - vq) * iq).toFixed(1) + ' mW'; }], { fixed: true, fontSize: 13, color: '#a93226' });
+    ivBoard.create('text', [function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return Math.max(0.4, (vth * r / (rth + r)) / 2); }, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return Math.max(2, ma(vth / (rth + r)) / 2); }, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); var vq = vth * r / (rth + r), iq = vth / (rth + r); return 'P=' + (1000 * vq * iq).toFixed(1) + ' mW'; }], { fixed: true, fontSize: 13, color: '#8a5a00' });
+    ivBoard.create('point', [function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return vth * r / (rth + r); }, function () { var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange'); return ma(vth / (rth + r)); }], { name: 'Q', size: 4, color: '#d9534f', fixed: true });
+
+    // PART 04.02: Maximum power and efficiency board
+    var powerBoard = JXG.JSXGraph.initBoard('jxg-power', { boundingbox: [0, 30, 5200, -2], axis: true, showCopyright: false, showNavigation: false });
+    powerBoard.create('text', [4300, -1.4, 'R_L [Ohm]'], { fixed: true, fontSize: 13 });
+    powerBoard.create('text', [80, 27, 'P_L [mW]'], { fixed: true, fontSize: 13 });
+    powerBoard.create('text', [3900, 24, 'eta [%] / 4'], { fixed: true, fontSize: 13, color: '#28a745' });
+    powerBoard.create('functiongraph', [function (x) { var v = num('vthPowerRange'), rth = num('rthPowerRange'); return 1000 * (v * v * x) / Math.pow(rth + x, 2); }, 1, 5000], { strokeColor: '#005696', strokeWidth: 3 });
+    powerBoard.create('functiongraph', [function (x) { var rth = num('rthPowerRange'); return (x / (rth + x) * 100) / 4; }, 1, 5000], { strokeColor: '#28a745', strokeWidth: 2, dash: 1 });
+    var maxLineP0 = powerBoard.create('point', [function () { return num('rthPowerRange'); }, 0], { visible: false, fixed: true });
+    var maxLineP1 = powerBoard.create('point', [function () { return num('rthPowerRange'); }, 30], { visible: false, fixed: true });
+    powerBoard.create('segment', [maxLineP0, maxLineP1], { strokeColor: '#28a745', strokeWidth: 2, dash: 2, fixed: true });
+    powerBoard.create('point', [function () { return num('rlPowerRange'); }, function () { var v = num('vthPowerRange'), rth = num('rthPowerRange'), rl = num('rlPowerRange'); return 1000 * (v * v * rl) / Math.pow(rth + rl, 2); }], { name: 'P', size: 4, color: '#d9534f', fixed: true });
+    powerBoard.create('point', [function () { return num('rthPowerRange'); }, function () { var v = num('vthPowerRange'), rth = num('rthPowerRange'); return 1000 * (v * v * rth) / Math.pow(2 * rth, 2); }], { name: 'Pmax', size: 4, color: '#28a745', fixed: true });
+    powerBoard.create('text', [function () { return num('rthPowerRange') + 120; }, function () { var v = num('vthPowerRange'), rth = num('rthPowerRange'); return 1000 * (v * v * rth) / Math.pow(2 * rth, 2) + 2; }, 'Pmax, eta=50%'], { fixed: true, fontSize: 13, color: '#1e7e34' });
+
+    // PART 04.03: Dynamic readouts and slider updates
+    function updateIv() {
+        var vth = num('vthRange'), rth = num('rthRange'), r = num('rlinRange');
+        var vq = vth * r / (rth + r), iq = vth / (rth + r), p = vq * iq, pSource = (vth - vq) * iq, pTotal = vth * iq;
+        setText('vthVal', vth.toFixed(1));
+        setText('rthVal', rth.toFixed(0));
+        setText('rlinVal', r.toFixed(0));
+        setText('ivReadout', 'V_Q = ' + vq.toFixed(3) + ' V | I_Q = ' + ma(iq).toFixed(3) + ' mA = ' + iq.toFixed(6) + ' A | P_load = ' + (1000 * p).toFixed(3) + ' mW | P_RTH = ' + (1000 * pSource).toFixed(3) + ' mW | P_total = ' + (1000 * pTotal).toFixed(3) + ' mW');
+        ivBoard.update();
+    }
+
+    function updatePower() {
+        var v = num('vthPowerRange'), rth = num('rthPowerRange'), rl = num('rlPowerRange');
+        var i = v / (rth + rl), p = v * v * rl / Math.pow(rth + rl, 2), pmax = v * v / (4 * rth), pSource = v * v * rth / Math.pow(rth + rl, 2), pTotal = v * i, eta = 100 * p / pTotal;
+        setText('vthPowerVal', v.toFixed(1));
+        setText('rthPowerVal', rth.toFixed(0));
+        setText('rlPowerVal', rl.toFixed(0));
+        setText('powerReadout', 'R_L = ' + rl.toFixed(0) + ' Ohm | I = ' + ma(i).toFixed(3) + ' mA | P_L = ' + (1000 * p).toFixed(3) + ' mW | P_RTH = ' + (1000 * pSource).toFixed(3) + ' mW | P_total = ' + (1000 * pTotal).toFixed(3) + ' mW | eta = ' + eta.toFixed(1) + '% | P_max = ' + (1000 * pmax).toFixed(3) + ' mW at R_L=R_TH');
+        powerBoard.update();
+    }
+
+    ['vthRange', 'rthRange', 'rlinRange'].forEach(function (id) { byId(id).addEventListener('input', updateIv); });
+    ['vthPowerRange', 'rthPowerRange', 'rlPowerRange'].forEach(function (id) { byId(id).addEventListener('input', updatePower); });
+    updateIv();
+    updatePower();
+}());
+</script>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

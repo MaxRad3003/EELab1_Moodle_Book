@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InLab Exp02 01 PartB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!-- CHAPTER: HEADER -->
+<h3 class="section-title" style="margin-bottom: 0.75rem; display: inline-block; margin-top: 0; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">חלק ב': משפט תבנין השקול והעברת הספק מקסימלי</h3>
+<p class="mb-4" style="margin-bottom: 1rem;">בחלק זה נבצע מדידות בשני מצבי קיצון של המעגל—מצב חוג פתוח ומצב קצר מוחלט—על מנת לקבוע את הפרמטרים של מעגל תבנין השקול: מתח תבנין (\(V_{TH}\)) והתנגדות תבנין (\(R_{TH}\)).</p>
+
+<!-- SECTION: MEASUREMENT EQUIPMENT GUIDELINES -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-equipment-guide-partb">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🔌 חיבור וכיול ציוד המדידה:</h4>
+    <p style="margin-top: 0; margin-bottom: 0.9rem;">בחלק זה נמדוד מתח חוג פתוח וזרם קצר על מנת לחשב את שקול תבנין (לפרטים נוספים ראו את <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">מדריך ציוד המדידה במודל</a>):</p>
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
+        <li style="margin-bottom: 8px;"><strong>מקור מתח (Power Supply):</strong> כוונו את ערוץ 1 של ספק הכוח <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">GPS-3303</a> למתח של \(V_1 = 5.0\text{V}\) והגדירו הגבלת זרם של \(100\text{mA}\) למניעת עומס יתר.</li>
+        <li style="margin-bottom: 8px;"><strong>מדידת מתח הדקים פתוחים (\(V_{oc} = V_{th}\)):</strong> הגדירו את הרב-מודד הדיגיטלי <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">GDM-8245 / GDM-8341</a> כמד-מתח (כבל שחור בשקע COM, כבל אדום בשקע V/\(\Omega\), בורר במצב <strong>DC V</strong>). חברו את מדי המתח במקביל להדקים A ו-B כאשר נגד העומס מנותק.</li>
+        <li style="margin-bottom: 8px;"><strong>מדידת זרם קצר (\(I_{sc}\)):</strong> העבירו את הכבל האדום בשילוב בטוח לשקע ה-<strong>mA</strong> ברב-מודד, וכוונו את הבורר למצב <strong>DC mA</strong>. חברו את מד הזרם ישירות בין הדק A להדק B. <strong>שימו לב:</strong> מאחר וההתנגדות הפנימית של מד הזרם שואפת לאפס, חיבור זה יוצר קצר מוחלט. בצעו מדידה זו בזריזות ונתקו את המד מיד לאחר רישום הערך!</li>
+        <li style="margin-bottom: 8px;"><strong>נגד עומס משתנה (\(R_L\)):</strong> נשתמש בפוטנציומטר או בקופסת נגדים (עשורית) כנגד עומס משתנה. כוונו את ערכו באמצעות מד התנגדות (DMM במצב \(\Omega\)) <strong>לפני</strong> חיבורו למעגל.</li>
+    </ul>
+</div>
+
+<!-- SECTION: SCHEMATIC -->
+<div class="theory-card text-center" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); text-align: center;" id="section-schematic">
+    <strong class="text-primary d-block mb-3" style="color: #005696 !important; margin-bottom: 12px; display: block;">📐 שרטוט סכמתי — מדידת הדקי תבנין (נקודות A ו-B):</strong>
+    <img src="../../assets/images/THEVENIN-schematic.png" alt="Thevenin Schematic" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+    <p style="margin-top: 10px; color: #52616b;">מדידת מתח ריקם וזרם קצר בין הדקי העומס</p>
+</div>
+
+<!-- SECTION: FALSTAD SIMULATION -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-falstad-thevenin">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">חקירת המעגל ב-Falstad - תבנין והעברת הספק מקסימלי</h4>
+    <p>הסימולציה מציגה את מעגל העבודה לחלק ב. השתמשו בה כדי לבדוק מתח חוג פתוח, זרם קצר והתנהגות העומס לפני המדידה במעבדה.</p>
+    <div style="border: 2px dashed #ccc; padding: 10px; background-color: white; text-align: center; border-radius: 5px;">
+        <iframe width="100%" height="450" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoAD0RUALNihI67KFRYsrN1PAQiochC2G4kJAPS6+sDSUCbINnZ0VE62VOYuFOyoAO6u7goAhkbS8oF6BsaIjEQx8WZQJWXRiW6onpQECPnBKWEUkeWxsbUiLQZt4da2w3YWPbA4zUED7Qj2jqNVE+nTBcCDxaXdy+W9a61zu9GV2wv7-RtHZw7d55N1l5sRcbej9FQXM8AA5nPvb0izDMX3WAGUQAB7UQqOZmRw0Rb2KKfB4iGbBSFQFQAOwoqAwokQ7BBDyMSHMBGSUCJCA0qHCADUAPqMtAACwQGP0BlEUFydSgGHIkgOPOCfIFjAJIrwVKoAW5wH8kO+-gh0JU3w1MLmlKgLEswKsZlJqyVWNxUyFtJJtXJhGw1Np9LmLIAShyuQVxcBJdbhXluRL+cUZTh8E6FWLgiq1TqteCobrwowWBUuqaEQ59hbsXj5gTbWbEA7CKiXdofTy-aHBYHRf1ff6ENKhbLI+xo02DHH1urk4ngpkACYAK2x1pUYCnBfdKgwYAwaEyOJAsIAFJD2QoMABKRQFlBQBRDQgEtCIT2cy6jicqfHYmeCq0IRmQgA2K5+KkPiDUNCKOEgFCpeb5ere46ToWT6zleC5Liua6btuu4HieR5ARQ56gVeAAyazKuAEC6EAA" frameborder="0" allowfullscreen style="border: none;"></iframe>
+        <div style="text-align: center; margin-top: 12px;"><a href="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoAD0RUALNihI67KFRYsrN1PAQiochC2G4kJAPS6+sDSUCbINnZ0VE62VOYuFOyoAO6u7goAhkbS8oF6BsaIjEQx8WZQJWXRiW6onpQECPnBKWEUkeWxsbUiLQZt4da2w3YWPbA4zUED7Qj2jqNVE+nTBcCDxaXdy+W9a61zu9GV2wv7-RtHZw7d55N1l5sRcbej9FQXM8AA5nPvb0izDMX3WAGUQAB7UQqOZmRw0Rb2KKfB4iGbBSFQFQAOwoqAwokQ7BBDyMSHMBGSUCJCA0qHCADUAPqMtAACwQGP0BlEUFydSgGHIkgOPOCfIFjAJIrwVKoAW5wH8kO+-gh0JU3w1MLmlKgLEswKsZlJqyVWNxUyFtJJtXJhGw1Np9LmLIAShyuQVxcBJdbhXluRL+cUZTh8E6FWLgiq1TqteCobrwowWBUuqaEQ59hbsXj5gTbWbEA7CKiXdofTy-aHBYHRf1ff6ENKhbLI+xo02DHH1urk4ngpkACYAK2x1pUYCnBfdKgwYAwaEyOJAsIAFJD2QoMABKRQFlBQBRDQgEtCIT2cy6jicqfHYmeCq0IRmQgA2K5+KkPiDUNCKOEgFCpeb5ere46ToWT6zleC5Liua6btuu4HieR5ARQ56gVeAAyazKuAEC6EAA" target="_blank" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">פתיחת סימולציית Falstad</a></div>
+    </div>
+</div>
+
+<!-- SECTION: SHORT CURRENT SAFETY -->
+<div class="alert-box" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0;" id="section-short-current-safety">
+    <strong>⚠️ בטיחות במדידת זרם קצר:</strong>
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="margin: 8px 0 0 0; padding-right: 20px;">
+        <li>הגדירו מגבלת זרם בספק ל-100mA לפני חיבור מד הזרם בין A ל-B.</li>
+        <li>ודאו שמד הזרם נמצא בתחום זרם מתאים ושהכבלים מחוברים לשקע הזרם הנכון ברב-מודד.</li>
+        <li>בצעו את מדידת \(I_{SC}\) לזמן קצר בלבד (עד 5 שניות) כדי למנוע התחממות רכיבים, ונתקו את המד מיד.</li>
+        <li>אם הזרם חורג מהצפוי או אם נגד כלשהו מתחיל להתחמם, נתקו מיד את הספק ובדקו את חיבורי המעגל.</li>
+    </ul>
+</div>
+
+<!-- SECTION: PROCEDURE -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-procedure">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📝 שלבי העבודה ומהלך המדידה:</h4>
+    <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol>
+        <li class="mb-2" style="margin-bottom: 8px;">נתקו לחלוטין את נגד העומס המרכזי (\(R_L\)). נקודות החיבור הריקות יוגדרו כהדקים A ו-B.</li>
+        <li class="mb-2" style="margin-bottom: 8px;"><strong>מדידת מתח חוג פתוח (\(V_{OC}\)):</strong> חברו מד-מתח במקביל בין הדק A להדק B. רשמו את הערך (\(V_{TH} = V_{OC}\)) בטבלה.</li>
+        <li class="mb-2" style="margin-bottom: 8px;"><strong>מדידת זרם קצר (\(I_{SC}\)):</strong> העבירו את הרב-מודד למצב מדידת זרם (העברת הכבל לשקע הזרם ושינוי הבורר), וחברו אותו ישירות בין A ל-B. רשמו את הערך בטבלה.</li>
+        <li><strong>חישוב התנגדות תבנין:</strong> חשבו את ההתנגדות השקולה לפי חוק אוהם: \(R_{TH} = V_{OC} / I_{SC}\).</li>
+    </ol>
+</div>
+
+<!-- SECTION: LOAD SWEEP -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-load-sweep">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">בדיקת העברת הספק לעומס</h4>
+    <p>לאחר חישוב \(R_{TH}\), חברו ערכי עומס שונים סביב הערך שחושב ובדקו היכן מתקבל הספק מרבי.</p>
+    <!-- DATA TABLE / COMPARISON TABLE -->
+<table style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: center;">
+        <thead>
+            <tr>
+                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">\(R_L\) [\(\Omega\)]</th>
+                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">\(V_L\) [V]</th>
+                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">\(I_L\) [mA]</th>
+                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">\(P_L=V_L \cdot I_L\) [mW]</th>
+                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">הערה</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">\(0.5R_{TH}\)</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">\(R_{TH}\)</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; color: #0369a1;">צפוי הספק מרבי</td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">\(2R_{TH}\)</td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td><td style="padding: 10px; border: 1px solid #ddd;"></td></tr>
+        </tbody>
+    </table>
+    <p style="margin: 10px 0 0 0; color: #52616b;">שימו לב: אם הזרם נרשם ב-mA, ההספק \(V \cdot mA\) מתקבל ב-mW.</p>
+</div>
+
+<!-- SECTION: DATA TABLE -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-table">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 טבלה ריקה לרישום המדידות:</h4>
+    <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="data-table" style="border-spacing: 0; margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #dae0e5; width: 100%; border-collapse: collapse; margin-top: 15px;" width="100%">
+        <thead>
+            <tr>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">פרמטר נמדד</th>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">סימון מתמטי</th>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">ערך נמדד</th>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">יחידות</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מתח חוג פתוח</td>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">V<sub>OC</sub> (=V<sub>TH</sub>)</td>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">[V]</td>
+            </tr>
+            <tr>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white">זרם קצר ישיר</td>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">I<sub>SC</sub></td>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white">[mA]</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- SECTION: FOOTER -->
+<div class="alert-box text-center" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0; text-align: center;">
+    <strong>💾 סיימתם למדוד?</strong> וודאו שכל הנתונים רשומים ושמורים היטב! אתם תזדקקו להם לשלב עיבוד הנתונים.
+</div>
+
+
+
+<div data-units-emphasis="exp2" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
+    <strong style="color:#005696;">דגש יחידות בניסוי 2:</strong>
+    <span> בסופרפוזיציה, תבנין ואופייני I-V יש לשמור על יחידות בכל שלב: \(V\) למתחים, A או mA לזרמים, \(\Omega\) להתנגדויות ו-W להספק. שיפוע אופיין \(I-V\) אינו מספר בלבד: \(R=\Delta V/\Delta I\) מתקבל ב-\(\Omega\).</span>
+</div>
+
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

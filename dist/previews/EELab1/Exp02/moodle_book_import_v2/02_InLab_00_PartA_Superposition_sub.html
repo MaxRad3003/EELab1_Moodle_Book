@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 InLab 00 PartA Superposition sub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!-- EXP02 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 &gt; מעבדה &gt; חלק א' סופרפוזיציה</div>
+<!-- /EXP02 BREADCRUMB -->
+
+<!-- CHAPTER: HEADER -->
+<h3 class="section-title" style="margin-bottom: 0.75rem; display: inline-block; margin-top: 0; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">חלק א': אימות משפט סופרפוזיציה ומאזן הספקים</h3>
+<p class="mb-4" style="margin-bottom: 1rem;">בחלק זה נבדוק באופן מעשי מעגל בעל שני מקורות עירור בלתי תלויים, ונאמת את משפט ההרכבה (סופרפוזיציה) עבור זרמים במעגל. כמו כן, נאסוף נתונים שיאפשרו לנו לבצע בדיקת מאזן הספקים מלאה.</p>
+
+<!-- SECTION: MEASUREMENT EQUIPMENT GUIDELINES -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-equipment-guide-parta">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">🔌 חיבור וכיול ציוד המדידה:</h4>
+    <p style="margin-top: 0; margin-bottom: 0.9rem;">לפני בניית המעגל וביצוע המדידות, עברו על הנחיות השימוש במכשירים (לפרטים נוספים ראו את <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">מדריך ציוד המדידה במודל</a>):</p>
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="margin: 0; padding-right: 20px; line-height: 1.6;">
+        <li style="margin-bottom: 8px;"><strong>ספקי כוח (DC Power Supply):</strong> נשתמש בשני ערוצים עצמאיים של ספק הכוח <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">GW Instek GPS-3303</a> במצב עצמאי (Independent). כוונו את מתח ערוץ 1 ל-\(V_1 = 5.0\text{V}\) ואת ערוץ 2 ל-\(V_2 = 3.0\text{V}\). חברו את הדקי ה-COM (השחורים) של שני הערוצים זה לזה על המטריצה ליצירת אדמה משותפת (GND).</li>
+        <li style="margin-bottom: 8px;"><strong>הגבלת זרם בטיחותית:</strong> לפני הפעלת היציאות (Output ON), כוונו את הגבלת הזרם (Current Limit) בשני הערוצים לערך של כ-\(100\text{mA}\) כדי להגן על הנגדים והמכשור מפני קצרים.</li>
+        <li style="margin-bottom: 8px;"><strong>מד זרם דיגיטלי (DMM):</strong> נשתמש ברב-מודד דיגיטלי מדגם <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">GDM-8245 / GDM-8341</a> למדידת זרם העומס \(I_L\). חברו את הכבל השחור ליציאת COM ואת הכבל האדום ליציאת mA, וכוונו את הבורר למצב <strong>DC mA</strong>.</li>
+        <li style="margin-bottom: 8px;"><strong>חיבור מד הזרם בטור:</strong> כדי למדוד את הזרם \(I_L\), עליכם לחבר את מד הזרם <strong>בטור</strong> לנגד העומס \(R_L\). אל תחברו את מד הזרם במקביל למקורות או לרכיבים!</li>
+        <li style="margin-bottom: 8px;"><strong>ביצוע "קצר" למקור:</strong> בשלבים 2 ו-3, כאשר נדרש לכבות מקור (למשל \(V_2\)) ולקצר את הדקיו, נתקו את כבל הספק מהמעגל וחברו במקומו חוט קצר ישירות לנקודת האדמה המשותפת (GND). <strong>אין לקצר ישירות את הדקי הספק עצמם כשהוא דולק!</strong></li>
+    </ul>
+</div>
+
+<!-- SECTION: SCHEMATIC -->
+<div class="theory-card text-center" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); text-align: center;" id="section-schematic">
+    <strong class="text-primary d-block mb-3" style="color: #005696 !important; margin-bottom: 12px; display: block;">📐 שרטוט סכמתי — מעגל רשת T בעל שני מקורות:</strong>
+    <img src="../../assets/images/%D7%A1%D7%95%D7%A4%D7%A8%D7%A4%D7%95%D7%96%D7%99%D7%A6%D7%99%D7%A6%D7%99%D7%94-schematic.png" alt="Superposition Schematic" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+    <p style="margin-top: 10px; color: #52616b;">ערכים: V1 = 5V, V2 = 3V, R1 = 300&Omega;, R2 = 1k&Omega;, RL = 1k&Omega;</p>
+</div>
+
+<!-- SECTION: FALSTAD SIMULATION -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-falstad-superposition">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">חקירת המעגל ב-Falstad - משפט סופרפוזיציה</h4>
+    <p>הסימולציה מציגה את אותו מעגל עבודה לחלק א. השתמשו בה כדי לוודא את כיווני הזרמים ואת השפעת כל מקור מתח לפני המדידה במעבדה.</p>
+    <div style="border: 2px dashed #ccc; padding: 10px; background-color: white; text-align: center; border-radius: 5px;">
+        <iframe width="100%" height="450" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" frameborder="0" allowfullscreen style="border: none;"></iframe>
+        <div style="text-align: center; margin-top: 12px;"><a href="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EJhqAG4QhqALaYhAUwC0SFAD4AUFCjBoADwpUWUJO2wXOVC1dTwEIqHITMRAel37DUEwhUROxQZuZBIVRUACyOOKhulAQI3noGxojRlqEs5lmRMXHOCRSEKT4G0v6I7NE55rWhrEWWqADuTi4KAIZG0vKpvlUBjCx1ltaMNPYuTq1QHfFQPX2IjOVpwG3VyGYzUI0TRV4VWzuHVgd1NCzHG77bAUi2+xEzd4MGj4hvE6HBoUKsHinzOAV+lym1iOwOKoO+7jG+3y71hJ02CJRfxRUViaPuXx2ONyUBRzDxnQJYMy2XJ-xC5I+pwRbzpbzCTIxO1Z2DqjUZ+Ph5zqdMaHMFpwAyiAAPaiFQ7RiMEKcEJY6IU+IVXwyqAqAB2mVQGFENU1CCMSQI7DEiA0qACADUqAhtfoDKIoP1ilAMORJAT3R6vWtjf68AQkMEgoGDJ4ZadPNK5SopbL5USpoC6kQkHZxZS3cBdQafsbTQhakVLYRsLwoBX7TsAEoAGVdaSDwE93pcfoouBjny7PdDvvD+GwUfYQ6L8cTyflaZTOzUWdxUHXdBd+KLJcN7nLZurVrrtoQTad2k77u7IZ9-YDw9vo8P45wk5nJGfwHnmyT6appsi4KuCJIbowRD5rkdx7nqB4oL6FZVrCNaEPWjaIQEzYum6vivn2-rfnhwbeus77OPgebETev4Jv+IHLhmTwalAqpNOYSAarBtH7ksJrHqhp4YXaWGIM215Bvh96ET8uA0VJpFjo+EbUbGdELoBpzdAAJgAVnqY4qGASylggjoygANmg3QAOYqIoB5dAEJC+mgiCOigoK6QZKhGnqJk+mZFnWXZDnLE5igjMa7nmS6qS-uAEC6EAA" target="_blank" style="display: inline-block; background-color: #005696; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold;">פתיחת סימולציית Falstad</a></div>
+    </div>
+</div>
+
+<!-- SECTION: BEFORE MEASUREMENT CHECK -->
+<div class="alert-box" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0;" id="section-before-measurement-check">
+    <strong>בדיקת מוכנות לפני הפעלת ספקים:</strong>
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="margin: 8px 0 0 0; padding-right: 20px;">
+        <li>ודאו שכל האדמות של הספקים מחוברות לנקודת ייחוס משותפת.</li>
+        <li>בדקו שמד הזרם מחובר בטור לעומס ולא במקביל אליו.</li>
+        <li>לפני איפוס מקור מתח, החליפו אותו בקצר בלבד. אין להשאיר מקור כבוי וצף במעגל.</li>
+        <li>רשמו מראש את כיוון הזרם החיובי כדי שסכום הזרמים האלגברי יהיה ברור.</li>
+    </ul>
+</div>
+
+<!-- SECTION: PROCEDURE -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-procedure">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📝 שלבי העבודה ומהלך המדידה:</h4>
+    <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol>
+        <li class="mb-2" style="margin-bottom: 8px;">הרכיבו את רשת הנגדים על גבי המטריצה: \(R_1 = 300\Omega\), \(R_2 = 1\text{k}\Omega\), \(R_L = 1\text{k}\Omega\).</li>
+        <li class="mb-2" style="margin-bottom: 8px;">חברו את ספקי הכוח המכוילים: \(V_1 = 5.0\text{V}\), \(V_2 = 3.0\text{V}\) (אדמה משותפת).</li>
+        <li class="mb-2" style="margin-bottom: 8px;"><strong>מצב 1 (מלא - שני מקורות פעילים):</strong> מדדו את הזרם דרך העומס (\(I_L\)) באמצעות מד הזרם ורשמו אותו בטבלה.</li>
+        <li class="mb-2" style="margin-bottom: 8px;"><strong>מצב 2 (עירור חלקי א' - רק V1 פעיל):</strong> כבו את \(V_2\) והחליפו אותו בקצר לאדמה (השתמשו בחוט גישור). מדדו את הזרם (\(I'_L\)).</li>
+        <li><strong>מצב 3 (עירור חלקי ב' - רק V2 פעיל):</strong> החזירו את \(V_2\), כבו את \(V_1\) והחליפו אותו בקצר לאדמה. מדדו את הזרם (\(I''_L\)).</li>
+    </ol>
+</div>
+
+<!-- SECTION: SUPERPOSITION CHECK -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-superposition-check">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">בדיקת איכות מיידית למדידה</h4>
+    <p style="margin: 0 0 8px 0;">לאחר שלוש המדידות, חשבו במקום את השגיאה היחסית כדי לוודא שאין טעות חיווט חמורה:</p>
+    <div dir="ltr" style="text-align: center; font-size: 18px; color: #005696; font-weight: bold; margin: 12px 0;">
+        \(\text{error}[\%] = 100 \cdot \frac{|I_{both}-(I'_{L}+I''_{L})|}{|I_{both}|}\)
+    </div>
+    <p style="margin: 0;">אם השגיאה גדולה מ-10%, בדקו שוב כיוון זרם, חיבורי אדמה, וטווח מד הזרם לפני שממשיכים לחלק ב'.</p>
+</div>
+
+<!-- SECTION: DATA TABLE -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-table">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">📊 טבלה ריקה לרישום המדידות:</h4>
+    <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="data-table" style="border-spacing: 0; margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #dae0e5; width: 100%; border-collapse: collapse; margin-top: 15px;" width="100%">
+        <thead>
+            <tr>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">מצב עירור המעגל</th>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">נוסחה תיאורטית</th>
+                <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">זרם נמדד [mA]</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מצב מלא: V1 ו-V2 פועלים</td>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">\(I_L = I'_L + I''_L\)</td>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מצב חלקי א': רק V1 פועל</td>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">\(I'_L\)</td>
+                <td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
+            </tr>
+            <tr>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מצב חלקי ב': רק V2 פועל</td>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" dir="ltr" bgcolor="white">\(I''_L\)</td>
+                <td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- SECTION: FOOTER -->
+<div class="alert-box text-center" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0; text-align: center;">
+    <strong>💾 סיימתם למדוד?</strong> וודאו שכל הנתונים רשומים ושמורים היטב! אתם תזדקקו להם לשלב עיבוד הנתונים.
+</div>
+
+<!-- EXP02 NAVIGATION -->
+<div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;">
+    <a href="02_InLab.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a>
+    <a href="02_InLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים ניסוי מעשי</a>
+    <a href="02_InLab_01_PartB_Thevenin_sub.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: חלק ב'</a>
+</div>
+<!-- /EXP02 NAVIGATION -->
+
+<div data-units-emphasis="exp2" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
+    <strong style="color:#005696;">דגש יחידות בניסוי 2:</strong>
+    <span> בסופרפוזיציה, תבנין ואופייני I-V יש לשמור על יחידות בכל שלב: \(V\) למתחים, A או mA לזרמים, \(\Omega\) להתנגדויות ו-W להספק. שיפוע אופיין \(I-V\) אינו מספר בלבד: \(R=\Delta V/\Delta I\) מתקבל ב-\(\Omega\).</span>
+</div>
+
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

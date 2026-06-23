@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscilloscope sub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!-- BREADCRUMB -->
+<div class="alert alert-info py-2 px-3 mb-4" style="font-size: 14px; border-radius: 6px;">
+    <a href="Index.html" style="text-decoration: none; color: inherit; font-weight: bold;">← חזרה לאינדקס המכשירים</a>
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- HEADER -->
+<div class="text-center mb-4">
+    <h1 class="display-5 fw-bold text-warning" style="margin-top: 1rem; margin-bottom: 0.5rem; color: #d97706 !important;">מבוא לשימוש באוסילוסקופ (משקף תנודות)</h1>
+    <div class="mx-auto bg-warning" style="height: 3px; width: 80px; border-radius: 10px; background-color: #d97706 !important;"></div>
+</div>
+<!-- /HEADER -->
+
+<!-- INTRODUCTION -->
+<div class="info-box border-warning" style="border-right-color: #d97706 !important;">
+    <h3 class="sub-title text-warning" style="margin-top: 0; color: #d97706 !important;"><i class="fas fa-tv"></i> מהו אוסילוסקופ?</h3>
+    <p class="lead">
+        אוסילוסקופ (בעברית: <strong>משקף תנודות</strong>) הוא המכשיר החשוב והרב-גוני ביותר במעבדת האלקטרוניקה. תפקידו להציג את צורת אות המתח כפונקציה של הזמן על גבי מסך גרפי. 
+    </p>
+    <p>
+        בעוד שרב-מודד דיגיטלי (DMM) מספק לנו רק ערך מספרי יחיד (כמו ערך ממוצע או ערך יעיל RMS), האוסילוסקופ פותח לנו "חלון" לתוך המעגל ומאפשר לראות את האות עצמו בזמן אמת - למדוד זמן מחזור, תדר, מתח שיא לשיא, להבחין ברעשים, עיוותים ותופעות מעבר מהירות (טרנזיינטים).
+    </p>
+    <div class="row my-4 align-items-center">
+        <div class="col-md-7">
+            <p>
+                באיור משמאל מוצג הלוח הקדמי הטיפוסי של אוסילוסקופ דיגיטלי.
+                על גבי המסך מוצגים ערוצי המדידה השונים, ובצד ימין ממוקמים בוררי הרגישות האנכית של כל ערוץ, בסיס הזמן ומערכת הסנכרון (Trigger).
+            </p>
+        </div>
+        <div class="col-md-5 text-center">
+            <!-- CARD CONTAINER -->
+<div class="card p-2 bg-light shadow-sm">
+                <img src="Figure/osc_front_panel.png" alt="Oscilloscope Front Panel Photo" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--border-color);">
+                <p class="mb-0 mt-1 small text-muted">לוח קדמי של אוסילוסקופ דיגיטלי טיפוסי</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /INTRODUCTION -->
+
+<!-- VIRTUAL OSCILLOSCOPE SIMULATOR -->
+<div class="theory-card my-4 border-warning">
+    <h4 class="sub-title text-warning" style="margin-top: 0; color: #d97706 !important;"><i class="fas fa-laptop-code"></i> סימולטור אוסילוסקופ וירטואלי אינטראקטיבי</h4>
+    <p>
+        כדי להתנסות בחיבור פרובים, כיוון כפתורי הרגישות האנכית (Volts/Div) ובסיס הזמן (Time/Div) לפני העבודה המעשית במעבדה, מומלץ להשתמש בסימולטור הבא:
+    </p>
+    
+    <!-- Virtual Scope Iframe -->
+    <div class="text-center my-3">
+        <iframe src="https://physics-zone.com/virtual-oscilloscope/" width="100%" height="600px" style="border: 1px solid #cbd5e1; border-radius: 8px;" allowfullscreen></iframe>
+    </div>
+    
+    <div class="bg-light p-3 rounded border-start border-warning border-4">
+        <h5 class="fw-bold text-warning" style="color: #d97706 !important;">הנחיות תרגול מהירות לסימולטור:</h5>
+        <!-- BULLET LIST / KEY POINTS -->
+<ul class="mb-0" style="padding-right: 20px;">
+            <li>הדליקו את האוסילוסקופ והמחולל (לחצני הפעלה אדומים).</li>
+            <li>חברו את הכבל מהמחולל (Signal Out) אל כניסת ערוץ 1 באוסילוסקופ (CH1).</li>
+            <li>שנו את התדר ואמפליטודת הגל במחולל וראו את השינוי במסך האוסילוסקופ.</li>
+            <li>אם האות זז או "רץ" על המסך, לחצו על כפתור ה-<strong>Trigger Level</strong> וסובבו אותו כדי לייצב את התמונה.</li>
+            <li>לחצו על כפתור <    <div class="text-center py-2">
+        <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 760 320" width="100%" height="auto" style="background-color: #fffbeb; border: 1px solid #fde047; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left Side: Source and circuit -->
+            <g transform="translate(10, 10)">
+                <text x="140" y="25" font-family="sans-serif" font-weight="bold" font-size="14" fill="#0f172a" text-anchor="middle">המעגל החשמלי הנמדד</text>
+                <rect x="10" y="35" width="260" height="220" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+                
+                <!-- AC Source -->
+                <circle cx="60" cy="140" r="20" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <path d="M 50 140 Q 55 130, 60 140 T 70 140" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <text x="60" y="105" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle" font-weight="bold">מקור AC</text>
+                
+                <!-- Resistors R1 & R2 drawn vertically -->
+                <rect x="180" y="65" width="20" height="40" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <text x="215" y="90" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0f172a">R1</text>
+                
+                <rect x="180" y="145" width="20" height="40" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <text x="215" y="165" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0f172a">R2</text>
+                <text x="215" y="180" font-family="sans-serif" font-size="9" fill="#dc2626" font-weight="bold">מקוצר ומנוטרל!</text>
+                
+                <!-- Red Cross over R2 -->
+                <path d="M 175 140 L 205 190 M 205 140 L 175 190" fill="none" stroke="#dc2626" stroke-width="2"/>
+
+                <!-- Circuit Wires -->
+                <!-- Top Wire -->
+                <path d="M 60 120 L 60 50 L 190 50 L 190 65" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <!-- Middle Wire -->
+                <path d="M 190 105 L 190 145" fill="none" stroke="#0f172a" stroke-width="2"/>
+                <!-- Bottom Wire -->
+                <path d="M 190 185 L 190 230 L 60 230 L 60 160" fill="none" stroke="#0f172a" stroke-width="2"/>
+
+                <!-- Ground symbol of Source -->
+                <path d="M 60 230 L 60 250" fill="none" stroke="#dc2626" stroke-width="2"/>
+                <line x1="45" y1="250" x2="75" y2="250" stroke="#dc2626" stroke-width="2"/>
+                <line x1="50" y1="254" x2="70" y2="254" stroke="#dc2626" stroke-width="1.5"/>
+                <line x1="55" y1="258" x2="65" y2="258" stroke="#dc2626" stroke-width="1"/>
+                
+                <!-- Node connection at middle wire -->
+                <circle cx="190" cy="125" r="4" fill="#dc2626"/>
+            </g>
+            
+            <!-- Red Short Circuit Dotted Path -->
+            <path d="M 200 135 C 260 135, 320 220, 465 160" fill="none" stroke="#dc2626" stroke-width="3" stroke-dasharray="5,5"/>
+            <text x="320" y="210" font-family="sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">נתיב קצר אדמות הרסני!</text>
+            
+            <!-- Right Side: Oscilloscope -->
+            <g transform="translate(450, 10)">
+                <text x="140" y="25" font-family="sans-serif" font-weight="bold" font-size="14" fill="#0f172a" text-anchor="middle">אוסילוסקופ</text>
+                <rect x="10" y="35" width="260" height="220" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+                
+                <!-- Channel input -->
+                <rect x="30" y="60" width="50" height="30" rx="3" fill="#e2e8f0" stroke="#94a3b8"/>
+                <text x="55" y="78" font-family="sans-serif" font-size="10" fill="#0f172a" text-anchor="middle" font-weight="bold">CH1</text>
+                
+                <!-- Probe tip representation -->
+                <circle cx="80" cy="75" r="4" fill="#ef4444"/>
+                
+                <!-- Internal ground bus -->
+                <line x1="45" y1="90" x2="45" y2="230" stroke="#dc2626" stroke-width="2.5"/>
+                <text x="120" y="160" font-family="sans-serif" font-size="10" fill="#dc2626" font-weight="bold">אדמה משותפת פנימית</text>
+                
+                <!-- Ground Crocodile Clip -->
+                <path d="M 45 150 L 15 150" fill="none" stroke="#000000" stroke-width="2"/>
+                <!-- Clip body -->
+                <rect x="-10" y="145" width="25" height="10" fill="#000000"/>
+                <circle cx="15" cy="150" r="3" fill="#dc2626"/>
+                <text x="25" y="138" font-family="sans-serif" font-size="9" fill="#000000" font-weight="bold">תנין שחור שגוי</text>
+                
+                <!-- Power Plug Earth Connection -->
+                <path d="M 45 230 L 140 230 L 140 245" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+                <line x1="125" y1="245" x2="155" y2="245" stroke="#dc2626" stroke-width="2"/>
+                <line x1="130" y1="249" x2="150" y2="249" stroke="#dc2626" stroke-width="1.5"/>
+                <line x1="135" y1="253" x2="145" y2="253" stroke="#dc2626" stroke-width="1"/>
+                <text x="180" y="245" font-family="sans-serif" font-size="9" fill="#dc2626" font-weight="bold">הארקת בניין</text>
+            </g>
+        </svg>
+    </div>width="2.5"/>
+                <text x="125" y="150" font-family="sans-serif" font-size="10" fill="#dc2626" font-weight="bold">חיבור אדמות פנימי</text>
+                
+                <!-- Ground clips -->
+                <circle cx="45" cy="150" r="4" fill="#000000"/>
+                <path d="M 45 150 L 20 150" fill="none" stroke="#000000" stroke-width="2"/>
+                <rect x="-5" y="145" width="25" height="10" fill="#000000"/>
+                <text x="15" y="138" font-family="sans-serif" font-size="9" fill="#000000" font-weight="bold">תנין שחור</text>
+                
+                <!-- Scope Earth Plug -->
+                <path d="M 45 230 L 140 230 L 140 250" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+                <path d="M 140 250 L 140 260 M 130 260 L 150 260 M 134 264 L 146 264 M 138 268 L 142 268" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                <text x="180" y="260" font-family="sans-serif" font-size="9" fill="#dc2626">אדמת הבניין</text>
+            </g>
+            
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
+    
+    <!-- SAFETY & WARNING BLOCK -->
+<div class="alert alert-danger py-2 px-3 mt-3" style="font-size: 14px;">
+        <strong>משמעות הקצר:</strong>
+        <br>אם נחבר את תנין האדמה של האוסילוסקופ לנקודה האמצעית במעגל (כדי למדוד את המתח על R1 בנפרד), ומצד שני מחולל האותות מחובר לאדמת המעגל בתחתית (נקודה משותפת דרך רשת החשמל) - אנו מקצרים את הנגד התחתון R2 ישירות לאדמה! 
+        <br>הזרם יעקוף את R2 ויזרום דרך תנין האוסילוסקופ לאדמה. הדבר יגרום ל:
+        <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol class="mb-0 mt-1" style="padding-right: 20px;">
+            <li>מדידה שגויה לחלוטין (רכיב R2 מבוטל).</li>
+            <li>זרמי ענק שיכולים לשרוף את הנגד R1 או לפגוע במחולל האותות.</li>
+        </ol>
+        <strong>חוק הזהב במעבדה:</strong> כל האדמות של כל המכשירים (מחולל, ערוץ 1 וערוץ 2 באוסילוסקופ) חייבות להיות מחוברות ל<strong>אותה נקודה חשמלית במעגל</strong> (בדרך כלל פס אדמת המקור).
+    </div>
+</div>
+<!-- /GROUND LOOP (קצר אדמות) SVG DIAGRAM -->
+
+<!-- SPECIAL MEASUREMENTS -->
+<div class="card border-warning my-4" style="border-color: #fde047 !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-warning text-white" style="background-color: #d97706 !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-bolt"></i> כיצד מודדים זרם בעזרת אוסילוסקופ?</h3>
+    </div>
+    <!-- CARD CONTAINER -->
+<div class="card-body">
+        <p>
+            אוסילוסקופ הוא <strong>מד-מתח בלבד</strong>. הוא אינו מסוגל למדוד זרם באופן ישיר, מכיוון שהתנגדות הכניסה שלו עצומה (\(1\text{ M}\Omega\)) ואינה מאפשרת לזרם המעגל לזרום דרכו.
+        </p>
+        
+        <h5 class="fw-bold text-warning" style="color: #d97706 !important;">פתרון: מדידת זרם עקיפה (שיטת נגד החישה / Shunt Resistor)</h5>
+        <p>
+            כדי למדוד זרם משתמשים בחוק אוהם. מחברים נגד קטן בעל ערך ידוע ומדויק (\(R_{sense}\)) בטור לענף שבו רוצים למדוד את הזרם.
+        </p>
+        <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 20px;">
+            <li class="mb-2">מודדים את אות המתח \(v_R(t)\) שעל גבי נגד החישה באמצעות האוסילוסקופ.</li>
+            <li class="mb-2">מחשבים את הזרם בזמן אמת לפי הנוסחה: \[i(t) = \frac{v_R(t)}{R_{sense}}\]</li>
+            <li class="mb-2">באוסילוסקופ דיגיטלי, ניתן להשתמש בפונקציה המתמטית (Math) כדי לחלק את האות ישירות בערך הנגד ולהציג את התוצאה ביחידות של אמפר.</li>
+        </ol>
+        <!-- WARNING / ATTENTION BLOCK -->
+<div class="alert alert-warning py-2 px-3">
+            <strong>שים לב:</strong> וודאו כי נגד החישה מחובר צמוד לאדמה המשותפת של המעגל, כך שתוכלו לחבר את תנין האדמה של פרוב האוסילוסקופ לצד אחד שלו, ואת קצה הפרוב לצד השני, מבלי ליצור קצר אדמות.
+        </div>
+    </div>
+</div>
+<!-- /SPECIAL MEASUREMENTS -->
+
+<!-- OSCILLOSCOPE INPUT COUPLING -->
+<div class="card border-warning my-4" style="border-color: #fde047 !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-warning text-white" style="background-color: #d97706 !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-sliders-h"></i> סוגי צימוד אות כניסה (Input Coupling)</h3>
+    </div>
+    <!-- CARD CONTAINER -->
+<div class="card-body">
+        <p>בכל ערוץ באוסילוסקופ ניתן לבחור אחד משלושה מצבי צימוד לקביעת אופן העברת האות למגבר המכשיר:</p>
+        
+        <div class="table-responsive">
+            <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="table table-striped table-bordered text-right">
+                <thead class="bg-warning text-white" style="background-color: #d97706 !important;">
+                    <tr>
+                        <th style="width: 20%;">מצב צימוד</th>
+                        <th style="width: 30%;">מבנה חשמלי פנימי</th>
+                        <th>הסבר ושימוש מעשי</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">DC Coupling</td>
+                        <td>חיבור ישיר של האות למגבר (Direct Connection).</td>
+                        <td>האות מועבר במלואו, כולל רכיב ה-AC (המשתנה) ורכיב ה-DC (הקבוע). <strong>זהו המצב הרגיל והנפוץ ביותר במעבדה.</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">AC Coupling</td>
+                        <td>שילוב קבל בטור לגל (High-pass Filter).</td>
+                        <td>הקבל חוסם לחלוטין את רמות המתח הישר (DC Offset) ומאפשר רק לאות המשתנה (AC) לעבור. שימושי מאוד למדידת אדווה או רעש קטן (במילי-וולטים) הרוכב על מתח DC גבוה (לדוגמה, רעש של \(5\text{ mV}\) על ספק כוח של \(12\text{ V}\)).</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">GND (Ground)</td>
+                        <td>ניתוק הכניסה וחיבור המגבר לאדמה פנימית.</td>
+                        <td>האות החיצוני מנותק, ועל המסך מוצג קו אפס וולט ישר. משמש לקביעת מיקום האפס האופקי (Zero Reference Baseline) על רשת המשבצות של המסך.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /OSCILLOSCOPE INPUT COUPLING -->
+
+<!-- PRACTICAL DEMONSTRATION & STEP-BY-STEP GUIDE -->
+<div class="card border-warning my-4" style="border-color: #fde047 !important;">
+    <!-- CARD CONTAINER -->
+<div class="card-header bg-warning text-white" style="background-color: #d97706 !important;">
+        <h3 class="m-0 fs-5"><i class="fas fa-flask"></i> הדגמה מעשית ומדריך ניסוי שלב-אחר-שלב</h3>
+    </div>
+    <!-- CARD CONTAINER -->
+<div class="card-body">
+        <h4 class="text-warning fw-bold">הדגמה מעשית: חיבור דו-ערוצי בטוח למחלק מתח ומניעת קצר אדמות</h4>
+        <p>
+            בניסוי זה נשתמש באוסילוסקופ כדי למדוד בו-זמנית את מתח המקור של המעגל ואת מפל המתח על פני אחד הרכיבים במחלק מתח טורי, תוך שמירה על כללי בטיחות האדמה המשותפת.
+        </p>
+
+        <div class="bg-light p-3 rounded border-start border-warning border-4 mb-3">
+            <h5 class="fw-bold text-warning" style="color: #d97706 !important;"><i class="fas fa-list-ol"></i> מדריך תפעול מעשי וחיווט:</h5>
+            <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol class="mb-0" style="padding-right: 20px;">
+                <li class="mb-2">
+                    <strong>הרכבת המעגל:</strong> חברו על גבי לוח הלחם (Breadboard) מעגל טורי המכיל שני נגדים זהים של \(1\text{ k}\Omega\) (\(R_1\) ו-\(R_2\)). חברו את מקור מתח ה-DC (או מחולל האותות) לשני קצוות המעגל.
+                </li>
+                <li class="mb-2">
+                    <strong>קביעת ייחוס האדמה המשותפת (Common Ground):</strong> 
+                    הגדירו את הצד השלילי (-) של מקור המתח כאדמת המעגל (GND).
+                </li>
+                <li class="mb-2">
+                    <strong>חיבור ערוץ 1 (CH1) - מדידת מתח המקור:</strong> 
+                    <br>• חברו את קצה פרוב ערוץ 1 (הטיפ האדום) לנקודת כניסת המתח של המעגל (החיבור החיובי של המקור).
+                    <br>• חברו את תנין האדמה השחור של פרוב ערוץ 1 אל אדמת המעגל (GND).
+                </li>
+                <li class="mb-2">
+                    <strong>חיבור ערוץ 2 (CH2) - מדידת המתח על הנגד התחתון \(R_2\):</strong> 
+                    <br>• חברו את קצה פרוב ערוץ 2 (הטיפ) אל נקודת המרכז שבין שני הנגדים \(R_1\) ו-\(R_2\).
+                    <br>• <strong>זהירות קריטית: אל תחברו את תנין האדמה השחור של ערוץ 2 למעגל!</strong> מאחר והאדמה של ערוץ 2 מחוברת פנימית באוסילוסקופ לאדמה של ערוץ 1 (ומשם לאדמת הבניין), היא כבר מחוברת לאדמת המעגל. חיבור תנין האדמה של ערוץ 2 לנקודת המרכז יקצר את הנגד התחתון \(R_2\) לאדמה וינטרל אותו!
+                    <br>• השאירו את תנין האדמה השחור של ערוץ 2 מנותק לחלוטין.
+                </li>
+                <li class="mb-2">
+                    <strong>קריאת המתח על הנגד העליון \(R_1\) בעזרת חיסור מתמטי (Math):</strong> 
+                    מה נעשה אם נרצה לדעת את מפל המתח על הנגד העליון \(R_1\) (שאינו מחובר לאדמה באף אחד מקצותיו)?
+                    <br>• לחצו על מקש <strong>MATH</strong> באוסילוסקופ.
+                    <br>• בחרו בפעולת החיסור: <strong>CH1 - CH2</strong> (מתח המקור פחות מתח הנגד התחתון).
+                    <br>• האות המתמטי החדש שיופיע על המסך מציג בדיוק את מפל המתח על פני \(R_1\) בזמן אמת, מבלי להסתכן בקצר אדמות!
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- NAVIGATE BACK TO INDEX -->
+<div class="d-flex justify-content-start mt-4 pt-3 border-top">
+    <a href="Index.html" class="btn btn-primary">← חזרה לאינדקס מכשירי מדידה</a>
+</div>
+
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

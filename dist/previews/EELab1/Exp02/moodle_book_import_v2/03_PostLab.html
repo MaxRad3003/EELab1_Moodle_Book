@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 PostLab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!-- EXP02 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 16px; font-size: 13px; border-radius: 4px;">ניסוי 2 > דוח מסכם</div>
+<!-- /EXP02 BREADCRUMB -->
+        <!-- CHAPTER: HEADER -->
+<h3 class="section-title" style="margin-bottom: 0.75rem; display: inline-block; margin-top: 0; color: #005696; border-bottom: 2px solid #005696; padding-bottom: 6px; margin: 0 0 18px 0; font-size: 1.45rem; font-weight: bold; line-height: 1.35;">דוח מסכם ועיבוד נתונים - ניסוי 2</h3>
+<p style="margin-bottom: 18px;">מטרת הדוח היא לחבר בין המדידות שביצעתם במעבדה, החישוב התאורטי, הסימולציה והעיבוד ב-MATLAB. הגישו דוח קצר, מסודר ומבוסס נתונים.</p>
+
+<!-- INFO BOX SECTION -->
+<div class="info-box" style="box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); background-color: #f8f9fa; border: 1px solid #dae0e5; border-radius: 8px; padding: 22px; margin: 18px 0;" id="postlab-workflow">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">מה מגישים?</h4>
+    <div class="flex-grid" style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
+        <!-- THEORY CARD SECTION -->
+<div class="flex-item theory-card" style="margin-top: 15px; flex: 1; min-width: 250px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);">
+            <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">חלק א: סופרפוזיציה</h4>
+            <p>טבלת זרמים לכל מקור בנפרד, הזרם הכולל, והשוואה בין מדידה, חישוב וסימולציה.</p>
+        </div>
+        <!-- THEORY CARD SECTION -->
+<div class="flex-item theory-card" style="margin-top: 15px; flex: 1; min-width: 250px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);">
+            <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">חלק ב: תבנין</h4>
+            <p>חישוב \(V_{th}\), \(R_{th}\), מדידת העומס והספק מקסימלי.</p>
+        </div>
+        <!-- THEORY CARD SECTION -->
+<div class="flex-item theory-card" style="margin-top: 15px; flex: 1; min-width: 250px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);">
+            <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">חלק ג: אופיין I-V</h4>
+            <p>גרפים, זיהוי רכיב ליניארי/לא ליניארי, והסבר פיזיקלי קצר.</p>
+        </div>
+    </div>
+</div>
+
+<!-- THEORY CARD SECTION -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="section-matlab-processing">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">שלב 1: עיבוד נתונים ב-MATLAB Grader</h4>
+    <p>פתחו את פעילויות MATLAB Grader של הניסוי, הזינו את המדידות, ושמרו את הפלטים הדרושים לדוח.</p>
+    <div class="list-group">
+        <span style="display: block; background-color: #eef2f5; color: #52616b; padding: 10px 18px; border: 1px dashed #aab4bf; border-radius: 6px; font-weight: bold; margin: 6px 0;">1. אימות משפט סופרפוזיציה ומאזן הספקים <span style="display: inline-block; color: #856404; background-color: #fff3cd; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 8px;">קישור יעודכן במודל</span></span>
+        <span style="display: block; background-color: #eef2f5; color: #52616b; padding: 10px 18px; border: 1px dashed #aab4bf; border-radius: 6px; font-weight: bold; margin: 6px 0;">2. שקול תבנין והעברת הספק מקסימלי <span style="display: inline-block; color: #856404; background-color: #fff3cd; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 8px;">קישור יעודכן במודל</span></span>
+        <span style="display: block; background-color: #eef2f5; color: #52616b; padding: 10px 18px; border: 1px dashed #aab4bf; border-radius: 6px; font-weight: bold; margin: 6px 0;">3. אופיין מתח-זרם לרכיבים שונים <span style="display: inline-block; color: #856404; background-color: #fff3cd; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 8px;">קישור יעודכן במודל</span></span>
+    </div>
+</div>
+
+<!-- THEORY CARD SECTION -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="report-structure">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">שלב 2: מבנה הדוח</h4>
+    <!-- NUMBERED LIST / STEP-BY-STEP -->
+<ol style="padding-right: 22px;">
+        <li><strong>דף שער:</strong> שמות, תעודות זהות, קבוצה, תאריך ומספר עמדה.</li>
+        <li><strong>מטרת הניסוי:</strong> 3-5 שורות שמסבירות מה נבדק.</li>
+        <li><strong>תוצאות:</strong> טבלאות מדידה מסודרות לכל חלק.</li>
+        <li><strong>עיבוד:</strong> חישובים, גרפים ופלט MATLAB.</li>
+        <li><strong>השוואה:</strong> תאוריה מול מדידה מול סימולציה.</li>
+        <li><strong>דיון ומסקנות:</strong> הסבר לסטיות, מגבלות המדידה ומה למדתם.</li>
+    </ol>
+</div>
+
+<!-- THEORY CARD SECTION -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="report-required-figures">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">תוצרים מספריים שחייבים להופיע בדוח</h4>
+    <!-- DATA TABLE / COMPARISON TABLE -->
+<table style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: right;">
+        <thead>
+            <tr>
+                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">חלק</th>
+                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">מה להציג</th>
+                <th style="background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;">בדיקת איכות</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">סופרפוזיציה</td><td style="padding: 10px; border: 1px solid #ddd;">\(I_{both}\), \(I_{V1}\), \(I_{V2}\), והשגיאה היחסית.</td><td style="padding: 10px; border: 1px solid #ddd;">האם \(I_{both}\approx I_{V1}+I_{V2}\)?</td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">תבנין</td><td style="padding: 10px; border: 1px solid #ddd;">\(V_{OC}\), \(I_{SC}\), \(R_{TH}\), וטבלת \(P_L\) עבור עומסים שונים.</td><td style="padding: 10px; border: 1px solid #ddd;">האם ההספק הגדול ביותר מתקבל סביב \(R_L=R_{TH}\)?</td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">אופיין \(I-V\)</td><td style="padding: 10px; border: 1px solid #ddd;">גרפי \(I(V)\), \(R_{static}\), ו-\(R_{dynamic}\) לכל רכיב.</td><td style="padding: 10px; border: 1px solid #ddd;">האם המסקנה על ליניאריות נתמכת בגרף?</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- THEORY CARD SECTION -->
+<div class="theory-card" style="margin-top: 15px; background-color: #ffffff; border: 1px solid #dae0e5; border-radius: 6px; padding: 16px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" id="report-rubric">
+    <h4 class="sub-title" style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 0; color: #005696; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: bold; line-height: 1.35;">מחוון בדיקה מומלץ</h4>
+    <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="data-table" style="border-spacing: 0; margin: 1.5rem 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid #dae0e5; width: 100%; border-collapse: collapse; margin-top: 15px;" width="100%">
+        <th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" ead bgcolor="#003366" align="right"></th><tr><th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">קריטריון</th><th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">ניקוד</th><th style="text-align: right; font-weight: 600; border-bottom: 2px solid #dae0e5; background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="#003366" align="right">מה נדרש</th></tr>
+        <tbody>
+            <tr><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מדידות וטבלאות</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">25%</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">נתונים מלאים, יחידות תקינות וסדר ברור.</td></tr>
+            <tr><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">חישוב תאורטי</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">25%</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">סופרפוזיציה, תבנין ואופיין I-V עם דרך פתרון.</td></tr>
+            <tr><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">MATLAB וגרפים</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">20%</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">פלטים ברורים, צירים, יחידות והשוואה למדידה.</td></tr>
+            <tr><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">ניתוח שגיאות</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">15%</td><td style="border-bottom: 1px solid #dae0e5; background-color: white; padding: 10px; border: 1px solid #ddd;" bgcolor="white">הסבר לסטיות ואומדן סביר של גורמי שגיאה.</td></tr>
+            <tr><td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white">מסקנות ועריכה</td><td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white">15%</td><td style="background-color: white; border-bottom: none; padding: 10px; border: 1px solid #ddd;" bgcolor="white">דוח קריא, מסקנות ענייניות והגשה ב-PDF.</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="alert-box" style="color: #92400e; background-color: #fff9e6; border-right: 4px solid #ff9900; padding: 12px 15px; border-radius: 4px; font-size: 14px; margin: 12px 0;" id="submission-checklist">
+    <strong>בדיקה לפני הגשה:</strong>
+    <!-- BULLET LIST / KEY POINTS -->
+<ul style="margin: 8px 0 0 0; padding-right: 20px;">
+        <li>כל הגרפים כוללים כותרת, יחידות וצירים.</li>
+        <li>כל טבלה כוללת יחידות וסימון ברור של רכיבים.</li>
+        <li>ציינתם לפחות שני גורמי שגיאה אפשריים.</li>
+        <li>הדוח נשמר כ-PDF אחד.</li>
+    </ul>
+</div>
+<!-- EXP02 NAVIGATION -->
+<div style="margin-top: 28px; padding: 14px; border-top: 1px solid #d8dee6; text-align: center; direction: rtl;"><a href="02_InLab_02_PartC_IV_sub.html" style="display: inline-block; background-color: #6c757d; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הקודם</a><a href="01_PreLab.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">תוכן עניינים הכנה</a><a href="04_References.html" style="display: inline-block; background-color: #005696; color: white; padding: 9px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 4px;">הבא: מקורות</a></div>
+<!-- /EXP02 NAVIGATION -->
+    </div>
+
+
+
+<div data-units-emphasis="exp2" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
+<strong style="color:#005696;">דגש יחידות בניסוי 2:</strong>
+<span> בסופרפוזיציה, תבנין ואופייני I-V יש לשמור על יחידות בכל שלב: \(V\) למתחים, A או mA לזרמים, \(\Omega\) להתנגדויות ו-W להספק. שיפוע אופיין \(I-V\) אינו מספר בלבד: \(R=\Delta V/\Delta I\) מתקבל ב-\(\Omega\).</span>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

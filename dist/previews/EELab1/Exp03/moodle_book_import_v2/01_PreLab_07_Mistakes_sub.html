@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 PreLab 07 Mistakes sub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>01 PreLab 07 Mistakes sub</title>
+</head>
+<body>
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
+        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            ﻿<!DOCTYPE html>
+<html lang="he" dir="rtl" style="box-sizing: border-box;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>טעויות נפוצות במדידות AC</title>
+
+</head>
+<body id="exp03-01-prelab-07-mistakes-sub" style="box-sizing: border-box; font-family: Arial,'Noto Sans Hebrew',sans-serif; line-height: 1.65; margin: 20px; color: #202124; background: #ffffff; direction: rtl; text-align: right;">
+<div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
+<div style="box-sizing: border-box; font-size: 0.9rem; color: #52616b; margin-bottom: 14px;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
+<!-- CHAPTER: COMMON MISTAKES HEADER -->
+<h3 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.7rem; line-height: 1.35; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px;">הכנה לניסוי 3 - טעויות נפוצות במדידות AC</h3>
+<div class="danger" style="box-sizing: border-box; background: #fff1f1; border: 1px solid #f5c6cb; border-right: 5px solid #d9534f; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong style="box-sizing: border-box;">המטרה:</strong> למנוע טעויות שמייצרות מדידות יפות אבל שגויות.</div>
+<!-- PART: COMMON MISTAKE 1 -->
+<div class="step" style="box-sizing: border-box; display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 12px 0;"><div class="num" style="box-sizing: border-box; min-width: 36px; height: 36px; border-radius: 50%; background: #005696; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div><div style="box-sizing: border-box;"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">בלבול בין \(V_p\), \(V_{pp}\), \(V_{RMS}\)</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">האוסצילוסקופ מציג צורת גל בזמן. DMM במצב AC בדרך כלל מציג RMS. בדו"ח חייבים לציין איזה ערך נמדד.</p></div></div>
+<!-- PART: COMMON MISTAKE 2 -->
+<div class="step" style="box-sizing: border-box; display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 12px 0;"><div class="num" style="box-sizing: border-box; min-width: 36px; height: 36px; border-radius: 50%; background: #005696; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div><div style="box-sizing: border-box;"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">מצב Probe לא תואם</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">אם הפרוב על x10 והסקופ מוגדר x1, הקריאה תהיה שגויה פי 10.</p></div></div>
+<!-- PART: COMMON MISTAKE 3 -->
+<div class="step" style="box-sizing: border-box; display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 12px 0;"><div class="num" style="box-sizing: border-box; min-width: 36px; height: 36px; border-radius: 50%; background: #005696; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</div><div style="box-sizing: border-box;"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Trigger לא מכוון</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">גל זז על המסך אינו בהכרח אות לא יציב. לרוב חסר כיוון Trigger.</p></div></div>
+<!-- PART: COMMON MISTAKE 4 -->
+<div class="step" style="box-sizing: border-box; display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 12px 0;"><div class="num" style="box-sizing: border-box; min-width: 36px; height: 36px; border-radius: 50%; background: #005696; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">4</div><div style="box-sizing: border-box;"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">כפתור VAR/CAL פתוח</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">במכשירים אנלוגיים, אם מצב CAL לא נעול, ערכי Time/Div או Volt/Div אינם מכוילים.</p></div></div>
+<!-- PART: COMMON MISTAKE 5 -->
+<div class="step" style="box-sizing: border-box; display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 12px 0;"><div class="num" style="box-sizing: border-box; min-width: 36px; height: 36px; border-radius: 50%; background: #005696; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">5</div><div style="box-sizing: border-box;"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">אדמות משותפות באוסצילוסקופ</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">תניני האדמה של שני הערוצים מחוברים פנימית. חיבור לנקודות שונות במעגל עלול ליצור קצר.</p></div></div>
+<!-- PART: COMMON MISTAKE 6 -->
+<div class="step" style="box-sizing: border-box; display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 12px 0;"><div class="num" style="box-sizing: border-box; min-width: 36px; height: 36px; border-radius: 50%; background: #005696; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">6</div><div style="box-sizing: border-box;"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">DMM רגיל על גל לא סינוסי</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">DMM שאינו True RMS מכויל לסינוס. בגל ריבועי או משולש תיתכן שגיאה משמעותית.</p></div></div>
+<!-- NAVIGATION: PREVIOUS / CONTENTS / NEXT -->
+<div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="01_PreLab_06_Simulation_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="01_PreLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="01_PreLab_08_Readiness_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div>
+</div>
+
+
+
+
+
+<!-- EXP03 PRELAB H5P QUIZ NOTICE: 08_mistakes -->
+<section class="card shadow-sm mb-4 border-start border-success border-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.75rem; margin: 1rem 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-success h5" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #047857;">שאלון H5P לפרק זה</h3>
+        <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.75rem;">לאחר קריאת הפרק, יש לענות על שאלון H5P בן 5 שאלות. השאלון מיועד לבדיקה עצמית ולהכנה לבדיקת PreLab הסופית.</p>
+        <p class="card-text mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;"><strong style="box-sizing: border-box;">קובץ להעלאה ל-Moodle:</strong> <code style="box-sizing: border-box;">H5P_Quiz/Exp03_PreLab_08_Mistakes_H5P.h5p</code></p>
+    </div>
+</section>
+<!-- /EXP03 PRELAB H5P QUIZ NOTICE -->
+
+</body>
+</html>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

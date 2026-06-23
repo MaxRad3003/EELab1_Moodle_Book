@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!-- EXP01 BREADCRUMB -->
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 > הכנה לניסוי</div>
+<!-- /EXP01 BREADCRUMB -->
+
+<!-- CHAPTER: HEADER -->
+<div id="ch-prelab-index-header" class="text-center mb-4">
+    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">תוכן עניינים - הכנה לניסוי 1</h2>
+    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
+</div>
+<!-- /CHAPTER: HEADER -->
+
+<p class="text-center mb-4">ברוכים הבאים למטלת ההכנה של ניסוי 1. עברו על חלקי ההכנה הבאים לפי הסדר כדי להגיע מוכנים למעבדה:</p>
+
+<!-- INFO / BREADCRUMB BLOCK -->
+<div class="alert alert-info mb-4">
+    <strong class="text-info">איך להשתמש בפרק ההכנה?</strong>
+    <p class="mb-0 small">עברו על הפרקים לפי הסדר. בכל עמוד תמצאו הסברים מקיפים, דוגמאות והנחיות לתרגול מעשי.</p>
+</div>
+
+<div class="vstack gap-3 mb-4">
+    <!-- STEP 00 - SAFETY -->
+    <a href="PreLab_Exp01_00_Safety.html" class="card shadow-sm text-decoration-none" style="border: 1px solid #e2e8f0; display: block; color: inherit;">
+        <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-center fw-bold text-white fs-4" style="background-color: #ef4444; width: 70px; height: 90px; flex-shrink: 0;">00</div>
+            <div class="p-3">
+                <h4 class="fw-bold text-primary mb-1 mt-0 fs-5">00. בטיחות ונהלים במעבדה</h4>
+                <p class="text-muted small mb-0">כללי הברזל לעבודה בטוחה ושמירה על חייכם ועל תקינות הציוד.</p>
+            </div>
+        </div>
+    </a>
+
+    <!-- STEP 01 - COLOR CODE -->
+    <a href="PreLab_Exp01_01_ColorCode.html" class="card shadow-sm text-decoration-none" style="border: 1px solid #e2e8f0; display: block; color: inherit;">
+        <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-center fw-bold text-white fs-4" style="background-color: #3b82f6; width: 70px; height: 90px; flex-shrink: 0;">01</div>
+            <div class="p-3">
+                <h4 class="fw-bold text-primary mb-1 mt-0 fs-5">01. נגדים וקוד צבעים</h4>
+                <p class="text-muted small mb-0">כיצד לקרוא ערכי נגדים נקובים (של 4 ו-5 פסים) ומהו טולרנס (Tolerance) ושגיאה יחסית.</p>
+            </div>
+        </div>
+    </a>
+
+    <!-- STEP 02 - EQUIPMENT -->
+    <a href="PreLab_Exp01_02_Equipment.html" class="card shadow-sm text-decoration-none" style="border: 1px solid #e2e8f0; display: block; color: inherit;">
+        <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-center fw-bold text-white fs-4" style="background-color: #10b981; width: 70px; height: 90px; flex-shrink: 0;">02</div>
+            <div class="p-3">
+                <h4 class="fw-bold text-primary mb-1 mt-0 fs-5">02. הכרת מכשירי המדידה (DMM & Power Supply)</h4>
+                <p class="text-muted small mb-0">הכרת רב-מודד דיגיטלי, ספק הכוח, חיבור במקביל/טור ומד השראות/קיבול LCR.</p>
+            </div>
+        </div>
+    </a>
+
+    <!-- STEP 03 - BREADBOARD -->
+    <a href="PreLab_Exp01_03_Breadboard.html" class="card shadow-sm text-decoration-none" style="border: 1px solid #e2e8f0; display: block; color: inherit;">
+        <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-center fw-bold text-dark fs-4" style="background-color: #f59e0b; width: 70px; height: 90px; flex-shrink: 0;">03</div>
+            <div class="p-3">
+                <h4 class="fw-bold text-primary mb-1 mt-0 fs-5">03. המטריצה (Breadboard)</h4>
+                <p class="text-muted small mb-0">איך המטריצה עובדת מבפנים? טכניקות לבניית מעגלים נכונה ומניעת קצרים לא רצויים.</p>
+            </div>
+        </div>
+    </a>
+
+    <!-- STEP 04 - TINKERCAD -->
+    <a href="PreLab_Exp01_04_Tinkercad.html" class="card shadow-sm text-decoration-none" style="border: 1px solid #e2e8f0; display: block; color: inherit;">
+        <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-center fw-bold text-white fs-4" style="background-color: #06b6d4; width: 70px; height: 90px; flex-shrink: 0;">04</div>
+            <div class="p-3">
+                <h4 class="fw-bold text-primary mb-1 mt-0 fs-5">04. התנסות וירטואלית ב-Tinkercad</h4>
+                <p class="text-muted small mb-0">תרגול מעשי וירטואלי של חיבורי מטריצה וביצוע מדידות DMM בסביבה בטוחה.</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+<!-- SECTION: FOOTER ALERT -->
+<div class="alert alert-warning text-center mb-4">
+    <p class="fw-bold mb-2 text-warning">📝 סיימתם לעבור על כל פרקי ההכנה?</p>
+    <p class="small mb-2">עליכם לעבור את חידון ההכנה במודל לפני פתיחת המעבדה!</p>
+    <span class="badge bg-secondary text-white p-2">חידון ההכנה יופיע כפעילות נפרדת במודל</span>
+    <p class="text-muted small mt-2 mb-0">שימו לב: מעבר החידון בציון עובר הינו תנאי כניסה הכרחי למעבדה!</p>
+</div>
+<!-- /SECTION: FOOTER ALERT -->
+
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 PreLab 02 RMS sub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>01 PreLab 02 RMS sub</title>
+</head>
+<body>
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
+        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            ﻿<!DOCTYPE html>
+<html lang="he" dir="rtl" style="box-sizing: border-box;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מושג RMS - הערך האפקטיבי</title>
+</head>
+<body id="exp03-01-prelab-02-rms-sub" style="box-sizing: border-box;">
+<main id="prelab-rms-concept" class="container-fluid" style="box-sizing: border-box; width: 100%; margin-right: auto; margin-left: auto; max-width: 980px;">
+
+<header class="card shadow-sm mb-4 border-top border-primary border-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; border-color: #0ea5e9; border-width: 4px; border-top-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <div class="badge bg-light text-dark border mb-3" style="box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-height: 1.8rem; padding: 0.35rem 0.6rem; border-radius: 0.375rem; font-weight: 700; line-height: 1.2; white-space: nowrap; margin-bottom: 1rem; color: #0f172a; background-color: #f8fafc; border: 1px solid #e2e8f0;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
+        <h2 class="card-title text-primary border-bottom pb-2 mb-3" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 1rem; padding-bottom: 0.5rem; color: #075985; border-bottom: 1px solid #e2e8f0;">מושג RMS - הערך האפקטיבי של מתח חילופין</h2>
+        <p class="card-text lead text-muted" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 1.08rem; line-height: 1.75; color: #64748b;">העמוד מחבר בין הגדרה מתמטית, מדידת אוסצילוסקופ והשוואת חימום בין מקור AC למקור DC שקול.</p>
+        <!-- INFO / BREADCRUMB BLOCK -->
+<div class="alert alert-info mt-3 mb-0 shadow-sm border-start border-info border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #ecfeff; margin-top: 1rem; margin-bottom: 0; border-color: #06b6d4; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <strong style="box-sizing: border-box;">רעיון מרכזי:</strong> RMS הוא ערך המתח הישר (DC) השקול מבחינת חימום או הספק על נגד. כלומר, אם מתח AC ומתח DC מפתחים אותו הספק על אותו נגד, ערך ה-RMS של מתח ה-AC שווה למתח ה-DC הזה.
+        </div>
+    </div>
+</header>
+
+<section class="row g-3 mb-4" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; margin-bottom: 1rem;">
+    <div class="col-md-4" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 16rem; width: auto; margin-bottom: 0.75rem;">
+        <article class="p-3 border rounded bg-light shadow-sm h-100" style="box-sizing: border-box; height: 100%; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <strong class="text-primary d-block mb-1" style="box-sizing: border-box; margin-bottom: 0.25rem; color: #075985;">מה משווים?</strong>
+            <span class="small text-muted" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b;">הספק ממוצע ועבודה על אותו עומס \(R\).</span>
+        </article>
+    </div>
+    <div class="col-md-4" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 16rem; width: auto; margin-bottom: 0.75rem;">
+        <article class="p-3 border rounded bg-light shadow-sm h-100" style="box-sizing: border-box; height: 100%; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <strong class="text-primary d-block mb-1" style="box-sizing: border-box; margin-bottom: 0.25rem; color: #075985;">מה לא מספיק?</strong>
+            <span class="small text-muted" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b;">מתח רגעי, ממוצע פשוט או \(V_{pp}\) לבדם.</span>
+        </article>
+    </div>
+    <div class="col-md-4" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 16rem; width: auto; margin-bottom: 0.75rem;">
+        <article class="p-3 border rounded bg-light shadow-sm h-100" style="box-sizing: border-box; height: 100%; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <strong class="text-primary d-block mb-1" style="box-sizing: border-box; margin-bottom: 0.25rem; color: #075985;">מה מודדים?</strong>
+            <span class="small text-muted" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b;">באוסצילוסקופ מזהים צורת גל; בחישובי הספק משתמשים ב-\(V_{RMS}\).</span>
+        </article>
+    </div>
+</section>
+
+<section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">למה בכלל צריך RMS?</h3>
+        <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem;">באות חילופין המתח משתנה כל הזמן, ולעיתים גם מחליף סימן. לכן אי אפשר להסתפק בערך רגעי אחד או בממוצע פשוט של המתח. בגל סינוס סימטרי, לדוגמה, הממוצע לאורך מחזור שלם הוא אפס, אבל האות בהחלט מסוגל לחמם נגד ולפתח הספק.</p>
+        <p class="card-text mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;">RMS פותר את הבעיה על ידי חישוב שמבוסס על ריבוע המתח, ולכן גם חלקים חיוביים וגם חלקים שליליים תורמים להספק.</p>
+    </div>
+</section>
+
+<section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">הגדרה מתמטית</h3>
+        <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem;">עבור אות מתח מחזורי \(v(t)\) בעל זמן מחזור \(T\), הערך האפקטיבי מוגדר כך:</p>
+        <blockquote class="blockquote text-center bg-light p-3 rounded border" style="box-sizing: border-box; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-align: center;">
+            <p class="mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;">\(V_{RMS}=\sqrt{\frac{1}{T}\int_0^T v^2(t)\,dt}\)</p>
+        </blockquote>
+        <p class="card-text mt-3 fw-bold text-dark" style="box-sizing: border-box; margin-bottom: 0.9rem; margin-top: 1rem; color: #0f172a; font-weight: 700;">פירוש השם Root Mean Square:</p>
+        <!-- BULLET LIST / KEY POINTS -->
+<ul class="text-muted" style="box-sizing: border-box; color: #64748b;">
+            <li style="box-sizing: border-box;"><strong style="box-sizing: border-box;">Square:</strong> מעלים את המתח בריבוע, כדי לקבל תרומה חיובית להספק.</li>
+            <li style="box-sizing: border-box;"><strong style="box-sizing: border-box;">Mean:</strong> מחשבים ממוצע לאורך מחזור שלם.</li>
+            <li style="box-sizing: border-box;"><strong style="box-sizing: border-box;">Root:</strong> מוציאים שורש כדי לחזור ליחידות של וולט.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">איך מחשבים RMS בפועל?</h3>
+        <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem;">כדי להבין את הנוסחה, כדאי לחשוב על החישוב כסדרה של פעולות פשוטות על הגל. המטרה אינה למצוא את המתח הממוצע, אלא למצוא את המתח הישר שהיה גורם לאותו חימום באותו נגד.</p>
+
+        <div class="row g-3" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem;">
+            <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <div class="p-3 border rounded bg-light h-100" style="box-sizing: border-box; height: 100%; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
+                    <strong class="text-primary d-block mb-2" style="box-sizing: border-box; display: block; margin-bottom: 0.5rem; color: #075985;">שלב 1: מעלים בריבוע</strong>
+                    <p class="mb-0 text-muted" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0; color: #64748b;">מחשבים \(v^2(t)\). פעולה זו הופכת גם חצאי מחזור שליליים לתרומה חיובית, בדיוק כפי שהספק על נגד תלוי ב-\(v^2/R\).</p>
+                </div>
+            </div>
+            <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <div class="p-3 border rounded bg-light h-100" style="box-sizing: border-box; height: 100%; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
+                    <strong class="text-primary d-block mb-2" style="box-sizing: border-box; display: block; margin-bottom: 0.5rem; color: #075985;">שלב 2: מחשבים ממוצע</strong>
+                    <p class="mb-0 text-muted" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0; color: #64748b;">מחשבים את הממוצע של \(v^2(t)\) לאורך מחזור שלם. זהו השלב שמייצג את ההשפעה המצטברת של הגל בזמן, ולא רק נקודה אחת על הגרף.</p>
+                </div>
+            </div>
+            <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <div class="p-3 border rounded bg-light h-100" style="box-sizing: border-box; height: 100%; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
+                    <strong class="text-primary d-block mb-2" style="box-sizing: border-box; display: block; margin-bottom: 0.5rem; color: #075985;">שלב 3: מוציאים שורש</strong>
+                    <p class="mb-0 text-muted" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0; color: #64748b;">אחרי הממוצע מתקבל גודל ביחידות \(V^2\). הוצאת שורש מחזירה את התוצאה ליחידות של וולט, ולכן אפשר להשוות אותה למתח DC.</p>
+                </div>
+            </div>
+            <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <div class="p-3 border rounded bg-light h-100" style="box-sizing: border-box; height: 100%; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
+                    <strong class="text-primary d-block mb-2" style="box-sizing: border-box; display: block; margin-bottom: 0.5rem; color: #075985;">שלב 4: משתמשים בערך השקול</strong>
+                    <p class="mb-0 text-muted" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0; color: #64748b;">בחישובי הספק על נגד מציבים \(V_{RMS}\): \(P_{avg}=V_{RMS}^2/R\). אם מקור DC באותו ערך נותן אותו הספק, החישוב נכון.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WARNING / ATTENTION BLOCK -->
+<div class="alert alert-warning mt-3 mb-0 shadow-sm border-start border-warning border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #fffbeb; margin-top: 1rem; margin-bottom: 0; border-color: #f59e0b; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <strong style="box-sizing: border-box;">דוגמה מהירה:</strong> אם באוסצילוסקופ נמדד גל סינוס עם \(V_p=10V\), אז \(V_{RMS}=10/\sqrt{2}=7.07V\). לכן נגד שמחובר לגל הזה יתחמם כמו נגד שמחובר למקור DC של כ-\(7.07V\).
+        </div>
+    </div>
+</section>
+
+<section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">גל סינוס: הקשר בין שיא, שיא-לשיא ו-RMS</h3>
+        <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem;">עבור גל סינוס סימטרי ללא DC Offset:</p>
+        <blockquote class="blockquote text-center bg-light p-3 rounded border" style="box-sizing: border-box; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-align: center;">
+            <p class="mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;">\(V_{RMS}=\frac{V_p}{\sqrt{2}}=\frac{V_{pp}}{2\sqrt{2}}\)</p>
+        </blockquote>
+        <div class="row g-3 mt-2" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; margin-top: 0.5rem;">
+            <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <!-- SUCCESS / FOOTER NOTICE -->
+<div class="alert alert-success mb-0 shadow-sm border-start border-success border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #ecfdf5; margin-bottom: 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                    <strong style="box-sizing: border-box;">אם נתון \(V_p\):</strong><br style="box-sizing: border-box;">\(V_{RMS}=0.707\cdot V_p\)
+                </div>
+            </div>
+            <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <!-- SUCCESS / FOOTER NOTICE -->
+<div class="alert alert-success mb-0 shadow-sm border-start border-success border-4" style="box-sizing: border-box; padding: 1rem 1.15rem; margin: 1rem 0; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.5rem; color: #1e293b; background: #ecfdf5; margin-bottom: 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                    <strong style="box-sizing: border-box;">אם נתון \(V_{pp}\):</strong><br style="box-sizing: border-box;">\(V_{RMS}=0.3535\cdot V_{pp}\)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- המחשה 1 -->
+<section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-primary h4 mb-4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; color: #075985; margin-bottom: 1rem;">המחשה אינטראקטיבית 1: צורת גל וערך RMS</h3>
+        
+        <div class="row g-3 mb-4 align-items-end" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; align-items: flex-end; margin-bottom: 1rem;">
+            <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <div class="p-3 border rounded bg-light" style="box-sizing: border-box; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
+                    <label for="rmsVp" class="form-label fw-bold" style="box-sizing: border-box; display: block; margin-bottom: 0.4rem; color: #0f172a; font-weight: 700;">מתח שיא \(V_p\)</label>
+                    <div class="d-flex align-items-center" style="box-sizing: border-box; display: flex; align-items: center;">
+                        <input type="range" id="rmsVp" class="form-range" min="1" max="12" step="0.1" value="5" style="box-sizing: border-box; width: 100%;">
+                        <span class="badge bg-primary text-white ms-3 fs-6" id="ctrlRmsVp" style="box-sizing: border-box; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; min-height: 1.8rem; padding: 0.35rem 0.6rem; border-radius: 0.375rem; font-weight: 700; line-height: 1.2; white-space: nowrap; min-width: 80px; background-color: #0369a1; color: #ffffff;">5.00 V</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <div class="p-3 border rounded bg-light" style="box-sizing: border-box; padding: 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
+                    <label for="rmsWave" class="form-label fw-bold" style="box-sizing: border-box; display: block; margin-bottom: 0.4rem; color: #0f172a; font-weight: 700;">צורת גל</label>
+                    <select id="rmsWave" class="form-select" style="box-sizing: border-box; width: 100%; min-height: 2.5rem; padding: 0.45rem 0.65rem; border: 1px solid #cbd5e1; border-radius: 0.5rem; background: #ffffff; color: #1e293b;">
+                        <option value="sine" style="box-sizing: border-box;">סינוס</option>
+                        <option value="square" style="box-sizing: border-box;">ריבועי</option>
+                        <option value="triangle" style="box-sizing: border-box;">משולש</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="border rounded overflow-hidden shadow-sm" style="box-sizing: border-box; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); overflow: hidden;">
+            <div id="rmsBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 360px; border: 0; background: #ffffff;"></div>
+        </div>
+        <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר פעולה:</strong> הקו הכחול הוא המתח הרגעי \(v(t)\). הקווים הירוקים מציינים את \(+V_{RMS}\) ו-\(-V_{RMS}\), כלומר את רמת המתח השקולה מבחינת חימום. שינוי צורת הגל מראה שלאותו \(V_p\) יכול להיות ערך RMS שונה, ולכן גם השפעת חימום שונה.</p>
+
+        <div class="row g-3 mt-3 text-center" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; margin-top: 1rem; text-align: center;">
+            <div class="col-md-3 col-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 12rem; width: auto; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-light h-100" style="box-sizing: border-box; height: 100%; padding: 0.5rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong class="d-block text-muted small mb-1" style="box-sizing: border-box; font-size: 0.875rem; margin-bottom: 0.25rem; color: #64748b;">\(V_p\)</strong><span id="dispVp" class="fw-bold text-primary fs-5" style="box-sizing: border-box; font-size: 1.15rem; color: #075985; font-weight: 700;">5.00 V</span></div></div>
+            <div class="col-md-3 col-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 12rem; width: auto; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-light h-100" style="box-sizing: border-box; height: 100%; padding: 0.5rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong class="d-block text-muted small mb-1" style="box-sizing: border-box; font-size: 0.875rem; margin-bottom: 0.25rem; color: #64748b;">\(V_{pp}\)</strong><span id="dispVpp" class="fw-bold text-primary fs-5" style="box-sizing: border-box; font-size: 1.15rem; color: #075985; font-weight: 700;">10.00 V</span></div></div>
+            <div class="col-md-3 col-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 12rem; width: auto; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-light h-100" style="box-sizing: border-box; height: 100%; padding: 0.5rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong class="d-block text-muted small mb-1" style="box-sizing: border-box; font-size: 0.875rem; margin-bottom: 0.25rem; color: #64748b;">\(V_{RMS}\)</strong><span id="dispVrms" class="fw-bold text-primary fs-5" style="box-sizing: border-box; font-size: 1.15rem; color: #075985; font-weight: 700;">3.54 V</span></div></div>
+            <div class="col-md-3 col-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 12rem; width: auto; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-light h-100" style="box-sizing: border-box; height: 100%; padding: 0.5rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong class="d-block text-muted small mb-1" style="box-sizing: border-box; font-size: 0.875rem; margin-bottom: 0.25rem; color: #64748b;">יחס \(V_{RMS}/V_p\)</strong><span id="dispRatio" class="fw-bold text-primary fs-5" style="box-sizing: border-box; font-size: 1.15rem; color: #075985; font-weight: 700;">0.707</span></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- המחשה 2 -->
+<section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-primary h4 mb-4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; color: #075985; margin-bottom: 1rem;">המחשה אינטראקטיבית 2: AC מול DC שקול</h3>
+        
+        <div class="row g-4" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem;">
+            <!-- עמודת AC -->
+            <div class="col-lg-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <!-- CARD CONTAINER -->
+<div class="card h-100 shadow-sm border-0 bg-light" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; height: 100%; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+                        <h5 class="card-title text-primary border-bottom pb-2 mb-3" style="box-sizing: border-box; margin-top: 0; margin-bottom: 1rem; padding-bottom: 0.5rem; color: #075985; border-bottom: 1px solid #e2e8f0;">מעגל AC</h5>
+                        
+                        <div class="p-3 border rounded bg-white shadow-sm mb-3" style="box-sizing: border-box; padding: 1rem; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+                            <strong class="text-dark small d-block mb-2" style="box-sizing: border-box; display: block; font-size: 0.875rem; color: #0f172a; margin-bottom: 0.5rem;">סכמת מעגל AC וכיוון זרם רגעי</strong>
+                            <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 520 190" role="img" aria-label="סכמת מעגל AC עם מקור סינוס, נגד וחץ זרם מתחלף" style="box-sizing: border-box; display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; direction: ltr;">
+                                <defs>
+                                    <marker id="acArrowRight" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z" fill="#0ea5e9"></path></marker>
+                                    <marker id="acArrowLeft" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z" fill="#f97316"></path></marker>
+                                </defs>
+                                <rect x="8" y="8" width="504" height="174" rx="12" fill="#f8fafc" stroke="#e2e8f0"></rect>
+                                <path d="M105 65 L105 45 L445 45 L445 75 M445 115 L445 145 L105 145 L105 125" fill="none" stroke="#334155" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="105" cy="95" r="30" fill="#ffffff" stroke="#0369a1" stroke-width="4"></circle>
+                                <path id="acSourceWavePath" d="M82 95 C90 78, 99 78, 107 95 S124 112, 132 95" fill="none" stroke="#0369a1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M445 75 L425 82 L465 90 L425 98 L465 106 L445 115" fill="none" stroke="#b45309" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M170 45 L285 45" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round" marker-end="url(#acArrowRight)"></path>
+                                <path d="M300 145 L180 145" fill="none" stroke="#f97316" stroke-width="4" stroke-linecap="round" marker-end="url(#acArrowLeft)"></path>
+                                <text id="acSourceWaveLabel" x="105" y="35" text-anchor="middle" font-size="17" font-weight="700" fill="#075985">v(t)</text>
+                                <text x="476" y="100" text-anchor="middle" font-size="17" font-weight="700" fill="#92400e">R</text>
+                                <text x="218" y="35" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">i(t) מתחלף</text>
+                                <text x="260" y="168" text-anchor="middle" font-size="14" fill="#475569">ב-AC כיוון הזרם משתנה עם סימן המתח</text>
+                            </svg>
+                        </div>
+
+                        <!-- CARD CONTAINER -->
+<div class="card bg-white border-warning mb-3 shadow-sm" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; margin-bottom: 1rem; background-color: #ffffff; border-color: #f59e0b; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                            <!-- CARD CONTAINER -->
+<div class="card-body p-3" style="box-sizing: border-box; padding: 1rem;">
+                                <strong class="text-dark small" style="box-sizing: border-box; font-size: 0.875rem; color: #0f172a;">דימוי חימום בנגד לפי \(P_{avg}\)</strong>
+                                <div class="progress mt-1" style="box-sizing: border-box; width: 100%; overflow: hidden; background: #e5e7eb; border-radius: 9999px; height: 14px;">
+                                    <div id="acHeatFill" class="progress-bar bg-warning" role="progressbar" style="box-sizing: border-box; height: 100%; border-radius: inherit; transition: width 0.2s ease; width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <span id="acHeatValue" class="badge text-dark mt-2 border border-warning" style="box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-height: 1.8rem; padding: 0.35rem 0.6rem; border-radius: 0.375rem; font-weight: 700; line-height: 1.2; white-space: nowrap; background-color: #fff8e5; margin-top: 0.5rem; color: #0f172a; border: 1px solid #e2e8f0; border-color: #f59e0b;">12.5 mW</span>
+                            </div>
+                        </div>
+
+                        <div class="row g-2 text-center small" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; font-size: 0.875rem; text-align: center;">
+                            <div class="col" style="box-sizing: border-box; flex: 1 0 0%; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-white" style="box-sizing: border-box; padding: 0.5rem; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong style="box-sizing: border-box;">\(f\)</strong><br style="box-sizing: border-box;"><span id="dispSeriesFreq" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">1.0 kHz</span></div></div>
+                            <div class="col" style="box-sizing: border-box; flex: 1 0 0%; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-white" style="box-sizing: border-box; padding: 0.5rem; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong style="box-sizing: border-box;">\(R\)</strong><br style="box-sizing: border-box;"><span id="dispSeriesR" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">1000 Ω</span></div></div>
+                            <div class="col" style="box-sizing: border-box; flex: 1 0 0%; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-white" style="box-sizing: border-box; padding: 0.5rem; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong style="box-sizing: border-box;">\(V_{RMS}\)</strong><br style="box-sizing: border-box;"><span id="dispSeriesVrms" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">3.54 V</span></div></div>
+                            <div class="col" style="box-sizing: border-box; flex: 1 0 0%; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-white" style="box-sizing: border-box; padding: 0.5rem; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong style="box-sizing: border-box;">\(P_{avg}\)</strong><br style="box-sizing: border-box;"><span id="dispSeriesPower" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">12.5 mW</span></div></div>
+                        </div>
+
+                        <div class="vstack gap-4 mt-4" style="box-sizing: border-box; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                            <div style="box-sizing: border-box;">
+                                <h6 class="card-subtitle mb-2 text-muted small fw-bold" style="box-sizing: border-box; font-size: 0.875rem; margin-top: 0; margin-bottom: 0.5rem; color: #64748b; font-weight: 700;">זרם רגעי במעגל AC והשוואה לזרם DC</h6>
+                                <div class="border rounded overflow-hidden shadow-sm bg-white" style="box-sizing: border-box; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); overflow: hidden;"><div id="seriesCurrentBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 220px; border: 0; background: #ffffff;"></div></div>
+                                <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר פעולה:</strong> הגרף מציג את הזרם הרגעי \(i(t)=v(t)/R\) במעגל AC. הקו המקווקו מציין את הזרם שהיה מתקבל במקור DC שקול. גם אם הזרם ב-AC משנה סימן, התרומה לחימום תלויה בריבוע הזרם ולכן אינה מתבטלת.</p>
+                            </div>
+                            <div style="box-sizing: border-box;">
+                                <h6 class="card-subtitle mb-2 text-muted small fw-bold" style="box-sizing: border-box; font-size: 0.875rem; margin-top: 0; margin-bottom: 0.5rem; color: #64748b; font-weight: 700;">מתח רגעי על הנגד והשוואה למתח DC</h6>
+                                <div class="border rounded overflow-hidden shadow-sm bg-white" style="box-sizing: border-box; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); overflow: hidden;"><div id="seriesVoltageBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 220px; border: 0; background: #ffffff;"></div></div>
+                                <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר פעולה:</strong> כאן רואים את המתח המשתנה על הנגד לעומת קו מתח DC קבוע. ה-DC אינו עוקב אחרי הערך הרגעי של צורת הגל, אלא מייצג את הערך השקול מבחינת הספק ממוצע: \(V_{DC}=V_{RMS}\).</p>
+                            </div>
+                            <div style="box-sizing: border-box;">
+                                <h6 class="card-subtitle mb-2 text-muted small fw-bold" style="box-sizing: border-box; font-size: 0.875rem; margin-top: 0; margin-bottom: 0.5rem; color: #64748b; font-weight: 700;">הספק רגעי בנגד וההספק הממוצע</h6>
+                                <div class="border rounded overflow-hidden shadow-sm bg-white" style="box-sizing: border-box; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); overflow: hidden;"><div id="seriesPowerBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 220px; border: 0; background: #ffffff;"></div></div>
+                                <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר פעולה:</strong> הגרף מחשב בכל רגע \(p(t)=v(t)i(t)=v^2(t)/R\). לכן ההספק נשאר חיובי גם כאשר המתח והזרם שליליים. הקו האופקי מראה את ההספק הממוצע, שהוא הערך שקובע את החימום לאורך זמן.</p>
+                            </div>
+                            <div style="box-sizing: border-box;">
+                                <h6 class="card-subtitle mb-2 text-muted small fw-bold" style="box-sizing: border-box; font-size: 0.875rem; margin-top: 0; margin-bottom: 0.5rem; color: #64748b; font-weight: 700;">עבודה מצטברת במעגל AC</h6>
+                                <div class="border rounded overflow-hidden shadow-sm bg-white" style="box-sizing: border-box; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); overflow: hidden;"><div id="seriesEnergyBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 220px; border: 0; background: #ffffff;"></div></div>
+                                <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר פעולה:</strong> הגרף מסכם את ההספק לאורך זמן, כלומר \(W(t)=\int p(t)dt\). השיפוע של העקומה משתנה לפי ההספק הרגעי, אבל העבודה המצטברת ממשיכה לעלות כי האנרגיה בנגד הופכת לחום.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- עמודת DC -->
+            <div class="col-lg-6" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 1 1 22rem; width: auto; margin-bottom: 0.75rem;">
+                <!-- CARD CONTAINER -->
+<div class="card h-100 shadow-sm border-0 bg-light" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; height: 100%; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+                        <h5 class="card-title text-primary border-bottom pb-2 mb-3" style="box-sizing: border-box; margin-top: 0; margin-bottom: 1rem; padding-bottom: 0.5rem; color: #075985; border-bottom: 1px solid #e2e8f0;">מעגל DC להשוואה</h5>
+                        
+                        <div class="p-3 border rounded bg-white shadow-sm mb-3" style="box-sizing: border-box; padding: 1rem; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+                            <strong class="text-dark small d-block mb-2" style="box-sizing: border-box; display: block; font-size: 0.875rem; color: #0f172a; margin-bottom: 0.5rem;">סכמת מעגל DC וכיוון זרם קבוע</strong>
+                            <!-- SVG ILLUSTRATION / VECTOR GRAPHIC -->
+<svg viewBox="0 0 520 190" role="img" aria-label="סכמת מעגל DC עם מקור ישר, נגד וחץ זרם קבוע" style="box-sizing: border-box; display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; direction: ltr;">
+                                <defs>
+                                    <marker id="dcArrowRight" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 Z" fill="#8e44ad"></path></marker>
+                                </defs>
+                                <rect x="8" y="8" width="504" height="174" rx="12" fill="#f8fafc" stroke="#e2e8f0"></rect>
+                                <path d="M105 75 L105 45 L445 45 L445 75 M445 115 L445 145 L105 145 L105 105" fill="none" stroke="#334155" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <line x1="78" y1="75" x2="132" y2="75" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"></line>
+                                <line x1="90" y1="105" x2="120" y2="105" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"></line>
+                                <text x="68" y="82" text-anchor="middle" font-size="18" font-weight="700" fill="#7c3aed">+</text>
+                                <text x="68" y="112" text-anchor="middle" font-size="18" font-weight="700" fill="#7c3aed">-</text>
+                                <path d="M445 75 L425 82 L465 90 L425 98 L465 106 L445 115" fill="none" stroke="#b45309" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M170 45 L285 45" fill="none" stroke="#8e44ad" stroke-width="4" stroke-linecap="round" marker-end="url(#dcArrowRight)"></path>
+                                <text x="105" y="132" text-anchor="middle" font-size="17" font-weight="700" fill="#6d28d9">VDC</text>
+                                <text x="476" y="100" text-anchor="middle" font-size="17" font-weight="700" fill="#92400e">R</text>
+                                <text x="278" y="35" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">IDC קבוע</text>
+                                <text x="260" y="168" text-anchor="middle" font-size="14" fill="#475569">ב-DC כיוון הזרם קבוע לפי קוטביות המקור</text>
+                            </svg>
+                        </div>
+
+                        <!-- CARD CONTAINER -->
+<div class="card bg-white border-warning mb-3 shadow-sm" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; margin-bottom: 1rem; background-color: #ffffff; border-color: #f59e0b; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+                            <!-- CARD CONTAINER -->
+<div class="card-body p-3" style="box-sizing: border-box; padding: 1rem;">
+                                <strong class="text-dark small" style="box-sizing: border-box; font-size: 0.875rem; color: #0f172a;">דימוי חימום בנגד לפי \(P_{DC}\)</strong>
+                                <div class="progress mt-1" style="box-sizing: border-box; width: 100%; overflow: hidden; background: #e5e7eb; border-radius: 9999px; height: 14px;">
+                                    <div id="dcHeatFill" class="progress-bar bg-warning" role="progressbar" style="box-sizing: border-box; height: 100%; border-radius: inherit; transition: width 0.2s ease; width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <span id="dcHeatValue" class="badge text-dark mt-2 border border-warning" style="box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-height: 1.8rem; padding: 0.35rem 0.6rem; border-radius: 0.375rem; font-weight: 700; line-height: 1.2; white-space: nowrap; background-color: #fff8e5; margin-top: 0.5rem; color: #0f172a; border: 1px solid #e2e8f0; border-color: #f59e0b;">12.5 mW</span>
+                            </div>
+                        </div>
+
+                        <div class="row g-2 text-center small" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; font-size: 0.875rem; text-align: center;">
+                            <div class="col" style="box-sizing: border-box; flex: 1 0 0%; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-white" style="box-sizing: border-box; padding: 0.5rem; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong style="box-sizing: border-box;">\(R\)</strong><br style="box-sizing: border-box;"><span id="dispSeriesDcR" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">1000 Ω</span></div></div>
+                            <div class="col" style="box-sizing: border-box; flex: 1 0 0%; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-white" style="box-sizing: border-box; padding: 0.5rem; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong style="box-sizing: border-box;">\(V_{DC}\)</strong><br style="box-sizing: border-box;"><span id="dispSeriesVdc" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">3.54 V</span></div></div>
+                            <div class="col" style="box-sizing: border-box; flex: 1 0 0%; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-white" style="box-sizing: border-box; padding: 0.5rem; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong style="box-sizing: border-box;">\(P_{DC}\)</strong><br style="box-sizing: border-box;"><span id="dispSeriesDcPower" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">12.5 mW</span></div></div>
+                            <div class="col" style="box-sizing: border-box; flex: 1 0 0%; margin-bottom: 0.75rem;"><div class="p-2 border rounded bg-white" style="box-sizing: border-box; padding: 0.5rem; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem;"><strong style="box-sizing: border-box;">התאמה</strong><br style="box-sizing: border-box;"><span id="dcMatchStatus" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">שקול</span></div></div>
+                        </div>
+
+                        <div class="row row-cols-1 row-cols-xl-2 g-4 mt-4" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; margin-top: 1rem;">
+                            <div class="col" style="box-sizing: border-box; margin-bottom: 0.75rem; flex: 1 1 20rem; width: auto;">
+                                <h6 class="card-subtitle mb-2 text-muted small fw-bold" style="box-sizing: border-box; font-size: 0.875rem; margin-top: 0; margin-bottom: 0.5rem; color: #64748b; font-weight: 700;">נקודת עבודה במקור DC</h6>
+                                <div class="border rounded overflow-hidden shadow-sm bg-white" style="box-sizing: border-box; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); overflow: hidden;"><div id="dcViBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 280px; border: 0; background: #ffffff;"></div></div>
+                                <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר פעולה:</strong> הגרף מציג נקודת עבודה קבועה של מקור DC: מתח קבוע \(V_{DC}\) וזרם קבוע \(I_{DC}=V_{DC}/R\). השטח המסומן מייצג את ההספק \(P=VI\), ולכן מתאים להשוואה ישירה לחימום של מקור AC.</p>
+                            </div>
+                            <div class="col" style="box-sizing: border-box; margin-bottom: 0.75rem; flex: 1 1 20rem; width: auto;">
+                                <h6 class="card-subtitle mb-2 text-muted small fw-bold" style="box-sizing: border-box; font-size: 0.875rem; margin-top: 0; margin-bottom: 0.5rem; color: #64748b; font-weight: 700;">הספק קבוע בזמן במקור DC</h6>
+                                <div class="border rounded overflow-hidden shadow-sm bg-white" style="box-sizing: border-box; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); overflow: hidden;"><div id="dcPowerTimeBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 280px; border: 0; background: #ffffff;"></div></div>
+                                <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר פעולה:</strong> במקור DC המתח והזרם קבועים, ולכן גם ההספק קבוע בזמן. אם \(V_{DC}=V_{RMS}\), גובה הקו הזה שווה להספק הממוצע של מעגל ה-AC.</p>
+                            </div>
+                            <div class="col" style="box-sizing: border-box; margin-bottom: 0.75rem; flex: 1 1 20rem; width: auto;">
+                                <h6 class="card-subtitle mb-2 text-muted small fw-bold" style="box-sizing: border-box; font-size: 0.875rem; margin-top: 0; margin-bottom: 0.5rem; color: #64748b; font-weight: 700;">עבודה מצטברת בזמן ב-DC</h6>
+                                <div class="border rounded overflow-hidden shadow-sm bg-white" style="box-sizing: border-box; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); overflow: hidden;"><div id="dcWorkTimeBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 280px; border: 0; background: #ffffff;"></div></div>
+                                <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר פעולה:</strong> כאן העבודה גדלה בקו ישר כי ההספק ב-DC קבוע: \(W_{DC}(t)=P_{DC}t\). כאשר מקור ה-DC שקול ל-RMS, קצב הצטברות האנרגיה מתאים לממוצע של מעגל ה-AC.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD CONTAINER -->
+<div class="card mt-4 shadow-sm" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-top: 1rem;">
+            <!-- CARD CONTAINER -->
+<div class="card-header bg-white" style="box-sizing: border-box; padding: 0.9rem 1.25rem; border-bottom: 1px solid #e2e8f0; background: #f8fafc; border-radius: 0.75rem 0.75rem 0 0; background-color: #ffffff;">
+                <h6 class="mb-0 fw-bold text-dark" style="box-sizing: border-box; margin-bottom: 0; color: #0f172a; font-weight: 700;">השוואת עבודה מצטברת: AC מול DC</h6>
+            </div>
+            <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+                <div class="border rounded overflow-hidden" style="box-sizing: border-box; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden;">
+                    <div id="comparisonEnergyBoard" class="jxgbox" style="box-sizing: border-box; width: 100%; height: 340px; border: 0; background: #ffffff;"></div>
+                </div>
+                <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר פעולה:</strong> הגרף משווה את העבודה המצטברת של AC ושל DC על אותו נגד. אם \(V_{DC}=V_{RMS}\), שתי העקומות מגיעות כמעט לאותו ערך ממוצע לאורך זמן, וזהו בדיוק פירוש הערך האפקטיבי.</p>
+            </div>
+        </div>
+
+        <!-- CARD CONTAINER -->
+<div class="card mt-4 shadow-sm border-0 bg-light" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; background-color: #f8fafc; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-top: 1rem;">
+            <!-- CARD CONTAINER -->
+<div class="card-body rounded" style="box-sizing: border-box; padding: 1.25rem; border-radius: 0.5rem;">
+                <div class="row g-3 align-items-end" style="box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -0.5rem; margin-left: -0.5rem; row-gap: 1rem; align-items: flex-end;">
+                    <div class="col-md-6 col-xl-3" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; margin-bottom: 0.75rem; flex: 1 1 12rem; width: auto;">
+                        <label for="seriesVp" class="form-label fw-bold small" style="box-sizing: border-box; font-size: 0.875rem; display: block; margin-bottom: 0.4rem; color: #0f172a; font-weight: 700;">מתח שיא של המקור \(V_p\)</label>
+                        <div class="d-flex align-items-center" style="box-sizing: border-box; display: flex; align-items: center;">
+                            <input type="range" id="seriesVp" class="form-range" min="1" max="450" step="0.1" value="5" style="box-sizing: border-box; width: 100%;">
+                            <span class="badge bg-primary text-white ms-3" id="ctrlSeriesVp" style="box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-height: 1.8rem; padding: 0.35rem 0.6rem; border-radius: 0.375rem; font-weight: 700; line-height: 1.2; white-space: nowrap; min-width: 80px; background-color: #0369a1; color: #ffffff;">5.00 V</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; margin-bottom: 0.75rem; flex: 1 1 12rem; width: auto;">
+                        <label for="seriesR" class="form-label fw-bold small" style="box-sizing: border-box; font-size: 0.875rem; display: block; margin-bottom: 0.4rem; color: #0f172a; font-weight: 700;">התנגדות \(R\)</label>
+                        <div class="d-flex align-items-center" style="box-sizing: border-box; display: flex; align-items: center;">
+                            <input type="range" id="seriesR" class="form-range" min="100" max="5000" step="100" value="1000" style="box-sizing: border-box; width: 100%;">
+                            <span class="badge bg-primary text-white ms-3" id="ctrlSeriesR" style="box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-height: 1.8rem; padding: 0.35rem 0.6rem; border-radius: 0.375rem; font-weight: 700; line-height: 1.2; white-space: nowrap; min-width: 80px; background-color: #0369a1; color: #ffffff;">1000 Ω</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; margin-bottom: 0.75rem; flex: 1 1 12rem; width: auto;">
+                        <label for="seriesFreq" class="form-label fw-bold small" style="box-sizing: border-box; font-size: 0.875rem; display: block; margin-bottom: 0.4rem; color: #0f172a; font-weight: 700;">תדר \(f\) [kHz]</label>
+                        <div class="d-flex align-items-center" style="box-sizing: border-box; display: flex; align-items: center;">
+                            <input type="range" id="seriesFreq" class="form-range" min="0.05" max="10" step="0.05" value="1" style="box-sizing: border-box; width: 100%;">
+                            <span class="badge bg-primary text-white ms-3" id="ctrlSeriesFreq" style="box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-height: 1.8rem; padding: 0.35rem 0.6rem; border-radius: 0.375rem; font-weight: 700; line-height: 1.2; white-space: nowrap; min-width: 80px; background-color: #0369a1; color: #ffffff;">1 kHz</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; margin-bottom: 0.75rem; flex: 1 1 12rem; width: auto;">
+                        <label for="seriesWave" class="form-label fw-bold small" style="box-sizing: border-box; font-size: 0.875rem; display: block; margin-bottom: 0.4rem; color: #0f172a; font-weight: 700;">צורת גל להשוואה</label>
+                        <select id="seriesWave" class="form-select" style="box-sizing: border-box; width: 100%; min-height: 2.5rem; padding: 0.45rem 0.65rem; border: 1px solid #cbd5e1; border-radius: 0.5rem; background: #ffffff; color: #1e293b;">
+                            <option value="sine" style="box-sizing: border-box;">סינוס</option>
+                            <option value="square" style="box-sizing: border-box;">ריבועי</option>
+                            <option value="triangle" style="box-sizing: border-box;">משולש</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-xl-3" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; margin-bottom: 0.75rem; flex: 1 1 12rem; width: auto;">
+                        <div class="form-check form-switch mb-2" style="box-sizing: border-box; display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+                            <input class="form-check-input" type="checkbox" id="dcAuto" checked style="box-sizing: border-box;">
+                            <label class="form-check-label small fw-bold text-dark" for="dcAuto" style="box-sizing: border-box; font-size: 0.875rem; color: #0f172a; font-weight: 700;">קבע אוטומטית \(V_{DC}=V_{RMS}\)</label>
+                        </div>
+                        <div class="d-flex align-items-center" style="box-sizing: border-box; display: flex; align-items: center;">
+                            <input type="range" id="dcVoltage" class="form-range" min="0" max="330" step="0.1" value="3.5" disabled style="box-sizing: border-box; width: 100%;">
+                            <span class="badge bg-primary text-white ms-3" id="ctrlDcVoltage" style="box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-height: 1.8rem; padding: 0.35rem 0.6rem; border-radius: 0.375rem; font-weight: 700; line-height: 1.2; white-space: nowrap; min-width: 80px; background-color: #0369a1; color: #ffffff;">3.54 V</span>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4" style="box-sizing: border-box; min-width: 0; padding-right: 0.5rem; padding-left: 0.5rem; flex: 0 0 auto; width: 100%; margin-bottom: 0.75rem; margin-top: 1rem;">
+                        <button type="button" class="btn btn-outline-danger fw-bold w-100" id="mainsDemo" style="box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; transition: all 0.2s ease; gap: 0.5rem; cursor: pointer; background-color: #ffffff; border: 1px solid #fecaca; width: 100%; color: #b91c1c; font-weight: 700;">הדגמת משימת \(230V_{RMS}\)</button>
+                        <p class="small text-muted mt-2 mb-0" style="box-sizing: border-box; font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; margin-bottom: 0;"><strong style="box-sizing: border-box; color: #0f172a;">הסבר למשימת \(230V_{RMS}\):</strong> הערך 230V בשקע רשת הוא ערך RMS. עבור סינוס מתקבל \(V_p=230\sqrt{2}\approx325V\). עבור גל ריבועי \(V_p=230V\), ועבור גל משולש \(V_p=230\sqrt{3}\approx398V\). לכן משווים חימום לפי RMS, לא לפי מתח השיא.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive mt-4" style="box-sizing: border-box; width: 100%; overflow-x: auto; margin-top: 1rem;">
+            <!-- DATA TABLE / COMPARISON TABLE -->
+<table class="table table-bordered table-striped text-center align-middle shadow-sm" style="box-sizing: border-box; width: 100%; border-collapse: separate; border-spacing: 0; margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); text-align: center;" width="100%" align="center">
+                <thead class="bg-dark text-white" style="box-sizing: border-box; background-color: #0f172a; color: #ffffff;" bgcolor="#0f172a">
+                    <tr style="box-sizing: border-box;">
+                        <th class="text-end" style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; color: #0f172a; background: #f1f5f9; font-weight: 800;" valign="middle">גודל להשוואה</th>
+                        <th style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; color: #0f172a; background: #f1f5f9; font-weight: 800;" valign="middle">מעגל AC</th>
+                        <th style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; color: #0f172a; background: #f1f5f9; font-weight: 800;" valign="middle">מעגל DC להשוואה</th>
+                    </tr>
+                </thead>
+                <tbody style="box-sizing: border-box;">
+                    <tr style="box-sizing: border-box;">
+                        <td class="text-end fw-bold" style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; font-weight: 700;" valign="middle">מתח שימושי לחישוב הספק</td>
+                        <td style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle;" valign="middle">\(V_{RMS}\) = <span id="compAcVoltage" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">3.54 V</span></td>
+                        <td style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle;" valign="middle">\(V_{DC}\) = <span id="compDcVoltage" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">3.54 V</span></td>
+                    </tr>
+                    <tr style="box-sizing: border-box;">
+                        <td class="text-end fw-bold" style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; background: #f8fafc; font-weight: 700;" valign="middle">זרם שימושי לחישוב הספק</td>
+                        <td style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; background: #f8fafc;" valign="middle">\(I_{RMS}\) = <span id="compAcCurrent" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">3.54 mA</span></td>
+                        <td style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; background: #f8fafc;" valign="middle">\(I_{DC}\) = <span id="compDcCurrent" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">3.54 mA</span></td>
+                    </tr>
+                    <tr style="box-sizing: border-box;">
+                        <td class="text-end fw-bold" style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; font-weight: 700;" valign="middle">הספק על הנגד</td>
+                        <td style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle;" valign="middle">\(P_{avg}\) = <span id="compAcPower" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">12.5 mW</span></td>
+                        <td style="box-sizing: border-box; padding: 0.75rem 0.9rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle;" valign="middle">\(P_{DC}\) = <span id="compDcPower" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">12.5 mW</span></td>
+                    </tr>
+                    <tr style="box-sizing: border-box;">
+                        <td class="text-end fw-bold" style="box-sizing: border-box; padding: 0.75rem 0.9rem; vertical-align: middle; border-bottom: 0; background: #f8fafc; font-weight: 700;" valign="middle">עבודה בחלון הגרף</td>
+                        <td style="box-sizing: border-box; padding: 0.75rem 0.9rem; vertical-align: middle; border-bottom: 0; background: #f8fafc;" valign="middle">\(W_{AC}\) = <span id="compAcEnergy" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">125.0 uJ</span></td>
+                        <td style="box-sizing: border-box; padding: 0.75rem 0.9rem; vertical-align: middle; border-bottom: 0; background: #f8fafc;" valign="middle">\(W_{DC}\) = <span id="compDcEnergy" class="fw-bold text-primary" style="box-sizing: border-box; color: #075985; font-weight: 700;">125.0 uJ</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="card shadow-sm mb-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; margin: 1rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-primary h4" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #075985;">סיכום קצר</h3>
+        <!-- BULLET LIST / KEY POINTS -->
+<ul style="box-sizing: border-box;">
+            <li class="mb-2" style="box-sizing: border-box; margin-bottom: 0.5rem;">בחישובי הספק ב-AC משתמשים ב-\(V_{RMS}\), לא ב-\(V_p\) ולא ב-\(V_{pp}\).</li>
+            <li class="mb-2" style="box-sizing: border-box; margin-bottom: 0.5rem;">מקור DC שקול מחמם את אותו נגד באותה מידה כאשר \(V_{DC}=V_{RMS}\).</li>
+            <li style="box-sizing: border-box;">ברב-מודד במצב AC הקריאה היא בדרך כלל RMS, אך חשוב לדעת אם המכשיר הוא True RMS ומה תחום התדרים שבו הוא מדויק.</li>
+        </ul>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- EXP03 PRELAB H5P QUIZ NOTICE: 03_rms -->
+<section class="card shadow-sm mb-4 border-start border-success border-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.75rem; margin: 1rem 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-success h5" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #047857;">שאלון H5P לפרק זה</h3>
+        <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.75rem;">לאחר קריאת הפרק, יש לענות על שאלון H5P בן 5 שאלות. השאלון מיועד לבדיקה עצמית ולהכנה לבדיקת PreLab הסופית.</p>
+        <p class="card-text mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;"><strong style="box-sizing: border-box;">קובץ להעלאה ל-Moodle:</strong> <code style="box-sizing: border-box;">H5P_Quiz/Exp03_PreLab_03_RMS_H5P.h5p</code></p>
+    </div>
+</section>
+<!-- /EXP03 PRELAB H5P QUIZ NOTICE -->
+
+<nav class="d-flex justify-content-center flex-wrap mt-4 mb-2 gap-2" aria-label="Page navigation" style="box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; margin-top: 1rem;">
+    <a href="01_PreLab_01_Definitions_sub.html" class="btn btn-outline-secondary font-weight-bold mx-1" style="box-sizing: border-box; color: #075985; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; transition: all 0.2s ease; gap: 0.5rem; border: none; cursor: pointer; margin-right: 0.25rem; margin-left: 0.25rem; font-weight: 700;">הקודם</a>
+    <a href="01_PreLab.html" class="btn btn-primary font-weight-bold mx-1" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; transition: all 0.2s ease; gap: 0.5rem; border: none; cursor: pointer; background-color: #3b82f6; margin-right: 0.25rem; margin-left: 0.25rem; font-weight: 700; color: white;">תוכן עניינים</a>
+    <a href="01_PreLab_02_OscilloscopeGuide_sub.html" class="btn btn-outline-secondary font-weight-bold mx-1" style="box-sizing: border-box; color: #075985; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; transition: all 0.2s ease; gap: 0.5rem; border: none; cursor: pointer; margin-right: 0.25rem; margin-left: 0.25rem; font-weight: 700;">הבא</a>
+</nav>
+
+<!-- הזרקת קוד מאובטחת למודל - ללא ספריית 10,000 השורות -->
+<div style="box-sizing: border-box; display: none;"><jsxgraph width="1" height="1" style="box-sizing: border-box;">
+(function () {
+  const rmsVpInput = document.getElementById('rmsVp');
+  const rmsWaveSelect = document.getElementById('rmsWave');
+  const dispVp = document.getElementById('dispVp');
+  const dispVpp = document.getElementById('dispVpp');
+  const dispVrms = document.getElementById('dispVrms');
+  const dispRatio = document.getElementById('dispRatio');
+  const ctrlRmsVp = document.getElementById('ctrlRmsVp');
+
+  function getRmsRatio() {
+    const wave = rmsWaveSelect.value;
+    if (wave === 'square') return 1;
+    if (wave === 'triangle') return 1 / Math.sqrt(3);
+    return 1 / Math.sqrt(2);
+  }
+  function normalizedWave(x) {
+    const wave = rmsWaveSelect.value;
+    if (wave === 'square') return Math.sin(x) >= 0 ? 1 : -1;
+    if (wave === 'triangle') return (2 / Math.PI) * Math.asin(Math.sin(x));
+    return Math.sin(x);
+  }
+  function peakVoltage() { return parseFloat(rmsVpInput.value); }
+  function voltageAt(x) { return peakVoltage() * normalizedWave(x); }
+  function rmsVoltage() { return peakVoltage() * getRmsRatio(); }
+
+  const rmsBoard = JXG.JSXGraph.initBoard('rmsBoard', { boundingbox: [-0.35, 13, 6.65, -13], axis: true, showNavigation: false, showCopyright: false });
+  rmsBoard.create('text', [5.7, -1.1, 't'], {fontSize: 15, fixed: true});
+  rmsBoard.create('text', [0.15, 12.1, 'v(t) [V]'], {fontSize: 15, fixed: true});
+  rmsBoard.create('functiongraph', [voltageAt, 0, 2 * Math.PI], { strokeColor: '#005696', strokeWidth: 3, name: 'v(t)' });
+  rmsBoard.create('functiongraph', [rmsVoltage, 0, 2 * Math.PI], { strokeColor: '#28a745', strokeWidth: 2, dash: 2 });
+  rmsBoard.create('functiongraph', [function(){ return -rmsVoltage(); }, 0, 2 * Math.PI], { strokeColor: '#28a745', strokeWidth: 2, dash: 2 });
+  rmsBoard.create('functiongraph', [function(){ return peakVoltage(); }, 0, 2 * Math.PI], { strokeColor: '#d9534f', strokeWidth: 1.5, dash: 3 });
+  rmsBoard.create('functiongraph', [function(){ return -peakVoltage(); }, 0, 2 * Math.PI], { strokeColor: '#d9534f', strokeWidth: 1.5, dash: 3 });
+  rmsBoard.create('text', [4.8, function(){ return rmsVoltage() + 0.45; }, '+VRMS'], { fontSize: 14, color: '#28a745', fixed: true });
+  rmsBoard.create('text', [4.8, function(){ return peakVoltage() + 0.45; }, '+Vp'], { fontSize: 14, color: '#d9534f', fixed: true });
+
+  function updateRmsDisplay() {
+    const vp = peakVoltage();
+    const vrms = rmsVoltage();
+    ctrlRmsVp.textContent = vp.toFixed(2) + ' V';
+    dispVp.textContent = vp.toFixed(2) + ' V';
+    dispVpp.textContent = (2 * vp).toFixed(2) + ' V';
+    dispVrms.textContent = vrms.toFixed(2) + ' V';
+    dispRatio.textContent = getRmsRatio().toFixed(3);
+    rmsBoard.update();
+    if (window.MathJax && window.MathJax.typesetPromise) window.MathJax.typesetPromise();
+  }
+  rmsVpInput.addEventListener('input', updateRmsDisplay);
+  rmsWaveSelect.addEventListener('change', updateRmsDisplay);
+  updateRmsDisplay();
+})();
+
+(function () {
+  const seriesVpInput = document.getElementById('seriesVp');
+  const seriesRInput = document.getElementById('seriesR');
+  const seriesFreqInput = document.getElementById('seriesFreq');
+  const seriesWaveSelect = document.getElementById('seriesWave');
+  const dcAutoInput = document.getElementById('dcAuto');
+  const dcVoltageInput = document.getElementById('dcVoltage');
+  const mainsDemoButton = document.getElementById('mainsDemo');
+  const ctrlSeriesVp = document.getElementById('ctrlSeriesVp');
+  const ctrlSeriesR = document.getElementById('ctrlSeriesR');
+  const ctrlSeriesFreq = document.getElementById('ctrlSeriesFreq');
+  const ctrlDcVoltage = document.getElementById('ctrlDcVoltage');
+  const dispSeriesFreq = document.getElementById('dispSeriesFreq');
+  const dispSeriesR = document.getElementById('dispSeriesR');
+  const dispSeriesVrms = document.getElementById('dispSeriesVrms');
+  const dispSeriesIrms = document.getElementById('dispSeriesIrms');
+  const dispSeriesVdc = document.getElementById('dispSeriesVdc');
+  const dispSeriesPower = document.getElementById('dispSeriesPower');
+  const dispSeriesDcR = document.getElementById('dispSeriesDcR');
+  const dispSeriesIdc = document.getElementById('dispSeriesIdc');
+  const dispSeriesDcPower = document.getElementById('dispSeriesDcPower');
+  const dcMatchStatus = document.getElementById('dcMatchStatus');
+  const acHeatFill = document.getElementById('acHeatFill');
+  const acHeatValue = document.getElementById('acHeatValue');
+  const dcHeatFill = document.getElementById('dcHeatFill');
+  const dcHeatValue = document.getElementById('dcHeatValue');
+  const compAcVoltage = document.getElementById('compAcVoltage');
+  const compDcVoltage = document.getElementById('compDcVoltage');
+  const compAcCurrent = document.getElementById('compAcCurrent');
+  const compDcCurrent = document.getElementById('compDcCurrent');
+  const compAcPower = document.getElementById('compAcPower');
+  const compDcPower = document.getElementById('compDcPower');
+  const compAcEnergy = document.getElementById('compAcEnergy');
+  const compDcEnergy = document.getElementById('compDcEnergy');
+  const acSourceWavePath = document.getElementById('acSourceWavePath');
+  const acSourceWaveLabel = document.getElementById('acSourceWaveLabel');
+
+  function seriesVp() { return parseFloat(seriesVpInput.value); }
+  function seriesR() { return parseFloat(seriesRInput.value); }
+  function seriesFreqKhz() { return parseFloat(seriesFreqInput.value); }
+  function formatFrequency(khz) { return khz < 1 ? (khz * 1000).toFixed(0) + ' Hz' : khz.toFixed(2).replace(/\.?0+$/, '') + ' kHz'; }
+  function graphTimeEndMs() { return 3 / seriesFreqKhz(); }
+  function isDcAuto() { return dcAutoInput.checked; }
+  function seriesRmsRatio() {
+    const wave = seriesWaveSelect.value;
+    if (wave === 'square') return 1;
+    if (wave === 'triangle') return 1 / Math.sqrt(3);
+    return 1 / Math.sqrt(2);
+  }
+  function seriesNormalizedWave(phase) {
+    const wave = seriesWaveSelect.value;
+    if (wave === 'square') return Math.sin(phase) >= 0 ? 1 : -1;
+    if (wave === 'triangle') return (2 / Math.PI) * Math.asin(Math.sin(phase));
+    return Math.sin(phase);
+  }
+  function seriesVrms() { return seriesVp() * seriesRmsRatio(); }
+  function seriesVoltage(tMs) { return seriesVp() * seriesNormalizedWave(2 * Math.PI * seriesFreqKhz() * tMs); }
+  function seriesCurrentMa(tMs) { return (seriesVoltage(tMs) / seriesR()) * 1000; }
+  function seriesPowerMw(tMs) { return seriesVoltage(tMs) * seriesCurrentMa(tMs); }
+  function seriesAveragePowerMw() { const vrms = seriesVrms(); const irmsMa = (vrms / seriesR()) * 1000; return vrms * irmsMa; }
+  function equivalentDcVoltage() { return isDcAuto() ? seriesVrms() : parseFloat(dcVoltageInput.value); }
+  function equivalentDcCurrentMa() { return (equivalentDcVoltage() / seriesR()) * 1000; }
+  function dcPowerMw() { return equivalentDcVoltage() * equivalentDcCurrentMa(); }
+  function dcEnergyUj(tMs) { return dcPowerMw() * tMs; }
+  function heatColor(percent) { return percent > 75 ? '#d9534f' : percent > 40 ? '#f0ad4e' : '#28a745'; }
+
+  function updateAcSourceSymbol() {
+    const wave = seriesWaveSelect.value;
+    if (!acSourceWavePath || !acSourceWaveLabel) return;
+    if (wave === 'square') {
+      acSourceWavePath.setAttribute('d', 'M80 105 L80 82 L105 82 L105 108 L130 108 L130 85');
+      acSourceWaveLabel.textContent = 'v(t) ריבועי';
+    } else if (wave === 'triangle') {
+      acSourceWavePath.setAttribute('d', 'M80 105 L93 82 L107 108 L121 82 L134 105');
+      acSourceWaveLabel.textContent = 'v(t) משולש';
+    } else {
+      acSourceWavePath.setAttribute('d', 'M82 95 C90 78, 99 78, 107 95 S124 112, 132 95');
+      acSourceWaveLabel.textContent = 'v(t) סינוס';
+    }
+  }
+
+  function updateHeatDisplay(acPowerMw, dcPowerValueMw) {
+    const maxPower = Math.max(acPowerMw, dcPowerValueMw, 1);
+    const acPercent = Math.min(100, (acPowerMw / maxPower) * 100);
+    const dcPercent = Math.min(100, (dcPowerValueMw / maxPower) * 100);
+    acHeatFill.style.width = acPercent.toFixed(0) + '%';
+    dcHeatFill.style.width = dcPercent.toFixed(0) + '%';
+    acHeatFill.style.backgroundColor = heatColor(acPercent);
+    dcHeatFill.style.backgroundColor = heatColor(dcPercent);
+    acHeatValue.textContent = acPowerMw.toFixed(1) + ' mW';
+    dcHeatValue.textContent = dcPowerValueMw.toFixed(1) + ' mW';
+  }
+
+  function updateDcMatchStatus(vrms, vdc) {
+    const difference = vdc - vrms;
+    dcMatchStatus.className = Math.abs(difference) <= 0.5 ? 'match-ok text-success' : 'match-warn text-danger';
+    if (Math.abs(difference) <= 0.5) { dcMatchStatus.textContent = 'שקול'; } 
+    else if (difference < 0) { dcMatchStatus.textContent = 'חסר ' + Math.abs(difference).toFixed(1) + ' V'; } 
+    else { dcMatchStatus.textContent = 'גבוה ב-' + difference.toFixed(1) + ' V'; }
+  }
+
+  function setupMainsDemo() {
+    seriesVpInput.value = (230 / seriesRmsRatio()).toFixed(1);
+    seriesFreqInput.value = '0.05';
+    dcAutoInput.checked = true;
+    dcVoltageInput.disabled = true;
+    dcVoltageInput.value = '230';
+    updateSeriesDisplay();
+  }
+
+  function seriesEnergyUj(tMs) {
+    if (tMs <= 0) return 0;
+    const total = graphTimeEndMs();
+    const steps = Math.max(32, Math.ceil(180 * tMs / total));
+    const dt = tMs / steps;
+    let area = 0;
+    let previous = seriesPowerMw(0);
+    for (let i = 1; i <= steps; i += 1) {
+      const current = seriesPowerMw(i * dt);
+      area += (previous + current) * 0.5 * dt;
+      previous = current;
+    }
+    return area;
+  }
+
+  function niceCeil(value, minimum) {
+    const safeValue = Math.max(value, minimum);
+    const exponent = Math.floor(Math.log10(safeValue));
+    const base = Math.pow(10, exponent);
+    const normalized = safeValue / base;
+    let nice = 1;
+    if (normalized > 5) nice = 10;
+    else if (normalized > 2) nice = 5;
+    else if (normalized > 1) nice = 2;
+    return nice * base;
+  }
+
+  function getScaleValues() {
+    const vp = seriesVp();
+    const tEnd = graphTimeEndMs();
+    const currentPeakMa = (vp / seriesR()) * 1000;
+    const powerPeakMw = (vp * currentPeakMa);
+    const energyEndUj = seriesEnergyUj(tEnd);
+    const dcCurrentMa = equivalentDcCurrentMa();
+    const dcPowerEndMw = dcPowerMw();
+    const dcEnergyEndUj = dcEnergyUj(tEnd);
+    return {
+      voltageLimit: niceCeil(Math.max(vp, equivalentDcVoltage()) * 1.25, 2),
+      currentLimit: niceCeil(Math.max(currentPeakMa, dcCurrentMa) * 1.25, 2),
+      powerLimit: niceCeil(Math.max(powerPeakMw, dcPowerEndMw) * 1.18, 5),
+      energyLimit: niceCeil(Math.max(energyEndUj, dcEnergyEndUj) * 1.18, 10),
+      dcVoltageLimit: niceCeil(equivalentDcVoltage() * 1.8, 2),
+      dcCurrentLimit: niceCeil(dcCurrentMa * 1.8, 2),
+      dcPowerLimit: niceCeil(dcPowerEndMw * 1.8, 5),
+      dcWorkLimit: niceCeil(dcEnergyEndUj * 1.18, 10),
+      timeEnd: tEnd
+    };
+  }
+
+  function updateGraphScales() {
+    const scales = getScaleValues();
+    const xPad = scales.timeEnd * 0.14;
+    seriesCurrentBoard.setBoundingBox([-xPad, scales.currentLimit * 1.08, scales.timeEnd + xPad, -scales.currentLimit * 1.16], false);
+    seriesVoltageBoard.setBoundingBox([-xPad, scales.voltageLimit * 1.08, scales.timeEnd + xPad, -scales.voltageLimit * 1.16], false);
+    seriesPowerBoard.setBoundingBox([-xPad, scales.powerLimit * 1.08, scales.timeEnd + xPad, -0.18 * scales.powerLimit], false);
+    seriesEnergyBoard.setBoundingBox([-xPad, scales.energyLimit * 1.08, scales.timeEnd + xPad, -0.14 * scales.energyLimit], false);
+    comparisonEnergyBoard.setBoundingBox([-xPad, scales.energyLimit * 1.08, scales.timeEnd + xPad, -0.14 * scales.energyLimit], false);
+    dcViBoard.setBoundingBox([-0.18 * scales.dcVoltageLimit, scales.dcCurrentLimit * 1.08, scales.dcVoltageLimit * 1.08, -0.16 * scales.dcCurrentLimit], false);
+    dcPowerTimeBoard.setBoundingBox([-xPad, scales.dcPowerLimit * 1.08, scales.timeEnd + xPad, -0.18 * scales.dcPowerLimit], false);
+    dcWorkTimeBoard.setBoundingBox([-xPad, scales.dcWorkLimit * 1.08, scales.timeEnd + xPad, -0.14 * scales.dcWorkLimit], false);
+  }
+
+  const seriesCurrentBoard = JXG.JSXGraph.initBoard('seriesCurrentBoard', { boundingbox: [-0.5, 130, 10.5, -130], axis: true, showNavigation: false, showCopyright: false });
+  const seriesVoltageBoard = JXG.JSXGraph.initBoard('seriesVoltageBoard', { boundingbox: [-0.5, 13, 10.5, -13], axis: true, showNavigation: false, showCopyright: false });
+  const seriesPowerBoard = JXG.JSXGraph.initBoard('seriesPowerBoard', { boundingbox: [-0.5, 1600, 10.5, -80], axis: true, showNavigation: false, showCopyright: false });
+  const seriesEnergyBoard = JXG.JSXGraph.initBoard('seriesEnergyBoard', { boundingbox: [-0.5, 7600, 10.5, -300], axis: true, showNavigation: false, showCopyright: false });
+  const comparisonEnergyBoard = JXG.JSXGraph.initBoard('comparisonEnergyBoard', { boundingbox: [-0.5, 7600, 10.5, -300], axis: true, showNavigation: false, showCopyright: false });
+  const dcViBoard = JXG.JSXGraph.initBoard('dcViBoard', { boundingbox: [-0.8, 90, 10, -8], axis: true, showNavigation: false, showCopyright: false });
+  const dcPowerTimeBoard = JXG.JSXGraph.initBoard('dcPowerTimeBoard', { boundingbox: [-0.5, 900, 10.5, -60], axis: true, showNavigation: false, showCopyright: false });
+  const dcWorkTimeBoard = JXG.JSXGraph.initBoard('dcWorkTimeBoard', { boundingbox: [-0.5, 7600, 10.5, -300], axis: true, showNavigation: false, showCopyright: false });
+
+  seriesCurrentBoard.create('text', [0.12, function(){ return getScaleValues().currentLimit * 0.86; }, 'i(t) [mA]'], {fontSize: 15, fixed: true, color: '#28a745'});
+  seriesCurrentBoard.create('text', [function(){ return graphTimeEndMs() * 0.86; }, function(){ return -getScaleValues().currentLimit * 0.82; }, 't [ms]'], {fontSize: 15, fixed: true});
+  seriesCurrentBoard.create('functiongraph', [seriesCurrentMa, 0, graphTimeEndMs], { strokeColor: '#28a745', strokeWidth: 3 });
+  seriesCurrentBoard.create('functiongraph', [function(){ return 0; }, 0, graphTimeEndMs], { strokeColor: '#8a97a3', strokeWidth: 1, dash: 2 });
+  seriesCurrentBoard.create('functiongraph', [equivalentDcCurrentMa, 0, graphTimeEndMs], { strokeColor: '#8e44ad', strokeWidth: 2, dash: 2 });
+  
+  seriesVoltageBoard.create('text', [0.12, function(){ return getScaleValues().voltageLimit * 0.86; }, 'v_R(t) [V]'], {fontSize: 15, fixed: true, color: '#005696'});
+  seriesVoltageBoard.create('text', [function(){ return graphTimeEndMs() * 0.86; }, function(){ return -getScaleValues().voltageLimit * 0.82; }, 't [ms]'], {fontSize: 15, fixed: true});
+  seriesVoltageBoard.create('functiongraph', [seriesVoltage, 0, graphTimeEndMs], { strokeColor: '#005696', strokeWidth: 3 });
+  seriesVoltageBoard.create('functiongraph', [function(){ return 0; }, 0, graphTimeEndMs], { strokeColor: '#8a97a3', strokeWidth: 1, dash: 2 });
+  seriesVoltageBoard.create('functiongraph', [equivalentDcVoltage, 0, graphTimeEndMs], { strokeColor: '#8e44ad', strokeWidth: 2, dash: 2 });
+  
+  seriesPowerBoard.create('text', [0.12, function(){ return getScaleValues().powerLimit * 0.88; }, 'p(t)=v(t)i(t) [mW]'], {fontSize: 15, fixed: true, color: '#d9534f'});
+  seriesPowerBoard.create('text', [function(){ return graphTimeEndMs() * 0.86; }, function(){ return -getScaleValues().powerLimit * 0.045; }, 't [ms]'], {fontSize: 15, fixed: true});
+  seriesPowerBoard.create('functiongraph', [seriesPowerMw, 0, graphTimeEndMs], { strokeColor: '#d9534f', strokeWidth: 3 });
+  seriesPowerBoard.create('functiongraph', [seriesAveragePowerMw, 0, graphTimeEndMs], { strokeColor: '#8e44ad', strokeWidth: 2, dash: 2 });
+  seriesPowerBoard.create('functiongraph', [dcPowerMw, 0, graphTimeEndMs], { strokeColor: '#f0ad4e', strokeWidth: 2, dash: 2 });
+  seriesPowerBoard.create('functiongraph', [function(){ return 0; }, 0, graphTimeEndMs], { strokeColor: '#8a97a3', strokeWidth: 1, dash: 2 });
+  
+  seriesEnergyBoard.create('text', [0.12, function(){ return getScaleValues().energyLimit * 0.88; }, 'W(t)=∫p(t)dt [uJ]'], {fontSize: 15, fixed: true, color: '#8e44ad'});
+  seriesEnergyBoard.create('text', [function(){ return graphTimeEndMs() * 0.86; }, function(){ return -getScaleValues().energyLimit * 0.03; }, 't [ms]'], {fontSize: 15, fixed: true});
+  seriesEnergyBoard.create('functiongraph', [seriesEnergyUj, 0, graphTimeEndMs], { strokeColor: '#8e44ad', strokeWidth: 3 });
+  seriesEnergyBoard.create('functiongraph', [function(){ return 0; }, 0, graphTimeEndMs], { strokeColor: '#8a97a3', strokeWidth: 1, dash: 2 });
+
+  comparisonEnergyBoard.create('text', [0.12, function(){ return getScaleValues().energyLimit * 0.88; }, 'W(t) [uJ]'], {fontSize: 15, fixed: true, color: '#263f50'});
+  comparisonEnergyBoard.create('text', [function(){ return graphTimeEndMs() * 0.86; }, function(){ return -getScaleValues().energyLimit * 0.08; }, 't [ms]'], {fontSize: 15, fixed: true});
+  comparisonEnergyBoard.create('functiongraph', [seriesEnergyUj, 0, graphTimeEndMs], { strokeColor: '#8e44ad', strokeWidth: 3 });
+  comparisonEnergyBoard.create('functiongraph', [dcEnergyUj, 0, graphTimeEndMs], { strokeColor: '#d9534f', strokeWidth: 2, dash: 2 });
+  comparisonEnergyBoard.create('functiongraph', [function(){ return 0; }, 0, graphTimeEndMs], { strokeColor: '#8a97a3', strokeWidth: 1, dash: 2 });
+  
+  dcViBoard.create('text', [function(){ return getScaleValues().dcVoltageLimit * 0.78; }, function(){ return -getScaleValues().dcCurrentLimit * 0.045; }, 'V [V]'], {fontSize: 15, fixed: true});
+  dcViBoard.create('text', [function(){ return getScaleValues().dcVoltageLimit * 0.02; }, function(){ return getScaleValues().dcCurrentLimit * 0.86; }, 'I [mA]'], {fontSize: 15, fixed: true});
+  const dcOrigin = dcViBoard.create('point', [0, 0], {visible: false, fixed: true});
+  const dcVPoint = dcViBoard.create('point', [equivalentDcVoltage, 0], {visible: false, fixed: true});
+  const dcWorkPoint = dcViBoard.create('point', [equivalentDcVoltage, equivalentDcCurrentMa], { name: 'DC', size: 5, color: '#8e44ad', label: {offset: [10, 10], fontSize: 14} });
+  const dcIPoint = dcViBoard.create('point', [0, equivalentDcCurrentMa], {visible: false, fixed: true});
+  dcViBoard.create('polygon', [dcOrigin, dcVPoint, dcWorkPoint, dcIPoint], { fillColor: '#8e44ad', fillOpacity: 0.22, borders: {strokeColor: '#8e44ad', strokeWidth: 2} });
+  dcViBoard.create('segment', [dcOrigin, dcWorkPoint], { strokeColor: '#8e44ad', strokeWidth: 2, dash: 2 });
+  
+  dcPowerTimeBoard.create('text', [0.15, function(){ return getScaleValues().dcPowerLimit * 0.88; }, 'PDC(t) [mW]'], {fontSize: 15, fixed: true, color: '#d9534f'});
+  dcPowerTimeBoard.create('text', [function(){ return graphTimeEndMs() * 0.86; }, function(){ return -getScaleValues().dcPowerLimit * 0.045; }, 't [ms]'], {fontSize: 15, fixed: true});
+  dcPowerTimeBoard.create('functiongraph', [dcPowerMw, 0, graphTimeEndMs], { strokeColor: '#d9534f', strokeWidth: 3 });
+  dcPowerTimeBoard.create('functiongraph', [function(){ return 0; }, 0, graphTimeEndMs], { strokeColor: '#8a97a3', strokeWidth: 1, dash: 2 });
+  
+  dcWorkTimeBoard.create('text', [0.15, function(){ return getScaleValues().dcWorkLimit * 0.88; }, 'WDC(t)=PDC·t [uJ]'], {fontSize: 15, fixed: true, color: '#8e44ad'});
+  dcWorkTimeBoard.create('text', [function(){ return graphTimeEndMs() * 0.86; }, function(){ return -getScaleValues().dcWorkLimit * 0.03; }, 't [ms]'], {fontSize: 15, fixed: true});
+  dcWorkTimeBoard.create('functiongraph', [dcEnergyUj, 0, graphTimeEndMs], { strokeColor: '#8e44ad', strokeWidth: 3 });
+  dcWorkTimeBoard.create('functiongraph', [function(){ return 0; }, 0, graphTimeEndMs], { strokeColor: '#8a97a3', strokeWidth: 1, dash: 2 });
+
+  function updateSeriesDisplay() {
+    const vp = seriesVp();
+    const r = seriesR();
+    const fKhz = seriesFreqKhz();
+    const vrms = seriesVrms();
+    dcVoltageInput.disabled = isDcAuto();
+    if (isDcAuto()) { dcVoltageInput.value = vrms.toFixed(1); }
+    const vdc = equivalentDcVoltage();
+    const idcMa = equivalentDcCurrentMa();
+    const powerMw = seriesAveragePowerMw();
+    const dcPower = dcPowerMw();
+    const timeEndMs = graphTimeEndMs();
+    const energyUj = seriesEnergyUj(timeEndMs);
+    const dcEnergy = dcEnergyUj(timeEndMs);
+    
+    updateAcSourceSymbol();
+    updateHeatDisplay(powerMw, dcPower);
+    updateGraphScales();
+    
+    ctrlSeriesVp.textContent = vp.toFixed(1) + ' V';
+    ctrlSeriesR.textContent = r.toFixed(0) + ' Ω';
+    ctrlSeriesFreq.textContent = formatFrequency(fKhz);
+    ctrlDcVoltage.textContent = vdc.toFixed(1) + ' V';
+    dispSeriesFreq.textContent = formatFrequency(fKhz);
+    dispSeriesR.textContent = r.toFixed(0) + ' Ω';
+    dispSeriesVrms.textContent = vrms.toFixed(2) + ' V';
+    dispSeriesVdc.textContent = vdc.toFixed(2) + ' V';
+    dispSeriesPower.textContent = powerMw.toFixed(1) + ' mW';
+    dispSeriesDcR.textContent = r.toFixed(0) + ' Ω';
+    dispSeriesDcPower.textContent = dcPower.toFixed(1) + ' mW';
+    updateDcMatchStatus(vrms, vdc);
+    
+    compAcVoltage.textContent = vrms.toFixed(2) + ' V';
+    compDcVoltage.textContent = vdc.toFixed(2) + ' V';
+    compAcCurrent.textContent = (vrms/r*1000).toFixed(2) + ' mA';
+    compDcCurrent.textContent = idcMa.toFixed(2) + ' mA';
+    compAcPower.textContent = powerMw.toFixed(1) + ' mW';
+    compDcPower.textContent = dcPower.toFixed(1) + ' mW';
+    compAcEnergy.textContent = energyUj.toFixed(1) + ' uJ';
+    compDcEnergy.textContent = dcEnergy.toFixed(1) + ' uJ';
+
+    seriesCurrentBoard.update();
+    seriesVoltageBoard.update();
+    seriesPowerBoard.update();
+    seriesEnergyBoard.update();
+    comparisonEnergyBoard.update();
+    dcViBoard.update();
+    dcPowerTimeBoard.update();
+    dcWorkTimeBoard.update();
+    if (window.MathJax && window.MathJax.typesetPromise) window.MathJax.typesetPromise();
+  }
+
+  seriesVpInput.addEventListener('input', updateSeriesDisplay);
+  seriesRInput.addEventListener('input', updateSeriesDisplay);
+  seriesFreqInput.addEventListener('input', updateSeriesDisplay);
+  seriesWaveSelect.addEventListener('change', updateSeriesDisplay);
+  dcAutoInput.addEventListener('change', updateSeriesDisplay);
+  dcVoltageInput.addEventListener('input', updateSeriesDisplay);
+  mainsDemoButton.addEventListener('click', setupMainsDemo);
+  updateSeriesDisplay();
+})();
+</jsxgraph></div>
+
+</main>
+</body>
+</html>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

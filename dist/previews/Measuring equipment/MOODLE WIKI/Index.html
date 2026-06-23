@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>שם הפרק (למשל: אינדקס מכשירים)</title>
+</head>
+<body>
+
+
+
+
+
+
+
+<div dir="rtl" style="font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #2c3e50; max-width: 1000px; margin: 20px auto; padding: 30px; border: 1px solid #e0e0e0; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <div style="background-color: #37474f; color: white; padding: 40px 20px; border-radius: 8px; text-align: center; margin-bottom: 40px;">
+        <h1 style="margin: 0; font-size: 32px;">מדריך מכשירי מדידה - מעבדת חשמל ואלקטרוניקה</h1>
+        <p style="margin: 15px 0 0 0; font-size: 18px; opacity: 0.9;">מאגר מידע דידקטי לסטודנטים ולמרצים</p>
+    </div>
+
+    <p style="font-size: 1.1em; text-align: center; margin-bottom: 40px;">ברוכים הבאים למאגר ה-Wiki של המעבדה. כאן תמצאו מדריכים מפורטים, הסברי פונקציות וכללי בטיחות לכל מכשירי המדידה הקיימים.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+        <!-- Category: DMM -->
+        <div style="border: 1px solid #cfd8dc; border-radius: 10px; overflow: hidden; transition: transform 0.2s;">
+            <div style="background-color: #0056b3; color: white; padding: 15px; font-weight: bold; font-size: 18px;">רב-מודד ספרתי (DMM)</div>
+            <div style="padding: 20px;">
+                <!-- BULLET LIST / KEY POINTS -->
+<ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                        <a href="GDM_8245.html" style="text-decoration: none; color: #0056b3; font-weight: bold; font-size: 1.1em;">GDM-8245</a>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מדריך בסיסי למדידות מתח, זרם והתנגדות.</p>
+                    </li>
+                    <li>
+                        <a href="GDM_8341.html" style="text-decoration: none; color: #0056b3; font-weight: bold; font-size: 1.1em;">GDM-8341</a>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מדריך מתקדם: פונקציות מתמטיות, תצוגה כפולה וטריגר.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Category: Function Generators -->
+        <div style="border: 1px solid #cfd8dc; border-radius: 10px; overflow: hidden;">
+            <div style="background-color: #d32f2f; color: white; padding: 15px; font-weight: bold; font-size: 18px;">מחוללי אותות (Function Generators)</div>
+            <div style="padding: 20px;">
+                <!-- BULLET LIST / KEY POINTS -->
+<ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                        <a href="Agilent_33220A.html" style="text-decoration: none; color: #d32f2f; font-weight: bold; font-size: 1.1em;">Agilent 33220A</a>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מחולל דיגיטלי מדויק עם אפשרות לאותות שרירותיים.</p>
+                    </li>
+                    <li>
+                        <a href="GFG_8219A.html" style="text-decoration: none; color: #d32f2f; font-weight: bold; font-size: 1.1em;">GFG-8219A</a>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מחולל אנלוגי משולב עם מונה תדר.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Category: Power & Others -->
+        <div style="border: 1px solid #cfd8dc; border-radius: 10px; overflow: hidden;">
+            <div style="background-color: #2e7d32; color: white; padding: 15px; font-weight: bold; font-size: 18px;">ספקי כוח ומדי הספק</div>
+            <div style="padding: 20px;">
+                <!-- BULLET LIST / KEY POINTS -->
+<ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                        <a href="GPS_3303.html" style="text-decoration: none; color: #2e7d32; font-weight: bold; font-size: 1.1em;">ספק כוח GPS-3303</a>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">עבודה במצבי טורי, מקבילי ועצמאי.</p>
+                    </li>
+                    <li>
+                        <a href="GPM_8212.html" style="text-decoration: none; color: #2e7d32; font-weight: bold; font-size: 1.1em;">מד הספק GPM-8212</a>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מדידת הספק פעיל וגורם הספק (PF).</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Category: Oscilloscope -->
+        <div style="border: 1px solid #cfd8dc; border-radius: 10px; overflow: hidden;">
+            <div style="background-color: #f57c00; color: white; padding: 15px; font-weight: bold; font-size: 18px;">משקפי תנודות (Oscilloscopes)</div>
+            <div style="padding: 20px;">
+                <!-- BULLET LIST / KEY POINTS -->
+<ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                        <a href="Oscilloscope.html" style="text-decoration: none; color: #f57c00; font-weight: bold; font-size: 1.1em;">מבוא לאוסילוסקופ</a>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">כללי בטיחות, מגבלת אדמה ומדידת זרם עקיפה.</p>
+                    </li>
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                        <a href="GDS_2072A.html" style="text-decoration: none; color: #f57c00; font-weight: bold; font-size: 1.1em;">אוסילוסקופ דיגיטלי GDS-2072A</a>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">בקרות פנל קדמי, תפריטים ומדידה דיגיטלית.</p>
+                    </li>
+                    <li>
+                        <a href="GOS_620.html" style="text-decoration: none; color: #f57c00; font-weight: bold; font-size: 1.1em;">אוסילוסקופ אנלוגי GOS-620</a>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #607d8b;">מדריך תפעול אנלוגי, קביעת קו אפס וכיול ידני.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; background-color: #fff3e0; border: 1px solid #ffe0b2; padding: 20px; border-radius: 8px;">
+        <h4 style="margin-top: 0; color: #e65100;">הערה חשובה לשימוש ב-Wiki:</h4>
+        <p style="margin-bottom: 0;">לצורך הצגת התמונות במערכת ה-Moodle, יש להעלות את קבצי התמונה לתיקיית הקבצים של הקורס ולעדכן את הקישורים בתוך קוד ה-HTML של כל עמוד.</p>
+    </div>
+</div>
+
+
+</body>
+</html>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

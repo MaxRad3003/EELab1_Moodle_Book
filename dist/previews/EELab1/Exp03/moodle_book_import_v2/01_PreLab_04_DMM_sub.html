@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 PreLab 04 DMM sub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .preview-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        /* Embed the same styles as moodle_snippet for consistency */
+        .moodle-snippet-custom {
+            --primary-color: #005696;
+            --secondary-color: #00a4e4;
+            --danger-color: #d9534f;
+            --success-color: #28a745;
+            --warning-color: #ff9900;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --box-bg: #f8f9fa;
+            --border-color: #dae0e5;
+            --theory-bg: #e8f4f8;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'David', Arial, sans-serif;
+        }
+
+        /* Typography */
+        .moodle-snippet-custom .section-title { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 0; }
+        .moodle-snippet-custom .sub-title { color: var(--primary-color); margin-top: 0; }
+        .moodle-snippet-custom .block-title { color: var(--primary-color); border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Structural Blocks */
+        .moodle-snippet-custom .info-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; margin: 20px 0; }
+        .moodle-snippet-custom .theory-card { background-color: #ffffff; padding: 15px; border-radius: 5px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .alert-box { background-color: #fff9e6; border-right: 4px solid var(--warning-color); padding: 10px 15px; border-radius: 3px; font-size: 14px; }
+        .moodle-snippet-custom .quote-box { border-right: 4px solid var(--danger-color); margin: 5px 0; padding: 10px 15px; color: #555; background-color: #f0f0f0; font-size: 14px; }
+
+        /* Steps Components */
+        .moodle-snippet-custom .step-box { background-color: var(--box-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; align-items: center; }
+        .moodle-snippet-custom .step-number { background-color: var(--primary-color); color: white; font-size: 24px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-left: 20px; flex-shrink: 0; }
+        .moodle-snippet-custom .step-content h4 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .moodle-snippet-custom .step-content p { margin: 0; font-size: 14px; color: #555; }
+
+        /* Layouts */
+        .moodle-snippet-custom .roadmap-container { display: flex; justify-content: space-between; margin-bottom: 40px; background: #f8f9fa; padding: 15px; border-radius: 50px; border: 1px solid #e9ecef; text-align: center; font-size: 13px; }
+        .moodle-snippet-custom .roadmap-step { flex: 1; }
+        .moodle-snippet-custom .roadmap-circle { width: 30px; height: 30px; color: white; border-radius: 50%; margin: 0 auto 5px; line-height: 30px; font-weight: bold; }
+        
+        .moodle-snippet-custom .flex-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0; }
+        .moodle-snippet-custom .flex-item { flex: 1; min-width: 250px; }
+
+        /* Special Components */
+        .moodle-snippet-custom .matlab-box { text-align: center; background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 30px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .moodle-snippet-custom .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .moodle-snippet-custom .data-table th { background-color: #003366; color: white; padding: 10px; border: 1px solid #ddd; }
+        .moodle-snippet-custom .data-table td { padding: 10px; border: 1px solid #ddd; }
+        
+        .moodle-snippet-custom .h5p-container { background-color: #f4f6f9; border: 1px solid #cce5ff; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .moodle-snippet-custom .h5p-placeholder { background: white; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; text-align: center; }
+        .moodle-snippet-custom .success-banner { margin-top: 40px; padding: 20px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 8px; text-align: center; }
+
+        /* Utility Helpers */
+        .moodle-snippet-custom .bg-primary { background-color: var(--primary-color) !important; }
+        .moodle-snippet-custom .bg-secondary { background-color: var(--secondary-color) !important; }
+        .moodle-snippet-custom .bg-danger { background-color: var(--danger-color) !important; }
+        .moodle-snippet-custom .bg-success { background-color: var(--success-color) !important; }
+        .moodle-snippet-custom .bg-warning { background-color: var(--warning-color) !important; }
+        .moodle-snippet-custom .bg-muted { background-color: #6c757d !important; }
+        .moodle-snippet-custom .text-danger { color: var(--danger-color) !important; }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="moodle-snippet-custom">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>01 PreLab 04 DMM sub</title>
+</head>
+<body>
+
+<div dir="rtl" style="text-align: right; direction: rtl;">
+    <div class="moodle-snippet-custom" dir="rtl" style="color: #1e293b; line-height: 1.625; font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif; direction: rtl; unicode-bidi: isolate; text-align: right; font-size: 16px;">
+        <div class="moodle-content-inner" style="box-sizing: border-box; direction: rtl; unicode-bidi: isolate; text-align: right; max-width: 980px; margin: 0 auto; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);">
+            <!DOCTYPE html>
+<html lang="he" dir="rtl" style="box-sizing: border-box;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הכנה לניסוי 3 - מדידות AC ב-DMM</title>
+
+</head>
+<body id="exp03-01-prelab-04-dmm-sub" style="box-sizing: border-box; font-family: Arial,'Noto Sans Hebrew',sans-serif; line-height: 1.65; margin: 20px; color: #202124; background: #ffffff; direction: rtl; text-align: right;">
+<div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
+<div style="box-sizing: border-box; font-size: 0.9rem; color: #52616b; margin-bottom: 14px;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
+<!-- CHAPTER: HEADER -->
+<div class="mb-5" style="box-sizing: border-box; margin-bottom: 2rem;">
+    <h4 class="section-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 0; display: inline-block; color: #005696; font-size: 1.7rem; line-height: 1.35; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px;">הכנה לניסוי 3 - חלק ב': מדידות AC באמצעות רב-מודד דיגיטלי (DMM)</h4>
+    <p class="mt-4" style="box-sizing: border-box; margin-bottom: 0.9rem; margin: 0 0 12px; font-size: 1.125rem; color: #52616b; margin-top: 1rem;">הבנה כיצד DMM מפרש אותות חילופין וההבדל הקריטי בין מכשיר רגיל ל-True RMS.</p>
+    <p class="mt-2 mb-0" style="font-size: 14px; color: #475569;">
+        💡 להוראות שימוש מפורטות במכשירי ה-DMM השונים שבעמדות המעבדה (כגון GDM-8245, GDM-8341 ו-UT33+), עיינו ב<a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">מדריך ציוד המדידה במודל</a>.
+    </p>
+</div>
+
+<!-- SECTION: DMM AC MEASUREMENT -->
+<div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);" id="section-ac-dmm">
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">🔍 1. כיצד מודד DMM סטנדרטי מתח AC?</h4>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">רב-מודד דיגיטלי פשוט (שאינו True RMS) אינו מחשב את נוסחת ה-RMS המורכבת. במקום זאת, הוא מודד את <strong style="box-sizing: border-box;">הערך הממוצע המיושר (MAD)</strong> ומכפיל אותו ב<strong style="box-sizing: border-box;">מקדם כיול של 1.11</strong>:</p>
+    
+    <div class="text-center" style="box-sizing: border-box; font-size: 1.5rem; margin: 1.5rem 0; padding: 1rem; background: #f7fafc; border-radius: 6px; color: #00a4e4; text-align: center;">
+        \(V_{\text{indicated}} = 1.11 \times V_{\text{rectified\_average}}\)
+    </div>
+
+    <div class="danger-box" style="box-sizing: border-box; background-color: #fef2f2; font-size: 15px; color: #991b1b; background: #fff1f1; border: 1px solid #f5c6cb; border-right: 5px solid #d9534f; border-radius: 8px; padding: 16px; margin: 18px 0;">
+        <strong style="box-sizing: border-box;">⚠️ מגבלת המכשיר הרגיל:</strong> מקדם ה-1.11 נכון <u style="box-sizing: border-box;">אך ורק</u> עבור גל סינוס טהור. מדידת גל ריבועי או משולש במכשיר רגיל תיתן תוצאה שגויה!
+    </div>
+</div>
+
+<!-- SECTION: TRUE RMS VS STANDARD -->
+<div class="mt-5" style="box-sizing: border-box; margin-top: 2rem;">
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">💡 2. ההבדל בין True RMS ל-DMM רגיל</h4>
+    <div class="flex-grid" style="box-sizing: border-box; display: flex; gap: 16px; flex-wrap: wrap;">
+        <!-- THEORY CARD SECTION -->
+<div class="theory-card flex-item" style="box-sizing: border-box; background-color: white; padding: 1.5rem; border-radius: 0.75rem; margin-top: 1.25rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); border: 1px solid #e2e8f0; flex: 1 1 240px; border-top: 4px solid #52616b;">
+            <strong style="box-sizing: border-box; color: #005696; display: block; margin-bottom: 0.5rem;">DMM רגיל</strong>
+            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px; font-size: 0.9rem; color: #52616b;">מכויל לגל סינוס בלבד. במדידת אותות אחרים נוצרת שגיאה משמעותית.</p>
+        </div>
+        <!-- THEORY CARD SECTION -->
+<div class="theory-card flex-item" style="box-sizing: border-box; background-color: white; padding: 1.5rem; border-radius: 0.75rem; margin-top: 1.25rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); border: 1px solid #e2e8f0; flex: 1 1 240px; border-top: 4px solid #00a4e4;">
+            <strong style="box-sizing: border-box; color: #00a4e4; display: block; margin-bottom: 0.5rem;">True RMS DMM</strong>
+            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px; font-size: 0.9rem; color: #52616b;">מחשב את ערך ה-RMS האמיתי לכל צורת גל (סינוס, ריבוע, רעש) בדיוק גבוה.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION: AVERAGE VOLTAGE -->
+<div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);" id="section-average-volt">
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px;">📐 3. מדידת מתח ממוצע (DC Offset)</h4>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">כדי למדוד את הערך הממוצע המתמטי של האות (\(V_{av}\)), עלינו להעביר את הרב-מודד ל<strong style="box-sizing: border-box;">מצב DC</strong>:</p>
+    <div class="step-box" style="box-sizing: border-box; background-color: white; margin-bottom: 1rem; transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; gap: 14px; align-items: flex-start; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 16px; margin: 14px 0;">
+        <div class="step-number" style="box-sizing: border-box; background-color: #3b82f6; font-size: 1.25rem; width: 2.5rem; margin-left: 1.25rem; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); min-width: 38px; height: 38px; border-radius: 50%; background: #005696; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">!</div>
+        <div class="step-content" style="box-sizing: border-box; flex: 1; min-width: 0;">
+            <h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25; margin: 0 0 0.25rem 0; color: #0f172a; font-size: 1.125rem;">פילטר Low-Pass</h4>
+            <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; font-size: 14px; color: #64748b; margin: 0 0 12px;">מצב DC מפעיל מסנן שמסיר את רכיבי החילופין ומשאיר רק את רמת ה-DC הקבועה של האות.</p>
+        </div>
+    </div>
+</div>
+
+<!-- MATLAB ASSIGNMENT PREVIEW -->
+<div class="theory-card" style="box-sizing: border-box; background-color: white; margin-top: 1.25rem; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 20px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white;" id="section-matlab-ac">
+    <h4 class="sub-title" style="box-sizing: border-box; font-weight: 700; margin-bottom: 0.75rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem; color: #005696; font-size: 1.25rem; line-height: 1.4; margin: 0 0 12px; color: #00a4e4;">📊 סימולציית MATLAB: שגיאת מדידה</h4>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px; color: #94a3b8;">צפו כיצד שונה הקריאה בין מכשיר רגיל ל-True RMS עבור גל משולש:</p>
+    
+    <div dir="ltr" style="box-sizing: border-box; background: rgba(0,0,0,0.3); padding: 1.25rem; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 0.9rem; border-left: 4px solid #28a745; margin-top: 1rem;">
+        <span style="box-sizing: border-box; color: #64748b;">% Symmetric triangle wave, Vmax = 6V</span><br style="box-sizing: border-box;">
+        Veff_true = 6 / sqrt(3); <span style="box-sizing: border-box; color: #28a745;">% = 3.464 V</span><br style="box-sizing: border-box;">
+        V_mad = 6 / 2;           <span style="box-sizing: border-box; color: #28a745;">% = 3.0 V</span><br style="box-sizing: border-box;">
+        V_standard = 1.11 * V_mad; <span style="box-sizing: border-box; color: #d9534f;">% = 3.33 V (Error!)</span>
+    </div>
+</div>
+
+<div data-units-emphasis="exp3" style="box-sizing: border-box; background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 14px; margin: 18px 0;">
+<strong style="box-sizing: border-box; color: #005696;">דגש יחידות בניסוי 3:</strong>
+<span style="box-sizing: border-box;"> באוסצילוסקופ רשמו תמיד האם המתח הוא \(V_p\), \(V_{pp}\) או \(V_{RMS}\). זמן מחזור יש להמיר לשניות לפני חישוב \(f=1/T\). מופע נרשם במעלות, ותדר ב-Hz או kHz באופן עקבי.</span>
+</div>
+<div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="01_PreLab_03_Conversions_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="01_PreLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="01_PreLab_05_WorkPlan_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div></div>
+
+
+
+
+
+<!-- EXP03 PRELAB H5P QUIZ NOTICE: 05_dmm -->
+<section class="card shadow-sm mb-4 border-start border-success border-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.75rem; margin: 1rem 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <!-- CARD CONTAINER -->
+<div class="card-body" style="box-sizing: border-box; padding: 1.25rem;">
+        <h3 class="card-title text-success h5" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #047857;">שאלון H5P לפרק זה</h3>
+        <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.75rem;">לאחר קריאת הפרק, יש לענות על שאלון H5P בן 5 שאלות. השאלון מיועד לבדיקה עצמית ולהכנה לבדיקת PreLab הסופית.</p>
+        <p class="card-text mb-0" style="box-sizing: border-box; margin-top: 0; margin-bottom: 0;"><strong style="box-sizing: border-box;">קובץ להעלאה ל-Moodle:</strong> <code style="box-sizing: border-box;">H5P_Quiz/Exp03_PreLab_05_DMM_H5P.h5p</code></p>
+    </div>
+</section>
+<!-- /EXP03 PRELAB H5P QUIZ NOTICE -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
