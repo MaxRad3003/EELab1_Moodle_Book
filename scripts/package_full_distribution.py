@@ -89,7 +89,7 @@ def create_full_distribution():
 
     # Cleanup temporary directory
     shutil.rmtree(full_dist_dir)
-    print(f"\nSUCCESS: Created full distribution ZIP at: {full_dist_zip}")
+    print("\nSUCCESS: Created full distribution ZIP successfully")
 
 if __name__ == '__main__':
     create_full_distribution()

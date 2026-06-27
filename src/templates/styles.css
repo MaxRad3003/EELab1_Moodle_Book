@@ -393,16 +393,7 @@
     white-space: nowrap;
 }
 
-/* Alerts & Callouts */
-.moodle-snippet-custom .alert-box { 
-    background-color: #fffbeb; /* Amber 50 */
-    border-right: 5px solid var(--warning-color); 
-    padding: 1rem 1.25rem; 
-    border-radius: var(--radius-md); 
-    font-size: 15px;
-    color: #92400e; /* Amber 800 */
-    margin: 1rem 0;
-}
+
 
 .moodle-snippet-custom .alert {
     padding: 1rem 1.15rem;
@@ -433,15 +424,6 @@
     border-color: #fcd34d;
 }
 
-.moodle-snippet-custom .danger-box { 
-    background-color: #fef2f2; /* Red 50 */
-    border-right: 5px solid var(--danger-color); 
-    padding: 1rem 1.25rem; 
-    border-radius: var(--radius-md); 
-    font-size: 15px;
-    color: #991b1b; /* Red 800 */
-    margin: 1rem 0;
-}
 
 .moodle-snippet-custom .quote-box { 
     border-right: 4px solid var(--accent-color); 

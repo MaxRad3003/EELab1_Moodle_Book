@@ -11,4 +11,4 @@ with zipfile.ZipFile(dist_zip_path, 'w', zipfile.ZIP_DEFLATED) as z:
     # We write it with the relative name 'mastech_my6243_sub.html' at the root of the ZIP
     z.write(source_file, 'mastech_my6243_sub.html')
 
-print(f"Zip packaging complete! File saved at: {dist_zip_path}")
+print("Zip packaging complete! Mastech Only ZIP saved successfully.")

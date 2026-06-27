@@ -20,10 +20,8 @@ def rebuild_all():
     # 2. Build
     run_command("npm run build")
 
-    # 3. Package Exp01, Exp02, Exp03 using PowerShell
-    run_command("powershell -File scripts/package_exp01_moodle_release.ps1")
-    run_command("powershell -File scripts/package_exp02_moodle_release.ps1")
-    run_command("powershell -File scripts/package_exp03_moodle_release.ps1")
+    # 3. Package Exp01, Exp02, Exp03 using Python
+    run_command("python scripts/package_moodle_experiments.py")
 
     # 4. Package Exp04 and Exp05
     run_command("python scripts/package_exp04_exp05.py")
