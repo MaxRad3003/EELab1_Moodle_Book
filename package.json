@@ -1,8 +1,22 @@
 {
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "node scripts/build_and_package/build.js",
+    "build:exp01": "node scripts/build_and_package/build.js Exp01",
+    "build:exp02": "node scripts/build_and_package/build.js Exp02",
+    "build:exp03": "node scripts/build_and_package/build.js Exp03",
+    "build:exp04": "node scripts/build_and_package/build.js Exp04",
+    "build:exp05": "node scripts/build_and_package/build.js Exp05",
+    "package:exp01": "python scripts/build_and_package/package_moodle_experiments.py Exp01",
+    "package:exp02": "python scripts/build_and_package/package_moodle_experiments.py Exp02",
+    "package:exp03": "python scripts/build_and_package/package_moodle_experiments.py Exp03",
+    "package:exp04": "python scripts/build_and_package/package_exp04_exp05.py Exp04",
+    "package:exp05": "python scripts/build_and_package/package_exp04_exp05.py Exp05",
+    "validate": "python scripts/html_and_links/validate_links.py",
+    "preview:index": "python scripts/build_and_package/generate_preview_index.py",
+    "preview:serve": "python scripts/serve_previews.py",
+    "report:release": "python scripts/build_and_package/generate_release_report.py",
     "clean": "node -e \"require('fs').rmSync('dist', {recursive: true, force: true})\"",
-    "release": "python scripts/rebuild_and_clean_dist.py"
+    "release": "python scripts/build_and_package/rebuild_and_clean_dist.py"
   },
   "dependencies": {
     "i": "^0.3.7"

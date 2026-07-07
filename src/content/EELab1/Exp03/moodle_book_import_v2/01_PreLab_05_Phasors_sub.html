@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>פאזור עכבה - JSXGraph</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background: #f0f2f5;}
+        h2 { color: #005696; }
+        .controls { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 8px; border: 1px solid #dee2e6; box-shadow: 0 1px 3px rgba(0,0,0,0.1);}
+        .control-group { margin-bottom: 10px; font-size: 1.1em;}
+        label { margin-left: 15px; font-weight: bold; cursor: pointer;}
+        .info { margin-top: 20px; font-size: 1.2em; direction: ltr; text-align: left; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6; box-shadow: 0 1px 3px rgba(0,0,0,0.1);}
+        #jxgbox { width: 100%; max-width: 800px; height: 600px; margin: 0 auto; border: 1px solid #ccc; border-radius: 8px; background: #fff;}
+    </style>
+</head>
+<body>
+    <!-- INLINE_JSXGRAPH -->
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <h2>מעגלי זרם חילופין: פאזור עכבה (Impedance Phasor)</h2>
+
+<!-- EXP03 ROADMAP PROGRESS BAR START -->
+<div class="roadmap-container" style="box-sizing: border-box; display: flex; justify-content: space-around; margin: 1.5rem 0 2.5rem 0; background: #f1f5f9; padding: 1.25rem; border-radius: 9999px; border: 1px solid #e2e8f0; direction: rtl;">
+    <div class="roadmap-step " style="text-align: center; flex: 1; position: relative;">
+        <div class="roadmap-circle" style="width: 2rem; height: 2rem; color: white; border-radius: 9999px; margin: 0 auto 0.5rem; line-height: 2rem; font-weight: 700; background-color: #3b82f6;  transition: all 0.3s ease;">1</div>
+        <div style="font-weight: normal; color: #64748b;">מבוא<br><span style="font-size: 0.85em; opacity: 0.8; font-weight: normal;">100%</span></div>
+    </div>
+    <div class="roadmap-step active" style="text-align: center; flex: 1; position: relative;">
+        <div class="roadmap-circle" style="width: 2rem; height: 2rem; color: white; border-radius: 9999px; margin: 0 auto 0.5rem; line-height: 2rem; font-weight: 700; background-color: #3b82f6; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2); transition: all 0.3s ease;">2</div>
+        <div style="font-weight: bold; color: #3b82f6;">הכנה<br><span style="font-size: 0.85em; opacity: 0.8; font-weight: normal;">55%</span></div>
+    </div>
+    <div class="roadmap-step " style="text-align: center; flex: 1; position: relative;">
+        <div class="roadmap-circle" style="width: 2rem; height: 2rem; color: white; border-radius: 9999px; margin: 0 auto 0.5rem; line-height: 2rem; font-weight: 700; background-color: #cbd5e1;  transition: all 0.3s ease;">3</div>
+        <div style="font-weight: normal; color: #64748b;">מעבדה</div>
+    </div>
+    <div class="roadmap-step " style="text-align: center; flex: 1; position: relative;">
+        <div class="roadmap-circle" style="width: 2rem; height: 2rem; color: white; border-radius: 9999px; margin: 0 auto 0.5rem; line-height: 2rem; font-weight: 700; background-color: #cbd5e1;  transition: all 0.3s ease;">4</div>
+        <div style="font-weight: normal; color: #64748b;">סיכום</div>
+    </div>
+</div>
+<!-- EXP03 ROADMAP PROGRESS BAR END -->
+
+<!-- Dynamic Circuit Diagram -->
+    <div id="circuitDiagram" style="width: 100%; max-width: 800px; height: 150px; margin: 0 auto 20px auto; text-align: center; background: #fff; border: 1px solid #ccc; border-radius: 8px; padding-top: 20px;">
+    </div>
+    
+    <div class="controls">
+        <div class="control-group">
+            <span style="font-weight: bold; margin-left: 10px; color: #333;">סוג מעגל:</span>
+            <input type="radio" id="circRLC" name="circuitType" value="RLC" checked onchange="updateCircuit()">
+            <label for="circRLC">RLC (טורי)</label>
+            
+            <input type="radio" id="circRC" name="circuitType" value="RC" onchange="updateCircuit()">
+            <label for="circRC">RC (טורי)</label>
+            
+            <input type="radio" id="circRC" name="circuitType" value="RC" onchange="updateCircuit()">
+            <label for="circRC">RC (טורי)</label>
+            
+            <input type="radio" id="circRL" name="circuitType" value="RL" onchange="updateCircuit()">
+            <label for="circRL">RL (טורי)</label>
+        </div>
+        
+        <div class="control-group">
+            <span style="font-weight: bold; margin-left: 10px; color: #005696;">בחירת עומס תבנין:</span>
+            <input type="radio" id="thNone" name="theveninLoad" value="None" checked onchange="updateThevenin()">
+            <label for="thNone">כל המעגל (Z)</label>
+            
+            <input type="radio" id="thR" name="theveninLoad" value="R" onchange="updateThevenin()">
+            <label for="thR">נגד (R)</label>
+            
+            <input type="radio" id="thL" name="theveninLoad" value="L" onchange="updateThevenin()">
+            <label for="thL">סליל (L)</label>
+
+            <input type="radio" id="thC" name="theveninLoad" value="C" onchange="updateThevenin()">
+            <label for="thC">קבל (C)</label>
+        </div>
+        
+        <div class="control-group" id="valueInputs" style="margin-top: 15px; background: #e9ecef; padding: 10px; border-radius: 5px; display: inline-block;">
+            <strong style="margin-left: 10px;">הזנת ערכים ידנית:</strong>
+            <label style="margin-left:5px;">R [Ω]:</label> <input type="number" id="in_R" style="width: 70px; margin-left:15px;" step="10">
+            <label style="margin-left:5px;">L [mH]:</label> <input type="number" id="in_L" style="width: 70px; margin-left:15px;" step="1">
+            <label style="margin-left:5px;">C [μF]:</label> <input type="number" id="in_C" style="width: 70px; margin-left:15px;" step="0.01">
+            <label style="margin-left:5px;">f [Hz]:</label> <input type="number" id="in_f" style="width: 70px; margin-left:15px;" step="1">
+        </div>
+
+        <div style="font-size: 0.9em; color: #666; margin-top: 10px;">
+            * ניתן לשנות את הערכים (התנגדות R, השראות L, קיבול C ותדר f) באמצעות הסליידרים בתחתית הגרף הראשון או בהקלדה כאן.
+        </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; max-width: 1400px; margin: 0 auto; justify-content: center;">
+        <div id="jxgbox" class="jxgbox" style="flex: 1; min-width: 350px; max-width: 450px; height: 600px; border: 1px solid #ccc; border-radius: 8px; background: #fff;"></div>
+        <div id="jxgbox_time" class="jxgbox" style="flex: 1; min-width: 350px; max-width: 450px; height: 600px; border: 1px solid #ccc; border-radius: 8px; background: #fff;"></div>
+        <div id="jxgbox_power" class="jxgbox" style="flex: 1; min-width: 350px; max-width: 450px; height: 600px; border: 1px solid #ccc; border-radius: 8px; background: #fff;"></div>
+        <div id="jxgbox_iv" class="jxgbox" style="flex: 1; min-width: 350px; max-width: 450px; height: 600px; border: 1px solid #ccc; border-radius: 8px; background: #fff;"></div>
+        <div id="jxgbox_bode" class="jxgbox" style="flex: 1; min-width: 350px; max-width: 450px; height: 600px; border: 1px solid #ccc; border-radius: 8px; background: #fff;"></div>
+        <div id="jxgbox_work" class="jxgbox" style="flex: 1; min-width: 350px; max-width: 450px; height: 600px; border: 1px solid #ccc; border-radius: 8px; background: #fff;"></div>
+    </div>
+    
+    <div class="info" id="infoBox">
+        <!-- Math calculations will be shown here dynamically -->
+    </div>
+    
+    <!-- Theory Section -->
+    <div class="theory-section" style="margin-top: 30px; margin-bottom: 50px; padding: 25px; background: #fff; border-radius: 8px; border: 1px solid #ccc; line-height: 1.6; font-size: 1.1em; max-width: 1400px; margin-left: auto; margin-right: auto;">
+        <h3 style="color: #005696; border-bottom: 2px solid #005696; padding-bottom: 10px;">רקע תיאורטי: ממשוואות דיפרנציאליות לפאזורים</h3>
+        <p>
+            במעגלי זרם חילופין (AC), המתח והזרם משתנים בצורה סינוסואידלית בזמן.
+            עבור נגד אידיאלי, הקשר בין מתח לזרם הוא ליניארי לפי חוק אוהם: \( v(t) = R \cdot i(t) \).<br>
+            אך עבור רכיבים אוגרי אנרגיה כמו קבל וסליל, הקשר מערב נגזרות (משוואות דיפרנציאליות):
+        </p>
+        <ul style="background: #f8f9fa; padding: 15px 40px; border-radius: 5px;">
+            <li><strong>סליל (משרן - Inductor):</strong> המתח על הסליל פרופורציונלי לקצב שינוי הזרם העובר דרכו: \( v_L(t) = L \frac{di(t)}{dt} \)</li>
+            <li><strong>קבל (Capacitor):</strong> הזרם דרך הקבל פרופורציונלי לקצב שינוי המתח על פניו: \( i_C(t) = C \frac{dv_C(t)}{dt} \)</li>
+        </ul>
+        <p>
+            כאשר ההנעה (המקור) היא בצורת סינוס, הופך להיות מאוד קשה ומסורבל לפתור משוואות דיפרנציאליות עבור מעגלים מורכבים (כמו מעגל RLC). 
+            לכן, מתבצעת התמרה הנקראת <strong>שיטת הפאזורים (מישור התדר)</strong>. המעבר מתבסס על הנוסחה של אוילר, לפיה בייצוג מרוכב, גזירה בזמן שקולה להכפלה בגורם \( j\omega \) 
+            (כאשר \( \omega = 2\pi f \) היא התדירות הזוויתית).
+        </p>
+        <p>
+            כך מתקבלים <strong>ההיגבים (Reactance)</strong>, שהם מעין "התנגדות מדומה" של הסליל והקבל, התלויה בתדר:
+            \[ X_L = \omega L = 2\pi f L \]
+            \[ X_C = \frac{1}{\omega C} = \frac{1}{2\pi f C} \]
+        </p>
+        <p>
+            <strong>עכבה מרוכבת (Impedance):</strong>
+            העכבה הכוללת של המעגל הטורי מחושבת על ידי חיבור וקטורי במישור המרוכב (כפי שניתן לראות בגרף הפאזורים מעלה):
+            \[ Z = R + j(X_L - X_C) \]
+        </p>
+        <p>
+            <strong>מעגל שקול תבנין (Thevenin Equivalent):</strong>
+            הודות לשיטת הפאזורים, ניתן לפשט כל מעגל טורי (RLC, RC, RL) ולהחליף את כל רכיביו בעכבה שקולה אחת ויחידה \( Z_{th} = Z \), 
+            המחוברת בטור לאותו מקור מתח המקורי \( V_{th} = V(t) \). כפי שניתן לראות באיור המעגלים למעלה, כל רכיבי המעגל המקורי מתאגדים לקופסה אחת (Z).
+        </p>
+        
+        <h3 style="color: #005696; border-bottom: 2px solid #005696; padding-bottom: 10px; margin-top: 30px;">הספק ותהודה</h3>
+        <p>
+            <strong>תהודה (Resonance):</strong> מצב מיוחד בו ההיגב ההשראי שווה בדיוק בגודלו להיגב הקיבולי (\( X_L = X_C \)). 
+            במצב זה, ההיגבים מבטלים זה את זה לחלוטין. העכבה המרוכבת של המעגל הופכת למינימלית וטהורה (\( Z = R \)), 
+            והזרם במעגל מגיע לערכו המקסימלי (לפי חוק אוהם). תדר התהודה מסומן לרוב כ-\( f_0 \).
+        </p>
+        <p>
+            <strong>הספק (Power):</strong>
+            ההספק הרגעי במעגל הוא מכפלת המתח בזרם בכל רגע נתון: \( p(t) = v(t)i(t) \).<br>
+            בגרף ההספק תוכלו להבחין בשני צבעים:
+            <ul>
+                <li><strong>אזור חיובי (ירוק):</strong> אנרגיה חשמלית הנלקחת מהמקור. חלק מאנרגיה זו מתבזבזת כחום על הנגד (הספק ממשי), וחלק נאגר זמנית בשדה המגנטי של הסליל או בשדה החשמלי של הקבל.</li>
+                <li><strong>אזור שלילי (אדום):</strong> אנרגיה האגורה בסליל או בקבל המוחזרת בחזרה אל מקור המתח (הספק ריאקטיבי).</li>
+            </ul>
+        </p>
+    </div>
+
+    <script>
+//<![CDATA[
+        var board = JXG.JSXGraph.initBoard('jxgbox', {
+            boundingbox: [-200, 600, 1200, -750], 
+            axis: true, 
+            showNavigation: true,
+            keepaspectratio: true
+        });
+
+        // Axes labels
+        board.create('text', [1000, -30, 'Re [\\Omega]'], {fontSize: 16, fontWeight: 'bold', color: '#333'});
+        board.create('text', [15, 550, 'Im [\\Omega]'], {fontSize: 16, fontWeight: 'bold', color: '#333'});
+
+        // Sliders for circuit parameters
+        var sldR = board.create('slider', [[50, -350], [600, -350], [0, 100, 1000]], {name: 'R [\\Omega]', snapWidth: 10, strokeColor: 'blue', fillColor: 'blue'});
+        var sldL = board.create('slider', [[50, -440], [600, -440], [0, 50, 200]], {name: 'L [mH]', snapWidth: 1, strokeColor: 'green', fillColor: 'green'});
+        var sldC = board.create('slider', [[50, -530], [600, -530], [0.01, 0.1, 1]], {name: 'C [\\mu F]', snapWidth: 0.01, strokeColor: 'orange', fillColor: 'orange'});
+        var sldf = board.create('slider', [[50, -620], [600, -620], [1, 500, 3000]], {name: 'f [Hz]', snapWidth: 1, strokeColor: '#555', fillColor: '#555'});
+
+        var circuitType = 'RLC';
+        var theveninLoad = 'None';
+        
+        window.updateThevenin = function() {
+            var radios = document.getElementsByName('theveninLoad');
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    theveninLoad = radios[i].value;
+                    break;
+                }
+            }
+            drawCircuit();
+        };
+        
+        function drawCircuit() {
+            var svg = '<svg viewBox="0 0 800 150" width="100%" height="100%">';
+            
+            // --- LEFT: MAIN CIRCUIT ---
+            svg += '<circle cx="50" cy="75" r="20" fill="none" stroke="black" stroke-width="2"/>';
+            svg += '<path d="M35 75 Q 42.5 60 50 75 T 65 75" fill="none" stroke="black" stroke-width="1.5"/>'; 
+            svg += '<text x="50" y="45" text-anchor="middle" font-size="14" font-family="sans-serif">V(t)</text>';
+            
+            svg += '<polyline points="50,55 50,30 100,30" fill="none" stroke="black" stroke-width="2"/>';
+            svg += '<polyline points="50,95 50,120 350,120" fill="none" stroke="black" stroke-width="2"/>';
+            
+            var x = 100;
+            if (circuitType.includes('R')) {
+                svg += '<polyline points="' + x + ',30 ' + (x+10) + ',30 ' + (x+15) + ',20 ' + (x+25) + ',40 ' + (x+35) + ',20 ' + (x+45) + ',40 ' + (x+55) + ',20 ' + (x+65) + ',40 ' + (x+70) + ',30 ' + (x+80) + ',30" fill="none" stroke="black" stroke-width="2"/>';
+                svg += '<text x="' + (x+40) + '" y="15" text-anchor="middle" font-size="14" font-family="sans-serif">R</text>';
+                x += 80;
+            }
+            if (circuitType.includes('L')) {
+                svg += '<path d="M' + x + ' 30 L' + (x+10) + ' 30 A10 10 0 1 1 ' + (x+30) + ' 30 A10 10 0 1 1 ' + (x+50) + ' 30 A10 10 0 1 1 ' + (x+70) + ' 30 L' + (x+80) + ' 30" fill="none" stroke="black" stroke-width="2"/>';
+                svg += '<text x="' + (x+40) + '" y="15" text-anchor="middle" font-size="14" font-family="sans-serif">L</text>';
+                x += 80;
+            }
+            if (circuitType.includes('C')) {
+                svg += '<polyline points="' + x + ',30 ' + (x+35) + ',30" fill="none" stroke="black" stroke-width="2"/>';
+                svg += '<line x1="' + (x+35) + '" y1="15" x2="' + (x+35) + '" y2="45" stroke="black" stroke-width="2"/>';
+                svg += '<line x1="' + (x+45) + '" y1="15" x2="' + (x+45) + '" y2="45" stroke="black" stroke-width="2"/>';
+                svg += '<polyline points="' + (x+45) + ',30 ' + (x+80) + ',30" fill="none" stroke="black" stroke-width="2"/>';
+                svg += '<text x="' + (x+40) + '" y="10" text-anchor="middle" font-size="14" font-family="sans-serif">C</text>';
+                x += 80;
+            }
+            
+            // Wire back to source (main circuit)
+            svg += '<polyline points="' + x + ',30 350,30 350,120" fill="none" stroke="black" stroke-width="2"/>';
+            
+            // --- MIDDLE: ARROW ---
+            svg += '<text x="420" y="80" text-anchor="middle" font-size="35" font-weight="bold" fill="#005696">⇒</text>';
+            svg += '<text x="420" y="50" text-anchor="middle" font-size="14" fill="#005696" font-family="sans-serif" font-weight="bold">שקול תבנין</text>';
+
+            // --- RIGHT: THEVENIN EQUIVALENT ---
+            var tx = 500;
+            // Draw Source (Vth)
+            svg += '<circle cx="' + (tx+50) + '" cy="75" r="20" fill="none" stroke="black" stroke-width="2"/>';
+            svg += '<path d="M' + (tx+35) + ' 75 Q ' + (tx+42.5) + ' 60 ' + (tx+50) + ' 75 T ' + (tx+65) + ' 75" fill="none" stroke="black" stroke-width="1.5"/>'; 
+            svg += '<text x="' + (tx+50) + '" y="45" text-anchor="middle" font-size="14" font-family="sans-serif">V_th</text>';
+            
+            // Wires from source
+            svg += '<polyline points="' + (tx+50) + ',55 ' + (tx+50) + ',30 ' + (tx+100) + ',30" fill="none" stroke="black" stroke-width="2"/>';
+            
+            if (theveninLoad === 'None') {
+                svg += '<polyline points="' + (tx+50) + ',95 ' + (tx+50) + ',120 ' + (tx+200) + ',120" fill="none" stroke="black" stroke-width="2"/>';
+                // Draw Z Box (Rectangle)
+                svg += '<rect x="' + (tx+100) + '" y="15" width="60" height="30" fill="#e9ecef" stroke="black" stroke-width="2"/>';
+                svg += '<text x="' + (tx+130) + '" y="35" text-anchor="middle" font-size="16" font-weight="bold" font-family="sans-serif">Z_th</text>';
+                // Wire back to source (Thevenin circuit)
+                svg += '<polyline points="' + (tx+160) + ',30 ' + (tx+200) + ',30 ' + (tx+200) + ',120" fill="none" stroke="black" stroke-width="2"/>';
+            } else {
+                svg += '<polyline points="' + (tx+50) + ',95 ' + (tx+50) + ',120 ' + (tx+230) + ',120" fill="none" stroke="black" stroke-width="2"/>';
+                // Draw Z_th Box
+                svg += '<rect x="' + (tx+100) + '" y="15" width="40" height="30" fill="#e9ecef" stroke="black" stroke-width="2"/>';
+                svg += '<text x="' + (tx+120) + '" y="35" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif">Z_th</text>';
+                svg += '<polyline points="' + (tx+140) + ',30 ' + (tx+150) + ',30" fill="none" stroke="black" stroke-width="2"/>';
+                
+                var lx = tx + 150;
+                // Draw the selected load
+                if (theveninLoad === 'R') {
+                    svg += '<polyline points="' + lx + ',30 ' + (lx+5) + ',30 ' + (lx+10) + ',20 ' + (lx+20) + ',40 ' + (lx+30) + ',20 ' + (lx+40) + ',40 ' + (lx+50) + ',20 ' + (lx+60) + ',40 ' + (lx+65) + ',30 ' + (lx+70) + ',30" fill="none" stroke="black" stroke-width="2"/>';
+                    svg += '<text x="' + (lx+35) + '" y="15" text-anchor="middle" font-size="14" font-family="sans-serif" fill="blue">R (Load)</text>';
+                    lx += 70;
+                } else if (theveninLoad === 'L') {
+                    svg += '<path d="M' + lx + ' 30 L' + (lx+5) + ' 30 A10 10 0 1 1 ' + (lx+25) + ' 30 A10 10 0 1 1 ' + (lx+45) + ' 30 A10 10 0 1 1 ' + (lx+65) + ' 30 L' + (lx+70) + ' 30" fill="none" stroke="black" stroke-width="2"/>';
+                    svg += '<text x="' + (lx+35) + '" y="15" text-anchor="middle" font-size="14" font-family="sans-serif" fill="green">L (Load)</text>';
+                    lx += 70;
+                } else if (theveninLoad === 'C') {
+                    svg += '<polyline points="' + lx + ',30 ' + (lx+25) + ',30" fill="none" stroke="black" stroke-width="2"/>';
+                    svg += '<line x1="' + (lx+25) + '" y1="15" x2="' + (lx+25) + '" y2="45" stroke="black" stroke-width="2"/>';
+                    svg += '<line x1="' + (lx+35) + '" y1="15" x2="' + (lx+35) + '" y2="45" stroke="black" stroke-width="2"/>';
+                    svg += '<polyline points="' + (lx+35) + ',30 ' + (lx+70) + ',30" fill="none" stroke="black" stroke-width="2"/>';
+                    svg += '<text x="' + (lx+30) + '" y="10" text-anchor="middle" font-size="14" font-family="sans-serif" fill="orange">C (Load)</text>';
+                    lx += 70;
+                }
+                
+                // Wire back to source
+                svg += '<polyline points="' + lx + ',30 ' + (tx+230) + ',30 ' + (tx+230) + ',120" fill="none" stroke="black" stroke-width="2"/>';
+            }
+            
+            svg += '</svg>';
+            document.getElementById('circuitDiagram').innerHTML = svg;
+        }
+
+        window.updateCircuit = function() {
+            var radios = document.getElementsByName('circuitType');
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    circuitType = radios[i].value;
+                    break;
+                }
+            }
+            drawCircuit();
+            board.update();
+        };
+        
+        // Sync inputs to sliders
+        document.getElementById('in_R').addEventListener('input', function(e) { sldR.setValue(parseFloat(e.target.value)); board.update(); });
+        document.getElementById('in_L').addEventListener('input', function(e) { sldL.setValue(parseFloat(e.target.value)); board.update(); });
+        document.getElementById('in_C').addEventListener('input', function(e) { sldC.setValue(parseFloat(e.target.value)); board.update(); });
+        document.getElementById('in_f').addEventListener('input', function(e) { sldf.setValue(parseFloat(e.target.value)); board.update(); });
+
+        // Reactive functions for parameters
+        var getR = function() { return sldR.Value(); };
+        var getXL = function() { 
+            if (circuitType === 'RC') return 0;
+            return 2 * Math.PI * sldf.Value() * (sldL.Value() * 1e-3); 
+        };
+        var getXC = function() { 
+            if (circuitType === 'RL') return 0;
+            return 1 / (2 * Math.PI * sldf.Value() * (sldC.Value() * 1e-6)); 
+        };
+        var getX = function() { return getXL() - getXC(); };
+        
+        var getZMag = function() {
+            var r = getR();
+            var x = getX();
+            return Math.sqrt(r*r + x*x);
+        };
+        
+        var getZPhase = function() {
+            var r = getR();
+            var x = getX();
+            if (r === 0) return (x >= 0) ? Math.PI/2 : -Math.PI/2;
+            return Math.atan2(x, r); // radians
+        };
+
+        // Points
+        var origin = board.create('point', [0, 0], {visible: false});
+
+        // 1. R Vector (Real axis)
+        var pR = board.create('point', [getR, 0], {name: '', visible: false});
+        var vecR = board.create('arrow', [origin, pR], {strokeColor: 'blue', strokeWidth: 3});
+        board.create('text', [function(){ return getR()/2; }, 20, 'R'], {color: 'blue', fontSize: 16});
+
+        // 2. X_L Vector (Imaginary positive axis)
+        var pXL = board.create('point', [0, getXL], {name: '', visible: false});
+        var vecXL = board.create('arrow', [origin, pXL], {
+            strokeColor: 'green', strokeWidth: 3, 
+            visible: function() { return getXL() > 0; }
+        });
+        board.create('text', [20, function(){ return getXL()/2; }, 'X_L'], {
+            color: 'green', fontSize: 16,
+            visible: function() { return getXL() > 0; }
+        });
+
+        // 3. X_C Vector (Imaginary negative axis)
+        var pXC = board.create('point', [0, function(){ return -getXC(); }], {name: '', visible: false});
+        var vecXC = board.create('arrow', [origin, pXC], {
+            strokeColor: 'orange', strokeWidth: 3,
+            visible: function() { return getXC() > 0; }
+        });
+        board.create('text', [20, function(){ return -getXC()/2; }, 'X_C'], {
+            color: 'orange', fontSize: 16,
+            visible: function() { return getXC() > 0; }
+        });
+        
+        // 4. Net Reactance X = X_L - X_C (Imaginary addition dashed line from R)
+        var pX = board.create('point', [getR, getX], {name: 'Z', color: 'red', size: 4});
+        board.create('arrow', [pR, pX], {strokeColor: '#333', strokeWidth: 2, dash: 2});
+        
+        // 5. Total Impedance Vector Z
+        var vecZ = board.create('arrow', [origin, pX], {strokeColor: 'red', strokeWidth: 4});
+        board.create('text', [
+            function(){ return getR()/2 - 10; }, 
+            function(){ return getX()/2 + 20; }, 
+            'Z'
+        ], {color: 'red', fontSize: 20, fontWeight: 'bold'});
+
+        // Phase Angle Arc
+        var pXAxis = board.create('point', [100, 0], {visible: false});
+        var arcPhase = board.create('angle', [pXAxis, origin, pX], {
+            name: function() { 
+                var angle = getZPhase() * 180 / Math.PI;
+                if (angle < 0) angle += 360; // Keep angle display positive or wrap
+                var displayAngle = getZPhase() * 180 / Math.PI;
+                return displayAngle.toFixed(1) + '°'; 
+            }, 
+            radius: 70,
+            fillColor: 'red',
+            strokeColor: 'red'
+        });
+
+        // --- SECOND BOARD: TIME DOMAIN GRAPHS ---
+        var boardTime = JXG.JSXGraph.initBoard('jxgbox_time', {
+            boundingbox: [-1, 1.5, 4 * Math.PI + 1, -1.5],
+            axis: true,
+            defaultAxes: {
+                x: { ticks: { scale: Math.PI, scaleSymbol: '\\pi' } }
+            },
+            showNavigation: true,
+            keepaspectratio: false
+        });
+        
+        boardTime.create('text', [4 * Math.PI - 0.5, -0.2, '\\omega t'], {fontSize: 16, fontWeight: 'bold'});
+        boardTime.create('text', [-0.8, 1.4, 'Amp. [V, A]'], {fontSize: 14, fontWeight: 'bold'});
+
+        // Voltage Graph V(t) - Reference (Phase 0)
+        boardTime.create('functiongraph', [
+            function(x) { return Math.sin(x); }, 0, 4 * Math.PI
+        ], {strokeColor: 'blue', strokeWidth: 2, name: 'V(t)'});
+        boardTime.create('text', [Math.PI/2, 1.15, 'V(t) [V]'], {color: 'blue', fontSize: 16, fontWeight: 'bold'});
+
+        // Current Graph I(t) - Lags by Z phase
+        boardTime.create('functiongraph', [
+            function(x) { 
+                var phase = getZPhase(); // Z phase. I(t) lags V(t) by this phase
+                return Math.sin(x - phase); 
+            }, 0, 4 * Math.PI
+        ], {strokeColor: 'red', strokeWidth: 2, dash: 2, name: 'I(t)'});
+        boardTime.create('text', [Math.PI/2, -1.15, 'I(t) [A]'], {color: 'red', fontSize: 16, fontWeight: 'bold'});
+
+        // --- THIRD BOARD: POWER GRAPH ---
+        var boardPower = JXG.JSXGraph.initBoard('jxgbox_power', {
+            boundingbox: [-1, 1.5, 4 * Math.PI + 1, -1.5],
+            axis: true,
+            defaultAxes: {
+                x: { ticks: { scale: Math.PI, scaleSymbol: '\\pi' } }
+            },
+            showNavigation: true,
+            keepaspectratio: false
+        });
+        
+        boardPower.create('text', [4 * Math.PI - 0.5, -0.2, '\\omega t'], {fontSize: 16, fontWeight: 'bold'});
+        boardPower.create('text', [-0.8, 1.4, 'Power [W]'], {fontSize: 14, fontWeight: 'bold'});
+
+        // Power Graph P(t) = v(t) * i(t)
+        var fPower = function(x) { 
+            var phase = getZPhase(); 
+            return Math.sin(x) * Math.sin(x - phase); 
+        };
+        
+        // Component powers (normalized)
+        var fPowerR = function(x) {
+            if (!circuitType.includes('R')) return 0;
+            var Z = getZMag();
+            if (Z === 0) return 0;
+            return (getR() / Z) * Math.pow(Math.sin(x - getZPhase()), 2);
+        };
+        
+        var fPowerL = function(x) {
+            if (!circuitType.includes('L')) return 0;
+            var Z = getZMag();
+            if (Z === 0) return 0;
+            return (getXL() / (2 * Z)) * Math.sin(2 * (x - getZPhase()));
+        };
+        
+        var fPowerC = function(x) {
+            if (!circuitType.includes('C')) return 0;
+            var Z = getZMag();
+            if (Z === 0) return 0;
+            return (-getXC() / (2 * Z)) * Math.sin(2 * (x - getZPhase()));
+        };
+        
+        var graphP = boardPower.create('functiongraph', [fPower, 0, 4 * Math.PI], {strokeColor: 'purple', strokeWidth: 3, name: 'P_total(t)'});
+        var graphPR = boardPower.create('functiongraph', [fPowerR, 0, 4 * Math.PI], {strokeColor: 'blue', strokeWidth: 1.5, dash: 1, visible: function() { return circuitType.includes('R'); }});
+        var graphPL = boardPower.create('functiongraph', [fPowerL, 0, 4 * Math.PI], {strokeColor: 'green', strokeWidth: 1.5, dash: 1, visible: function() { return circuitType.includes('L'); }});
+        var graphPC = boardPower.create('functiongraph', [fPowerC, 0, 4 * Math.PI], {strokeColor: 'orange', strokeWidth: 1.5, dash: 1, visible: function() { return circuitType.includes('C'); }});
+        
+        // Positive Area (Energy supplied to circuit)
+        var fPowerPos = boardPower.create('functiongraph', [function(x) { return Math.max(0, fPower(x)); }, 0, 4 * Math.PI], {visible: false});
+        boardPower.create('integral', [[0, 4 * Math.PI], fPowerPos], {
+            color: 'green', fillOpacity: 0.15, withLabel: false, curveLeft: {visible: false}, curveRight: {visible: false}
+        });
+        
+        // Negative Area (Energy returned to source)
+        var fPowerNeg = boardPower.create('functiongraph', [function(x) { return Math.min(0, fPower(x)); }, 0, 4 * Math.PI], {visible: false});
+        boardPower.create('integral', [[0, 4 * Math.PI], fPowerNeg], {
+            color: 'red', fillOpacity: 0.15, withLabel: false, curveLeft: {visible: false}, curveRight: {visible: false}
+        });
+
+        boardPower.create('text', [Math.PI/4, 1.3, 'P_{tot}'], {color: 'purple', fontSize: 14, fontWeight: 'bold'});
+        boardPower.create('text', [Math.PI/4, 1.1, 'P_R'], {color: 'blue', fontSize: 14, visible: function() { return circuitType.includes('R'); }});
+        boardPower.create('text', [Math.PI/4, 0.9, 'P_L'], {color: 'green', fontSize: 14, visible: function() { return circuitType.includes('L'); }});
+        boardPower.create('text', [Math.PI/4, 0.7, 'P_C'], {color: 'orange', fontSize: 14, visible: function() { return circuitType.includes('C'); }});
+        
+        // Area legend
+        boardPower.create('text', [3*Math.PI, 1.3, '■ עבודה חיובית'], {color: 'green', fontSize: 14, fontWeight: 'bold'});
+        boardPower.create('text', [3*Math.PI, 1.1, '■ עבודה שלילית'], {color: 'red', fontSize: 14, fontWeight: 'bold'});
+        
+        // Average Power
+        boardPower.create('functiongraph', [
+            function(x) { 
+                var phase = getZPhase(); 
+                return 0.5 * Math.cos(phase); 
+            }, 0, 4 * Math.PI
+        ], {strokeColor: 'black', strokeWidth: 1, dash: 2, name: 'P_{avg}'});
+        boardPower.create('text', [3.5*Math.PI, function() { return 0.5 * Math.cos(getZPhase()) + 0.1; }, 'P_{avg}'], {color: 'black', fontSize: 14});
+
+        // --- FOURTH BOARD: LINEAR BODE (TRANSFER FUNCTION) ---
+        var boardBode = JXG.JSXGraph.initBoard('jxgbox_bode', {
+            boundingbox: [-250, 3, 3250, -0.5], // x: f [Hz] from 0 to 3000, y: |H|
+            axis: true,
+            showNavigation: true,
+            keepaspectratio: false
+        });
+        
+        boardBode.create('text', [2750, -0.2, 'f [Hz]'], {fontSize: 14, fontWeight: 'bold'});
+        boardBode.create('text', [-200, 2.8, '|H(f)| = |V_{out}/V_{in}|'], {fontSize: 14, fontWeight: 'bold'});
+        boardBode.create('text', [1000, 2.8, 'Linear Frequency Response'], {color: 'black', fontSize: 16, fontWeight: 'bold'});
+
+        // Helper for transfer functions
+        function getTransferFunction(freq, component) {
+            var R = (circuitType === 'RC' || circuitType === 'RL' || circuitType === 'RLC') ? sldR.Value() : 0;
+            var L = (circuitType === 'RL' || circuitType === 'RLC') ? sldL.Value() * 1e-3 : 0; 
+            var C = (circuitType === 'RC' || circuitType === 'RLC') ? sldC.Value() * 1e-6 : 0; 
+            var XL = (L > 0) ? 2 * Math.PI * freq * L : 0;
+            var XC = (C > 0) ? 1 / (2 * Math.PI * freq * C) : 0;
+            var Z_mag = Math.sqrt(R*R + Math.pow(XL - XC, 2));
+            
+            if (Z_mag === 0) return 0;
+            
+            if (component === 'R') return R / Z_mag;
+            if (component === 'L') return XL / Z_mag;
+            if (component === 'C') return XC / Z_mag;
+            return 0;
+        }
+
+        // H_R Curve
+        boardBode.create('functiongraph', [
+            function(f) { return getTransferFunction(f, 'R'); }, 1, 3000
+        ], {
+            strokeColor: 'blue', strokeWidth: 2, name: 'H_R',
+            visible: function() { return circuitType.includes('R'); }
+        });
+        boardBode.create('text', [750, function() { return getTransferFunction(750, 'R') + 0.1; }, 'H_R'], {
+            color: 'blue', fontSize: 14, visible: function() { return circuitType.includes('R'); }
+        });
+
+        // H_L Curve
+        boardBode.create('functiongraph', [
+            function(f) { return getTransferFunction(f, 'L'); }, 1, 3000
+        ], {
+            strokeColor: 'green', strokeWidth: 2, name: 'H_L',
+            visible: function() { return circuitType.includes('L'); }
+        });
+        boardBode.create('text', [1250, function() { return getTransferFunction(1250, 'L') + 0.1; }, 'H_L'], {
+            color: 'green', fontSize: 14, visible: function() { return circuitType.includes('L'); }
+        });
+
+        // H_C Curve
+        boardBode.create('functiongraph', [
+            function(f) { return getTransferFunction(f, 'C'); }, 1, 3000
+        ], {
+            strokeColor: 'orange', strokeWidth: 2, name: 'H_C',
+            visible: function() { return circuitType.includes('C'); }
+        });
+        boardBode.create('text', [250, function() { return getTransferFunction(250, 'C') + 0.1; }, 'H_C'], {
+            color: 'orange', fontSize: 14, visible: function() { return circuitType.includes('C'); }
+        });
+        
+        // Vertical line showing current frequency
+        boardBode.create('line', [
+            [function() { return sldf.Value(); }, -10],
+            [function() { return sldf.Value(); }, 10]
+        ], {strokeColor: 'red', dash: 2, strokeWidth: 1, name: 'f_{current}'});
+
+        // --- FIFTH BOARD: I-V CURVE (LISSAJOUS) ---
+        var boardIV = JXG.JSXGraph.initBoard('jxgbox_iv', {
+            boundingbox: [-1.5, 1.5, 1.5, -1.5],
+            axis: true,
+            showNavigation: true,
+            keepaspectratio: true
+        });
+        
+        // Quadrants Shading (Power Regions)
+        // Q1 (V>0, I>0) - Positive Power
+        boardIV.create('polygon', [[0,0], [2,0], [2,2], [0,2]], {fillColor: 'green', fillOpacity: 0.1, borders: {visible: false}, vertices: {visible: false}, highlight: false});
+        // Q3 (V<0, I<0) - Positive Power
+        boardIV.create('polygon', [[0,0], [-2,0], [-2,-2], [0,-2]], {fillColor: 'green', fillOpacity: 0.1, borders: {visible: false}, vertices: {visible: false}, highlight: false});
+        
+        // Q2 (V<0, I>0) - Negative Power
+        boardIV.create('polygon', [[0,0], [-2,0], [-2,2], [0,2]], {fillColor: 'red', fillOpacity: 0.1, borders: {visible: false}, vertices: {visible: false}, highlight: false});
+        // Q4 (V>0, I<0) - Negative Power
+        boardIV.create('polygon', [[0,0], [2,0], [2,-2], [0,-2]], {fillColor: 'red', fillOpacity: 0.1, borders: {visible: false}, vertices: {visible: false}, highlight: false});
+        
+        boardIV.create('text', [1.1, -0.1, 'V(t) [V]'], {fontSize: 14, fontWeight: 'bold'});
+        boardIV.create('text', [0.1, 1.3, 'I(t) [A]'], {fontSize: 14, fontWeight: 'bold'});
+        boardIV.create('text', [-1.4, 1.4, 'I-V Curve (X-Y Mode)'], {color: 'black', fontSize: 14, fontWeight: 'bold'});
+
+        // Area legend
+        boardIV.create('text', [0.7, 1.4, '■ עבודה חיובית'], {color: 'green', fontSize: 12, fontWeight: 'bold'});
+        boardIV.create('text', [0.7, 1.25, '■ עבודה שלילית'], {color: 'red', fontSize: 12, fontWeight: 'bold'});
+
+        // Parametric curve
+        boardIV.create('curve', [
+            function(t) { return Math.sin(t); }, // X: V(t)
+            function(t) { return Math.sin(t - getZPhase()); }, // Y: I(t)
+            0, 2*Math.PI
+        ], {strokeColor: 'darkred', strokeWidth: 2});
+
+        // --- SIXTH BOARD: WORK BAR CHART ---
+        var boardWork = JXG.JSXGraph.initBoard('jxgbox_work', {
+            boundingbox: [-0.5, 3.5, 2.5, -0.5],
+            axis: false,
+            showNavigation: false,
+            keepaspectratio: false
+        });
+        
+        boardWork.create('axis', [[0,0], [1,0]]);
+        boardWork.create('axis', [[0,0], [0,1]]);
+        
+        boardWork.create('text', [0.2, 3.2, 'השוואת עבודה (חצי מחזור)'], {fontSize: 16, fontWeight: 'bold'});
+        
+        // Exact mathematical area calculation
+        var MathWpos = function() {
+            var phi = Math.abs(getZPhase());
+            return ((Math.PI - phi) * Math.cos(phi) + Math.sin(phi)) / 2;
+        };
+        
+        var MathWneg = function() {
+            var phi = Math.abs(getZPhase());
+            return (Math.sin(phi) - phi * Math.cos(phi)) / 2;
+        };
+        
+        // Bar for Positive Work
+        boardWork.create('polygon', [
+            [0.2, 0], [1.0, 0], 
+            [1.0, function(){ return MathWpos(); }], 
+            [0.2, function(){ return MathWpos(); }]
+        ], {fillColor: 'green', fillOpacity: 0.6, borders: {strokeWidth: 2, strokeColor: 'green'}});
+        
+        // Bar for Negative Work
+        boardWork.create('polygon', [
+            [1.2, 0], [2.0, 0], 
+            [2.0, function(){ return MathWneg(); }], 
+            [1.2, function(){ return MathWneg(); }]
+        ], {fillColor: 'red', fillOpacity: 0.6, borders: {strokeWidth: 2, strokeColor: 'red'}});
+        
+        boardWork.create('text', [0.35, -0.2, 'חיובית'], {fontSize: 14});
+        boardWork.create('text', [1.35, -0.2, 'שלילית'], {fontSize: 14});
+        
+        // Display exact values on top of bars
+        boardWork.create('text', [0.4, function(){ return MathWpos() + 0.15; }, function(){ return MathWpos().toFixed(3); }], {fontSize: 14, fontWeight: 'bold', color: 'green'});
+        boardWork.create('text', [1.4, function(){ return MathWneg() + 0.15; }, function(){ return MathWneg().toFixed(3); }], {fontSize: 14, fontWeight: 'bold', color: 'red'});
+
+        // Update MathJax Info Box and Time Graph when board updates
+        var lastInfoHtml = "";
+        board.on('update', function() {
+            boardTime.update(); // Sync time graph
+            boardPower.update(); // Sync power graph
+            boardBode.update(); // Sync Bode plot
+            boardIV.update(); // Sync IV curve
+            boardWork.update(); // Sync Work Bar chart
+            
+            // Sync Input fields
+            if (document.activeElement !== document.getElementById('in_R')) document.getElementById('in_R').value = sldR.Value().toFixed(2);
+            if (document.activeElement !== document.getElementById('in_L')) document.getElementById('in_L').value = sldL.Value().toFixed(2);
+            if (document.activeElement !== document.getElementById('in_C')) document.getElementById('in_C').value = sldC.Value().toFixed(2);
+            if (document.activeElement !== document.getElementById('in_f')) document.getElementById('in_f').value = sldf.Value().toFixed(2);
+            
+            var R = getR().toFixed(2);
+            var XL = getXL().toFixed(2);
+            var XC = getXC().toFixed(2);
+            var X = getX().toFixed(2);
+            var Z = getZMag().toFixed(2);
+            var phaseRad = getZPhase();
+            var phaseDeg = (phaseRad * 180 / Math.PI).toFixed(2);
+            
+            var infoHtml = `\\[ Z = R + j(X_L - X_C) \\]<br>`;
+            if (circuitType === 'RC') {
+                infoHtml += `\\[ X_L = 0 \\Omega, \\quad X_C = \\frac{1}{2\\pi f C} = ${XC} \\Omega \\]<br>`;
+            } else if (circuitType === 'RL') {
+                infoHtml += `\\[ X_L = 2\\pi f L = ${XL} \\Omega, \\quad X_C = 0 \\Omega \\]<br>`;
+            } else {
+                infoHtml += `\\[ X_L = ${XL} \\Omega, \\quad X_C = ${XC} \\Omega \\]<br>`;
+            }
+            
+            infoHtml += `\\[ Z = ${R} + j(${X}) = ${Z} \\angle ${phaseDeg}^{\\circ} \\Omega \\]`;
+            
+            var numXL = parseFloat(XL);
+            var numXC = parseFloat(XC);
+            var modeStr = "";
+            if (Math.abs(numXL - numXC) < 0.1 && circuitType === 'RLC') {
+                modeStr = "<span style='color: green; font-weight: bold; font-size: 1.2em;'>אופי המעגל: תהודה (Resonance)</span>";
+            } else if (numXC > numXL + 0.1) {
+                modeStr = "<span style='color: orange; font-weight: bold; font-size: 1.2em;'>אופי המעגל: קיבולי (Capacitive)</span>";
+            } else if (numXL > numXC + 0.1) {
+                modeStr = "<span style='color: blue; font-weight: bold; font-size: 1.2em;'>אופי המעגל: השראותי (Inductive)</span>";
+            } else {
+                modeStr = "<span style='color: black; font-weight: bold; font-size: 1.2em;'>אופי המעגל: טהור התנגדותי (Resistive)</span>";
+            }
+            infoHtml += `<div style="text-align: center; margin-top: 10px;">${modeStr}</div>`;
+            
+            var infoBox = document.getElementById('infoBox');
+            if (infoHtml !== lastInfoHtml) {
+                lastInfoHtml = infoHtml;
+                infoBox.innerHTML = infoHtml;
+                // Debounce MathJax typeset to avoid performance issues while sliding
+                clearTimeout(window.mjTimeout);
+                window.mjTimeout = setTimeout(function() {
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        MathJax.typesetPromise([infoBox]).catch(function (err) {
+                            console.log('MathJax Error:', err.message);
+                        });
+                    } else if (window.MathJax && window.MathJax.typeset) {
+                        try {
+                            MathJax.typeset([infoBox]);
+                        } catch(e) { console.log(e); }
+                    }
+                }, 150);
+            }
+        });
+        
+        // Initial setup
+        drawCircuit();
+        board.update();
+//]]>
+    </script>
+
+
+    <div class="card mb-4" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px auto 30px auto; box-shadow: 0 1px 3px rgba(0,0,0,.05); max-width: 1400px;">
+        <h3 style="box-sizing: border-box; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.5rem;">המחשה אינטראקטיבית ב-Falstad (מעגל RC)</h3>
+        <p style="box-sizing: border-box; margin-bottom: 1rem; color: #52616b; font-size: 1.1rem;">בסימולציה החיה מטה תוכלו לראות את גלי המתח והזרם מתקדמים בזמן, ואת הפאזורים המסתובבים. שחקו עם התדר באמצעות הסליידר שמופיע מימין למטה, וראו כיצד הפרש המופע בין המתח לזרם משתנה בזמן אמת בהתאם לתדר.</p>
+        <iframe width="100%" height="600" src="https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgKwKgFwM6IAwDpsEEpRgiICMeATAVQOx0DM2AHFQGwCcndqIARoiTZUAB0HIRUAG4QhqALaYhAUwC05cggB8AKChRg0qAA9ENFlEaN2UC3YAsU+AnLtUAdxdbYchOyZcRkUAQxNpChEAej0DYGgzBCoWS3tGFgc7VlQXKT9KAgQY-UMQU0QHB1S6KihKyxsWHJw+HHxCbB8wCIQ8Ah8MPylpABM2zkY6dkZyTgc3KtmWTiLYwwgPcqTWR2w7FKym2BbtCwAaKicAbnOLG5SL1mAojbX4zcT0zPt6uxrm3o6L6PFhXeogsFVC41Z6vErvLa-RqHOqFY6A7TgxqQlhnJzYG6sPEEWEeN4bLY-Ago6zudEiU5E-GE3G00lvADKIAA9qIVFskJxavYWNSHIwqACGSU4tyoCoAHbmVAYUSIdgOAEmGhEYJQNUIDSKMauOloCBgADmlpUEAAstyRiplegLdbbQBREY2lquq02iAAGRU0hUABsTjKDIZRDJfRgyAgJVIFFhXIoDdE1tGY3GkyrE9RFGm+j4FJnVlHnty3lEubyVG85YqXaqKlrePrfeb-baHU6XT33RAvT7AX7h8HQxHx2gDeRgtncz0pAnIpWc8BYz09WvevhyFQUMU4lEa-Dm0rx22EJr0dqCJ2KxOA-3nUlUEOA6P31Iv7ap3DSNN23eNE04XBuCgnhD2sQVDw3aMtzzXdC3aHgZjYFg6GwRp2E6FYT0MM8m3lK8BgNO8XAfbAn27N1X0dd9JRfT1vV-T8GIAkMgIxKtQOvcDcCYcgsJwvDOiaIi4gE1C2gIDDROScT2BYfDZkQ6s3hCEYACt5V9FQwHbMjEAAMQgFQAEcAFdFRAABPKAAAoAAkAC8AEpFHIlNEgKVc0HMyzbPshzNJ0-SOPlYzxxbBA7TCKAADVuTDNAQhtHzEDUGhFESPKoAwIKEqS1L0sylRK2ecAID0IA" frameborder="0" style="border: 1px solid #ccc; border-radius: 8px;"></iframe>
+    </div>
+
+<div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="01_PreLab_04_DMM_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="01_PreLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="01_PreLab_06_Conversions_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div>
+
+
+<div id="moodle-iframe-helper-phasors" style="box-sizing: border-box; background-color: #fff9e6; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 18px; margin: 16px 20px; direction: rtl; text-align: right; display: block;">
+    <div style="box-sizing: border-box; display: flex; align-items: center; margin-bottom: 12px;">
+        <span style="box-sizing: border-box; font-size: 24px; margin-left: 12px;">⚠️</span>
+        <h4 style="box-sizing: border-box; margin-top: 0; margin-bottom: 0; color: #b47d00; font-size: 18px; font-weight: bold;">הודעה למתרגל / עורך הקורס</h4>
+    </div>
+    <p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px 0; font-weight: bold;">כדי להציג את הגרפים האינטראקטיביים יש להטמיע את הדף כ-iframe חיצוני במודל:</p>
+    <pre dir="ltr" style="box-sizing: border-box; background: #2b303b; color: #abb2bf; padding: 12px; border-radius: 6px; font-family: monospace; overflow: auto; text-align: left; margin: 8px 0; font-size: 14px;">&lt;iframe src="https://maxrad3003.github.io/EELab1_Moodle_Book/dist/previews/EELab1/Exp03/moodle_book_import_v2/01_PreLab_05_Phasors_sub.html" width="100%" height="1600" style="border:none; overflow:hidden;"&gt;&lt;/iframe&gt;</pre>
+</div>
+<script>
+//<![CDATA[
+    if (window !== window.top) {
+        document.getElementById('moodle-iframe-helper-phasors').style.display = 'none';
+    }
+//]]>
+</script>
+</body>
+
+</html>

@@ -1,186 +1,180 @@
 <!-- EXP01 BREADCRUMB -->
-<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 > עבודה מעשית > חלק ג': חיבור מעגלים על מטריצה</div>
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 &gt; עבודה מעשית &gt; חלק ג': חיבור מעגלים על מטריצה</div>
 <!-- /EXP01 BREADCRUMB -->
-
 <!-- NAVIGATION: BACK TO INDEX -->
 <div style="margin-bottom: 1.5rem;">
-    <a href="02_InLab.html" class="btn btn-outline-danger btn-sm" style="padding: 6px 12px; font-size: 14px;">
-        <span>⬅️</span> חזרה לתוכן העניינים
+<a class="btn btn-outline-danger btn-sm" href="02_InLab.html" style="padding: 6px 12px; font-size: 14px;">
+<span>⬅️</span> חזרה לתוכן העניינים
     </a>
 </div>
 <!-- /NAVIGATION: BACK TO INDEX -->
-
 <!-- CHAPTER: HEADER -->
-<div id="ch-inlab-c-header" class="text-center mb-4">
-    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">חלק ג': חיבור מעגלים על מטריצה (טורי ומקבילי)</h2>
-    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
+<div class="text-center mb-4" id="ch-inlab-c-header">
+<h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">חלק ג': חיבור מעגלים על מטריצה (טורי ומקבילי)</h2>
+<div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
 </div>
 <!-- /CHAPTER: HEADER -->
-
 <!-- SECTION: GENERAL INSTRUCTIONS -->
 <div class="info-box" style="border-right: 5px solid #3b82f6;">
-    <h4 class="fw-bold text-primary mt-0"><i class="fas fa-info-circle"></i> הנחיות כלליות לבניית מעגלים</h4>
-    <p class="mb-0">
+<h4 class="fw-bold text-primary mt-0"><i class="fas fa-info-circle"></i> הנחיות כלליות לבניית מעגלים</h4>
+<p class="mb-0">
         בחלק זה תרכיבו מעגלי נגדים על גבי לוח המטריצה. כל המדידות בחלק זה הן מדידות <strong>התנגדות שקולה (\(R_T\))</strong> המתבצעות באמצעות ה-DMM במצב Ohmmeter.
-        <br>
-        <strong class="text-danger">חובה מוחלטת:</strong> ודאו כי ספק הכוח מנותק לחלוטין מהמטריצה בעת מדידת התנגדות! חיבור Ohmmeter למעגל מחושמל ישרוף את המד או יתן קריאה שגויה ומסוכנת.
+        <br/>
+<strong class="text-danger">חובה מוחלטת:</strong> ודאו כי ספק הכוח מנותק לחלוטין מהמטריצה בעת מדידת התנגדות! חיבור Ohmmeter למעגל מחושמל ישרוף את המד או יתן קריאה שגויה ומסוכנת.
     </p>
 </div>
 <!-- /SECTION: GENERAL INSTRUCTIONS -->
-
 <!-- SECTION: SERIES CIRCUIT -->
 <div class="theory-card mt-4" id="section-series-circuit">
-    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-arrows-alt-h"></i> 1. חיבור טורי (Series Connection)</h3>
-    <p>
+<h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-arrows-alt-h"></i> 1. חיבור טורי (Series Connection)</h3>
+<p>
         בחיבור טורי, הנגדים מחוברים בשרשרת בזה אחר זה, כך שיש רק נתיב אחד למעבר הזרם.
         התנגדות השקולה שווה לסכום ההתנגדויות: \(R_T = R_1 + R_2 + R_3\).
     </p>
-    
-    <!-- SUCCESS / FOOTER NOTICE -->
+<!-- SUCCESS / FOOTER NOTICE -->
 <div class="alert alert-success small mb-3">
-        <strong>הוראות ביצוע:</strong>
-        <!-- NUMBERED LIST / STEP-BY-STEP -->
+<strong>הוראות ביצוע:</strong>
+<!-- NUMBERED LIST / STEP-BY-STEP -->
 <ol class="mb-0" style="padding-right: 18px;">
-            <li>בחרו את שלושת הנגדים שמדדתם בחלק א' (רשמו את ערכם המדוד כ-\(R_1, R_2, R_3\)).</li>
-            <li>חברו אותם בטור על המטריצה (רגל של נגד אחד פוגשת רגל של נגד שני באותה עמודה).</li>
-            <li>מדדו את ההתנגדות הכוללת \(R_T\) בין הדק הכניסה של \(R_1\) להדק המוצא של \(R_3\).</li>
-            <li><strong>סימולציית קצר:</strong> חברו חוט גישור קצר (Jumper) במקביל להדקים של \(R_3\) ומדדו שוב את \(R_T\).</li>
-            <li><strong>סימולציית נתק:</strong> נתקו לחלוטין רגל אחת של \(R_3\) מהמטריצה (השאירו אותה באוויר) ומדדו שוב את \(R_T\).</li>
-        </ol>
-    </div>
+<li>בחרו את שלושת הנגדים שמדדתם בחלק א' (רשמו את ערכם המדוד כ-\(R_1, R_2, R_3\)).</li>
+<li>חברו אותם בטור על המטריצה (רגל של נגד אחד פוגשת רגל של נגד שני באותה עמודה).</li>
+<li>מדדו את ההתנגדות הכוללת \(R_T\) בין הדק הכניסה של \(R_1\) להדק המוצא של \(R_3\).</li>
+<li><strong>סימולציית קצר:</strong> חברו חוט גישור קצר (Jumper) במקביל להדקים של \(R_3\) ומדדו שוב את \(R_T\).</li>
+<li><strong>סימולציית נתק:</strong> נתקו לחלוטין רגל אחת של \(R_3\) מהמטריצה (השאירו אותה באוויר) ומדדו שוב את \(R_T\).</li>
+</ol>
+</div>
 
-    <div class="table-responsive">
-        <!-- DATA TABLE / COMPARISON TABLE -->
-<table class="table table-bordered text-center align-middle">
-            <thead>
-                <tr style="background-color: #003366; color: white;">
-                    <th style="width: 20%;">מצב המעגל</th>
-                    <th style="width: 15%;">\(R_1 [\Omega]\)</th>
-                    <th style="width: 15%;">\(R_2 [\Omega]\)</th>
-                    <th style="width: 15%;">\(R_3 [\Omega]\)</th>
-                    <th style="width: 18%;">\(R_T\) מחושב תיאורטית</th>
-                    <th style="width: 17%;">\(R_T\) נמדד בפועל</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>מצב רגיל (תקין)</strong></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><strong>קצר על \(R_3\)</strong></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td class="bg-light">\(0\) (מקוצר)</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><strong>נתק ב-\(R_3\)</strong></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td class="bg-light">\(\infty\) (מנותק)</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="alert alert-info shadow-sm my-4 text-center" dir="rtl" style="border-right: 5px solid #005696; font-size: 1.1rem;">
+<i class="fa fa-file-excel-o fa-lg me-2" style="color: #217346;"></i>
+<strong>לעיבוד הנתונים:</strong>
+<a class="alert-link text-decoration-none" href="#" style="color: #005696;">📥 להורדת תבנית המדידות ל-MATLAB (קובץ Excel) לחץ כאן</a>
+</div>
+<div class="table-responsive">
+<!-- DATA TABLE / COMPARISON TABLE -->
+<table class="table-bordered table-striped mb-0 text-center align-middle table-hover table" dir="rtl">
+<thead class="table-primary align-middle">
+<tr style="background-color: #003366; color: white;">
+<th>מצב המעגל</th>
+<th>\(R_1 [\Omega]\)</th>
+<th>\(R_2 [\Omega]\)</th>
+<th>\(R_3 [\Omega]\)</th>
+<th>\(R_T\) מחושב תיאורטית</th>
+<th>\(R_T\) נמדד בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>מצב רגיל (תקין)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>קצר על \(R_3\)</strong></td>
+<td>-</td>
+<td>-</td>
+<td class="bg-light">\(0\) (מקוצר)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>נתק ב-\(R_3\)</strong></td>
+<td>-</td>
+<td>-</td>
+<td class="bg-light">\(\infty\) (מנותק)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <!-- /SECTION: SERIES CIRCUIT -->
-
 <!-- SECTION: PARALLEL CIRCUIT -->
 <div class="theory-card mt-4" id="section-parallel-circuit">
-    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-align-justify"></i> 2. חיבור מקבילי (Parallel Connection)</h3>
-    <p>
+<h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-align-justify"></i> 2. חיבור מקבילי (Parallel Connection)</h3>
+<p>
         בחיבור מקבילי, כל הנגדים מחוברים בין אותן שתי נקודות צומת, כך שהמתח על פניהם שווה.
         התנגדות השקולה מחושבת לפי: \(\frac{1}{R_T} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}\).
     </p>
-    
-    <!-- SUCCESS / FOOTER NOTICE -->
+<!-- SUCCESS / FOOTER NOTICE -->
 <div class="alert alert-success small mb-3">
-        <strong>הוראות ביצוע:</strong>
-        <!-- NUMBERED LIST / STEP-BY-STEP -->
+<strong>הוראות ביצוע:</strong>
+<!-- NUMBERED LIST / STEP-BY-STEP -->
 <ol class="mb-0" style="padding-right: 18px;">
-            <li>חברו את שלושת הנגדים במקביל על המטריצה (כל הרגליים הימניות באותה עמודה, וכל הרגליים השמאליות בעמודה אחרת).</li>
-            <li>מדדו את ההתנגדות השקולה \(R_T\) בין שני הצמתים המשותפים.</li>
-            <li><strong>סימולציית קצר:</strong> חברו חוט גישור במקביל ל-\(R_3\) (בדיוק בין שני הצמתים של המקביל) ומדדו שוב.</li>
-            <li><strong>סימולציית נתק:</strong> הוציאו לחלוטין את הנגד \(R_3\) מהמטריצה ומדדו את ההתנגדות השקולה של \(R_1\) ו-\(R_2\) הנותרים במקביל.</li>
-        </ol>
-    </div>
-
-    <div class="table-responsive">
-        <!-- DATA TABLE / COMPARISON TABLE -->
-<table class="table table-bordered text-center align-middle">
-            <thead>
-                <tr style="background-color: #003366; color: white;">
-                    <th style="width: 20%;">מצב המעגל</th>
-                    <th style="width: 15%;">\(R_1 [\Omega]\)</th>
-                    <th style="width: 15%;">\(R_2 [\Omega]\)</th>
-                    <th style="width: 15%;">\(R_3 [\Omega]\)</th>
-                    <th style="width: 18%;">\(R_T\) מחושב תיאורטית</th>
-                    <th style="width: 17%;">\(R_T\) נמדד בפועל</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>מצב רגיל (תקין)</strong></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><strong>קצר על \(R_3\)</strong></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td class="bg-light">\(0\) (מקוצר)</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><strong>נתק ב-\(R_3\) (הוצאתו)</strong></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td class="bg-light">\(\infty\) (מנותק)</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<li>חברו את שלושת הנגדים במקביל על המטריצה (כל הרגליים הימניות באותה עמודה, וכל הרגליים השמאליות בעמודה אחרת).</li>
+<li>מדדו את ההתנגדות השקולה \(R_T\) בין שני הצמתים המשותפים.</li>
+<li><strong>סימולציית קצר:</strong> חברו חוט גישור במקביל ל-\(R_3\) (בדיוק בין שני הצמתים של המקביל) ומדדו שוב.</li>
+<li><strong>סימולציית נתק:</strong> הוציאו לחלוטין את הנגד \(R_3\) מהמטריצה ומדדו את ההתנגדות השקולה של \(R_1\) ו-\(R_2\) הנותרים במקביל.</li>
+</ol>
+</div>
+<div class="table-responsive">
+<!-- DATA TABLE / COMPARISON TABLE -->
+<table class="table-bordered table-striped mb-0 text-center align-middle table-hover table" dir="rtl">
+<thead class="table-primary align-middle">
+<tr style="background-color: #003366; color: white;">
+<th>מצב המעגל</th>
+<th>\(R_1 [\Omega]\)</th>
+<th>\(R_2 [\Omega]\)</th>
+<th>\(R_3 [\Omega]\)</th>
+<th>\(R_T\) מחושב תיאורטית</th>
+<th>\(R_T\) נמדד בפועל</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>מצב רגיל (תקין)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>קצר על \(R_3\)</strong></td>
+<td>-</td>
+<td>-</td>
+<td class="bg-light">\(0\) (מקוצר)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>נתק ב-\(R_3\) (הוצאתו)</strong></td>
+<td>-</td>
+<td>-</td>
+<td class="bg-light">\(\infty\) (מנותק)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <!-- /SECTION: PARALLEL CIRCUIT -->
-
 <!-- SECTION: ANALYSIS -->
 <div class="theory-card mt-4 border-primary" id="section-series-parallel-analysis" style="border-right: 5px solid #3b82f6;">
-    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-question-circle"></i> שאלות ניתוח וחשיבה לחלק ג'</h3>
-    <p class="small text-muted">ענו על שאלות אלו בדו"ח המסכם שלכם על בסיס המדידות שביצעתם:</p>
-    <!-- NUMBERED LIST / STEP-BY-STEP -->
+<h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-question-circle"></i> שאלות ניתוח וחשיבה לחלק ג'</h3>
+<p class="small text-muted">ענו על שאלות אלו בדו"ח המסכם שלכם על בסיס המדידות שביצעתם:</p>
+<!-- NUMBERED LIST / STEP-BY-STEP -->
 <ol style="padding-right: 20px; margin-bottom: 0;">
-        <li class="mb-2"><strong>השפעת הוספת נגדים:</strong> מה קורה להתנגדות השקולה כאשר מוסיפים נגדים נוספים בטור? ומה קורה כשמוסיפים נגדים נוספים במקביל? הסבירו מדוע.</li>
-        <li class="mb-2"><strong>ניתוח מצב קצר בטור:</strong> כיצד השפיע הקצר על הנגד \(R_3\) במעגל הטורי על ערכה של ההתנגדות השקולה? מדוע?</li>
-        <li class="mb-2"><strong>ניתוח מצב קצר במקביל:</strong> מדוע קצר חשמלי על נגד אחד בחיבור מקבילי גורם להתנגדות השקולה של כל המעגל לצנוח מיידית לאפס? מהי הסכנה בכך כאשר מחברים מקור מתח?</li>
-        <li><strong>ניתוח מצב נתק בטור לעומת מקביל:</strong> הסבירו את ההבדל בהשפעת נתק בנגד \(R_3\) על התנגדות המעגל השקולה בחיבור טורי לעומת חיבור מקבילי.</li>
-    </ol>
+<li class="mb-2"><strong>השפעת הוספת נגדים:</strong> מה קורה להתנגדות השקולה כאשר מוסיפים נגדים נוספים בטור? ומה קורה כשמוסיפים נגדים נוספים במקביל? הסבירו מדוע.</li>
+<li class="mb-2"><strong>ניתוח מצב קצר בטור:</strong> כיצד השפיע הקצר על הנגד \(R_3\) במעגל הטורי על ערכה של ההתנגדות השקולה? מדוע?</li>
+<li class="mb-2"><strong>ניתוח מצב קצר במקביל:</strong> מדוע קצר חשמלי על נגד אחד בחיבור מקבילי גורם להתנגדות השקולה של כל המעגל לצנוח מיידית לאפס? מהי הסכנה בכך כאשר מחברים מקור מתח?</li>
+<li><strong>ניתוח מצב נתק בטור לעומת מקביל:</strong> הסבירו את ההבדל בהשפעת נתק בנגד \(R_3\) על התנגדות המעגל השקולה בחיבור טורי לעומת חיבור מקבילי.</li>
+</ol>
 </div>
 <!-- /SECTION: ANALYSIS -->
-
 <!-- CHAPTER: FOOTER -->
-<div id="ch-inlab-c-footer" class="alert alert-success text-center mt-4">
-    <p class="fs-5 fw-bold text-success mb-2">כל הכבוד! סיימתם בהצלחה את הניסוי המעשי הראשון שלכם במעבדה.</p>
-    <p class="mb-0">כעת כבו את כל המכשירים, פרקו את המעגל, החזירו את הרכיבים לקופסאות ונקו את עמדת העבודה.</p>
+<div class="alert alert-success text-center mt-4" id="ch-inlab-c-footer">
+<p class="fs-5 fw-bold text-success mb-2">כל הכבוד! סיימתם בהצלחה את הניסוי המעשי הראשון שלכם במעבדה.</p>
+<p class="mb-0">כעת כבו את כל המכשירים, פרקו את המעגל, החזירו את הרכיבים לקופסאות ונקו את עמדת העבודה.</p>
 </div>
 <!-- /CHAPTER: FOOTER -->
-
 <!-- NAVIGATION: BOOK PREV NEXT -->
-<div id="book-nav-inlab-c" class="d-flex justify-content-between mt-4 pt-3 border-top">
-    <a href="02_InLab_01_PartB_sub.html" class="btn btn-secondary">→ הקודם: חלק ב'</a>
-    <a href="03_PostLab.html" class="btn btn-primary">הבא: דו"ח מסכם ←</a>
+<div class="d-flex justify-content-between mt-4 pt-3 border-top" id="book-nav-inlab-c">
+<a class="btn btn-secondary" href="02_InLab_01_PartB_sub.html">→ הקודם: חלק ב'</a>
+<a class="btn btn-primary" href="03_PostLab.html">הבא: דו"ח מסכם ←</a>
 </div>
 <!-- /NAVIGATION: BOOK PREV NEXT -->

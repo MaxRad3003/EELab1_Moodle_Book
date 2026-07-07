@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he" style="box-sizing: border-box;">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>מדריך אוסצילוסקופ מהיר</title>
+</head>
+<body id="exp03-01-prelab-02-oscilloscopeguide-sub" style="box-sizing: border-box; font-family: Arial,'Noto Sans Hebrew',sans-serif; line-height: 1.65; margin: 20px; color: #202124; background: #ffffff; direction: rtl; text-align: right;">
+<!-- תיאור הקובץ: קובץ זה מכיל את התוכן של "01 PreLab 02 OscilloscopeGuide sub" -->
+<div style="box-sizing: border-box; max-width: 980px; margin: 0 auto;">
+<div style="box-sizing: border-box; font-size: 0.9rem; color: #52616b; margin-bottom: 14px;">ניסוי 3: מכשירי מדידה בזרם חילופין (AC)</div>
+
+<!-- EXP03 ROADMAP PROGRESS BAR START -->
+<div class="roadmap-container" style="box-sizing: border-box; display: flex; justify-content: space-around; margin: 1.5rem 0 2.5rem 0; background: #f1f5f9; padding: 1.25rem; border-radius: 9999px; border: 1px solid #e2e8f0; direction: rtl;">
+    <div class="roadmap-step " style="text-align: center; flex: 1; position: relative;">
+        <div class="roadmap-circle" style="width: 2rem; height: 2rem; color: white; border-radius: 9999px; margin: 0 auto 0.5rem; line-height: 2rem; font-weight: 700; background-color: #3b82f6;  transition: all 0.3s ease;">1</div>
+        <div style="font-weight: normal; color: #64748b;">מבוא<br><span style="font-size: 0.85em; opacity: 0.8; font-weight: normal;">100%</span></div>
+    </div>
+    <div class="roadmap-step active" style="text-align: center; flex: 1; position: relative;">
+        <div class="roadmap-circle" style="width: 2rem; height: 2rem; color: white; border-radius: 9999px; margin: 0 auto 0.5rem; line-height: 2rem; font-weight: 700; background-color: #3b82f6; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2); transition: all 0.3s ease;">2</div>
+        <div style="font-weight: bold; color: #3b82f6;">הכנה<br><span style="font-size: 0.85em; opacity: 0.8; font-weight: normal;">36%</span></div>
+    </div>
+    <div class="roadmap-step " style="text-align: center; flex: 1; position: relative;">
+        <div class="roadmap-circle" style="width: 2rem; height: 2rem; color: white; border-radius: 9999px; margin: 0 auto 0.5rem; line-height: 2rem; font-weight: 700; background-color: #cbd5e1;  transition: all 0.3s ease;">3</div>
+        <div style="font-weight: normal; color: #64748b;">מעבדה</div>
+    </div>
+    <div class="roadmap-step " style="text-align: center; flex: 1; position: relative;">
+        <div class="roadmap-circle" style="width: 2rem; height: 2rem; color: white; border-radius: 9999px; margin: 0 auto 0.5rem; line-height: 2rem; font-weight: 700; background-color: #cbd5e1;  transition: all 0.3s ease;">4</div>
+        <div style="font-weight: normal; color: #64748b;">סיכום</div>
+    </div>
+</div>
+<!-- EXP03 ROADMAP PROGRESS BAR END -->
+
+<!-- פרק: OSCILLOSCOPE GUIDE HEADER -->
+<h3 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.7rem; line-height: 1.35; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px;">הכנה לניסוי 3 - מדריך אוסצילוסקופ מהיר</h3>
+<!-- סעיף: PAGE PURPOSE -->
+<div class="info" style="box-sizing: border-box; background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 16px 0;">
+<strong style="box-sizing: border-box;">מטרת העמוד:</strong> לתת לסטודנט “דף כפתורים” קצר לפני המעבדה, כדי שהזמן במעבדה יוקדש למדידה ולא לחיפוש פונקציות.
+    <br/>
+    💡 להסברים מפורטים ומדריך שימוש מלא באוסצילוסקופ GDS-2072A ומחולל האותות Agilent 33220A, עיינו ב<a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" style="color: #005696; text-decoration: underline; font-weight: bold;" target="_blank">מדריך ציוד המדידה במודל</a>.
+</div>
+<!-- סעיף: OSCILLOSCOPE CONTROL CARDS -->
+<div class="grid" style="box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 14px;">
+<!-- חלק: VOLTAGE SCALE CONTROL -->
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Volt/Div</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">קובע כמה וולט מייצגת כל משבצת אנכית. משתמשים בו כדי להכניס את האות למסך בלי חיתוך.</p></div>
+<!-- חלק: TIME SCALE CONTROL -->
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Time/Div</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">קובע כמה זמן מייצגת כל משבצת אופקית. ממנו מחשבים זמן מחזור ותדר.</p></div>
+<!-- חלק: TRIGGER CONTROL -->
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Trigger</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">מייצב את התמונה. אם הגל “רץ”, כוונו מקור Trigger לערוץ הנמדד ואת הסף למרכז האות.</p></div>
+<!-- חלק: INPUT COUPLING -->
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">AC/DC Coupling</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">DC מציג גם היסט ישר. AC מסנן רכיב DC ומציג בעיקר את רכיב החילופין.</p></div>
+<!-- חלק: PROBE ATTENUATION -->
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Probe x1/x10</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">חייבים להתאים בין מצב הפרוב להגדרה בסקופ. אי התאמה תגרום לקריאה פי 10 שגויה.</p></div>
+<!-- חלק: CURSOR AND AUTO MEASUREMENTS -->
+<div class="card" style="box-sizing: border-box; background: #fff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,.05);"><h4 style="box-sizing: border-box; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #005696; font-size: 1.22rem; line-height: 1.4; margin: 18px 0 10px;">Cursor / Measure</h4><p style="box-sizing: border-box; margin-top: 0; margin-bottom: 0.9rem; margin: 0 0 12px;">מאפשר מדידה ישירה של מתח, זמן, תדר והפרש זמן בין שני גלים.</p></div>
+</div>
+<!-- סעיף: OPERATING RULE -->
+<div class="warn" style="box-sizing: border-box; background: #fff8e5; border: 1px solid #ffe08a; border-right: 5px solid #f0ad4e; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong style="box-sizing: border-box;">כלל עבודה:</strong> מתחילים ב-Auto Set רק כדי למצוא אות, ואז עוברים לכיוון ידני של Volt/Div, Time/Div ו-Trigger.</div>
+<!-- סעיף: MEASUREMENT REFERENCE TABLE -->
+
+<div class="alert alert-info shadow-sm my-4 text-center" dir="rtl" style="border-right: 5px solid #005696; font-size: 1.1rem;">
+<i class="fa fa-file-excel-o fa-lg me-2" style="color: #217346;"></i>
+<strong>לעיבוד הנתונים:</strong>
+<a class="alert-link text-decoration-none" href="#" style="color: #005696;">📥 להורדת תבנית המדידות ל-MATLAB (קובץ Excel) לחץ כאן</a>
+</div>
+<div class="table-responsive my-4 shadow-sm rounded border"><table class="align-middle table text-center mb-0 table-hover table-striped table-bordered" dir="rtl"><thead class="align-middle table-primary" style="box-sizing: border-box;"><tr style="box-sizing: border-box;"><th>מה רוצים למדוד?</th><th>כפתור מרכזי</th><th>מה לרשום בדו"ח?</th></tr></thead><tbody style="box-sizing: border-box;">
+<tr style="box-sizing: border-box;"><td>מתח שיא</td><td>Volt/Div + מספר משבצות</td><td>\(V_p = N_{div}\cdot V/div\)</td></tr>
+<tr style="box-sizing: border-box;"><td>מתח שיא-לשיא</td><td>Volt/Div</td><td>\(V_{pp}\)</td></tr>
+<tr style="box-sizing: border-box;"><td>זמן מחזור</td><td>Time/Div</td><td>\(T = N_{div}\cdot Time/div\)</td></tr>
+<tr style="box-sizing: border-box;"><td>הפרש מופע</td><td>Dual Channel / Cursor</td><td>\(\phi = 360^\circ \frac{\Delta t}{T}\)</td></tr>
+</tbody></table></div>
+<!-- ניווט: הקודם / תוכן עניינים / הבא -->
+<div style="box-sizing: border-box; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 28px 0 4px;"><a href="01_PreLab_02_RMS_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="01_PreLab.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #005696; color: #ffffff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="01_PreLab_04_DMM_sub.html" style="box-sizing: border-box; border-bottom: 1px solid rgba(6, 182, 212, 0.35); display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- EXP03 PRELAB H5P QUIZ NOTICE: 02_oscilloscope -->
+<section class="card shadow-sm mb-4 border-start border-success border-4" style="box-sizing: border-box; background: #ffffff; border: 1px solid #e2e8f0; border-right-width: 5px; border-radius: 0.75rem; margin: 1rem 0; border-color: #10b981; border-width: 4px; border-right-style: solid; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); margin-bottom: 1rem;">
+    <div class="card-body" style="box-sizing: border-box; padding: 1.25rem; text-align: center;">
+        <h3 class="card-title text-success h5" style="box-sizing: border-box; font-weight: 700; line-height: 1.25; margin-top: 0; margin-bottom: 0.75rem; color: #047857;">בחן עצמי אינטראקטיבי</h3>
+        <p class="card-text" style="box-sizing: border-box; margin-top: 0; margin-bottom: 1rem; color: #475569;">לאחר קריאת הפרק, בחן את עצמך כדי לוודא הבנה לקראת הניסוי.</p>
+        <div style="box-sizing: border-box; margin-top: 1rem;">
+            <a href="H5P_Quiz/Exp03_PreLab_02_Oscilloscope_H5P.h5p" style="box-sizing: border-box; display: inline-block; background-color: #10b981; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: background-color 0.2s;">
+                📝 התחל שאלון חזרה (H5P)
+            </a>
+        </div>
+    </div>
+</section>
+<!-- /EXP03 PRELAB H5P QUIZ NOTICE -->
+
+</body>
+</html>
+</div>
+</div>
+</div>
+</body>
+</html>

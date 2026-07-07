@@ -50,19 +50,19 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">\(f=1/T\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(f=1/T\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. כאשר T בשניות, f מתקבל בהרץ.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(f=T\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(f=T\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">תדר וזמן מחזור הם גדלים הופכיים.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(f=V_p/T\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(f=V_p/T\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">מתח השיא אינו חלק מהגדרת התדר.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(T=R/f\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(T=R/f\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">התנגדות אינה קשורה להגדרת התדר.</div>]]></text></feedback>
     </answer>
   </question>
@@ -78,7 +78,7 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<div dir="rtl">ההפרש בין הערך המרבי לערך המזערי של המתח.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. בגל סימטרי \(V_{pp}=2V_p\).</div>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. בגל סימטרי <span dir="ltr">\(V_{pp}=2V_p\)</span>.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">הערך האפקטיבי של המתח.</div>]]></text>
@@ -108,15 +108,15 @@
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. החלק החיובי והחלק השלילי מתאזנים.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(V_p\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(V_p\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זהו מתח שיא.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(V_{RMS}\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(V_{RMS}\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">RMS אינו ממוצע פשוט של המתח.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(V_{pp}\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(V_{pp}\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זהו שיא-לשיא.</div>]]></text></feedback>
     </answer>
   </question>
@@ -215,7 +215,7 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">מודדים \(T\) ומחשבים \(f=1/T\).</div>]]></text>
+      <text><![CDATA[<div dir="rtl">מודדים <span dir="ltr">\(T\)</span> ומחשבים <span dir="ltr">\(f=1/T\)</span>.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. יש להקפיד על יחידות.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -223,8 +223,8 @@
       <feedback format="html"><text><![CDATA[<div dir="rtl">זה אינו תדר.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">מחלקים \(V_{pp}\) ב-2.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">זה נותן \(V_p\) בגל סימטרי.</div>]]></text></feedback>
+      <text><![CDATA[<div dir="rtl">מחלקים <span dir="ltr">\(V_{pp}\)</span> ב-2.</div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זה נותן <span dir="ltr">\(V_p\)</span> בגל סימטרי.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">קוראים רק את מספר המשבצות האנכיות.</div>]]></text>
@@ -304,11 +304,11 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">המתח המרבי של האות.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו \(V_p\).</div>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו <span dir="ltr">\(V_p\)</span>.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">המתח שיא-לשיא.</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו \(V_{pp}\).</div>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו <span dir="ltr">\(V_{pp}\)</span>.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">הממוצע הפשוט של המתח.</div>]]></text>
@@ -326,20 +326,20 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">\(V_p/\sqrt{2}\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(V_p/\sqrt{2}\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(V_p\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(V_p\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זה נכון לגל ריבועי סימטרי.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(V_p/\sqrt{3}\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(V_p/\sqrt{3}\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זה מתאים לגל משולש סימטרי.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(2V_p\)</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו \(V_{pp}\).</div>]]></text></feedback>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(2V_p\)</span></div>]]></text>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו <span dir="ltr">\(V_{pp}\)</span>.</div>]]></text></feedback>
     </answer>
   </question>
   <question type="multichoice">
@@ -353,11 +353,11 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">\(V_p\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(V_p\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. הריבוע של המתח קבוע.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(V_p/\sqrt{2}\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(V_p/\sqrt{2}\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זה מתאים לסינוס.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -365,7 +365,7 @@
       <feedback format="html"><text><![CDATA[<div dir="rtl">הממוצע של המתח אפס, אבל RMS אינו אפס.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(V_{pp}\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(V_{pp}\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זהו שיא-לשיא.</div>]]></text></feedback>
     </answer>
   </question>
@@ -380,19 +380,19 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">\(P_{avg}=V_{RMS}^2/R\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(P_{avg}=V_{RMS}^2/R\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(P=V_{pp}/R\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(P=V_{pp}/R\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">שיא-לשיא אינו נכנס כך לחישוב הספק.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(P=fT\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(P=fT\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זהו קשר חסר יחידות להספק.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(P=R/V\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(P=R/V\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זו אינה נוסחת הספק.</div>]]></text></feedback>
     </answer>
   </question>
@@ -438,7 +438,7 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<div dir="rtl">500Hz</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. \(1/0.002=500\).</div>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. <span dir="ltr">\(1/0.002=500\)</span>.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">2Hz</div>]]></text>
@@ -465,7 +465,7 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<div dir="rtl">5V</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. \(V_p=V_{pp}/2\).</div>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. <span dir="ltr">\(V_p=V_{pp}/2\)</span>.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">10V</div>]]></text>
@@ -477,7 +477,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">7.07V</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו ערך RMS עבור \(V_p=10V\), לא כאן.</div>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו ערך RMS עבור <span dir="ltr">\(V_p=10V\)</span>, לא כאן.</div>]]></text></feedback>
     </answer>
   </question>
   <question type="multichoice">
@@ -492,7 +492,7 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<div dir="rtl">7.07V</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. \(10/\sqrt{2}\).</div>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. <span dir="ltr">\(10/\sqrt{2}\)</span>.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">10V</div>]]></text>
@@ -500,7 +500,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">14.14V</div>]]></text>
-      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו \(10\sqrt{2}\).</div>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<div dir="rtl">זהו <span dir="ltr">\(10\sqrt{2}\)</span>.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<div dir="rtl">20V</div>]]></text>
@@ -557,7 +557,7 @@
       <feedback format="html"><text><![CDATA[<div dir="rtl">תלוי בנוסחה.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">להציב \(V_{pp}\) במקום RMS.</div>]]></text>
+      <text><![CDATA[<div dir="rtl">להציב <span dir="ltr">\(V_{pp}\)</span> במקום RMS.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זה ייתן הספק שגוי.</div>]]></text></feedback>
     </answer>
   </question>
@@ -641,7 +641,7 @@
       <feedback format="html"><text><![CDATA[<div dir="rtl">לגל ריבועי יש תדר.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">כי \(V_{RMS}\) תמיד אפס.</div>]]></text>
+      <text><![CDATA[<div dir="rtl">כי <span dir="ltr">\(V_{RMS}\)</span> תמיד אפס.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">לא נכון.</div>]]></text></feedback>
     </answer>
   </question>
@@ -767,19 +767,19 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">\(A\) מכילה עכבות, \(x\) הוא וקטור הנעלמים, ו-\(b\) מייצג מקורות.</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(A\)</span> מכילה עכבות, <span dir="ltr">\(x\)</span> הוא וקטור הנעלמים, ו-<span dir="ltr">\(b\)</span> מייצג מקורות.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זו הדרך האלגברית לנסח את משוואות קירכהוף.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(A\) היא תמיד תדר בלבד.</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(A\)</span> היא תמיד תדר בלבד.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">המטריצה מכילה את מקדמי המערכת, בדרך כלל עכבות או מוליכויות.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(x\) הוא תמיד זמן המחזור.</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(x\)</span> הוא תמיד זמן המחזור.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">הנעלמים הם לרוב זרמים או מתחים פאזוריים.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(b\) חייב להיות אפס בכל מעגל.</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(b\)</span> חייב להיות אפס בכל מעגל.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">מקורות מתח או זרם מופיעים באגף הימני.</div>]]></text></feedback>
     </answer>
   </question>
@@ -794,19 +794,19 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">\(H_C(j\omega)=1/(1+j\omega RC)\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(H_C(j\omega)=1/(1+j\omega RC)\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זו תמסורת מסנן מעביר נמוכים עבור מתח הקבל.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(H_C(j\omega)=1+j\omega RC\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(H_C(j\omega)=1+j\omega RC\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זהו ההופכי של התמסורת הנכונה.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(H_C(j\omega)=R/C\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(H_C(j\omega)=R/C\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">ביטוי זה אינו חסר יחידות ואינו תלוי בתדר.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">\(H_C(j\omega)=V_{pp}\)</div>]]></text>
+      <text><![CDATA[<div dir="rtl"><span dir="ltr">\(H_C(j\omega)=V_{pp}\)</span></div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">תמסורת היא יחס בין מוצא לכניסה.</div>]]></text></feedback>
     </answer>
   </question>
@@ -821,7 +821,7 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">יחידות, תדר, \(V_{in}\), \(V_{out}\), והפרש זמן או מופע.</div>]]></text>
+      <text><![CDATA[<div dir="rtl">יחידות, תדר, <span dir="ltr">\(V_{in}\)</span>, <span dir="ltr">\(V_{out}\)</span>, והפרש זמן או מופע.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. כך ניתן לחשב גם גודל תמסורת וגם מופע.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -878,7 +878,7 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">צורת גל, תדר, \(V_{pp}\), \(V_{RMS}\) ומופע.</div>]]></text>
+      <text><![CDATA[<div dir="rtl">צורת גל, תדר, <span dir="ltr">\(V_{pp}\)</span>, <span dir="ltr">\(V_{RMS}\)</span> ומופע.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -989,7 +989,7 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<div dir="rtl">להציב \(V_p\) או \(V_{pp}\) במקום \(V_{RMS}\).</div>]]></text>
+      <text><![CDATA[<div dir="rtl">להציב <span dir="ltr">\(V_p\)</span> או <span dir="ltr">\(V_{pp}\)</span> במקום <span dir="ltr">\(V_{RMS}\)</span>.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">נכון. זה משנה את ההספק באופן משמעותי.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
@@ -997,7 +997,7 @@
       <feedback format="html"><text><![CDATA[<div dir="rtl">שימוש ביחידות הוא חובה.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<div dir="rtl">לחשב \(f=1/T\).</div>]]></text>
+      <text><![CDATA[<div dir="rtl">לחשב <span dir="ltr">\(f=1/T\)</span>.</div>]]></text>
       <feedback format="html"><text><![CDATA[<div dir="rtl">זה נכון כאשר היחידות תקינות.</div>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">

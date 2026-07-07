@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap');
+
 :root {
     /* Color Palette - Modern & Professional */
     --primary-color: #0f172a; /* Slate 900 */
@@ -32,17 +34,54 @@
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
     --radius-full: 9999px;
+    
+    --glass-bg: rgba(255, 255, 255, 0.85);
 }
 
 /* Base Styles */
 .moodle-snippet-custom {
     color: var(--text-main);
     line-height: 1.625;
-    font-family: 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Heebo', 'Assistant', 'Segoe UI', system-ui, -apple-system, sans-serif;
     direction: rtl;
     unicode-bidi: isolate;
     text-align: right;
     font-size: 16px;
+}
+
+/* Custom Selection */
+.moodle-snippet-custom ::selection {
+    background-color: var(--accent-hover);
+    color: white;
+}
+
+/* Custom Scrollbar */
+.moodle-snippet-custom ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.moodle-snippet-custom ::-webkit-scrollbar-track {
+    background: var(--bg-muted);
+    border-radius: var(--radius-full);
+}
+.moodle-snippet-custom ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: var(--radius-full);
+}
+.moodle-snippet-custom ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .moodle-snippet-custom .moodle-content-inner {
@@ -55,7 +94,8 @@
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: 1.25rem;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .moodle-snippet-custom *,
@@ -334,31 +374,118 @@
 .moodle-snippet-custom .position-absolute { position: absolute !important; }
 .moodle-snippet-custom .opacity-25 { opacity: 0.25 !important; }
 
+/* Accordions (Details/Summary) */
+.moodle-snippet-custom details {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.moodle-snippet-custom details[open] {
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-color);
+}
+
+.moodle-snippet-custom summary {
+    padding: 1rem 1.25rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-soft);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.moodle-snippet-custom summary::-webkit-details-marker {
+    display: none;
+}
+
+.moodle-snippet-custom summary::after {
+    content: "▼";
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+}
+
+.moodle-snippet-custom details[open] summary::after {
+    transform: rotate(180deg);
+    color: var(--accent-color);
+}
+
+.moodle-snippet-custom details[open] summary {
+    background: rgba(59, 130, 246, 0.05);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--accent-hover);
+}
+
+.moodle-snippet-custom summary:hover {
+    background: var(--bg-muted);
+}
+
+.moodle-snippet-custom .details-content {
+    padding: 1.25rem;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Modern Cards */
 .moodle-snippet-custom .info-box { 
-    background-color: var(--bg-soft); 
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-color); 
     border-radius: var(--radius-lg); 
     padding: 1.5rem; 
     margin: 1.5rem 0;
     box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.moodle-snippet-custom .info-box:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
 .moodle-snippet-custom .theory-card { 
-    background-color: white; 
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 1.5rem; 
     border-radius: var(--radius-lg); 
     margin-top: 1.25rem; 
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.moodle-snippet-custom .theory-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
 }
 
 .moodle-snippet-custom .card {
-    background: #ffffff;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     margin: 1rem 0;
     box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.moodle-snippet-custom .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
 .moodle-snippet-custom .card-body {
@@ -701,3 +828,125 @@
 .moodle-snippet-custom .fw-bold { font-weight: 700 !important; }
 .moodle-snippet-custom .rounded-lg { border-radius: var(--radius-lg) !important; }
 .moodle-snippet-custom .shadow-md { box-shadow: var(--shadow-md) !important; }
+
+/* Gradients */
+.moodle-snippet-custom .bg-gradient-primary {
+    background: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%) !important;
+    color: white !important;
+    border: none;
+}
+.moodle-snippet-custom .text-gradient {
+    background: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .moodle-snippet-custom {
+        --primary-color: #f1f5f9;
+        --primary-light: #cbd5e1;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --bg-main: #0f172a;
+        --bg-soft: #1e293b;
+        --bg-muted: #334155;
+        --border-color: #334155;
+        --border-strong: #475569;
+        --glass-bg: rgba(30, 41, 59, 0.85);
+    }
+    
+    .moodle-snippet-custom details[open] summary {
+        background: rgba(56, 189, 248, 0.1);
+    }
+    
+    .moodle-snippet-custom .moodle-content-inner {
+        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        border-color: var(--border-color);
+    }
+    
+    .moodle-snippet-custom .card,
+    .moodle-snippet-custom .info-box,
+    .moodle-snippet-custom .theory-card,
+    .moodle-snippet-custom .step-box,
+    .moodle-snippet-custom .data-table td,
+    .moodle-snippet-custom .form-select,
+    .moodle-snippet-custom .bg-white {
+        background-color: #1e293b !important;
+        border-color: var(--border-color);
+        color: var(--text-main);
+    }
+
+    .moodle-snippet-custom .card-header,
+    .moodle-snippet-custom .data-table th,
+    .moodle-snippet-custom .roadmap-container,
+    .moodle-snippet-custom .bg-light {
+        background-color: #334155 !important;
+        border-color: var(--border-color);
+        color: var(--primary-color);
+    }
+
+    .moodle-snippet-custom .table-striped tbody tr:nth-child(even) td {
+        background: #334155 !important;
+    }
+
+    .moodle-snippet-custom a {
+        color: #38bdf8;
+        border-bottom-color: rgba(56, 189, 248, 0.35);
+    }
+    
+    .moodle-snippet-custom a:hover {
+        color: #7dd3fc;
+    }
+
+    .moodle-snippet-custom .alert-info { background: #164e63; border-color: #0891b2; color: #cffafe; }
+    .moodle-snippet-custom .alert-success { background: #064e3b; border-color: #059669; color: #d1fae5; }
+    .moodle-snippet-custom .alert-warning { background: #78350f; border-color: #d97706; color: #fef3c7; }
+    
+    .moodle-snippet-custom .btn-outline-danger {
+        background-color: transparent;
+        color: #fca5a5 !important;
+        border-color: #fca5a5;
+    }
+    .moodle-snippet-custom .btn-outline-danger:hover {
+        background-color: rgba(239, 68, 68, 0.1);
+    }
+    
+    .moodle-snippet-custom img {
+        opacity: 0.9; /* Reduce glare for images in dark mode */
+    }
+}
+
+/* Print Styles */
+@media print {
+    .moodle-snippet-custom {
+        background: none !important;
+        color: #000 !important;
+    }
+    .moodle-snippet-custom .moodle-content-inner,
+    .moodle-snippet-custom .card,
+    .moodle-snippet-custom .info-box,
+    .moodle-snippet-custom .theory-card,
+    .moodle-snippet-custom .step-box {
+        background: none !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        color: #000 !important;
+        page-break-inside: avoid;
+    }
+    .moodle-snippet-custom .jxgbox,
+    .moodle-snippet-custom iframe,
+    .moodle-snippet-custom .btn {
+        display: none !important;
+    }
+    .moodle-snippet-custom .text-primary,
+    .moodle-snippet-custom .text-info,
+    .moodle-snippet-custom .text-success {
+        color: #000 !important;
+    }
+    .moodle-snippet-custom a {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+}

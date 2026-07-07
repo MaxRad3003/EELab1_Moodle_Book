@@ -230,4 +230,176 @@
       <text><![CDATA[<p dir="rtl">ישירות להדקי ספק הכוח, מבלי להתחשב בשאר המעגל.</p>]]></text>
     </answer>
   </question>
+  <!-- Question 9: Safety - Breaker -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 1 - בטיחות - ממסר פחת</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">במקרה שממסר הפחת הופעל או מא"ז, מי רשאי להרים את הכפתור?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">מדריך מעבדה/ אחראי מעבדה.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד. חל איסור מוחלט על סטודנטים לגעת בלוח החשמל.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">סטודנט.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">כל אדם.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">חברת חשמל.</p>]]></text>
+    </answer>
+  </question>
+
+  <!-- Question 10: Safety - End of experiment -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 1 - בטיחות - סיום הניסוי</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מה הפעולה הראשונה בסיום הניסוי?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">ויסות המתח לאפס וניתוק מתח המקור.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">תשובה נכונה. תמיד מורידים מתח לאפס ומכבים את הספק לפני פירוק המעגל.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">המשך לניסוי הבא.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">לחיצה על לחצן חירום.</p>]]></text>
+    </answer>
+  </question>
+
+  <!-- Question 11: Safety - Fire -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 1 - בטיחות - שריפה</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מה השלבים שצריך לבצע בזמן שריפה במעבדה?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">א' + ב' + ג' נכונים.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון. חובה לנתק מקורות חשמל (לחצן חירום), לפנות את המעבדה, ולהשתמש במטף הייעודי (CO2) במידת האפשר.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">א. ניתוק מקורות חשמל.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">ב. פינוי המעבדה במהירות.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">ג. כיבוי האש, הפעלת מטף ייעודי.</p>]]></text>
+    </answer>
+  </question>
+
+  <!-- Question 12: Safety - Attire -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 1 - בטיחות - לבוש</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">למעבדה יש להופיע בלבוש הבא:</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">מכנסיים ארוכים, נעליים סגורות, שיער ארוך אסוף.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד. כללי הלבוש נועדו להגן עליכם מפני התחשמלות, כוויות ופגיעות פיזיות.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מה שרוצים.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">העיקר להקפיד על נעליים סגורות.</p>]]></text>
+    </answer>
+  </question>
+  <!-- Question 13: Safety - Eating/Drinking -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 1 - בטיחות - אכילה ושתייה</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">האם מותר לאכול או לשתות בשטח המעבדה?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">חל איסור מוחלט על אכילה ושתייה במעבדה בכל עת.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון. סכנת התחשמלות ונזק לציוד יקר.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מותר לשתות רק מים מבקבוק סגור.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מותר לאכול רק בזמן ההפסקה בתוך המעבדה.</p>]]></text>
+    </answer>
+  </question>
+
+  <!-- Question 14: Safety - Wiring changes -->
+  <question type="multichoice">
+    <name>
+      <text>ניסוי 1 - בטיחות - שינוי חיווט תחת מתח</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">האם מותר לבצע שינויים בחיווט המעגל (הוספה או ניתוק חוטים) כאשר ספק הכוח פועל (תחת מתח)?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1.0</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>123</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">חל איסור מוחלט. יש לכבות את ספק הכוח לפני כל שינוי בחיווט.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p dir="rtl">נכון מאוד. כל שינוי תחת מתח מסכן אתכם ואת הציוד.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מותר, כל עוד נזהרים לא לגעת במוליכים חשופים.</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">מותר, אבל רק אם המתח נמוך מ-10V.</p>]]></text>
+    </answer>
+  </question>
 </quiz>

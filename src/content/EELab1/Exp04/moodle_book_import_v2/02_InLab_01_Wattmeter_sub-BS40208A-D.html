@@ -1,0 +1,190 @@
+<div style="max-width:980px; margin:0 auto;">
+<div style="font-size:0.9rem; color:#52616b; margin-bottom:14px;">ניסוי 4: מדידת הספק במעגל חשמלי</div>
+<h3 style="font-size: 1.7rem; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">שלב א: הכרת מד הספק</h3>
+<p style="margin-top: 0; margin-bottom: 0.9rem;">עבור הנחיות שימוש מפורטות, זיהוי הדקים וכיול מד ההספק הדיגיטלי GPM-8212, עיינו ב<a href="https://moodle.sce.ac.il/mod/book/view.php?id={{MEASURING_EQUIPMENT_BOOK_ID}}" style="color: #005696; text-decoration: underline; font-weight: bold;" target="_blank">מדריך ציוד המדידה במודל</a>.</p>
+<div class="step" style="display: flex; gap: 14px; align-items: flex-start; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 12px 0;"><div class="num" style="min-width: 36px; height: 36px; border-radius: 50%; background: #005696; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div><div><h4 style="font-size: 1.22rem; margin: 18px 0 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">זיהוי הדקים</h4><p style="margin: 0 0 12px;">אתרו הדקי זרם, מתח, תחומי מדידה וכיוון זרימה.</p></div></div><div class="step" style="display: flex; gap: 14px; align-items: flex-start; background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 12px 0;"><div class="num" style="min-width: 36px; height: 36px; border-radius: 50%; background: #005696; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div><div><h4 style="font-size: 1.22rem; margin: 18px 0 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">חיבור לעומס</h4><p style="margin: 0 0 12px;">מסלול הזרם בטור לעומס ומסלול המתח במקביל.</p></div></div><!-- DATA TABLE / COMPARISON TABLE -->
+<!-- DATA TABLE / COMPARISON TABLE -->
+
+<div class="alert alert-info shadow-sm my-4 text-center" dir="rtl" style="border-right: 5px solid #005696; font-size: 1.1rem;">
+<i class="fa fa-file-excel-o fa-lg me-2" style="color: #217346;"></i>
+<strong>לעיבוד הנתונים:</strong>
+<a class="alert-link text-decoration-none" href="#" style="color: #005696;">📥 להורדת תבנית המדידות ל-MATLAB (קובץ Excel) לחץ כאן</a>
+</div>
+<div class="table-responsive my-4 shadow-sm rounded border"><table class="table-bordered table-striped mb-0 text-center align-middle table-hover table" dir="rtl" id="wattmeter-table">
+<thead class="table-primary align-middle">
+<tr>
+<th>עומס</th>
+<th>\(U[V]\)</th>
+<th>\(I[A]\)</th>
+<th>\(P[W]\)</th>
+<th>\(\cos\phi\)</th>
+<th>\(S[VA]\)</th>
+<th>\(Q[VAr]\)</th>
+</tr>
+</thead>
+<tbody>
+<!-- שורת דוגמה מנחה פדגוגית -->
+<tr style="background-color: #f8fafc; font-style: italic; color: #64748b;">
+<td>דוגמה (שורה מנחה)</td>
+<td>24.00</td>
+<td>0.50</td>
+<td>9.60</td>
+<td>0.80</td>
+<td>12.00</td>
+<td>7.20</td>
+</tr>
+<!-- שורות מדידה לסטודנט -->
+<tr>
+<td>בדיקה 1</td>
+<td><input class="meas-u" placeholder="הזן U" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td><input class="meas-i" placeholder="הזן I" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td><input class="meas-p" placeholder="הזן P" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td><input class="meas-cos" placeholder="הזן cosφ" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td class="calc-s">חישוב בבית</td>
+<td class="calc-q">חישוב בבית</td>
+</tr>
+<tr>
+<td>בדיקה 2</td>
+<td><input class="meas-u" placeholder="הזן U" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td><input class="meas-i" placeholder="הזן I" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td><input class="meas-p" placeholder="הזן P" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td><input class="meas-cos" placeholder="הזן cosφ" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td class="calc-s">חישוב בבית</td>
+<td class="calc-q">חישוב בבית</td>
+</tr>
+</tbody>
+</table></div>
+<!-- EXPORT BUTTONS CONTAINER -->
+<div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center;">
+<span style="font-weight: bold; color: #1e293b;">ייצוא ועזרה לדו"ח בבית:</span>
+<button id="btn-export-matlab" style="background: #d97706; color: white; border: none; border-radius: 6px; padding: 10px 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 0.9rem;">
+    💻 העתק קוד MATLAB ללוח
+  </button>
+<button id="btn-export-csv" style="background: #10b981; color: white; border: none; border-radius: 6px; padding: 10px 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 0.9rem;">
+    📥 הורד קובץ CSV ל-Excel
+  </button>
+<span id="toast-message" style="color: #059669; font-weight: bold; display: none; margin-right: 10px;">✓ הועתק בהצלחה!</span>
+</div>
+<script>
+(function() {
+    const tableId = "wattmeter-table";
+    const storagePrefix = "exp04_stepa_";
+    
+    // Save/Load to localStorage
+    const inputs = document.querySelectorAll('#' + tableId + ' input');
+    inputs.forEach(input => {
+        // Find row index and input type
+        const tr = input.closest('tr');
+        const rowIndex = tr.rowIndex;
+        const rowKey = "row" + rowIndex;
+        
+        let fieldClass = "";
+        if (input.classList.contains("meas-u")) fieldClass = "u";
+        else if (input.classList.contains("meas-i")) fieldClass = "i";
+        else if (input.classList.contains("meas-p")) fieldClass = "p";
+        else if (input.classList.contains("meas-cos")) fieldClass = "cos";
+        
+        const key = storagePrefix + rowKey + "_" + fieldClass;
+        
+        // Load stored value
+        const stored = localStorage.getItem(key);
+        if (stored) input.value = stored;
+        
+        // Save on input
+        input.addEventListener('input', function() {
+            localStorage.setItem(key, input.value);
+        });
+    });
+
+    // Export Matlab Code
+    document.getElementById("btn-export-matlab").addEventListener("click", function() {
+        const uInputs = document.querySelectorAll('#' + tableId + ' .meas-u');
+        const iInputs = document.querySelectorAll('#' + tableId + ' .meas-i');
+        const pInputs = document.querySelectorAll('#' + tableId + ' .meas-p');
+        const cosInputs = document.querySelectorAll('#' + tableId + ' .meas-cos');
+
+        const u1 = uInputs[0].value || 'NaN';
+        const u2 = uInputs[1].value || 'NaN';
+        const i1 = iInputs[0].value || 'NaN';
+        const i2 = iInputs[1].value || 'NaN';
+        const p1 = pInputs[0].value || 'NaN';
+        const p2 = pInputs[1].value || 'NaN';
+        const cos1 = cosInputs[0].value || 'NaN';
+        const cos2 = cosInputs[1].value || 'NaN';
+
+        const matlabCode = `% --- נתוני מדידה גולמיים ממעבדה 1 - ניסוי 4 - שלב א (הכרת מד הספק) ---
+% סדר המדידות בוקטורים: [בדיקה 1, בדיקה 2]
+U_meas = [${u1}, ${u2}]; % מתח יעיל נמדד ב-V
+I_meas = [${i1}, ${i2}]; % זרם יעיל נמדד ב-A
+P_meas = [${p1}, ${p2}]; % הספק פעיל נמדד ב-W
+cos_phi_meas = [${cos1}, ${cos2}]; % גורם הספק נמדד
+
+% --- הנחיות חישוב להשלמה בבית ---
+% 1. חשבו את ההספק המדומה (S = U * I):
+% S = U_meas .* I_meas; 
+
+% 2. חשבו את ההספק ההיגבי (Q = sqrt(S^2 - P^2)):
+% Q = sqrt(S.^2 - P_meas.^2);
+
+% --- קוד עזר להדפסת התוצאות לדו"ח ---
+% for idx = 1:length(U_meas)
+%     fprintf('בדיקה %d: S = %.2f VA, Q = %.2f VAr\\n', idx, S(idx), Q(idx));
+% end
+`;
+
+        navigator.clipboard.writeText(matlabCode).then(function() {
+            const toast = document.getElementById("toast-message");
+            toast.style.display = "inline";
+            setTimeout(() => { toast.style.display = "none"; }, 3000);
+        });
+    });
+
+    // Export CSV
+    document.getElementById("btn-export-csv").addEventListener("click", function() {
+        const uInputs = document.querySelectorAll('#' + tableId + ' .meas-u');
+        const iInputs = document.querySelectorAll('#' + tableId + ' .meas-i');
+        const pInputs = document.querySelectorAll('#' + tableId + ' .meas-p');
+        const cosInputs = document.querySelectorAll('#' + tableId + ' .meas-cos');
+
+        const u1 = uInputs[0].value || '';
+        const u2 = uInputs[1].value || '';
+        const i1 = iInputs[0].value || '';
+        const i2 = iInputs[1].value || '';
+        const p1 = pInputs[0].value || '';
+        const p2 = pInputs[1].value || '';
+        const cos1 = cosInputs[0].value || '';
+        const cos2 = cosInputs[1].value || '';
+
+        let csvContent = "\uFEFF"; // UTF-8 BOM for Hebrew Excel
+        csvContent += "עומס,מתח U [V],זרם I [A],הספק פעיל P [W],גורם הספק cos(phi)\n";
+        csvContent += `בדיקה 1,${u1},${i1},${p1},${cos1}\n`;
+        csvContent += `בדיקה 2,${u2},${i2},${p2},${cos2}\n`;
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", "Exp04_StepA_Measurements.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+})();
+</script>
+<div style="background:#f7fafc; border:1px solid #d7dde4; border-radius:8px; padding:18px; margin:20px 0;">
+<h4 style="font-size: 1.22rem; margin: 18px 0 10px; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">תרשים חיבור עקרוני של מד הספק</h4>
+<div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px; text-align:center;">
+<div style="background:#005696; color:#fff; border-radius:8px; padding:12px 18px; min-width:110px;">מקור AC</div>
+<div style="font-weight:700; color:#d9534f;">→ מסלול זרם בטור →</div>
+<div style="background:#ffffff; border:2px solid #005696; border-radius:8px; padding:12px 18px; min-width:130px;">Wattmeter<br/><span style="font-size:0.85rem; color:#52616b;">Current Coil</span></div>
+<div style="font-weight:700; color:#d9534f;">→</div>
+<div style="background:#eef3f7; border:1px solid #9fb2c4; border-radius:8px; padding:12px 18px; min-width:110px;">עומס \(Z_L\)</div>
+</div>
+<div style="margin-top:14px; text-align:center; color:#52616b;">מסלול המתח של מד ההספק מתחבר במקביל לעומס. אין להצליב בין מסלול זרם למסלול מתח.</div>
+</div>
+<div data-units-emphasis="exp4" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
+<strong style="color:#005696;">דגש יחידות בניסוי 4:</strong>
+<span> הפרידו בין \(P[W]\), \(Q[VAr]\) ו-\(S[VA]\). גורם הספק \(\cos\phi\) ונצילות \(\eta\) הם חסרי יחידות. לפני חישוב הספק ודאו שהמתח ב-V והזרם ב-A, לא ב-mA.</span>
+</div>
+<div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:28px 0 4px;"><a href="02_InLab.html" style="display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="02_InLab.html" style="display: inline-block; background: #005696; color: #fff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="02_InLab_02_MixedCircuit_sub.html" style="display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div>
+</div>

@@ -69,12 +69,24 @@
 </div>
 <!-- /SECTION: TASKS -->
 
-<!-- CHAPTER: FOOTER -->
-<div id="ch-tinkercad-footer" class="alert alert-success text-center mt-4">
-    <p class="fs-5 fw-bold text-success mb-2">מצוין! השלמתם את כל פרקי ההכנה התיאורטיים והמעשיים.</p>
-    <p class="mb-0">כעת אתם מוכנים לעבור לבוחן ההכנה במודל ולאחר מכן לבצע את הניסוי הפיזי במעבדה!</p>
+<!-- SECTION: MOODLE QUIZ INTEGRATION -->
+<div class="card" style="background: #f8fafc; border: 1px solid #cbd5e1; border-top: 4px solid #10b981; border-radius: 8px; padding: 18px; margin: 24px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <h4 style="color: #10b981; margin-top: 0; margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+        📝 בוחן הכנה לניסוי 1 (Pre-Lab Quiz):
+    </h4>
+    <p style="margin-top: 0; margin-bottom: 14px;">השלמתם את כל חומרי ההכנה לניסוי 1! כעת, אנא פתרו את הבוחן המוטמע מטה כדי לבדוק את מוכנותכם לניסוי:</p>
+    
+    <!-- שאלון מוטמע -->
+    <iframe src="https://moodle.sce.ac.il/mod/quiz/view.php?id={{EXP01_PRELAB_QUIZ_ID}}&embed=1" 
+            width="100%" height="600" frameborder="0" style="border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff;"></iframe>
+
+    <!-- קישור גיבוי למסכים קטנים ומובייל -->
+    <p style="text-align: center; margin-top: 12px; margin-bottom: 0; font-size: 0.9rem;">
+      אם השאלון אינו מוצג כראוי, 
+      <a href="https://moodle.sce.ac.il/mod/quiz/view.php?id={{EXP01_PRELAB_QUIZ_ID}}" target="_blank" style="color: #005696; font-weight: bold; text-decoration: underline;">לחצו כאן לפתיחת השאלון בחלון חדש במודל</a>.
+    </p>
 </div>
-<!-- /CHAPTER: FOOTER -->
+<!-- /SECTION: MOODLE QUIZ INTEGRATION -->
 
 <!-- NAVIGATION: BOOK PREV NEXT -->
 <div id="book-nav-tinkercad" class="d-flex justify-content-between mt-4 pt-3 border-top">

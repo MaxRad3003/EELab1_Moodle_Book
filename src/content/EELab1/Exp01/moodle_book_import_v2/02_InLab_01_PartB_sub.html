@@ -1,113 +1,112 @@
 <!-- EXP01 BREADCRUMB -->
-<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 > עבודה מעשית > חלק ב': תפעול ספק הכוח</div>
+<div style="background-color: #eef2f5; color: #52616b; border-right: 4px solid #005696; padding: 8px 12px; margin-bottom: 24px; font-size: 13px; border-radius: 4px;">ניסוי 1 &gt; עבודה מעשית &gt; חלק ב': תפעול ספק הכוח</div>
 <!-- /EXP01 BREADCRUMB -->
-
 <!-- NAVIGATION: BACK TO INDEX -->
 <div style="margin-bottom: 1.5rem;">
-    <a href="02_InLab.html" class="btn btn-outline-danger btn-sm" style="padding: 6px 12px; font-size: 14px;">
-        <span>⬅️</span> חזרה לתוכן העניינים
+<a class="btn btn-outline-danger btn-sm" href="02_InLab.html" style="padding: 6px 12px; font-size: 14px;">
+<span>⬅️</span> חזרה לתוכן העניינים
     </a>
 </div>
 <!-- /NAVIGATION: BACK TO INDEX -->
-
 <!-- CHAPTER: HEADER -->
-<div id="ch-inlab-b-header" class="text-center mb-4">
-    <h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">חלק ב': תפעול ספק הכוח (DC Power Supply)</h2>
-    <div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
+<div class="text-center mb-4" id="ch-inlab-b-header">
+<h2 class="text-primary fw-bold" style="margin-top: 1rem; margin-bottom: 0.5rem;">חלק ב': תפעול ספק הכוח (DC Power Supply)</h2>
+<div class="mx-auto bg-primary" style="height: 3px; width: 60px; border-radius: 10px;"></div>
 </div>
 <!-- /CHAPTER: HEADER -->
-
 <!-- SECTION: FIXED OUTPUT -->
 <div class="theory-card" id="section-fixed-output">
-    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-plug"></i> 1. יציאה קבועה (Fixed 5V)</h3>
-    <p>חברו את הרב-מודד (DMM) במצב מד מתח (DC Voltmeter) ישירות להדקים של היציאה הקבועה בספק הכוח (להנחיות עבודה מפורטות עם המכשירים, ראו את <a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" target="_blank" style="color: #005696; text-decoration: underline; font-weight: bold;">מדריך ציוד המדידה במודל</a>):</p>
-    <!-- BULLET LIST / KEY POINTS -->
+<h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-plug"></i> 1. יציאה קבועה (Fixed 5V)</h3>
+<p>חברו את הרב-מודד (DMM) במצב מד מתח (DC Voltmeter) ישירות להדקים של היציאה הקבועה בספק הכוח (להנחיות עבודה מפורטות עם המכשירים, ראו את <a href="https://moodle.sce.ac.il/mod/book/view.php?id={{MEASURING_EQUIPMENT_BOOK_ID}}" style="color: #005696; text-decoration: underline; font-weight: bold;" target="_blank">מדריך ציוד המדידה במודל</a>):</p>
+<!-- BULLET LIST / KEY POINTS -->
 <ul style="padding-right: 20px;">
-        <li class="mb-2">מתח קבוע מדוד: _________ \([V]\)</li>
-        <li>שנו את בוררי ה-MASTER וה-SLAVE (מתח וזרם). האם יש השפעה כלשהי על ערך המתח ביציאה הקבועה? _________ (הסבירו מדוע).</li>
-    </ul>
+<li class="mb-2">מתח קבוע מדוד: _________ \([V]\)</li>
+<li>שנו את בוררי ה-MASTER וה-SLAVE (מתח וזרם). האם יש השפעה כלשהי על ערך המתח ביציאה הקבועה? _________ (הסבירו מדוע).</li>
+</ul>
 </div>
 <!-- /SECTION: FIXED OUTPUT -->
-
 <!-- SECTION: MODES -->
 <div class="theory-card mt-4" id="section-supply-modes">
-    <h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-bezier-curve"></i> 2. אופני פעולה: עצמאי (INDEP), טורי (SERIES) ומקבילי (PARALLEL)</h3>
-    <p>
+<h3 class="fw-bold text-primary mt-0" style="font-size: 1.25rem;"><i class="fas fa-bezier-curve"></i> 2. אופני פעולה: עצמאי (INDEP), טורי (SERIES) ומקבילי (PARALLEL)</h3>
+<p>
         בצעו את ההגדרות הבאות בספק הכוח ומדדו את ערכי המתח והזרם בהדקים בהתאם לטבלה.
-        <br>
-        <strong>הגדרות בסיס במכשיר:</strong>
+        <br/>
+<strong>הגדרות בסיס במכשיר:</strong>
         כוונו את ערוץ ה-Master ל-\(V_{master} = 10V\) עם מגבלת זרם \(I_{master} = 0.5A\).
         כוונו את ערוץ ה-Slave ל-\(V_{slave} = 5V\) עם מגבלת זרם \(I_{slave} = 1A\).
     </p>
 
-    <div class="table-responsive mt-3">
-        <!-- DATA TABLE / COMPARISON TABLE -->
-<table class="table table-bordered text-center align-middle">
-            <thead>
-                <tr style="background-color: #003366; color: white;">
-                    <th style="width: 25%;">אופן פעולה (Mode)</th>
-                    <th style="width: 20%;">מתח מוצא מדוד \([V]\)</th>
-                    <th style="width: 20%;">מגבלת זרם מדודה \([A]\)</th>
-                    <th>הסבר תיאורטי קצר למדידה שנתקבלו</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>INDEP</strong> (עצמאי)</td>
-                    <td>
+<div class="alert alert-info shadow-sm my-4 text-center" dir="rtl" style="border-right: 5px solid #005696; font-size: 1.1rem;">
+<i class="fa fa-file-excel-o fa-lg me-2" style="color: #217346;"></i>
+<strong>לעיבוד הנתונים:</strong>
+<a class="alert-link text-decoration-none" href="#" style="color: #005696;">📥 להורדת תבנית המדידות ל-MATLAB (קובץ Excel) לחץ כאן</a>
+</div>
+<div class="table-responsive mt-3">
+<!-- DATA TABLE / COMPARISON TABLE -->
+<table class="table-bordered table-striped mb-0 text-center align-middle table-hover table" dir="rtl">
+<thead class="table-primary align-middle">
+<tr style="background-color: #003366; color: white;">
+<th>אופן פעולה (Mode)</th>
+<th>מתח מוצא מדוד \([V]\)</th>
+<th>מגבלת זרם מדודה \([A]\)</th>
+<th>הסבר תיאורטי קצר למדידה שנתקבלו</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>INDEP</strong> (עצמאי)</td>
+<td>
                         ערוץ Master: _______ \([V]\)
-                        <br>
+                        <br/>
                         ערוץ Slave: _______ \([V]\)
                     </td>
-                    <td>
+<td>
                         ערוץ Master: _______ \([A]\)
-                        <br>
+                        <br/>
                         ערוץ Slave: _______ \([A]\)
                     </td>
-                    <td class="text-right small">שני מקורות מתח נפרדים. כל ערוץ מפעיל צרכן שונה ללא תלות חשמלית ביניהם.</td>
-                </tr>
-                <tr>
-                    <td><strong>SERIES</strong> (טורי)</td>
-                    <td>
+<td class="text-right small">שני מקורות מתח נפרדים. כל ערוץ מפעיל צרכן שונה ללא תלות חשמלית ביניהם.</td>
+</tr>
+<tr>
+<td><strong>SERIES</strong> (טורי)</td>
+<td>
                         בין הדק פלוס Master
-                        <br>
+                        <br/>
                         לדק מינוס Slave:
-                        <br>
+                        <br/>
                         _______ \([V]\)
                     </td>
-                    <td>_______ \([A]\)</td>
-                    <td class="text-right small">המתחים של שני המקורות מחוברים בטור, ולכן מתח המוצא השקול שווה לסכומם: \(V_{total} = V_{master} + V_{slave}\). הזרם מוגבל ע"י הערוץ בעל המגבלה הנמוכה.</td>
-                </tr>
-                <tr>
-                    <td><strong>PARALLEL</strong> (מקבילי)</td>
-                    <td>_______ \([V]\)</td>
-                    <td>_______ \([A]\)</td>
-                    <td class="text-right small">הערוצים מחוברים במקביל. מתח המוצא נקבע ע"י ערוץ ה-Master. זרם המוצא המקסימלי שווה לסכום זרמי שני הערוצים: \(I_{total} = I_{master} + I_{slave}\).</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<td>_______ \([A]\)</td>
+<td class="text-right small">המתחים של שני המקורות מחוברים בטור, ולכן מתח המוצא השקול שווה לסכומם: \(V_{total} = V_{master} + V_{slave}\). הזרם מוגבל ע"י הערוץ בעל המגבלה הנמוכה.</td>
+</tr>
+<tr>
+<td><strong>PARALLEL</strong> (מקבילי)</td>
+<td>_______ \([V]\)</td>
+<td>_______ \([A]\)</td>
+<td class="text-right small">הערוצים מחוברים במקביל. מתח המוצא נקבע ע"י ערוץ ה-Master. זרם המוצא המקסימלי שווה לסכום זרמי שני הערוצים: \(I_{total} = I_{master} + I_{slave}\).</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <!-- /SECTION: MODES -->
-
 <!-- SECTION: CURRENT LIMIT -->
 <div class="theory-card mt-4 border-danger" id="section-current-limit" style="border-right: 5px solid #ef4444;">
-    <h3 class="fw-bold text-danger mt-0" style="font-size: 1.25rem;"><i class="fas fa-shield-alt"></i> 3. בדיקת הגבלת זרם במעגל</h3>
-    <p>
+<h3 class="fw-bold text-danger mt-0" style="font-size: 1.25rem;"><i class="fas fa-shield-alt"></i> 3. בדיקת הגבלת זרם במעגל</h3>
+<p>
         בצעו את בדיקת הגבלת הזרם (מצב CC - Constant Current) לפי הנחיות המדריך בלבד.
         חברו נגד עומס של \(10\Omega\) בעל הספק גבוה (נגד הספק) ליציאת ה-Master.
     </p>
-    <!-- BULLET LIST / KEY POINTS -->
+<!-- BULLET LIST / KEY POINTS -->
 <ul class="mb-0" style="padding-right: 20px;">
-        <li class="mb-2">הגדירו מגבלת זרם של \(0.3A\) ומתח של \(5V\). הפעילו את המוצא. מהו הזרם והמתח המדודים?</li>
-        <li class="mb-2">כעת העלו את המתח ל-\(10V\). מה קרה לנוריות בספק (האם נורית ה-CV התחלפה ב-CC)? מהם ערכי המתח והזרם המדודים כעת? הסבירו את תופעה זו בעזרת חוק אוהם!</li>
-    </ul>
+<li class="mb-2">הגדירו מגבלת זרם של \(0.3A\) ומתח של \(5V\). הפעילו את המוצא. מהו הזרם והמתח המדודים?</li>
+<li class="mb-2">כעת העלו את המתח ל-\(10V\). מה קרה לנוריות בספק (האם נורית ה-CV התחלפה ב-CC)? מהם ערכי המתח והזרם המדודים כעת? הסבירו את תופעה זו בעזרת חוק אוהם!</li>
+</ul>
 </div>
 <!-- /SECTION: CURRENT LIMIT -->
-
 <!-- NAVIGATION: BOOK PREV NEXT -->
-<div id="book-nav-inlab-b" class="d-flex justify-content-between mt-4 pt-3 border-top">
-    <a href="02_InLab_00_PartA_sub.html" class="btn btn-secondary">→ הקודם: חלק א'</a>
-    <a href="02_InLab_02_PartC_sub.html" class="btn btn-primary">הבא: חלק ג' ←</a>
+<div class="d-flex justify-content-between mt-4 pt-3 border-top" id="book-nav-inlab-b">
+<a class="btn btn-secondary" href="02_InLab_00_PartA_sub.html">→ הקודם: חלק א'</a>
+<a class="btn btn-primary" href="02_InLab_02_PartC_sub.html">הבא: חלק ג' ←</a>
 </div>
 <!-- /NAVIGATION: BOOK PREV NEXT -->

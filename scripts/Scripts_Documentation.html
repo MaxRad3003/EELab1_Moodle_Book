@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדריך סקריפטים - מעבדה חשמל 1</title>
+    <style>
+        :root {
+            --primary: #005696;
+            --secondary: #00a4e4;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --accent: #ff6b6b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: var(--text-light);
+        }
+
+        .category-title {
+            font-size: 1.8em;
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--secondary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card.python { border-top-color: #3776ab; }
+        .card.js { border-top-color: #f7df1e; }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            direction: ltr; /* Keeps filenames LTR */
+            text-align: left;
+        }
+
+        .badge {
+            font-size: 0.7em;
+            padding: 4px 8px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .badge.python { background-color: #3776ab; }
+        .badge.js { background-color: #d4b800; }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95em;
+            margin-top: 15px;
+        }
+
+        .command {
+            background-color: #2d2d2d;
+            color: #4af626;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85em;
+            margin-top: 15px;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>מדריך הסקריפטים (Scripts Directory) ⚙️</h1>
+        <p>תיקיית ה-scripts מכילה אוסף של כלי אוטומציה שמטרתם לחסוך שעות של עבודה ידנית.<br>להלן פירוט של כל סקריפט ותפקידו במערכת.</p>
+    </div>
+
+    <!-- Category 1 -->
+    <h2 class="category-title">📦 בנייה, אריזה והפצה (Build & Package)</h2>
+    <div class="grid">
+        <div class="card js">
+            <h3>build.js <span class="badge js">Node.js</span></h3>
+            <p><strong>מנוע הבנייה הראשי.</strong> הסקריפט לוקח את כל קבצי המקור (HTML/CSS), מזריק פנימה את העיצובים ב-inline (עבור Moodle), ומייצר את התוצרים הסופיים לתיקיית <code>dist</code>.</p>
+            <div class="command">
+                npm run build<br><br>
+                <span style="color:#a8cca8;"># או לניסוי ספציפי:</span><br>
+                npm run build:exp01<br>
+                npm run build:exp02<br>
+                <span style="color:#a8cca8;"># וכן הלאה...</span>
+            </div>
+        </div>
+        <div class="card python">
+            <h3>package_moodle_experiments.py <span class="badge python">Python</span></h3>
+            <p>אורז את כל קבצי ה-HTML של הניסויים השונים לקבצי ZIP ייעודיים, המוכנים לייבוא ישיר לתוך תוסף <strong>Moodle Book</strong>. ניתן לארוז כל ניסוי בנפרד:</p>
+            <div class="command">
+                npm run package:exp01<br>
+                npm run package:exp02<br>
+                npm run package:exp03
+            </div>
+        </div>
+        <div class="card python">
+            <h3>package_full_distribution.py <span class="badge python">Python</span></h3>
+            <p>מייצר חבילת הפצה מלאה (Distribution) הכוללת את כל חומרי המעבדה בגרסתם הסופית והנקייה.</p>
+            <div class="command">python scripts/build_and_package/package_full_distribution.py</div>
+        </div>
+        <div class="card python">
+            <h3>package_exp04_exp05.py <span class="badge python">Python</span></h3>
+            <p>סקריפט אריזה המיועד ספציפית לניסויים מתקדמים (ניסוי 4 ו-5), מכין אותם להעלאה למודל. ניתן לארוז כל ניסוי בנפרד:</p>
+            <div class="command">
+                npm run package:exp04<br>
+                npm run package:exp05
+            </div>
+        </div>
+        <div class="card python">
+            <h3>rebuild_and_clean_dist.py <span class="badge python">Python</span></h3>
+            <p>מוחק את התוצרים הישנים מתיקיית ה-<code>dist</code>, ומריץ בנייה מחדש מלאה ונקייה מאפס.</p>
+        </div>
+    </div>
+
+    <!-- Category 2 -->
+    <h2 class="category-title">🔗 ניהול קישורים ותיקוני HTML</h2>
+    <div class="grid">
+        <div class="card python">
+            <h3>update_moodle_links.py <span class="badge python">Python</span></h3>
+            <p>מעדכן באופן גורף קישורים פנימיים וחיצוניים בתוך קבצי ה-HTML כדי לוודא שאינם נשברים בתוך סביבת Moodle.</p>
+        </div>
+        <div class="card python">
+            <h3>validate_links.py <span class="badge python">Python</span></h3>
+            <p>סורק את כל קבצי הפרויקט, מוודא שכל הקישורים (תמונות, דפים) תקינים ומתריע על קישורים שבורים (404).</p>
+        </div>
+        <div class="card python">
+            <h3>normalize_moodle_links.py <span class="badge python">Python</span></h3>
+            <p>מנרמל קישורים לפורמט הסטנדרטי של Moodle (הפיכת נתיבים יחסיים למוחלטים במידת הצורך).</p>
+        </div>
+        <div class="card python">
+            <h3>fix_card_headers.py & upgrade_tables.py <span class="badge python">Python</span></h3>
+            <p>סקריפטים עיצוביים שעוברים על קבצי התוכן ומשדרגים אוטומטית טבלאות וכותרות כרטיסיות למראה ה"פרימיום" המעוצב שלנו.</p>
+        </div>
+        <div class="card python">
+            <h3>comment_html_files.py <span class="badge python">Python</span></h3>
+            <p>מוסיף הערות (Comments) וסימניות בקוד ה-HTML כדי להקל על קריאות ותחזוקה עתידית של הקוד.</p>
+        </div>
+    </div>
+
+    <!-- Category 3 -->
+    <h2 class="category-title">🧠 משימות ובחנים אוטומטיים (H5P & MATLAB Grader)</h2>
+    <div class="grid">
+        <div class="card js">
+            <h3>generate_all_grader_tasks.js <span class="badge js">Node.js</span></h3>
+            <p><strong>הסקריפט שיצרנו לאחרונה!</strong> פורס אוטומטית את כל תבניות ה-MATLAB Grader לניסויים 2 עד 5 (פרקי PreLab ו-InLab) בשפה האנגלית והעברית.</p>
+            <div class="command">node scripts/matlab_grader/generate_all_grader_tasks.js</div>
+        </div>
+        <div class="card js">
+            <h3>scaffold_grader_templates.js <span class="badge js">Node.js</span></h3>
+            <p>גרסת בסיס ליצירת תבניות ראשוניות (שלד ריק) עבור MATLAB Grader.</p>
+        </div>
+        <div class="card js">
+            <h3>generate_exp0X_prelab_h5p.js <span class="badge js">Node.js</span></h3>
+            <p>משפחת סקריפטים (לניסויים 1, 2 ו-3) שמייצרים אוטומטית שאלות אינטראקטיביות ובחנים מסוג <strong>H5P</strong> ו-<strong>Moodle XML</strong> עבור פרקי ההכנה.</p>
+        </div>
+    </div>
+
+    <!-- Category 4 -->
+    <h2 class="category-title">🛠️ כלי עזר (Utilities)</h2>
+    <div class="grid">
+        <div class="card python">
+            <h3>optimize_images.py <span class="badge python">Python</span></h3>
+            <p>רץ על כל התמונות בתיקיית המקור באופן <strong>מקבילי</strong> (Multi-threaded) וממיר אותן לפורמט <strong>WebP</strong> העדכני. מכווץ את התמונות מבלי לפגוע באיכות וחוסך עשרות אחוזים במשקל ה-ZIP ומשפר דרמטית את מהירות הטעינה ב-Moodle.</p>
+        </div>
+        <div class="card python">
+            <h3>inspect_zips.py <span class="badge python">Python</span></h3>
+            <p>פותח וסורק תוכן של קבצי ZIP שנוצרו כדי לוודא שאין בהם קבצי זבל או שגיאות קידוד לפני ההעלאה.</p>
+        </div>
+        <div class="card python">
+            <h3>package_mastech_only.py <br> package_measuring_equipment.py <span class="badge python">Python</span></h3>
+            <p>סקריפטים ספציפיים לאריזת מדריכי הציוד (כגון מולטימטר Mastech וציוד מדידה כללי) לפורמט נפרד.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>נבנה באהבה על ידי Antigravity עבור קורס מעבדה לחשמל 1 🚀</p>
+    </div>
+</div>
+
+</body>
+</html>

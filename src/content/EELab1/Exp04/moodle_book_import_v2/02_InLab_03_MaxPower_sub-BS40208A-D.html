@@ -1,0 +1,218 @@
+<div style="max-width:980px; margin:0 auto;">
+<div style="font-size:0.9rem; color:#52616b; margin-bottom:14px;">ניסוי 4: מדידת הספק במעגל חשמלי</div>
+<h3 style="font-size: 1.7rem; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">שלב ג: העברת הספק מקסימלי לעומס</h3><p style="margin: 0 0 12px;">שנו את \(R_L\), מדדו מתח וזרם, חשבו \(P_L\), \(P_{in}\) ונצילות.</p><!-- DATA TABLE / COMPARISON TABLE -->
+<p style="margin: 0 0 12px;">שנו את הנגד המשתנה \(R_L\), מדדו מתח וזרם, וחשבו את ההספק והנצילות. להנחיות שימוש במכשירי המדידה, עיינו ב<a href="https://moodle.sce.ac.il/mod/book/view.php?id={{MEASURING_EQUIPMENT_BOOK_ID}}" style="color: #005696; text-decoration: underline; font-weight: bold;" target="_blank">מדריך ציוד המדידה במודל</a> (עבור רב-מודד דיגיטלי <a href="https://moodle.sce.ac.il/mod/book/view.php?id={{MEASURING_EQUIPMENT_BOOK_ID}}" style="color: #005696; text-decoration: underline; font-weight: bold;" target="_blank">GDM-8245 / GDM-8341</a>).</p>
+<!-- DATA TABLE / COMPARISON TABLE -->
+
+<div class="alert alert-info shadow-sm my-4 text-center" dir="rtl" style="border-right: 5px solid #005696; font-size: 1.1rem;">
+<i class="fa fa-file-excel-o fa-lg me-2" style="color: #217346;"></i>
+<strong>לעיבוד הנתונים:</strong>
+<a class="alert-link text-decoration-none" href="#" style="color: #005696;">📥 להורדת תבנית המדידות ל-MATLAB (קובץ Excel) לחץ כאן</a>
+</div>
+<div class="table-responsive my-4 shadow-sm rounded border"><table class="table-bordered table-striped mb-0 text-center align-middle table-hover table" dir="rtl" id="max-power-table">
+<thead class="table-primary align-middle">
+<tr>
+<th>\(V_L[V]\)</th>
+<th>\(I[mA]\)</th>
+<th>\(R_L[\Omega]\)</th>
+<th>\(P_L[W]\)</th>
+<th>\(P_{in}[W]\)</th>
+<th>\(\eta[\%]\)</th>
+</tr>
+</thead>
+<tbody>
+<!-- שורת דוגמה מנחה פדגוגית -->
+<tr style="background-color: #f8fafc; font-style: italic; color: #64748b;">
+<td>דוגמה (שורה מנחה)</td>
+<td>12.00</td>
+<td>240.0</td>
+<td>50.00</td>
+<td>2.88</td>
+<td>5.76</td>
+<td>50.0%</td>
+</tr>
+<!-- שורות מדידה לסטודנט -->
+<tr>
+<td>6</td>
+<td><input class="meas-i" placeholder="הזן זרם" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+</tr>
+<tr>
+<td>8</td>
+<td><input class="meas-i" placeholder="הזן זרם" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+</tr>
+<tr>
+<td>11</td>
+<td><input class="meas-i" placeholder="הזן זרם" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+</tr>
+<tr>
+<td>13</td>
+<td><input class="meas-i" placeholder="הזן זרם" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+</tr>
+<tr>
+<td>15</td>
+<td><input class="meas-i" placeholder="הזן זרם" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+</tr>
+<tr>
+<td>17</td>
+<td><input class="meas-i" placeholder="הזן זרם" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+</tr>
+<tr>
+<td>20</td>
+<td><input class="meas-i" placeholder="הזן זרם" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+</tr>
+<tr>
+<td>24</td>
+<td><input class="meas-i" placeholder="הזן זרם" step="any" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px; box-sizing: border-box;" type="number"/></td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+<td>חישוב בבית</td>
+</tr>
+</tbody>
+</table></div>
+<!-- EXPORT BUTTONS CONTAINER -->
+<div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center;">
+<span style="font-weight: bold; color: #1e293b;">ייצוא ועזרה לדו"ח בבית:</span>
+<button id="btn-export-matlab" style="background: #d97706; color: white; border: none; border-radius: 6px; padding: 10px 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 0.9rem;">
+    💻 העתק קוד MATLAB ללוח
+  </button>
+<button id="btn-export-csv" style="background: #10b981; color: white; border: none; border-radius: 6px; padding: 10px 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 0.9rem;">
+    📥 הורד קובץ CSV ל-Excel
+  </button>
+<span id="toast-message" style="color: #059669; font-weight: bold; display: none; margin-right: 10px;">✓ הועתק בהצלחה!</span>
+</div>
+<script>
+(function() {
+    const tableId = "max-power-table";
+    const storagePrefix = "exp04_stepc_";
+    const v_l_vals = [6, 8, 11, 13, 15, 17, 20, 24];
+
+    // Save/Load to localStorage
+    const inputs = document.querySelectorAll('#' + tableId + ' input');
+    inputs.forEach(input => {
+        const tr = input.closest('tr');
+        const rowIndex = tr.rowIndex;
+        const rowKey = "row" + rowIndex;
+        
+        let fieldClass = "i";
+        const key = storagePrefix + rowKey + "_" + fieldClass;
+        
+        // Load stored value
+        const stored = localStorage.getItem(key);
+        if (stored) input.value = stored;
+        
+        // Save on input
+        input.addEventListener('input', function() {
+            localStorage.setItem(key, input.value);
+        });
+    });
+
+    // Export Matlab Code
+    document.getElementById("btn-export-matlab").addEventListener("click", function() {
+        const iInputs = document.querySelectorAll('#' + tableId + ' .meas-i');
+        const i_vals = [];
+        for (let i = 0; i < 8; i++) {
+            i_vals.push(iInputs[i].value || 'NaN');
+        }
+
+        const matlabCode = `% --- נתוני מדידה ממעבדה 1 - ניסוי 4 - שלב ג (העברת הספק מרבי) ---
+V_L = [6, 8, 11, 13, 15, 17, 20, 24]; % מתח עומס נמדד ב-V
+I_mA = [${i_vals.join(', ')}]; % זרם עומס נמדד ב-mA
+I_A = I_mA / 1000; % המרת זרם לאמפר
+
+% --- הנחיות חישוב להשלמה בבית ---
+% 1. התנגדות העומס בפועל (R_L = V_L / I_A):
+% R_L = V_L ./ I_A;
+
+% 2. הספק העומס (P_L = V_L * I_A):
+% P_L = V_L .* I_A;
+
+% 3. נצילות המערכת eta (הספק עומס חלקי הספק מקור - בהנחה שמתח מקור Vs = 24V):
+% V_s = 24; % מתח מקור מוגדר במעגל
+% P_in = V_s .* I_A; 
+% eta = (P_L ./ P_in) * 100;
+
+% --- קוד עזר לציור גרפים ---
+% figure;
+% subplot(2, 1, 1);
+% plot(R_L, P_L, 'o-g', 'LineWidth', 1.5); grid on;
+% xlabel('R_L [\\Omega]'); ylabel('P_L [W]');
+% title('הספק עומס כפונקציה של התנגדות העומס');
+%
+% subplot(2, 1, 2);
+% plot(R_L, eta, 'o-b', 'LineWidth', 1.5); grid on;
+% xlabel('R_L [\\Omega]'); ylabel('\\eta [\\%]');
+% title('נצילות המערכת כפונקציה של התנגדות העומס');
+`;
+
+        navigator.clipboard.writeText(matlabCode).then(function() {
+            const toast = document.getElementById("toast-message");
+            toast.style.display = "inline";
+            setTimeout(() => { toast.style.display = "none"; }, 3000);
+        });
+    });
+
+    // Export CSV
+    document.getElementById("btn-export-csv").addEventListener("click", function() {
+        const iInputs = document.querySelectorAll('#' + tableId + ' .meas-i');
+
+        let csvContent = "\uFEFF"; // UTF-8 BOM
+        csvContent += "מתח עומס V_L [V],זרם נמדד I [mA]\n";
+        
+        for (let i = 0; i < 8; i++) {
+            const val_i = iInputs[i].value || '';
+            csvContent += `${v_l_vals[i]},${val_i}\n`;
+        }
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", "Exp04_StepC_Measurements.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+})();
+</script><!-- CARD CONTAINER -->
+<div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);"><h4 style="font-size: 1.22rem; margin: 18px 0 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">AC</h4><p style="margin: 0 0 12px;">חזרו עבור עומס ממשי, עומס עם היגב קבוע ועומס שבו ניתן לשנות היגב. כתבו את התנאי שהתקבל לנקודת המקסימום.</p></div>
+<div style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:16px; margin:20px 0;">
+<h4 style="font-size: 1.22rem; margin: 18px 0 10px; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25; color: #005696; margin-top: 0;">עיבוד נתונים מומלץ לדו"ח</h4>
+<!-- DATA TABLE / COMPARISON TABLE -->
+<div class="table-responsive my-4 shadow-sm rounded border"><table class="table-bordered table-striped mb-0 text-center align-middle table-hover table" dir="rtl"><thead class="table-primary align-middle"><tr><th>גרף</th><th>ציר X</th><th>ציר Y</th><th>מסקנה</th></tr></thead><tbody><tr><td>הספק עומס</td><td>\(R_L\)</td><td>\(P_L\)</td><td>נקודת מקסימום והתאמת עומס.</td></tr><tr><td>נצילות</td><td>\(R_L\)</td><td>\(\eta\)</td><td>האם מקסימום הספק הוא גם מצב יעיל?</td></tr></tbody></table></div>
+<div style="direction:ltr; background:#202124; color:#e8eaed; border-radius:8px; padding:12px; font-family:Consolas,monospace; overflow:auto;">RL = [...];<br/>PL = [...];<br/>eta = [...];<br/>plot(RL,PL,'o-'); grid on;<br/>xlabel('R_L [Ohm]'); ylabel('P_L [W]');</div>
+</div>
+<div data-units-emphasis="exp4" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
+<strong style="color:#005696;">דגש יחידות בניסוי 4:</strong>
+<span> הפרידו בין \(P[W]\), \(Q[VAr]\) ו-\(S[VA]\). גורם הספק \(\cos\phi\) ונצילות \(\eta\) הם חסרי יחידות. לפני חישוב הספק ודאו שהמתח ב-V והזרם ב-A, לא ב-mA.</span>
+</div>
+<div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:28px 0 4px;"><a href="02_InLab_02_MixedCircuit_sub.html" style="display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הקודם</a><a href="02_InLab.html" style="display: inline-block; background: #005696; color: #fff; border: 1px solid #005696; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">תוכן עניינים</a><a href="02_InLab_04_PowerFactor_sub.html" style="display: inline-block; background: #eef3f7; color: #005696; border: 1px solid #cbd5df; border-radius: 6px; padding: 10px 14px; text-decoration: none; font-weight: 700;">הבא</a></div>
+</div>

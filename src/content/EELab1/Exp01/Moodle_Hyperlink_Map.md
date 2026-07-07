@@ -23,7 +23,7 @@ Recommended workflow:
 ## 🛠️ Global Equipment Links (DMM & Power Supply)
 These links appear in almost every document. They point to the core equipment guide in the Moodle book.
 
-*   **URL:** `https://moodle.sce.ac.il/mod/book/view.php?id=1215505`
+*   **URL:** `https://moodle.sce.ac.il/mod/book/view.php?id={{MEASURING_EQUIPMENT_BOOK_ID}}`
 *   **Target:** Chapter: Equipment Guide (DMM, Power Supply)
 *   **Terms linked to this URL:**
     *   `רב-מודד`

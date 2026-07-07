@@ -26,9 +26,24 @@
    **מה הפקודה הזו עושה?**
    - **מנקה (`clean`)**: מוחקת את תיקיית `dist` הישנה כדי למנוע כפילויות.
    - **בונה (`build`)**: לוקחת את העיצוב מ-`styles.css` ומזריקה אותו (Inline) לתוך קבצי ה-HTML.
+   - **מייצרת אינדקס Preview**: יוצרת `dist/previews/index.html` עם קישורים לכל דפי התצוגה המקדימה.
+   - **בודקת קישורים (`validate`)**: עוצרת את תהליך ה-Release אם קיימים קישורים או תמונות שבורים.
    - **אורזת (`package`)**: מפעילה את פייתון שסורק את כל התיקיות ומייצר את קבצי ה-ZIP הסופיים.
+   - **מסכמת (`report`)**: יוצרת `dist/release/RELEASE_REPORT.md` עם ספירת קבצים וגודל חבילות.
 
-*(במידה ויש שגיאת הרשאות ב-Windows שמקורו ב-PowerShell, ניתן פשוט להריץ `python scripts/rebuild_and_clean_dist.py`)*.
+*(במידה ויש שגיאת הרשאות ב-Windows שמקורה ב-PowerShell, ניתן פשוט להריץ `python scripts/build_and_package/rebuild_and_clean_dist.py`)*.
+
+### פקודות שימושיות לפיתוח מהיר
+
+```bash
+npm run build:exp03
+npm run package:exp03
+npm run validate
+npm run preview:index
+npm run report:release
+```
+
+הפקודות לפי ניסוי מתאימות לעדכון ממוקד. `validate` מומלץ לפני כל העלאה למודל, גם אם לא מריצים Release מלא.
 
 ## 📝 איך מוסיפים דף או ניסוי חדש?
 
