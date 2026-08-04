@@ -133,6 +133,13 @@ function build() {
             finalInlineHtml = finalInlineHtml.replace(/\(function\s*\(\)\s*\{\s*const\s+seriesVpInput[\s\S]*?\}\)\(\);/gi, '');
         }
 
+        if (fileName === '01_PreLab_05_Phasors_sub.html') {
+            console.log(`♻️ Replacing JSXGraph page with iframe for Moodle snippet: ${fileName}`);
+            const relativeFolder = folderName.replace(/\\/g, '/');
+            const iframeUrl = `https://maxrad3003.github.io/EELab1_Moodle_Book/dist/previews/${relativeFolder}/${fileName}`;
+            finalInlineHtml = `<iframe src="${iframeUrl}" width="100%" height="2400" style="border:none; overflow:hidden;"></iframe>`;
+        }
+
         const moodleDistPath = path.join(DIST_DIR, 'moodle_ready', folderName, fileName);
         ensureDir(path.dirname(moodleDistPath));
         fs.writeFileSync(moodleDistPath, finalInlineHtml);

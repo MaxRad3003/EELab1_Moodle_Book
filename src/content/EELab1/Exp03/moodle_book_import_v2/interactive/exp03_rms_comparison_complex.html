@@ -221,7 +221,7 @@
     function seriesR() { return parseFloat(seriesRInput.value) || 1000; }
     function seriesFreqKhz() { return parseFloat(seriesFreqInput.value) || 1; }
     function formatFrequency(khz) {
-      if (khz &lt; 1) return (khz * 1000).toFixed(0) + ' Hz';
+      if (khz < 1) return (khz * 1000).toFixed(0) + ' Hz';
       return khz.toFixed(2).replace(/\.?0+$/, '') + ' kHz';
     }
     function graphTimeEndMs() { return 3 / seriesFreqKhz(); }
@@ -256,9 +256,9 @@
       const base = Math.pow(10, exponent);
       const normalized = safeValue / base;
       let nice = 1;
-      if (normalized &gt; 5) nice = 10;
-      else if (normalized &gt; 2) nice = 5;
-      else if (normalized &gt; 1) nice = 2;
+      if (normalized > 5) nice = 10;
+      else if (normalized > 2) nice = 5;
+      else if (normalized > 1) nice = 2;
       return nice * base;
     }
 
@@ -367,8 +367,8 @@
       dispSeriesDcPower.textContent = dcp.toFixed(1) + ' mW';
       
       const diff = vdc - vrms;
-      dcMatchStatus.textContent = Math.abs(diff) &lt;= 0.5 ? 'שקול' : (diff &lt; 0 ? 'נמוך' : 'גבוה');
-      dcMatchStatus.style.color = Math.abs(diff) &lt;= 0.5 ? '#28a745' : '#d9534f';
+      dcMatchStatus.textContent = Math.abs(diff) <= 0.5 ? 'שקול' : (diff < 0 ? 'נמוך' : 'גבוה');
+      dcMatchStatus.style.color = Math.abs(diff) <= 0.5 ? '#28a745' : '#d9534f';
 
       acHeatFill.style.width = Math.min(100, (powerMw / Math.max(powerMw, dcp, 1)) * 100) + '%';
       dcHeatFill.style.width = Math.min(100, (dcp / Math.max(powerMw, dcp, 1)) * 100) + '%';
@@ -385,15 +385,15 @@
       compDcEnergy.textContent = dce.toFixed(1) + ' uJ';
 
       updateGraphScales();
-      [seriesCurrentBoard, seriesVoltageBoard, seriesPowerBoard, seriesEnergyBoard, comparisonEnergyBoard, dcViBoard, dcPowerTimeBoard, dcWorkTimeBoard].forEach(b =&gt; b.update());
+      [seriesCurrentBoard, seriesVoltageBoard, seriesPowerBoard, seriesEnergyBoard, comparisonEnergyBoard, dcViBoard, dcPowerTimeBoard, dcWorkTimeBoard].forEach(b => b.update());
       
-      if (window.MathJax &amp;&amp; window.MathJax.typesetPromise) {
+      if (window.MathJax && window.MathJax.typesetPromise) {
         window.MathJax.typesetPromise();
       }
     }
 
-    [seriesVpInput, seriesRInput, seriesFreqInput, dcAutoInput, dcVoltageInput].forEach(el =&gt; el.addEventListener('input', updateDisplay));
-    mainsDemoButton.addEventListener('click', () =&gt; {
+    [seriesVpInput, seriesRInput, seriesFreqInput, dcAutoInput, dcVoltageInput].forEach(el => el.addEventListener('input', updateDisplay));
+    mainsDemoButton.addEventListener('click', () => {
         seriesVpInput.value = (230 * Math.sqrt(2)).toFixed(1);
         seriesFreqInput.value = '0.05';
         dcAutoInput.checked = false;

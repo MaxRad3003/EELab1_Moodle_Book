@@ -1,0 +1,176 @@
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.2 32-bit) (preloaded format=xelatex 2021.2.21)  17 AUG 2022 15:17
+entering extended mode
+**./title_page.tex
+(title_page.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> xparse <2020-03-03>
+
+! LaTeX Error: Environment titlepage undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \begin{titlepage}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment hebrew undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 ^^I\begin{hebrew}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 ^^I^^I\begin{center}
+                        
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 3--3
+[] 
+ []
+
+! Undefined control sequence.
+l.4 ^^I^^I^^I\scshape\Huge
+                          \textbf{נספחים} \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Font Warning: Font shape `TU/lmr/bx/sc' undefined
+(Font)              using `TU/lmr/bx/n' instead on input line 4.
+
+Missing character: There is no נ in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ס in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no פ in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ח in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no י in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ם in font [lmroman10-bold]:mapping=tex-text;!
+
+Overfull \hbox (16.8pt too wide) in paragraph at lines 4--4
+ \TU/lmr/bx/n/10 נספחים 
+ []
+
+! Undefined control sequence.
+l.6 ^^I^^I^^I\scshape\huge
+                          \textbf{מעבדה לחשמל 1} \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no מ in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ע in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ב in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ד in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ה in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ל in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ח in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ש in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no מ in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ל in font [lmroman10-bold]:mapping=tex-text;!
+
+Overfull \hbox (14.0pt too wide) in paragraph at lines 6--6
+ []\TU/lmr/bx/sc/10 מעבדה 
+ []
+
+
+Overfull \hbox (14.0pt too wide) in paragraph at lines 6--6
+ \TU/lmr/bx/sc/10 לחשמל 
+ []
+
+
+Overfull \hbox (5.75pt too wide) in paragraph at lines 6--6
+ \TU/lmr/bx/sc/10 1 
+ []
+
+! Undefined control sequence.
+l.8 ^^I^^I^^I\large
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.15 ^^I^^I^^I\large
+                     \today\par
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.15 ^^I^^I^^I\large \today
+                           \par
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{hebrew}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 ^^I\end{hebrew}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{titlepage}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 \end{titlepage}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+! Emergency stop.
+<*> ./title_page.tex
+                    
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 29 strings out of 411700
+ 570 string characters out of 2838275
+ 292527 words of memory out of 3000000
+ 20115 multiletter control sequences out of 15000+200000
+ 403446 words of font info for 29 fonts, out of 3000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 15i,1n,15p,99b,168s stack positions out of 5000i,500n,10000p,200000b,50000s
+No pages of output.

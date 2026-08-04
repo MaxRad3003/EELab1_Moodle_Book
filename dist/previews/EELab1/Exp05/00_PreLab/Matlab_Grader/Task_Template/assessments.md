@@ -1,0 +1,1 @@
+1. **Test Resonance**: Variable Equals Reference (f0, Q_factor, BW).

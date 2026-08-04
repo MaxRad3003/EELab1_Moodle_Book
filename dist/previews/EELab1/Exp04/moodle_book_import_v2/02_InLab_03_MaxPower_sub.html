@@ -142,6 +142,46 @@ PL_measured = [...]; <span style="color: #6a9955;">% הזינו כאן את וק
 <span style="color: #6a9955;">% legend('תיאוריה', 'מדידה', 'Location', 'best');</span>
 </div>
 </div>
+
+<!-- STATIC JSXGRAPH PREVIEW -->
+<div style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+<h4 style="font-size: 1.1rem; margin: 0 0 10px; color: #005696; font-weight: 700;">המחשה: כך אמור להיראות הגרף שלכם ב-MATLAB</h4>
+<div id="jxgbox_matlab_preview" class="jxgbox" style="width: 100%; max-width: 500px; aspect-ratio: 1.5; margin: 10px auto; border: 1px solid #cbd5e1; border-radius: 6px;"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof JXG === 'undefined') return;
+        var board = JXG.JSXGraph.initBoard('jxgbox_matlab_preview', {
+            boundingbox: [-10, 0.6, 160, -0.1],
+            axis: true,
+            showNavigation: false,
+            showCopyright: false,
+            pan: {enabled: false},
+            zoom: {enabled: false}
+        });
+        
+        var Vs = 10;
+        var Rs = 50;
+        var f_PL = function(x) { 
+            if(x < 0) return NaN;
+            return Math.pow(Vs / (Rs + x), 2) * x; 
+        };
+
+        board.create('functiongraph', [f_PL, 0, 150], {strokeColor: '#0072bd', strokeWidth: 2, name: 'P_L(R_L)'});
+        
+        // Add fake measurement points
+        var points_x = [10, 20, 30, 40, 50, 60, 80, 100, 120];
+        for(var i=0; i<points_x.length; i++) {
+            var px = points_x[i];
+            // Add slight random noise for realism
+            var py = f_PL(px) * (1 + (Math.random() - 0.5) * 0.05);
+            board.create('point', [px, py], {name: '', size: 3, face: 'o', fillOpacity: 1, fillColor: '#d95319', strokeColor: '#d95319'});
+        }
+        
+        board.create('text', [70, 0.45, 'הנקודות באדום מדמות מדידות פוטנציאליות'], {fontSize: 14, color: '#d95319'});
+    });
+</script>
+</div>
+</div>
 <div data-units-emphasis="exp4" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
 <strong style="color:#005696;">דגש יחידות בניסוי 4:</strong>
 <span> הפרידו בין \(P[W]\), \(Q[VAr]\) ו-\(S[VA]\). גורם הספק \(\cos\phi\) ונצילות \(\eta\) הם חסרי יחידות. לפני חישוב הספק ודאו שהמתח ב-V והזרם ב-A, לא ב-mA.</span>

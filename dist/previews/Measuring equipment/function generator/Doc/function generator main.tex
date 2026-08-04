@@ -1,0 +1,61 @@
+%% Function Generator
+
+
+\documentclass[12pt,a4paper]{article}
+
+
+\newcommand{\docconfig}{../../../Latex_set_up}
+\newcommand{\imagefolder}{../figure}
+
+\input{\docconfig/my_usepackage.tex}
+\input{\docconfig/my_config.tex}
+
+\begin{document}
+	\begin{hebrew}
+		\title{מחולל אותות}
+		\maketitle
+	\end{hebrew}
+\pagebreak
+\begin{hebrew}
+	\section{רקע כללי}
+	מחולל אותות (באנגלית: \te{Function Generator}) הוא מכשיר אלקטרוני המייצר אותות מתח חילופין הדומים לאלה המופיעים במעגלים חשמליים.
+	המחולל מסוגל לספק מתחי חילופין בעלי צורות גל שונות ,למשל גל סינוסי,גל שונות,למשל גל סינוסי,גל ריבועי וגל משולש ,בתדר רצוי ובמשרעת (אמפליטודה) הניתנת לשינוי,כמו כן אפשר להוסיף מתח ישיר(חיובי או שלילי) למתח חילופין. \\
+	האות היוצא מהמחולל מכיל תמיד עיוותים למיניהם יחסית לצורת גל התאורטית ,בדרך כלל גודלם אחוז עד עשירית אחוז מהגל המקורי .
+	סטייה זו מוגדרת בשם 
+	\te{THD - total harmonic distortion} . \\
+	
+	\section{\thh{סוגי המכשירים במעבדה}}
+	\begin{enumerate}
+		\item 
+		\te{GFG - 8219A}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale=0.3]{"\imagefolder/GFG-8219A/GFG-8219A"}
+			%	\caption{}
+				\label{fig:gfg-8219a}
+			\end{figure}
+		\item 
+		\te{Agilent - 33220A}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.6\linewidth]{../figure/33220A/product}
+				\caption{}
+				\label{fig:product}
+			\end{figure}
+	\end{enumerate}
+\end{hebrew}
+
+\pagebreak
+
+\begin{hebrew}
+	\section{פירוט על כל דגם}
+	\input{GFG_8219A.tex}
+	\pagebreak
+	\input{33220A.tex}
+	
+\end{hebrew}
+
+
+
+\end{document}
+

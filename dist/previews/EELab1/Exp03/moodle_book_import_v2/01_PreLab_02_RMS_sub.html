@@ -556,7 +556,7 @@
   }
   function normalizedWave(x) {
     const wave = rmsWaveSelect.value;
-    if (wave === 'square') return Math.sin(x) &gt;= 0 ? 1 : -1;
+    if (wave === 'square') return Math.sin(x) >= 0 ? 1 : -1;
     if (wave === 'triangle') return (2 / Math.PI) * Math.asin(Math.sin(x));
     return Math.sin(x);
   }
@@ -584,7 +584,7 @@
     dispVrms.textContent = vrms.toFixed(2) + ' V';
     dispRatio.textContent = getRmsRatio().toFixed(3);
     rmsBoard.update();
-    if (window.MathJax &amp;&amp; window.MathJax.typesetPromise) window.MathJax.typesetPromise();
+    if (window.MathJax && window.MathJax.typesetPromise) window.MathJax.typesetPromise();
   }
   rmsVpInput.addEventListener('input', updateRmsDisplay);
   rmsWaveSelect.addEventListener('change', updateRmsDisplay);
@@ -631,7 +631,7 @@
   function seriesVp() { return parseFloat(seriesVpInput.value); }
   function seriesR() { return parseFloat(seriesRInput.value); }
   function seriesFreqKhz() { return parseFloat(seriesFreqInput.value); }
-  function formatFrequency(khz) { return khz &lt; 1 ? (khz * 1000).toFixed(0) + ' Hz' : khz.toFixed(2).replace(/\.?0+$/, '') + ' kHz'; }
+  function formatFrequency(khz) { return khz < 1 ? (khz * 1000).toFixed(0) + ' Hz' : khz.toFixed(2).replace(/\.?0+$/, '') + ' kHz'; }
   function graphTimeEndMs() { return 3 / seriesFreqKhz(); }
   function isDcAuto() { return dcAutoInput.checked; }
   function seriesRmsRatio() {
@@ -642,7 +642,7 @@
   }
   function seriesNormalizedWave(phase) {
     const wave = seriesWaveSelect.value;
-    if (wave === 'square') return Math.sin(phase) &gt;= 0 ? 1 : -1;
+    if (wave === 'square') return Math.sin(phase) >= 0 ? 1 : -1;
     if (wave === 'triangle') return (2 / Math.PI) * Math.asin(Math.sin(phase));
     return Math.sin(phase);
   }
@@ -655,7 +655,7 @@
   function equivalentDcCurrentMa() { return (equivalentDcVoltage() / seriesR()) * 1000; }
   function dcPowerMw() { return equivalentDcVoltage() * equivalentDcCurrentMa(); }
   function dcEnergyUj(tMs) { return dcPowerMw() * tMs; }
-  function heatColor(percent) { return percent &gt; 75 ? '#d9534f' : percent &gt; 40 ? '#f0ad4e' : '#28a745'; }
+  function heatColor(percent) { return percent > 75 ? '#d9534f' : percent > 40 ? '#f0ad4e' : '#28a745'; }
 
   function updateAcSourceSymbol() {
     const wave = seriesWaveSelect.value;
@@ -686,9 +686,9 @@
 
   function updateDcMatchStatus(vrms, vdc) {
     const difference = vdc - vrms;
-    dcMatchStatus.className = Math.abs(difference) &lt;= 0.5 ? 'match-ok text-success' : 'match-warn text-danger';
-    if (Math.abs(difference) &lt;= 0.5) { dcMatchStatus.textContent = 'שקול'; } 
-    else if (difference &lt; 0) { dcMatchStatus.textContent = 'חסר ' + Math.abs(difference).toFixed(1) + ' V'; } 
+    dcMatchStatus.className = Math.abs(difference) <= 0.5 ? 'match-ok text-success' : 'match-warn text-danger';
+    if (Math.abs(difference) <= 0.5) { dcMatchStatus.textContent = 'שקול'; } 
+    else if (difference < 0) { dcMatchStatus.textContent = 'חסר ' + Math.abs(difference).toFixed(1) + ' V'; } 
     else { dcMatchStatus.textContent = 'גבוה ב-' + difference.toFixed(1) + ' V'; }
   }
 
@@ -702,13 +702,13 @@
   }
 
   function seriesEnergyUj(tMs) {
-    if (tMs &lt;= 0) return 0;
+    if (tMs <= 0) return 0;
     const total = graphTimeEndMs();
     const steps = Math.max(32, Math.ceil(180 * tMs / total));
     const dt = tMs / steps;
     let area = 0;
     let previous = seriesPowerMw(0);
-    for (let i = 1; i &lt;= steps; i += 1) {
+    for (let i = 1; i <= steps; i += 1) {
       const current = seriesPowerMw(i * dt);
       area += (previous + current) * 0.5 * dt;
       previous = current;
@@ -722,9 +722,9 @@
     const base = Math.pow(10, exponent);
     const normalized = safeValue / base;
     let nice = 1;
-    if (normalized &gt; 5) nice = 10;
-    else if (normalized &gt; 2) nice = 5;
-    else if (normalized &gt; 1) nice = 2;
+    if (normalized > 5) nice = 10;
+    else if (normalized > 2) nice = 5;
+    else if (normalized > 1) nice = 2;
     return nice * base;
   }
 
@@ -870,7 +870,7 @@
     dcViBoard.update();
     dcPowerTimeBoard.update();
     dcWorkTimeBoard.update();
-    if (window.MathJax &amp;&amp; window.MathJax.typesetPromise) window.MathJax.typesetPromise();
+    if (window.MathJax && window.MathJax.typesetPromise) window.MathJax.typesetPromise();
   }
 
   seriesVpInput.addEventListener('input', updateSeriesDisplay);

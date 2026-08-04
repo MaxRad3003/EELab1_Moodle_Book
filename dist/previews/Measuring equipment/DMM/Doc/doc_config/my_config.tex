@@ -1,0 +1,26 @@
+% XeLaTeX!
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+%\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{english}
+\setotherlanguage{hebrew}
+\newfontfamily\hebrewfont[Script=Hebrew]{David}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\newcommand{\te}[1]{\textenglish{#1}}
+
+
+\newcommand{\thh}[1]{\texthebrew{#1}}
+%Hyper Link Setup
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+}
+
+%% DMM and link to wiki
+\newcommand{\dmm}{\href{https://en.wikipedia.org/wiki/Multimeter}{\te{(DMM)}}}

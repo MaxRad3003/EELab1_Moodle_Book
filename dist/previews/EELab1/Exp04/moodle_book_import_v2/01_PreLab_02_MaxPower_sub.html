@@ -93,7 +93,70 @@
 <div style="font-size:0.9rem; color:#52616b; margin-bottom:14px;">ניסוי 4: מדידת הספק במעגל חשמלי</div>
 <h3 style="font-size: 1.7rem; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">הכנה לניסוי 4 - העברת הספק מקסימלי</h3><!-- CARD CONTAINER -->
 <div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);"><h4 style="font-size: 1.22rem; margin: 18px 0 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">מעגל DC</h4><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(R_L = R_{th}\)</div><p style="margin: 0 0 12px;">בנקודה זו הנצילות היא כ-50%, ולכן זה אינו בהכרח מצב עבודה רצוי במערכות הספק.</p></div><!-- CARD CONTAINER -->
-<div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);"><h4 style="font-size: 1.22rem; margin: 18px 0 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">מעגל AC - עומס עכבה כללי</h4><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(Z_L = Z_{th}^{*} = R_{th}-jX_{th}\)</div></div><!-- DATA TABLE / COMPARISON TABLE -->
+<div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05)"><h4 style="font-size: 1.22rem; margin: 18px 0 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">מעגל AC - עומס עכבה כללי</h4><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(Z_L = Z_{th}^{*} = R_{th}-jX_{th}\)</div></div><!-- DATA TABLE / COMPARISON TABLE -->
+
+<!-- INTERACTIVE GRAPHS CARD -->
+<div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+<h4 style="font-size: 1.22rem; margin: 0 0 10px; color: #0f172a; font-weight: 700;">גרף אינטראקטיבי: העברת הספק מקסימלי</h4>
+<p style="margin-bottom: 12px; font-size: 1rem;">
+    הגרף מציג את ההספק המועבר לעומס \(P_L\) (בוואט) כתלות בהתנגדות העומס \(R_L\) (באוהם), עבור מתח מקור קבוע \(V_{th}=10V\).
+    <strong>שנה את התנגדות המקור \(R_{th}\)</strong> וראה כיצד נקודת ההספק המקסימלי (הנקודה המסומנת בגרף) זזה כך שתמיד מתקיים \(R_L = R_{th}\).
+</p>
+<div style="text-align: center; margin-bottom: 5px; font-weight: bold; color: #0f172a;">התנגדות המקור \(R_{th}\) [\(\Omega\)]</div>
+<div id="jxgbox_slider_maxp" class="jxgbox" style="width: 100%; max-width: 500px; height: 50px; margin: 0 auto; border: none; background: transparent;"></div>
+<div id="jxgbox_maxp" class="jxgbox" style="width: 100%; max-width: 500px; aspect-ratio: 1.5; margin: 10px auto; border: 1px solid #d7dde4; border-radius: 6px;"></div>
+<div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 0.95rem;">
+    <ul style="margin: 0; padding-right: 20px;">
+        <li>כאשר \(R_L = R_{th}\), ההספק על העומס מגיע לערכו המקסימלי (ראש הגבעה).</li>
+        <li>נצילות המערכת בנקודה זו היא בדיוק 50%, כיוון שחצי מההספק מתבזבז על ההתנגדות הפנימית \(R_{th}\). אנו משתמשים בעקרון זה באלקטרוניקה (למשל באנטנות) אך <strong>לא</strong> במערכות אנרגיה כבדות, שם נצילות נמוכה גורמת להתחממות מסוכנת.</li>
+    </ul>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof JXG === 'undefined') return;
+        
+        var board_slider = JXG.JSXGraph.initBoard('jxgbox_slider_maxp', {
+            boundingbox: [-10, 2, 120, -2],
+            showNavigation: false,
+            showCopyright: false,
+            pan: {enabled: false},
+            zoom: {enabled: false}
+        });
+        
+        var s_rth = board_slider.create('slider', [[0, 0], [100, 0], [10, 50, 100]], {
+            name: 'R_{th}',
+            suffixLabel: '&Omega;',
+            snapWidth: 5,
+            withLabel: true,
+            label: {fontSize: 14, strokeColor: '#0f172a'}
+        });
+
+        var board_graph = JXG.JSXGraph.initBoard('jxgbox_maxp', {
+            boundingbox: [-10, 3, 110, -0.5],
+            axis: true,
+            showNavigation: false,
+            showCopyright: false
+        });
+        
+        var Vth = 10;
+        var f_PL = function(x) { 
+            var Rth = s_rth.Value();
+            if(x < 0) return NaN;
+            return (Vth * Vth * x) / Math.pow(Rth + x, 2); 
+        };
+
+        var graph_PL = board_graph.create('functiongraph', [f_PL, 0, 150], {strokeColor: '#0072bd', strokeWidth: 3, name: 'P_L(R_L)'});
+        
+        // Max point marker
+        var p_max = board_graph.create('point', [
+            function() { return s_rth.Value(); },
+            function() { return (Vth * Vth * s_rth.Value()) / Math.pow(s_rth.Value() + s_rth.Value(), 2); }
+        ], {name: 'P_{max}', size: 4, color: '#d95319', label: {offset: [-15, 15], fontSize: 14}});
+
+        board_slider.addChild(board_graph);
+    });
+</script>
+</div>
 
 <div class="alert alert-info shadow-sm my-4 text-center" dir="rtl" style="border-right: 5px solid #005696; font-size: 1.1rem;">
 <i class="fa fa-file-excel-o fa-lg me-2" style="color: #217346;"></i>

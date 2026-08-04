@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="multichoice">
+    <name><text>Exp04 - ש1 - סוגי הספק</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">איזה הספק נמדד ביחידות W ומייצג עבודה ממשית או חום?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">הספק ממשי P</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הספק היגבי Q</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הספק מדומה S</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>Exp04 - ש2 - גורם הספק</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מהו הביטוי הנכון לגורם הספק?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">cosφ = P/S</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">cosφ = Q/P</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">cosφ = S/P</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>Exp04 - ש3 - הספק מרבי DC</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מה התנאי להעברת הספק מרבי לעומס ממשי במעגל DC?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">RL = Rth</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">RL = 0</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">RL גדול ככל האפשר</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>Exp04 - ש4 - שיפור גורם הספק</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מהי מטרת חיבור קבל במקביל לעומס השראתי לצורך שיפור גורם הספק (cosφ)?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">הקטנת הזרם המדומה הנצרך מהרשת והפחתת ההספק המדומה (S), ללא שינוי בהספק הפעיל (P) של העומס</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הגדלת ההספק הפעיל (P) שמופק מהעומס</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">הקטנת המתח היעיל על העומס כדי לחסוך באנרגיה</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>Exp04 - ש5 - חישוב הספק מדומה</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">במעגל AC חד-פאזי, עומס צורך הספק פעיל של P = 800 W בגורם הספק של cosφ = 0.8 השראתי. מהו ההספק המדומה S של העומס?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">1000 VA</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">640 VA</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">800 VA</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">1200 VA</p>]]></text>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>Exp04 - ש6 - חיבור מד הספק</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">כיצד יש לחבר את הדקיו של מד הספק (Wattmeter) למעגל כדי למדוד את הספק העומס בצורה נכונה?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p dir="rtl">סליל הזרם מחובר בטור לעומס, וסליל המתח מחובר במקביל לעומס</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">סליל הזרם מחובר במקביל לעומס, וסליל המתח מחובר בטור לעומס</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">שני הסלילים מחוברים בטור לעומס</p>]]></text>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p dir="rtl">שני הסלילים מחוברים במקביל לעומס</p>]]></text>
+    </answer>
+  </question>
+</quiz>

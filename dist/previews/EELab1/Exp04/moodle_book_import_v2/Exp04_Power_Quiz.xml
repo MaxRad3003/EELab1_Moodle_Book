@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="multichoice"><name><text>Exp04 - ש1 - סוגי הספק</text></name><questiontext format="html"><text><![CDATA[<p dir="rtl">איזה הספק נמדד ביחידות W ומייצג עבודה ממשית או חום?</p>]]></text></questiontext><defaultgrade>1</defaultgrade><single>true</single><shuffleanswers>true</shuffleanswers><answer fraction="100" format="html"><text><![CDATA[<p dir="rtl">הספק ממשי P</p>]]></text></answer><answer fraction="0" format="html"><text><![CDATA[<p dir="rtl">הספק היגבי Q</p>]]></text></answer><answer fraction="0" format="html"><text><![CDATA[<p dir="rtl">הספק מדומה S</p>]]></text></answer></question>
+  <question type="multichoice"><name><text>Exp04 - ש2 - גורם הספק</text></name><questiontext format="html"><text><![CDATA[<p dir="rtl">מהו הביטוי הנכון לגורם הספק?</p>]]></text></questiontext><defaultgrade>1</defaultgrade><single>true</single><shuffleanswers>true</shuffleanswers><answer fraction="100" format="html"><text><![CDATA[<p dir="rtl">cosφ = P/S</p>]]></text></answer><answer fraction="0" format="html"><text><![CDATA[<p dir="rtl">cosφ = Q/P</p>]]></text></answer><answer fraction="0" format="html"><text><![CDATA[<p dir="rtl">cosφ = S/P</p>]]></text></answer></question>
+  <question type="multichoice"><name><text>Exp04 - ש3 - הספק מרבי DC</text></name><questiontext format="html"><text><![CDATA[<p dir="rtl">מה התנאי להעברת הספק מרבי לעומס ממשי במעגל DC?</p>]]></text></questiontext><defaultgrade>1</defaultgrade><single>true</single><shuffleanswers>true</shuffleanswers><answer fraction="100" format="html"><text><![CDATA[<p dir="rtl">RL = Rth</p>]]></text></answer><answer fraction="0" format="html"><text><![CDATA[<p dir="rtl">RL = 0</p>]]></text></answer><answer fraction="0" format="html"><text><![CDATA[<p dir="rtl">RL גדול ככל האפשר</p>]]></text></answer></question>
+  <question type="calculated">
+    <name><text>Exp04 - חישוב הספק מדומה דינמי</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="rtl">מנוע צורך הספק ממשי של <strong>{P}</strong> וואט (W), והספק היגבי של <strong>{Q}</strong> וולט-אמפר-היגבי (VAr). מהו ההספק המדומה (S) של המנוע ב-VA?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <answer fraction="100">
+      <text>sqrt({P}*{P} + {Q}*{Q})</text>
+      <tolerance>0.05</tolerance>
+      <tolerancetype>1</tolerancetype>
+      <correctanswerlength>2</correctanswerlength>
+      <correctanswerformat>1</correctanswerformat>
+    </answer>
+    <dataset_definitions>
+      <dataset_definition>
+        <status><text>private</text></status>
+        <name><text>P</text></name>
+        <type>calculated</type>
+        <distribution><text>uniform</text></distribution>
+        <minimum><text>100</text></minimum>
+        <maximum><text>1000</text></maximum>
+        <decimals><text>0</text></decimals>
+        <itemcount>5</itemcount>
+        <dataset_items>
+          <dataset_item><number>1</number><value>300</value></dataset_item>
+          <dataset_item><number>2</number><value>400</value></dataset_item>
+          <dataset_item><number>3</number><value>500</value></dataset_item>
+          <dataset_item><number>4</number><value>800</value></dataset_item>
+          <dataset_item><number>5</number><value>600</value></dataset_item>
+        </dataset_items>
+      </dataset_definition>
+      <dataset_definition>
+        <status><text>private</text></status>
+        <name><text>Q</text></name>
+        <type>calculated</type>
+        <distribution><text>uniform</text></distribution>
+        <minimum><text>50</text></minimum>
+        <maximum><text>800</text></maximum>
+        <decimals><text>0</text></decimals>
+        <itemcount>5</itemcount>
+        <dataset_items>
+          <dataset_item><number>1</number><value>400</value></dataset_item>
+          <dataset_item><number>2</number><value>300</value></dataset_item>
+          <dataset_item><number>3</number><value>1200</value></dataset_item>
+          <dataset_item><number>4</number><value>600</value></dataset_item>
+          <dataset_item><number>5</number><value>800</value></dataset_item>
+        </dataset_items>
+      </dataset_definition>
+    </dataset_definitions>
+  </question>
+</quiz>

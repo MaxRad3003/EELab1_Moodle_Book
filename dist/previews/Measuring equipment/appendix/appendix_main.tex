@@ -1,0 +1,21 @@
+\documentclass[12pt,a4paper,openright]{report}
+
+
+\newcommand{\mysetup}{../../Latex_set_up}
+\newcommand{\myappendix}{..}
+%\newcommand{\mysetup}{C:/Users/97252/OneDrive - ac.sce.ac.il/Lab Doc/Latex_set_up}
+%\newcommand{\myappendix}{C:/Users/97252/OneDrive - ac.sce.ac.il/Lab Doc/Measuring equipment}
+%\newcommand{\mysetup}{D:/OneDrive - ac.sce.ac.il/Lab Doc/Latex_set_up}
+%\newcommand{\mysetup}{C:/Users/Administrator/OneDrive - ac.sce.ac.il/Lab Doc/Latex_set_up}
+
+
+\input{\mysetup/my_usepackage.tex}
+\input{\mysetup/my_config.tex}
+
+\begin{document} 
+	\input{\myappendix/appendix/title_page.tex} % דף שער
+	\begin{hebrew}
+		\tableofcontents
+	\end{hebrew}
+	\include{DMM/Doc/DMM_main.tex} % DMM
+\end{document}

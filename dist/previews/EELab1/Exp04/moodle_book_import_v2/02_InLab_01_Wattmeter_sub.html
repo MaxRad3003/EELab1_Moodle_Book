@@ -115,7 +115,7 @@
 </div>
 <div class="table-responsive my-4 shadow-sm rounded border"><table class="table-bordered table-striped mb-0 text-center align-middle table-hover table" dir="rtl"><thead class="table-primary align-middle"><tr><th>עומס</th><th>\(U[V]\)</th><th>\(I[A]\)</th><th>\(P[W]\)</th><th>\(\cos\phi\)</th><th>\(S[VA]\)</th><th>\(Q[VAr]\)</th></tr></thead><tbody><tr><td>בדיקה 1</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>בדיקה 2</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
 <div style="background:#f7fafc; border:1px solid #d7dde4; border-radius:8px; padding:18px; margin:20px 0; text-align: center;">
-<h4 style="font-size: 1.22rem; margin: 18px 0 10px; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.25; color: #005696; margin-top: 0;">תרשים חיבור עקרוני של מד הספק (Wattmeter)</h4>
+<h4 style="font-size: 1.22rem; margin: 18px 0 10px; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.25; color: #005696; margin-top: 0;">תרשים חיבור עקרוני של מד הספק דיגיטלי (GPM-8212)</h4>
 <svg height="auto" style="max-width: 700px; display: block; margin: 0 auto;" viewbox="0 0 800 300" width="100%" xmlns="http://www.w3.org/2000/svg">
 <!-- Background/Grid -->
 <rect fill="#ffffff" height="100%" rx="10" ry="10" stroke="#cbd5df" stroke-width="2" width="100%"></rect>
@@ -129,13 +129,23 @@
 <text fill="#0f172a" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" x="690" y="215">עומס</text>
 <!-- Wattmeter Box -->
 <rect fill="#f8f9fa" height="180" rx="10" stroke="#6c757d" stroke-dasharray="8,4" stroke-width="3" width="240" x="280" y="60"></rect>
-<text fill="#495057" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" x="400" y="225">Wattmeter (מד הספק)</text>
-<!-- Current Coil (Series) -->
-<path d="M 320 100 Q 330 80 340 100 T 360 100 T 380 100 T 400 100 T 420 100 T 440 100 T 460 100" fill="none" stroke="#d32f2f" stroke-width="4"></path>
-<text fill="#d32f2f" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" x="390" y="85">סליל זרם (בטור)</text>
-<!-- Voltage Coil (Parallel) -->
-<path d="M 320 150 Q 330 170 340 150 T 360 150 T 380 150 T 400 150 T 420 150 T 440 150 T 460 150" fill="none" stroke="#1976d2" stroke-width="3"></path>
-<text fill="#1976d2" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" x="390" y="180">סליל מתח (במקביל)</text>
+<text fill="#495057" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" x="400" y="225">מד הספק דיגיטלי</text>
+<!-- Terminals -->
+<circle cx="320" cy="100" fill="#d32f2f" r="8"></circle>
+<text fill="#d32f2f" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" x="320" y="85">A (זרם)</text>
+<circle cx="460" cy="100" fill="#000" r="8"></circle>
+<text fill="#000" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" x="460" y="85">COM</text>
+<circle cx="320" cy="150" fill="#1976d2" r="8"></circle>
+<text fill="#1976d2" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" x="320" y="175">V (מתח)</text>
+<circle cx="460" cy="150" fill="#000" r="8"></circle>
+<text fill="#000" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" x="460" y="175">COM</text>
+<!-- Internal Routing for visual aid -->
+<line stroke="#d32f2f" stroke-width="3" stroke-dasharray="4,4" x1="320" x2="460" y1="100" y2="100"></line>
+<text fill="#d32f2f" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" x="390" y="115">מדידת זרם (בטור)</text>
+<line stroke="#1976d2" stroke-width="2" stroke-dasharray="4,4" x1="320" x2="320" y1="150" y2="180"></line>
+<line stroke="#1976d2" stroke-width="2" stroke-dasharray="4,4" x1="460" x2="460" y1="150" y2="180"></line>
+<line stroke="#1976d2" stroke-width="2" stroke-dasharray="4,4" x1="320" x2="460" y1="180" y2="180"></line>
+<text fill="#1976d2" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" x="390" y="175">מדידת מתח (במקביל)</text>
 <!-- Connections -->
 <!-- Top Wire (Source to CC) -->
 <line stroke="#000" stroke-width="3" x1="140" x2="320" y1="100" y2="100"></line>
@@ -161,7 +171,7 @@
 <line stroke="#1976d2" stroke-width="2" x1="500" x2="500" y1="200" y2="150"></line>
 <line stroke="#1976d2" stroke-width="2" x1="460" x2="500" y1="150" y2="150"></line>
 </svg>
-<div style="margin-top:18px; text-align:center; color:#52616b; font-size: 0.95rem;">שימו לב: סליל הזרם (באדום) מתחבר <strong>בטור</strong> לעומס ולמקור, ואילו סליל המתח (בכחול) מתחבר <strong>במקביל</strong> לעומס. אין להצליב ביניהם!</div>
+<div style="margin-top:18px; text-align:center; color:#52616b; font-size: 0.95rem;">שימו לב: הדקי הזרם (A ו-COM העליון) מחוברים <strong>בטור</strong> לעומס ולמקור, ואילו הדקי המתח (V ו-COM התחתון) מחוברים <strong>במקביל</strong> לעומס.</div>
 </div>
 <div data-units-emphasis="exp4" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
 <strong style="color:#005696;">דגש יחידות בניסוי 4:</strong>

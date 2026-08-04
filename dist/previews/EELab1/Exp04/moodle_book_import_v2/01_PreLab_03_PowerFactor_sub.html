@@ -93,6 +93,77 @@
 <div style="font-size:0.9rem; color:#52616b; margin-bottom:14px;">ניסוי 4: מדידת הספק במעגל חשמלי</div>
 <h3 style="font-size: 1.7rem; margin: 0 0 16px; border-bottom: 3px solid #00a4e4; padding-bottom: 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">הכנה לניסוי 4 - שיפור גורם הספק</h3><div class="info" style="background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong>רעיון מרכזי:</strong> עומס השראותי צורך הספק היגבי. קבל במקביל מספק פיצוי קיבולי ומקטין את הזרם מהרשת.</div><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(C = \frac{P(\tan\phi_0-\tan\phi_1)}{\omega U^2}\)</div><!-- DATA TABLE / COMPARISON TABLE -->
 
+<!-- INTERACTIVE GRAPHS CARD -->
+<div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+<h4 style="font-size: 1.22rem; margin: 0 0 10px; color: #0f172a; font-weight: 700;">משולש הספקים דינמי - שיפור גורם הספק</h4>
+<p style="margin-bottom: 12px; font-size: 1rem;">
+    הגרף ממחיש את משולש ההספקים של עומס השראותי לפני ואחרי חיבור קבל לשיפור גורם הספק. 
+    ההספק הממשי \(P\) נשאר קבוע, אך התוספת של קבל מספקת הספק היגבי קיבולי \(-Q_c\) שמקזז חלק מההספק ההיגבי ההשראותי \(Q_L\).
+    <strong>הזז את הסליידר לקביעת גודל הקבל (\(Q_c\))</strong> ושים לב כיצד ההספק המדומה הכולל \(S\) קטן והזווית \(\phi\) משתפרת!
+</p>
+<div style="text-align: center; margin-bottom: 5px; font-weight: bold; color: #0f172a;">הספק היגבי של הקבל \(Q_c\) [VAr]</div>
+<div id="jxgbox_slider_pf" class="jxgbox" style="width: 100%; max-width: 500px; height: 50px; margin: 0 auto; border: none; background: transparent;"></div>
+<div id="jxgbox_pf" class="jxgbox" style="width: 100%; max-width: 500px; aspect-ratio: 1.2; margin: 10px auto; border: 1px solid #d7dde4; border-radius: 6px;"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof JXG === 'undefined') return;
+        
+        var board_slider = JXG.JSXGraph.initBoard('jxgbox_slider_pf', {
+            boundingbox: [-10, 2, 110, -2],
+            showNavigation: false,
+            showCopyright: false,
+            pan: {enabled: false},
+            zoom: {enabled: false}
+        });
+        
+        var s_qc = board_slider.create('slider', [[0, 0], [100, 0], [0, 20, 80]], {
+            name: 'Q_c',
+            suffixLabel: ' VAr',
+            snapWidth: 1,
+            withLabel: true,
+            label: {fontSize: 14, strokeColor: '#0f172a'}
+        });
+
+        var board_graph = JXG.JSXGraph.initBoard('jxgbox_pf', {
+            boundingbox: [-20, 100, 120, -20],
+            axis: true,
+            showNavigation: false,
+            showCopyright: false
+        });
+        
+        var P = 80;
+        var QL = 80;
+        
+        // Origin point
+        var p0 = board_graph.create('point', [0, 0], {visible: false});
+        
+        // P vector
+        var p_P = board_graph.create('point', [P, 0], {visible: false});
+        board_graph.create('arrow', [p0, p_P], {strokeColor: '#005696', strokeWidth: 3, name: 'P', withLabel: true, label: {offset: [-10, -15], fontSize: 16}});
+        
+        // QL vector (Original Q)
+        var p_QL = board_graph.create('point', [P, QL], {visible: false});
+        board_graph.create('arrow', [p_P, p_QL], {strokeColor: '#6c757d', strokeWidth: 2, dash: 2, name: 'Q_L', withLabel: true, label: {offset: [10, 0], fontSize: 16}});
+        
+        // Original S vector
+        board_graph.create('arrow', [p0, p_QL], {strokeColor: '#6c757d', strokeWidth: 2, dash: 2});
+        
+        // Dynamic Qc vector (downwards from QL)
+        var p_Qc = board_graph.create('point', [P, function(){ return QL - s_qc.Value(); }], {visible: false});
+        board_graph.create('arrow', [p_QL, p_Qc], {strokeColor: '#2ca02c', strokeWidth: 3, name: '-Q_c', withLabel: true, label: {offset: [10, 10], fontSize: 16, color: '#2ca02c'}});
+        
+        // New S vector
+        board_graph.create('arrow', [p0, p_Qc], {strokeColor: '#d95319', strokeWidth: 3, name: 'S_{new}', withLabel: true, label: {offset: [-20, 15], fontSize: 16}});
+        
+        // Angle arcs
+        board_graph.create('angle', [p_P, p0, p_QL], {name: '&phi;_1', radius: 15, fillColor: '#ffeda0', strokeColor: '#f0ad4e', fillOpacity: 0.5});
+        board_graph.create('angle', [p_P, p0, p_Qc], {name: '&phi;_2', radius: 30, fillColor: '#a0e2ff', strokeColor: '#00a4e4', fillOpacity: 0.5});
+
+        board_slider.addChild(board_graph);
+    });
+</script>
+</div>
+
 <div class="alert alert-info shadow-sm my-4 text-center" dir="rtl" style="border-right: 5px solid #005696; font-size: 1.1rem;">
 <i class="fa fa-file-excel-o fa-lg me-2" style="color: #217346;"></i>
 <strong>לעיבוד הנתונים:</strong>

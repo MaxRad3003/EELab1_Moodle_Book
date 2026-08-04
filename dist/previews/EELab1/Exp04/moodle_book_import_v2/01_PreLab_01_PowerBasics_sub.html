@@ -99,8 +99,157 @@
 <strong>לעיבוד הנתונים:</strong>
 <a class="alert-link text-decoration-none" href="#" style="color: #005696;">📥 להורדת תבנית המדידות ל-MATLAB (קובץ Excel) לחץ כאן</a>
 </div>
-<div class="table-responsive my-4 shadow-sm rounded border"><table class="table-bordered table-striped mb-0 text-center align-middle table-hover table" dir="rtl"><thead class="table-primary align-middle"><tr><th>סימון</th><th>שם</th><th>יחידות</th><th>משמעות</th></tr></thead><tbody><tr><td>\(P\)</td><td>הספק ממשי</td><td>W</td><td>הספק שהופך לחום או עבודה.</td></tr><tr><td>\(Q\)</td><td>הספק היגבי</td><td>VAr</td><td>הספק מתחלף בין המקור לשדות בקבל/סליל.</td></tr><tr><td>\(S\)</td><td>הספק מדומה</td><td>VA</td><td>מכפלת ערכי RMS של מתח וזרם.</td></tr></tbody></table></div></div><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(S = U_{RMS} I_{RMS}\)</div><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(P = U_{RMS} I_{RMS} \cos\phi\)</div><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(Q = U_{RMS} I_{RMS} \sin\phi\)</div><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(S^2=P^2+Q^2\)</div><div class="info" style="background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong>גורם הספק:</strong> \(\cos\phi = \frac{P}{S}\).</div><!-- CARD CONTAINER -->
-<div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);"><h4 style="font-size: 1.22rem; margin: 18px 0 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">חיבור מד הספק</h4><p style="margin: 0 0 12px;">מד הספק (Wattmeter) מודד זרם ומתח בו-זמנית. סליל הזרם (Current Coil) שלו מחובר בטור לעומס, וסליל המתח (Voltage Coil) מחובר במקביל לעומס. להנחיות עבודה מפורטות וזיהוי הדקים, מומלץ לעיין ב<a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" style="color: #005696; text-decoration: underline; font-weight: bold;" target="_blank">מדריך מד ההספק הדיגיטלי GPM-8212 במודל</a>.</p></div>
+<div class="table-responsive my-4 shadow-sm rounded border"><table class="table-bordered table-striped mb-0 text-center align-middle table-hover table" dir="rtl"><thead class="table-primary align-middle"><tr><th>סימון</th><th>שם</th><th>יחידות</th><th>משמעות</th></tr></thead><tbody><tr><td>\(P\)</td><td>הספק ממשי</td><td>W</td><td>הספק שהופך לחום או עבודה.</td></tr><tr><td>\(Q\)</td><td>הספק היגבי</td><td>VAr</td><td>הספק מתחלף בין המקור לשדות בקבל/סליל.</td></tr><tr><td>\(S\)</td><td>הספק מדומה</td><td>VA</td><td>מכפלת ערכי RMS של מתח וזרם.</td></tr></tbody></table></div></div><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(S = U_{RMS} I_{RMS}\)</div><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(P = U_{RMS} I_{RMS} \cos\phi\)</div><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(Q = U_{RMS} I_{RMS} \sin\phi\)</div><div class="formula" style="direction: ltr; text-align: center; background: #f7fafc; border: 1px solid #d7dde4; border-radius: 8px; padding: 14px; margin: 14px 0; color: #005696; font-size: 1.15rem;">\(S^2=P^2+Q^2\)</div><div class="info" style="background: #eef7fb; border: 1px solid #b8daff; border-right: 5px solid #00a4e4; border-radius: 8px; padding: 16px; margin: 16px 0;"><strong>גורם הספק:</strong> \(\cos\phi = \frac{P}{S}\).</div>
+
+<!-- INTERACTIVE GRAPHS CARD -->
+<div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+<h4 style="font-size: 1.22rem; margin: 0 0 10px; color: #0f172a; font-weight: 700;">גרפים וניתוח ויזואלי - הספק רגעי ומשולש הספקים</h4>
+<p style="margin-bottom: 12px; font-size: 1rem;">
+    הגרפים הבאים מציגים את הקשר בין המתח, הזרם וההספק הרגעי במעגל. 
+    בנוסף, מוצג משולש ההספקים הנגזר מזווית המופע. 
+    <strong>שנה את זווית המופע \(\phi\)</strong> באמצעות הסליידר וראה כיצד ההספק משתנה מעומס אוהמי טהור (\(\phi=0^\circ\)) לעומס השראותי/קיבולי טהור (\(\phi=\pm90^\circ\)).
+</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 20px;">
+    <!-- Time domain graph -->
+    <div style="flex: 1; min-width: 300px; max-width: 450px;">
+        <h5 style="text-align: center; color: #005696; margin-bottom: 10px; font-size: 1.1rem; font-weight: bold;">הספק במישור הזמן</h5>
+        <div id="jxgbox_time" class="jxgbox" style="width: 100%; max-width: 400px; aspect-ratio: 1.2; margin: 0 auto; border: 1px solid #d7dde4; border-radius: 6px;"></div>
+    </div>
+    <!-- Power triangle graph -->
+    <div style="flex: 1; min-width: 300px; max-width: 450px;">
+        <h5 style="text-align: center; color: #005696; margin-bottom: 10px; font-size: 1.1rem; font-weight: bold;">משולש הספקים (פאזורי)</h5>
+        <div id="jxgbox_triangle" class="jxgbox" style="width: 100%; max-width: 400px; aspect-ratio: 1.2; margin: 0 auto; border: 1px solid #d7dde4; border-radius: 6px;"></div>
+    </div>
+</div>
+<div style="text-align: center; margin-bottom: 5px; font-weight: bold; color: #0f172a;">זווית מופע &phi;</div>
+<div id="jxgbox_slider" class="jxgbox" style="width: 100%; max-width: 500px; height: 50px; margin: 0 auto; border: none; background: transparent;"></div>
+<div style="background: #f7fafc; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 0.95rem;">
+    <ul style="margin: 0; padding-right: 20px;">
+        <li><span style="color: #0072bd; font-weight: bold;">מתח \(v(t)\) (כחול)</span> ו-<span style="color: #d95319; font-weight: bold;">זרם \(i(t)\) (כתום)</span> - שים לב להפרש המופע ביניהם.</li>
+        <li><span style="color: #77ac30; font-weight: bold;">הספק רגעי \(p(t)\) (ירוק)</span> - תדירותו כפולה מזו של המתח. הקו המקווקו הירוק מייצג את ההספק הממוצע (הספק ממשי \(P\)).</li>
+        <li>כאשר \(\phi = 0^\circ\), המתח והזרם באותו מופע וההספק הממוצע הוא מקסימלי.</li>
+        <li>כאשר \(\phi = \pm90^\circ\), ההספק הממוצע הוא אפס. ההספק רק מתנדנד בין המקור לעומס.</li>
+    </ul>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof JXG === 'undefined') return;
+        
+        // Initialize slider board
+        var board_slider = JXG.JSXGraph.initBoard('jxgbox_slider', {
+            boundingbox: [-30, 2, 110, -2],
+            showNavigation: false,
+            showCopyright: false,
+            pan: {enabled: false},
+            zoom: {enabled: false}
+        });
+        
+        // Slider for angle phi (degrees) -90 to 90
+        var s_phi = board_slider.create('slider', [[-20, 0], [90, 0], [-90, 30, 90]], {
+            name: '&phi;',
+            suffixLabel: '&deg;',
+            snapWidth: 5,
+            withLabel: true,
+            label: {fontSize: 14, strokeColor: '#0f172a'}
+        });
+
+        // Initialize time domain board
+        var board_time = JXG.JSXGraph.initBoard('jxgbox_time', {
+            boundingbox: [-0.5, 4, 2*Math.PI + 0.5, -4],
+            axis: true,
+            showNavigation: false,
+            showCopyright: false
+        });
+        
+        // Functions
+        var Vm = 2.5; // Voltage amplitude
+        var Im = 1.5; // Current amplitude
+        
+        var f_v = function(x) { return Vm * Math.sin(x); };
+        var f_i = function(x) { 
+            var phi_rad = s_phi.Value() * Math.PI / 180;
+            return Im * Math.sin(x - phi_rad); 
+        };
+        var f_p = function(x) { return f_v(x) * f_i(x); };
+        var f_P_avg = function(x) {
+            var phi_rad = s_phi.Value() * Math.PI / 180;
+            return (Vm * Im / 2) * Math.cos(phi_rad);
+        };
+
+        // Plot functions
+        var graph_v = board_time.create('functiongraph', [f_v, 0, 2*Math.PI], {strokeColor: '#0072bd', strokeWidth: 2, name: 'v(t)'});
+        var graph_i = board_time.create('functiongraph', [f_i, 0, 2*Math.PI], {strokeColor: '#d95319', strokeWidth: 2, name: 'i(t)'});
+        var graph_p = board_time.create('functiongraph', [f_p, 0, 2*Math.PI], {strokeColor: '#77ac30', strokeWidth: 2, name: 'p(t)'});
+        var graph_P_avg = board_time.create('functiongraph', [f_P_avg, 0, 2*Math.PI], {strokeColor: '#77ac30', strokeWidth: 2, dash: 2});
+
+        // Link boards
+        board_slider.addChild(board_time);
+
+        // Initialize power triangle board
+        var board_tri = JXG.JSXGraph.initBoard('jxgbox_triangle', {
+            boundingbox: [-0.5, 2.2, 2.2, -2.2],
+            axis: true,
+            showNavigation: false,
+            showCopyright: false
+        });
+
+        // S_max = (Vm * Im) / 2 = 1.875
+        var S_max = (Vm * Im) / 2;
+
+        // Origin
+        var p0 = board_tri.create('point', [0, 0], {visible: false, name: ''});
+
+        // P point (Real power)
+        var pP = board_tri.create('point', [
+            function() { return S_max * Math.cos(s_phi.Value() * Math.PI / 180); },
+            0
+        ], {visible: false, name: ''});
+
+        // S point (Apparent power tip)
+        var pS = board_tri.create('point', [
+            function() { return S_max * Math.cos(s_phi.Value() * Math.PI / 180); },
+            function() { return S_max * Math.sin(s_phi.Value() * Math.PI / 180); }
+        ], {visible: false, name: ''});
+
+        // Vectors
+        var vec_P = board_tri.create('arrow', [p0, pP], {strokeColor: '#77ac30', strokeWidth: 3, lastArrow: {type: 1, size: 4}});
+        var vec_Q = board_tri.create('arrow', [pP, pS], {strokeColor: '#d95319', strokeWidth: 3, lastArrow: {type: 1, size: 4}});
+        var vec_S = board_tri.create('arrow', [p0, pS], {strokeColor: '#0072bd', strokeWidth: 3, lastArrow: {type: 1, size: 4}});
+
+        // Labels
+        board_tri.create('text', [
+            function() { return S_max * Math.cos(s_phi.Value() * Math.PI / 180) / 2; }, 
+            -0.2, 
+            'P'
+        ], {fontSize: 16, strokeColor: '#77ac30', anchorX: 'middle', anchorY: 'top'});
+
+        board_tri.create('text', [
+            function() { return S_max * Math.cos(s_phi.Value() * Math.PI / 180) + 0.1; }, 
+            function() { return S_max * Math.sin(s_phi.Value() * Math.PI / 180) / 2; }, 
+            'Q'
+        ], {fontSize: 16, strokeColor: '#d95319', anchorX: 'left', anchorY: 'middle'});
+
+        board_tri.create('text', [
+            function() { return S_max * Math.cos(s_phi.Value() * Math.PI / 180) / 2 - 0.2; }, 
+            function() { return S_max * Math.sin(s_phi.Value() * Math.PI / 180) / 2 + 0.2; }, 
+            'S'
+        ], {fontSize: 16, strokeColor: '#0072bd', anchorX: 'right', anchorY: 'bottom'});
+
+        // Angle mark
+        var angle_phi = board_tri.create('angle', [pP, p0, pS], {
+            name: function() { return '&phi;=' + Math.round(s_phi.Value()) + '&deg;'; },
+            radius: 0.6,
+            color: '#0f172a',
+            fillColor: '#0f172a',
+            fillOpacity: 0.1
+        });
+
+        board_slider.addChild(board_tri);
+    });
+</script>
+</div>
+<!-- CARD CONTAINER -->
+<div class="card" style="background: #ffffff; border: 1px solid #d7dde4; border-radius: 8px; padding: 18px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);"><h4 style="font-size: 1.22rem; margin: 18px 0 10px; color: #0f172a; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.25;">חיבור מד הספק</h4><p style="margin: 0 0 12px;">מד הספק דיגיטלי (Digital Power Meter) מודד זרם ומתח בו-זמנית ומסוגל למדוד הספק במעגלי AC וגם ב-DC. הדקי מדידת הזרם שלו (A) מחוברים בטור לעומס, והדקי מדידת המתח (V) מחוברים במקביל לעומס. להנחיות עבודה מפורטות וזיהוי הדקים, מומלץ לעיין ב<a href="https://moodle.sce.ac.il/mod/book/view.php?id=1215505" style="color: #005696; text-decoration: underline; font-weight: bold;" target="_blank">מדריך מד ההספק הדיגיטלי GPM-8212 במודל</a>.</p></div>
 <div data-units-emphasis="exp4" style="background:#eef7fb; border:1px solid #b8daff; border-right:5px solid #00a4e4; border-radius:8px; padding:14px; margin:18px 0;">
 <strong style="color:#005696;">דגש יחידות בניסוי 4:</strong>
 <span> הפרידו בין \(P[W]\), \(Q[VAr]\) ו-\(S[VA]\). גורם הספק \(\cos\phi\) ונצילות \(\eta\) הם חסרי יחידות. לפני חישוב הספק ודאו שהמתח ב-V והזרם ב-A, לא ב-mA.</span>
